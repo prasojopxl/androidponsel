@@ -26,17 +26,7 @@
   align-items: center;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
 
 .title a:hover,
 .title a:focus,
@@ -48,6 +38,10 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  a {
+    color: red;
+    text-decoration: none;
+  }  
 }
 
 .title,
