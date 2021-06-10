@@ -65,21 +65,28 @@ export default function Layout(props) {
                                 </div>
                             </div>
                             <div className="col-lg-3">
-                                <div className={styles.boxwhite}>
-                                    <div className={styles.itemsidebar}>
-                                        <h4>Terbaru</h4>
-                                        <div className={styles.wrpitem}>
-                                            {lalestPost.map((item,i)=> {
-                                                return(
-                                                    <div className={styles.itemterbaru}>
-                                                        <div className={styles.imgwrp}>
-                                                            <Image src={item.thumbnail.url} width={item.thumbnail.width} height={item.thumbnail.height} alt={item.alternativeText}></Image>
+                                <div className={styles.stickytop}>
+                                    <div className={`${styles.boxwhite} ${styles.itemboxwhite}`}>
+                                        <div className={styles.itemsidebar}>
+                                            <h4>Terbaru</h4>
+                                            <div className={styles.wrpitem}>
+                                                {lalestPost.map((item,i)=> {
+                                                    return(
+                                                        <div className={styles.itemterbaru} key={item.id}>
+                                                            <div className={styles.imgwrp}>
+                                                                <Image src={item.thumbnail.url} width={item.thumbnail.width} height={item.thumbnail.height} alt={item.alternativeText}></Image>
+                                                            </div>
+                                                            <a href="#">{(item.title).substring(0,30)} ...</a>
                                                         </div>
-                                                        <a href="#">{item.title}</a>
-                                                    </div>
-    
-                                                )
-                                            })}
+        
+                                                    )
+                                                })}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={`${styles.boxwhite} ${styles.itemboxwhite}`}>
+                                        <div className={styles.itemsidebar}>
+                                            <h4>Tags</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -89,7 +96,7 @@ export default function Layout(props) {
                 </div>
             </div>            
             
-            <div className={styles.className}>
+            <div className={styles.footerweb}>
                 <div className={styles.contents}>
                     Footer
                 </div>
