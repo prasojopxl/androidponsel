@@ -5,12 +5,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "imagemin-mozjpeg": "^9.0.0",
     "next": "10.2.3",
+    "next-optimized-images": "^2.6.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.34.1"
+    "react-slick": "^0.28.1",
+    "responsive-loader": "^2.3.0",
+    "sass": "^1.34.1",
+    "sharp": "^0.28.3",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "webp-loader": "^0.6.0"
   }
 }
