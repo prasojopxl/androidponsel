@@ -12,7 +12,6 @@ export default function Home() {
   const getPost = () => {
     axios.get(`http://stagingaja.com:1337/posts`)
     .then ((res)=> {
-      console.log(res.data)
       setPost(res.data)
     })
   }

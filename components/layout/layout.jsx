@@ -6,7 +6,8 @@ import axios from "axios";
 
 
 export default function Layout(props) {
-    const [menu, setMenu] = useState([])
+    const [menu, setMenu] = useState([]);
+    const [lalestPost, setLatestPost]= useState([]);
 
     const getMenu = () => {
         axios.get(`http://stagingaja.com:1337/menus`)
@@ -14,8 +15,16 @@ export default function Layout(props) {
             setMenu(res.data)
         })
     }
+
+    const getLatestPost = () => {
+        axios.get(`http://stagingaja.com:1337/posts?_limit=3&_sort=updated_at`)
+        .then((res)=> {
+            setLatestPost(res.data)
+        })
+    }
     useEffect(()=>{
         getMenu();
+        getLatestPost();
     },[])
     return (
         <React.Fragment>
@@ -56,16 +65,28 @@ export default function Layout(props) {
                                 </div>
                             </div>
                             <div className="col-lg-3">
-                                <div className={styles.boxwhite}>
-                                    <div className={styles.itemsidebar}>
-                                        <h4>Terbaru</h4>
-                                        <div className={styles.wrpitem}>
-                                            <div className={styles.itemterbaru}>
-                                                satu
+                                <div className={styles.stickytop}>
+                                    <div className={`${styles.boxwhite} ${styles.itemboxwhite}`}>
+                                        <div className={styles.itemsidebar}>
+                                            <h4>Terbaru</h4>
+                                            <div className={styles.wrpitem}>
+                                                {lalestPost.map((item,i)=> {
+                                                    return(
+                                                        <div className={styles.itemterbaru} key={item.id}>
+                                                            <div className={styles.imgwrp}>
+                                                                <Image src={item.thumbnail.url} width={item.thumbnail.width} height={item.thumbnail.height} alt={item.alternativeText}></Image>
+                                                            </div>
+                                                            <a href="#">{(item.title).substring(0,30)} ...</a>
+                                                        </div>
+        
+                                                    )
+                                                })}
                                             </div>
-                                            <div className={styles.itemterbaru}>
-                                                satu
-                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={`${styles.boxwhite} ${styles.itemboxwhite}`}>
+                                        <div className={styles.itemsidebar}>
+                                            <h4>Tags</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -75,7 +96,7 @@ export default function Layout(props) {
                 </div>
             </div>            
             
-            <div className={styles.className}>
+            <div className={styles.footerweb}>
                 <div className={styles.contents}>
                     Footer
                 </div>
