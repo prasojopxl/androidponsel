@@ -8,6 +8,9 @@ import axios from "axios";
 export default function Layout(props) {
     const [menu, setMenu] = useState([]);
     const [lalestPost, setLatestPost]= useState([]);
+    const [logo, setLogo]= useState([]);
+    const [logoWidth, setlogoWidth]= useState([])
+    const [logoHeight, setlogoHeight]= useState ([])
 
     const getMenu = () => {
         axios.get(`http://stagingaja.com:1337/menus`)
@@ -22,9 +25,17 @@ export default function Layout(props) {
             setLatestPost(res.data)
         })
     }
+
+    const getGenerals = () => {
+        axios.get(`https://papiandro.stagingaja.com/generals`)
+        .then((res)=>{
+            setLogo(res.data)
+        })
+    }
     useEffect(()=>{
         getMenu();
         getLatestPost();
+        getGenerals();
     },[])
     return (
         <React.Fragment>
@@ -41,7 +52,14 @@ export default function Layout(props) {
             <div className={styles.headerweb}>
                 <div className={styles.contents}>
                     <div className={styles.left}>
-                        <a href="#">androinponsel.com</a>
+                        <a href="#" className={styles.mainlogo}>
+                            {logo.map((item)=> {
+                                return (
+                                    <Image src={item.logo.url} width={item.logo.width} height={item.logo.height} ></Image>
+                                )
+                            })}
+                            {/* <Image src={item.thumbnail.formats.medium.url} width={item.thumbnail.width} height={item.thumbnail.height}></Image> */}
+                        </a>
                     </div>
                     <div className={styles.right}>
                         <ul className={styles.mainmenu}>
