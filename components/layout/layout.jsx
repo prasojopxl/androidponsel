@@ -10,13 +10,18 @@ export default function Layout(props) {
     const [menu, setMenu] = useState([]);
     const [lalestPost, setLatestPost]= useState([]);
     const [logo, setLogo]= useState([]);
-    const [logoWidth, setlogoWidth]= useState([])
-    const [logoHeight, setlogoHeight]= useState ([])
 
     const getMenu = () => {
         axios.get(`${apiUrl}/menus`)
         .then((res)=> {
             setMenu(res.data)
+        })
+    }
+
+    const getGeneral = () => {
+        axios.get(`${apiUrl}/general`)
+        .then((res)=>{
+            setLogo(res.data.logo.url)
         })
     }
 
@@ -30,6 +35,7 @@ export default function Layout(props) {
     useEffect(()=>{
         getMenu();
         getLatestPost();
+        getGeneral();
     },[])
     return (
         <React.Fragment>
@@ -45,9 +51,9 @@ export default function Layout(props) {
 
             <div className={styles.headerweb}>
                 <div className={styles.contents}>
-                    <div className={styles.left}>
+                    <div className={styles.left}>                        
                         <a href="#" className={styles.mainlogo}>
-                            logo
+                            logo                          
                         </a>
                     </div>
                     <div className={styles.right}>
