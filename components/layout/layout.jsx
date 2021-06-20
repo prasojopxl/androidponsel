@@ -3,6 +3,7 @@ import styles from "./Layout.module.scss";
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import { apiUrl } from "../../config/variable";
 
 
 export default function Layout(props) {
@@ -13,29 +14,22 @@ export default function Layout(props) {
     const [logoHeight, setlogoHeight]= useState ([])
 
     const getMenu = () => {
-        axios.get(`http://stagingaja.com:1337/menus`)
+        axios.get(`${apiUrl}/menus`)
         .then((res)=> {
             setMenu(res.data)
         })
     }
 
     const getLatestPost = () => {
-        axios.get(`http://stagingaja.com:1337/posts?_limit=3&_sort=updated_at`)
+        axios.get(`${apiUrl}/posts?_limit=3&_sort=updated_at`)
         .then((res)=> {
             setLatestPost(res.data)
         })
     }
 
-    const getGenerals = () => {
-        axios.get(`https://papiandro.stagingaja.com/generals`)
-        .then((res)=>{
-            setLogo(res.data)
-        })
-    }
     useEffect(()=>{
         getMenu();
         getLatestPost();
-        getGenerals();
     },[])
     return (
         <React.Fragment>
@@ -53,12 +47,7 @@ export default function Layout(props) {
                 <div className={styles.contents}>
                     <div className={styles.left}>
                         <a href="#" className={styles.mainlogo}>
-                            {logo.map((item)=> {
-                                return (
-                                    <Image src={item.logo.url} width={item.logo.width} height={item.logo.height} ></Image>
-                                )
-                            })}
-                            {/* <Image src={item.thumbnail.formats.medium.url} width={item.thumbnail.width} height={item.thumbnail.height}></Image> */}
+                            logo
                         </a>
                     </div>
                     <div className={styles.right}>

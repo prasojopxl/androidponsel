@@ -3,16 +3,16 @@ import React, {useState, useEffect} from 'react';
 import Image from "next/image";
 import styles from "./Pages.module.scss";
 import Layout from "../components/layout/layout";
-import Sliderhome from '../components/sliderhome'
 import axios from 'axios';
+import { apiUrl } from '../config/variable';
 
 export default function Home() {
   const [post, setPost] = useState([]);
 
   const getPost = () => {
-    axios.get(`http://stagingaja.com:1337/posts`)
+    axios.get(`${apiUrl}/posts`)
     .then ((res)=> {
-      setPost(res.data)
+      setPost(res.data);
     })
   }
   useEffect(()=> {
@@ -22,7 +22,6 @@ export default function Home() {
   return (
     <React.Fragment>
       <Layout title="androidponsel.com">
-          <Sliderhome/>
           <div className={styles.wrpPosts}>
             <div className="row">
               {post.map((item, i)=> {

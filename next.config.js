@@ -1,9 +1,9 @@
 
 module.exports = {
     images: {
-        domains: ['papiandro.stagingaja.com'],
+        domains: ['localhost'],
         loader: 'imgix',
-        path: 'https://papiandro.stagingaja.com/',
+        path: 'http://localhost:1337/',
     },
 }
 
