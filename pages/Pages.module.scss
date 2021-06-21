@@ -32,3 +32,63 @@ $radius: 10px;
         }
     }
 }
+
+.banerHome {
+    display: flex;
+    width: 100%;
+    background: $color-gray2;
+
+    .left {
+        width: 65%;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#7474bf+0,348ac7+100 */
+        background: #7474bf; /* Old browsers */
+        background: -moz-linear-gradient(left,  #7474bf 0%, #348ac7 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  #7474bf 0%,#348ac7 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  #7474bf 0%,#348ac7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7474bf', endColorstr='#348ac7',GradientType=1 ); /* IE6-9 */
+        img {
+            border-radius: 10px;
+        }
+        a {
+            color: $color-orange;
+        }
+        h4 {
+        }
+    }
+    .right {
+        width: 35%;
+    }
+    .itemContent {
+        padding: 15px;
+    }
+}
+
+.banerHomeRight {
+    display: flex;
+    flex-direction: column;
+    .itembaner {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        img {
+            max-height: 50px;
+        }
+    }
+    .imgwrp {
+        margin-right: 10px;
+    }
+    .contentSub {
+        text-align: left;
+        h5 {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.vcenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

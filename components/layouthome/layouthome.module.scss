@@ -1,0 +1,195 @@
+$color-green: #0FB582;
+$color-orange: #FF8F00;
+$color-green2: #E8FFF8;
+$color-gray: #ACACAC;
+$color-gray2: #F9F9F9;
+$color-black: #494949;
+$color-default: #A3A3A3;
+$color-gray3: #E5E5E5;
+ 
+$wrapper: 1200px;
+$radius: 10px;
+
+.bgcover {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;	
+}
+
+.animatecss {
+	-webkit-transition: all ease-out 0.4s;
+	-moz-transition: all ease-out 0.4s;
+	-o-transition: all ease-out 0.4s;
+	transition: all ease-out 0.4s;	
+}
+
+.clear {
+	clear: both;
+}
+
+.alpha { 
+	padding-left: 0 !important; 
+}
+
+.omega { 
+	padding-right: 0 !important; 
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.pull-right {
+	float: right;
+}
+
+.wrapper { display: block; margin: 0 auto; text-align: center; max-width: $wrapper; padding-left: 15px; padding-right:15px; }
+.imgwrp img { max-width:100%;}
+
+.shadow {
+	box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
+}
+
+/* --------------------- HEADER LAYOUT --------------------- */
+
+.headerweb {
+    background: #fff;
+    @extend .shadow;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    a {
+        color: $color-black;
+    }
+    .contents {
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 15px;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .left {
+        color: $color-green;
+        font-size: 20px;
+    }
+    .mainmenu {
+        text-transform: capitalize;
+    }
+    .right {
+        ul {
+            margin: 0;
+            display: flex;
+        }
+        li {
+            list-style-type: none;
+            a {
+                padding: 15px;
+                display: block;
+                &:hover {
+                    color: $color-green;
+                }
+            }
+        }
+    }
+}
+
+.mainlogo {
+    max-width: 150px;
+    display: block;
+}
+
+/* --------------------- END HEADER LAYOUT --------------------- */
+
+/* --------------------- BODYWEB LAYOUT --------------------- */
+
+.bodyweb {
+    background: $color-gray2;
+    min-height: 300px;
+    padding: 30px 0;
+    
+}
+
+.contents {
+    @extend .wrapper;
+    padding-left:  10px;
+    padding-right: 10px;
+    margin: 0 auto;
+}
+
+.boxwhite {
+	background: #fff;
+	border-radius: 10px;
+	padding: 30px;
+	@extend .shadow;
+	min-height: 100px;
+}
+
+.itemboxwhite {
+    margin-bottom: 30px;
+}
+
+.stickytop {
+    position: sticky;
+    top: 100px;
+}
+
+.itemsidebar {
+    margin-bottom: 15px;
+    h4 {
+        text-align: left;
+    }
+}
+
+.itemterbaru {
+    position: relative;
+    padding-left: 110px;
+    text-align: left;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    min-height: 57px;
+    .imgwrp {
+        position: absolute;
+        width: 100px;
+        height: auto;
+        left: 0;
+        top: 0;
+    }
+    a {
+        color: $color-black;
+    }
+}
+
+.categoriesHome {
+    margin-bottom: 30px;
+    ul {
+        margin: 0;
+        display: flex;
+        background: #fff;
+        @extend .shadow;
+    }
+    li {
+        flex: 1;
+        list-style: none;
+        a {
+            display: block;
+            color: $color-green;
+            padding: 15px;
+        }
+    }
+}
+/* --------------------- END BODYWEB LAYOUT --------------------- */
+
+/* --------------------- FOOTER LAYOUT --------------------- */
+.footerweb {
+    background: $color-green;
+    padding: 30px 0;
+    color: #fff;
+    a {
+        color: #fff;
+    }
+}
+/* --------------------- END FOOTER LAYOUT --------------------- */
