@@ -72,7 +72,7 @@ export default function LayoutHome(props) {
                 <div className={styles.wrppages}>
                     <div className={styles.contents}>
                         <div className="fullbaner">
-                            <div className="imgwrp"><img src="https://dummyimage.com/1200x200/d1cfd1/a1a2a8&text=Full+baner+Ads" alt=""/></div>
+                            <div className="imgwrp"><img src="https://dummyimage.com/1200x150/d1cfd1/a1a2a8&text=Full+baner+Ads" alt=""/></div>
                         </div>
                         <div className={styles.categoriesHome}>
                             <ul>
