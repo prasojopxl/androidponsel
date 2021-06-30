@@ -1,0 +1,51 @@
+@import "../../styles/variable";
+
+.footer {
+    border-top:$color-green solid 2px;
+    min-height: 100px;
+    width: 100%;
+}
+
+.contents {
+    max-width: $widthdefault;
+    margin: 0 auto;
+    display: block;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+.itemfooter {
+    h4 {
+        font-family: $font-MulishBold;
+        color: $color-black;
+        font-size: 17px;
+        border-left: $color-green solid 5px;
+        padding-left: 10px;
+        margin-bottom: 20px;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        li {
+            list-style-type: none;
+        }
+    }
+    a {
+        color: $color-graytext;
+        padding: 2px 0;
+        display: block;
+    }
+    .item {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 -15px;
+        ul {
+            padding: 0 15px;
+            min-width: 230px;
+        }
+    }
+}

@@ -56,51 +56,14 @@ $radius: 10px;
 .headerweb {
     background: #fff;
     @extend .shadow;
-    padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 10;
     a {
         color: $color-black;
     }
-    .contents {
-        width: 100%;
-        max-width: 1200px;
-        padding: 0 15px;
-        display: flex;
-        margin: 0 auto;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .left {
-        color: $color-green;
-        font-size: 20px;
-    }
-    .mainmenu {
-        text-transform: capitalize;
-    }
-    .right {
-        ul {
-            margin: 0;
-            display: flex;
-        }
-        li {
-            list-style-type: none;
-            a {
-                padding: 15px;
-                display: block;
-                &:hover {
-                    color: $color-green;
-                }
-            }
-        }
-    }
 }
 
-.mainlogo {
-    max-width: 150px;
-    display: block;
-}
 
 /* --------------------- END HEADER LAYOUT --------------------- */
 
@@ -185,11 +148,5 @@ $radius: 10px;
 
 /* --------------------- FOOTER LAYOUT --------------------- */
 .footerweb {
-    background: $color-green;
-    padding: 30px 0;
-    color: #fff;
-    a {
-        color: #fff;
-    }
 }
 /* --------------------- END FOOTER LAYOUT --------------------- */
