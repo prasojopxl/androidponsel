@@ -1,0 +1,19 @@
+@import "../../styles/variable";
+
+.ads {
+    padding: 15px 0;
+    .contents {
+        margin: 0 auto;
+        max-width: $widthdefault;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+    iframe {
+        width: 100%;
+        height: auto;
+        border: none;
+        overflow: visible;
+        height: 185px;
+    }
+}

@@ -1,0 +1,30 @@
+@import "../../styles/variable";
+
+.ListCategories {
+    font-family: $font-MulishRegular;
+    background: #fff;
+    .contents {
+        max-width: $widthdefault;
+        margin: 0 auto;
+        text-align: center;        
+    }
+    label {
+        font-family: $font-MulishBold;
+        display: inline-block;
+        margin: 0;
+        margin-right: 10px;
+    }
+    ul {
+        margin: 0 auto;
+        padding: 0;
+        display: inline-block;
+        li {
+            display: inline-block;
+            list-style-type: none;
+            a {
+                display: block;
+                padding: 10px 7px;
+            }
+        }
+    }
+}
