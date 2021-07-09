@@ -68,3 +68,19 @@
         color: $color-black;
     }
 }
+
+.productItem {
+    display: flex;
+    .imageprod {
+        max-width: 150px;
+        margin-right: 10px;
+    }
+    h5 {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+    h6 {
+        font-weight: normal;
+        font-size: 11px;
+    }
+}

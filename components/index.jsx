@@ -4,3 +4,4 @@ export {ListCategories} from "./listcategories/ListCategories";
 export {Title} from "./title/Title";
 export {Ads} from "./ads/Ads";
 export {CompareItem} from "./compareItem/CompareItem"
+export {Rate} from "./rate/Rate"
