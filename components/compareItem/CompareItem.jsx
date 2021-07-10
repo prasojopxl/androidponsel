@@ -18,7 +18,7 @@ export function CompareItem() {
     }
 
     const getProduct = () => {
-        axios.get(`${apiUrl}/products?_limit=10`)
+        axios.get(`${apiUrl}/products?_limit=12`)
         .then((res)=> {
             setDataProducts(res.data)
         })
@@ -61,16 +61,25 @@ export function CompareItem() {
                         return (
                             <div className="col-lg-3" key={item.id}>
                                 <div className={styles.productItem}>
-                                    <div className={styles.imageprod}><Image src={item.product_image[0].url} width={item.product_image[0].width/3} height={item.product_image[0].height/3}/> </div>
-                                    <div className={styles.productinfo}>
-                                        <h5>{item.title}</h5>
-                                        <h6>{item.memory_internal}</h6>
-                                        <Rate TotalRate={item.rate.rating}/>
+                                    <div className={styles.shortproduct}>
+                                        <div className={styles.imageprod}><Image src={item.product_image[0].url} width={item.product_image[0].width/3} height={item.product_image[0].height/3}/> </div>
+                                        <div className={styles.productinfo}>
+                                            <h5>{item.title}</h5>
+                                            <h6>{item.memory_internal}</h6>
+                                            <Rate TotalRate={item.rate.rating}/>
+                                        </div>
+                                    </div>
+                                    <div className={styles.wrpbtn}>
+                                        <a href="#" className={styles.btnfull}>BANDINGKAN PRODUK</a>
+                                        <a href="#" className={styles.btnblank}>LIHAT SELENGKAPNYA</a>
                                     </div>
                                 </div>
                             </div>
                         )
                     })}
+                </div>
+                <div style={{textAlign:"center", display:"block", marginTop:30}}>
+                    <a href="#" className="btn medium">Lihat Selegkapnya</a>
                 </div>
             </div>
         </div>

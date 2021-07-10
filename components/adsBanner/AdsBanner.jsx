@@ -1,0 +1,16 @@
+import React from 'react'
+import styles from "./adsbanner.module.scss";
+import Image from "next/image";
+
+export function AdsBanner(props) {
+    return (
+        <div className={styles.ads}>
+            <div className={styles.contents}>
+                <a href={props.linkbanner}>
+                    <Image src={props.urlImage} width={props.width} height={props.height} alt="banner"/>
+                </a>
+            </div>
+        </div>
+
+    )
+}

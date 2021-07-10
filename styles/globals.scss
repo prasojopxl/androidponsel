@@ -43,6 +43,24 @@ a:hover, a:active {
 	text-align: left;
 }
 
+.txtcenter {
+	text-align: center;
+}
+
+.btn, a.btn{
+	background: #fff;
+	border: $color-green solid 1px;
+	border-radius: 5px;
+	color: $color-green;
+	&:hover {
+		background: $color-green;
+		color: #fff;
+	}
+	&.medium {
+		padding: 7px 30px;
+	}
+}
+
 * {
   box-sizing: border-box;
 }

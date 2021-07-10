@@ -70,7 +70,15 @@
 }
 
 .productItem {
-    display: flex;
+    box-shadow: $shadow2;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    min-height: 150px;
+    .shortproduct {
+        display: flex;
+    }
     .imageprod {
         max-width: 150px;
         margin-right: 10px;
@@ -78,9 +86,40 @@
     h5 {
         font-size: 16px;
         margin-bottom: 0;
+        min-height: 40px;
     }
     h6 {
         font-weight: normal;
         font-size: 11px;
     }
+    .wrpbtn {
+        text-align: center;
+        margin-top: 15px;
+        opacity: 1;
+        visibility: visible;
+        transition: $animate;
+        a {
+            display: block;
+            color: $color-green;
+        }
+        .btnfull {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+    }
+    &:hover {
+        .wrpbtn {
+            opacity: 1;
+            visibility: visible;
+            transition: $animate;
+
+        }
+    }
+}
+
+.btnfull {
+    background: $color-green;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
 }
