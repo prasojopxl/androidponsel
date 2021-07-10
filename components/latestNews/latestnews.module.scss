@@ -139,3 +139,18 @@
     }
 
 }
+
+.verticalbaner  {
+    background: $color-gray2;
+    height: 100%; 
+    position: relative;
+    text-align: center;
+    padding: 0 20px;
+    .ads {
+        padding: 0;
+    }
+    a {
+        top: 10px;
+        position: sticky;
+    }
+}

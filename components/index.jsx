@@ -9,5 +9,6 @@ export {AdsBanner} from "./adsBanner/AdsBanner";
 export {CompareItem} from "./compareItem/CompareItem";
 export {LatestNews} from "./latestNews/LatestNews";
 export {Rate} from "./rate/Rate";
+export {KanalApp} from "./kanalApp/KanalApp";
 
 

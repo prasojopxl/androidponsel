@@ -2,13 +2,35 @@ import React,{useState, useEffect} from 'react';
 import styles from "./latestnews.module.scss";
 import axios from "axios";
 import Image from "next/image";
-import {Title} from "../../components";
+import {Title, Ads, AdsBanner} from "../../components";
 import { apiUrl } from '../../config/variable';
 
 export function LatestNews() {
     const [mainNews, setMainNews] = useState([]);
     const [topNews, setTopNews] = useState([]);
     const [contNews, setContNews] = useState([]);
+    const [verticalAds, setVerticalAds] = useState({
+        iframe:[],
+        bannerImage:[],
+        link:[],
+        urlImage:[],
+        widthImage:[],
+        heightImage:[]
+    })    
+
+    const getVerticalAds = () => {
+        axios.get(`${apiUrl}/ads/3`)
+        .then((res)=> {
+            res.data.Image_Banner === null ? setVerticalAds({iframe:res.data.URL_Iframe}) : setVerticalAds({
+                bannerImage:"withBanner",
+                link:res.data.url,
+                urlImage:res.data.Image_Banner.url,
+                widthImage: res.data.Image_Banner.width,
+                heightImage: res.data.Image_Banner.height,
+            })
+        })
+    }
+
 
     const getMainNews = () => {
         axios.get(`${apiUrl}/posts?menu=2&_sort=updated_at:DESC&_limit=1`)
@@ -35,6 +57,7 @@ export function LatestNews() {
         getMainNews();
         getTopNews();
         getContNews();
+        getVerticalAds();
     },[])
 
 
@@ -72,7 +95,7 @@ export function LatestNews() {
                                 <div className={styles.wrptopnews}>
                                     {topNews.map((item,i)=> {
                                         return (
-                                            <div className={styles.wrpitemnews}>
+                                            <div className={styles.wrpitemnews} key={item.id}>
                                                 <div className={styles.imgwrp}><Image src={item.thumbnail.url} width={item.thumbnail.width/3} height={item.thumbnail.height/3} alt={item.title}/></div>
                                                 <div className={styles.content}>
                                                     <div className={styles.tags}>
@@ -97,7 +120,7 @@ export function LatestNews() {
                         <div className="row">
                             {contNews.map((item,i)=> {
                                 return (
-                                    <div className="col-lg-6">                                
+                                    <div className="col-lg-6" key={item.id}>                                
                                         <div className={styles.wrpitemnews}>
                                                 <div className={styles.imgwrp}><Image src={item.thumbnail.url} width={item.thumbnail.width/3} height={item.thumbnail.height/3} alt={item.title}/></div>
                                                 <div className={styles.content}>
@@ -120,7 +143,14 @@ export function LatestNews() {
                             })}
                         </div>
                     </div>
-                    <div className="col-lg-3">Baner</div>
+                    <div className="col-lg-3">
+                        <div className={styles.verticalbaner}>
+                            {
+                                verticalAds.bannerImage === "withBanner" ? <AdsBanner linkbanner={verticalAds.link} urlImage={verticalAds.urlImage} width={verticalAds.widthImage} height={verticalAds.heightImage}/>
+                                : <Ads banner={verticalAds.iframe}/>
+                            }            
+                        </div>
+                    </div>
                 </div>
                 <div style={{textAlign:"center", display:"block", marginTop:30}}>
                     <a href="#" className="btn medium">Lihat berita terbaru lainnya</a>
