@@ -1,8 +1,9 @@
+import LayoutHandphone from "../../layout/layouthandphone/LayoutBerita";
 
-export default function index() {
+export default function Handphone() {
     return (
-        <div>
-            Handphone page
-        </div>
+        <LayoutHandphone>
+            Page List Handphone di sini 
+        </LayoutHandphone>
     )
 }

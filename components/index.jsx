@@ -12,5 +12,7 @@ export {Rate} from "./rate/Rate";
 export {KanalApp} from "./kanalApp/KanalApp";
 
 //berita
-export {ListNews} from "./listNews/ListNews.jsx";
+export {ListNews} from "./listNews/ListNews";
 
+//product
+export {OverviewProduct} from "./overviewproduct/OverviewProduct"

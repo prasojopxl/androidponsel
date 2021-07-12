@@ -6,7 +6,6 @@ module.exports = {
         loader: 'imgix',
         path: 'http://localhost:1337/',
     },
-    withImages()
 }
 
 

@@ -1,33 +1,31 @@
-import {useState, useEffect} from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/router'
-import { apiUrl } from '../../config/variable';
+import { useEffect, useState } from "react"
+import axios from "axios"
+import Image from "next-images"
+import { useRouter } from "next/router"
+import { apiUrl } from "../../config/variable";
+import LayoutHandphone from "../../layout/layouthandphone/LayoutBerita";
+import {OverviewProduct} from "../../components"
 
-export default function HandphoneDetail() {
-    const router = useRouter()    
-    const {id} = router.query
+export default function DetailPage() {
+    const router = useRouter();
+    const {slug} = router.query;
+    if(!slug) return null;
+    const [dataPonsel, setDataPonsel] = useState([]);
 
-      
-
-    const getData = () => {
-        axios.get(`${apiUrl}/products/${id}`)
-        .then((res)=> {
-            console.log(res.data)
-        })
+    const getDataPonsel = () => {
+        axios.get(`${apiUrl}/products/${slug}`)
+        .then(res=> {
+            setDataPonsel(res.data);
+        })        
     }
 
-
     useEffect(()=> {
-        if(!router.isReady) return;
-        getData()
-    },[router.isReady])
+        getDataPonsel();
+    },[])
 
     return (
-        <div>
-            <React.Fragment>
-                ini id {id}
-            </React.Fragment>
-
-        </div>
+        <LayoutHandphone>
+            <OverviewProduct dataSlug={slug}/>
+        </LayoutHandphone>
     )
 }
