@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Image from "next/image";
+import Link from "next/link"
 import styles from "./Header.module.scss";
 import axios from "axios";
 import { apiUrl } from '../../config/variable';
@@ -34,13 +35,13 @@ export function Header() {
             <div className={styles.contents}>
                 <div className={styles.left}>
                     {/* <a href="#"><Image src={logo}  alt="androidponsel.com" width="160px" height="32px"/> </a> */}
-                    logo
+                    <Link href="/">logo</Link>
                 </div>
                 <div className={styles.center}>
                     <ul className={styles.mainmenu}>
                     {menu.map((item,i)=> {
                         return(
-                            <li key={item.id}><a href={item.title}>{item.title} </a></li>
+                            <li key={item.id}><Link href={item.title}><a>{item.title}</a></Link></li>
                         )
                     })}
                     </ul>
