@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from "./listcategories.module.scss"
 
 export function ListCategories() {

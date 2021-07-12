@@ -1,11 +1,12 @@
 const withImages = require('next-images');
 
-module.exports = {
+module.exports = {    
     images: {
         domains: ['localhost'],
         loader: 'imgix',
         path: 'http://localhost:1337/',
     },
+    withImages()
 }
 
 

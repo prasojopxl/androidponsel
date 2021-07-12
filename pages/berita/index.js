@@ -1,11 +1,11 @@
-import React from 'react'
+import { ListNews } from '../../components'
 import LayoutBerita from '../../layout/layoutberita/LayoutBerita'
 
 
 export default function Berita() {
     return (
         <LayoutBerita>
-            ini halaman Berita
+            <ListNews page={0}/>
         </LayoutBerita>
     )
 }

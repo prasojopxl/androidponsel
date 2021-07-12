@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import axios from "axios";
 import LayoutHome from '../../layout/layouthome/layoutHome';
 import {Ads, AdsBanner, CompareItem, LatestNews, KanalApp} from "../../components/";

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
 import Link from "next/link"
 import styles from "./Header.module.scss";
@@ -21,7 +21,6 @@ export function Header() {
         axios.get(`${apiUrl}/general`)
         .then ((res)=> {
             setLogo(res.data.logo.url)
-            setLogo(`${apiUrl}${res.data.logo.url}`)
         })
     }
 
@@ -34,8 +33,10 @@ export function Header() {
         <div className={styles.header}>
             <div className={styles.contents}>
                 <div className={styles.left}>
+                    
                     {/* <a href="#"><Image src={logo}  alt="androidponsel.com" width="160px" height="32px"/> </a> */}
-                    <Link href="/">logo</Link>
+                    <Link href="/"><img src={`${apiUrl}${logo}`} width="160px" height="32px"/></Link>
+                    
                 </div>
                 <div className={styles.center}>
                     <ul className={styles.mainmenu}>

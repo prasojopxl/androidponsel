@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import styles from "./compareItem.module.scss"
 import {Title, Rate} from "../../components"
 import axios from "axios";

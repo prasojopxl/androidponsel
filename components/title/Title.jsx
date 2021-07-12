@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from "./title.module.scss";
 
 export function Title(props) {

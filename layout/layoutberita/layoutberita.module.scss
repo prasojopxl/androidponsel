@@ -70,9 +70,7 @@ $radius: 10px;
 /* --------------------- BODYWEB LAYOUT --------------------- */
 
 .bodyweb {
-    background: $color-gray2;
-    min-height: 300px;
-    
+    min-height: 300px;    
 }
 
 .contents {
@@ -99,50 +97,6 @@ $radius: 10px;
     top: 100px;
 }
 
-.itemsidebar {
-    margin-bottom: 15px;
-    h4 {
-        text-align: left;
-    }
-}
-
-.itemterbaru {
-    position: relative;
-    padding-left: 110px;
-    text-align: left;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    min-height: 57px;
-    .imgwrp {
-        position: absolute;
-        width: 100px;
-        height: auto;
-        left: 0;
-        top: 0;
-    }
-    a {
-        color: $color-black;
-    }
-}
-
-.categoriesHome {
-    margin-bottom: 30px;
-    ul {
-        margin: 0;
-        display: flex;
-        background: #fff;
-        @extend .shadow;
-    }
-    li {
-        flex: 1;
-        list-style: none;
-        a {
-            display: block;
-            color: $color-green;
-            padding: 15px;
-        }
-    }
-}
 /* --------------------- END BODYWEB LAYOUT --------------------- */
 
 /* --------------------- FOOTER LAYOUT --------------------- */

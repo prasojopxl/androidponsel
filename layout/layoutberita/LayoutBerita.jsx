@@ -1,12 +1,12 @@
 import Head from "next/head";
 import styles from "./layoutberita.module.scss";
-import React, {Children, useEffect, useState} from "react";
+import {Children, useEffect, useState, Fragment} from "react";
 import {Header, Footer, ListCategories} from "../../components"
 
 export default function LayoutBerita(props) {
  
     return (
-        <React.Fragment>
+        <Fragment>
             <Head>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                 <title>{props.title}</title>
@@ -30,6 +30,6 @@ export default function LayoutBerita(props) {
                 <Footer/>
             </div>
 
-        </React.Fragment>
+        </Fragment>
     )
 }
