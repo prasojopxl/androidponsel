@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./index.module.scss";
 import LayoutBerita from '../../layout/layoutberita/LayoutBerita'
-import Image from "next-images"
+import Image from "next/image"
 import axios from "axios";
 import { Title, Ads, AdsBanner } from "../../components";
 import { apiUrl } from "../../config/variable";
@@ -44,6 +44,8 @@ export default function Berita({dataListNews}) {
         getVerticalAds();
     },[])
 
+
+
     return (
         <LayoutBerita>
             <div className={styles.berita}>
@@ -57,7 +59,9 @@ export default function Berita({dataListNews}) {
                                         return (
                                             <div className="col-lg-4" key={item.id}>                                
                                                 <div className={styles.wrpitemnews}>
-                                                        <div className={styles.imgwrp}><img src={`${apiUrl}${item.thumbnail.url}`} width={item.thumbnail.width} height={item.thumbnail.height} alt={item.title}/></div>
+                                                        <div className={styles.imgwrp}>
+                                                            <Image src={`${apiUrl}${item.thumbnail.url}`} width={item.thumbnail.width} height={item.thumbnail.height} alt={item.title}/>
+                                                        </div>
                                                         <div className={styles.content}>
                                                             <div className={styles.tags}>
                                                                 {(item.tags).map(data=> {

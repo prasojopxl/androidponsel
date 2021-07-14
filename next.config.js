@@ -1,12 +1,11 @@
 // const withImages = require('next-images');
 
-// module.exports = {    
-//     images: {
-//         domains: ['localhost'],
-//         loader: 'imgix',
-//         path: 'http://localhost:3000/',
-//     },
-// }
+
+module.exports = {
+    images: {
+      domains: ['images.unsplash.com', 'localhost'],
+    },
+  }
 
 
 // const withOptimizedImages = require('next-optimized-images')
