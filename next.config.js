@@ -1,12 +1,12 @@
-const withImages = require('next-images');
+// const withImages = require('next-images');
 
-module.exports = {    
-    images: {
-        domains: ['localhost'],
-        loader: 'imgix',
-        path: 'http://localhost:1337/',
-    },
-}
+// module.exports = {    
+//     images: {
+//         domains: ['localhost'],
+//         loader: 'imgix',
+//         path: 'http://localhost:3000/',
+//     },
+// }
 
 
 // const withOptimizedImages = require('next-optimized-images')
