@@ -7,14 +7,16 @@ import { apiUrl } from "../../config/variable";
 export function OverviewProduct(props) {
     const [dataProduct, setDataProduct] = useState([]);
     const getDataProduct = () => {
-        axios.get(`${apiUrl}/products/${props.dataSlug}`)
+        axios.get(`${apiUrl}/products/${props.dataSlug || "xiaomi-redmi-note-10-pro-china" }`)
         .then (res => {
             setDataProduct(res.data)
+            console.log(res.data.title)
         })
     }
+    getDataProduct();
+
 
     useEffect(()=> {
-        getDataProduct();
     },[])
     return (
         <div className={styles.overviewproduct}>            
@@ -22,13 +24,6 @@ export function OverviewProduct(props) {
                 <Title title="Overview Product"></Title>
                 <div className={styles.wrpOverview}>
                     <div className="row">
-                        {
-                            dataProduct.map((item,i)=> {
-                                return (
-                                    <div key={item.id}>{item.title}</div>
-                                )
-                            })
-                        }
                     </div>
                 </div>
             </div>

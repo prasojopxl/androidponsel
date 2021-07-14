@@ -31,11 +31,17 @@ export function ListNews(props) {
         })
     }
 
-    const getListNews = () => {        
-        axios.get(`http://localhost:1337/posts?menu=2&_limit=9&_start=${props.page}`)
-        .then (res=> {
-            setListNews(res.data)
-        })
+    // const getListNews = () => {        
+    //     axios.get(`http://localhost:1337/posts?menu=2&_limit=9&_start=${props.page}`)
+    //     .then (res=> {
+    //         setListNews(res.data)
+    //     })
+    // }
+
+    const getListNews = async () => {        
+        const res = await fetch(`http://localhost:1337/posts?menu=2&_limit=9&_start=${props.page}`)
+        const resData = await res.json();
+        setListNews(resData)
     }
 
     useEffect(()=> {
