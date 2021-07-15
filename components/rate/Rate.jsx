@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import styles from "./rate.module.scss";
 import Image from "next/image";
 
-export function Rate(props) {
+export default function Rate(props) {
 
     function Star5() {
         return (

@@ -7,18 +7,21 @@ import { Title, Ads, AdsBanner } from "../../components";
 import { apiUrl } from "../../config/variable";
 
 export async function getStaticProps () {
-    const res = await fetch(`http://localhost:1337/posts?menu=2&_limit=9&_start=0`)
+    const res = await fetch(`${apiUrl}/posts?menu=2&_limit=9&_start=0`)
     const dataListNews = await res.json();
+
+    const res2 = await fetch (`${apiUrl}/ads/3`)
+    const dataBanner = await res2.json();
 
     return {
         props: {
             dataListNews,
+            dataBanner
         }
     }
 }
 
-
-export default function Berita({dataListNews}) {
+export default function Berita({dataListNews, dataBanner}) {
     const [verticalAds, setVerticalAds] = useState({
         iframe:[],
         bannerImage:[],
@@ -29,22 +32,17 @@ export default function Berita({dataListNews}) {
     })    
 
     const getVerticalAds = () => {
-        axios.get(`${apiUrl}/ads/3`)
-        .then((res)=> {
-            res.data.Image_Banner === null ? setVerticalAds({iframe:res.data.URL_Iframe}) : setVerticalAds({
-                bannerImage:"withBanner",
-                link:res.data.url,
-                urlImage:res.data.Image_Banner.url,
-                widthImage: res.data.Image_Banner.width,
-                heightImage: res.data.Image_Banner.height,
-            })
-        })
+        dataBanner.Image_Banner == null ? setVerticalAds({iframe: dataBanner.URL_Iframe}) : setVerticalAds({
+            bannerImage: "withBanner",
+            link: dataBanner.url,
+            urlImage: apiUrl+dataBanner.Image_Banner.url,
+            widthImage: dataBanner.Image_Banner.width,
+            heightImage: dataBanner.Image_Banner.height
+        })    
     }
     useEffect (()=> {
         getVerticalAds();
     },[])
-
-
 
     return (
         <LayoutBerita>

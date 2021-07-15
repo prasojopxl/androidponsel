@@ -1,7 +1,7 @@
 import styles from "./adsbanner.module.scss";
 import Image from "next/image";
 
-export function AdsBanner(props) {
+export default function AdsBanner(props) {
     return (
         <div className={styles.ads}>
             <div className={styles.contents}>

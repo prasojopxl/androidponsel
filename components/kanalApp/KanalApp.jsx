@@ -6,7 +6,7 @@ import {Title} from "../../components";
 import { apiUrl } from '../../config/variable';
 
 
-export function KanalApp() {
+export default function KanalApp() {
     const [topApp, setTopApp] = useState([]);
     const [listApp, setListApp] = useState([]);
 

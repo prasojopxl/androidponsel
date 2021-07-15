@@ -1,6 +1,6 @@
 import styles from "./listcategories.module.scss"
 
-export function ListCategories() {
+export default function ListCategories() {
     return (
         <div className={styles.ListCategories}>
             <div className={styles.contents}>

@@ -1,6 +1,6 @@
 import styles from "./title.module.scss";
 
-export function Title(props) {
+export default function Title(props) {
     return (
         <div className={styles.title}>
             <h4>{props.title}</h4>

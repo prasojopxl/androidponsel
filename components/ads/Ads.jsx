@@ -1,7 +1,7 @@
 import styles from "./ads.module.scss";
 import Image from "next/image";
 
-export function Ads(props) {
+export default function Ads(props) {
     return (
         <div className={styles.ads}>
             <div className={styles.contents}>

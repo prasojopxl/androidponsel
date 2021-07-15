@@ -5,7 +5,7 @@ import Image from "next/image";
 import {Title, Ads, AdsBanner} from "../../components";
 import { apiUrl } from '../../config/variable';
 
-export function LatestNews() {
+export default function LatestNews() {
     const [mainNews, setMainNews] = useState([]);
     const [topNews, setTopNews] = useState([]);
     const [contNews, setContNews] = useState([]);

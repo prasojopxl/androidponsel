@@ -7,7 +7,7 @@ import { apiUrl } from '../../config/variable';
 
 
 
-export function ListNews(props) {
+export default function ListNews(props) {
     const [listNews, setListNews] = useState([]);
     const [verticalAds, setVerticalAds] = useState({
         iframe:[],

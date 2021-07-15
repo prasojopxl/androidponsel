@@ -5,7 +5,7 @@ import axios from "axios";
 import Image from "next/image";
 import { apiUrl } from '../../config/variable';
 
-export function CompareItem() {
+export default function CompareItem() {
     const [dataCompare, setDataCompare] = useState([])
     const [dataProducts, setDataProducts] = useState([]);
 

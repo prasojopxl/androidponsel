@@ -6,7 +6,8 @@ import axios from "axios";
 import { apiUrl } from '../../config/variable';
 
 
-export function Header() {
+
+export default function Header() {
     const [menu, setMenu] = useState([]);
     const [logo, setLogo]= useState([]);
 
