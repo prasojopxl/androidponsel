@@ -35,8 +35,7 @@ export default function Header() {
             <div className={styles.contents}>
                 <div className={styles.left}>
                     
-                    {/* <a href="#"><Image src={logo}  alt="androidponsel.com" width="160px" height="32px"/> </a> */}
-                    <Link href="/"><img src={`${apiUrl}${logo}`} width="160px" height="32px"/></Link>
+                    <Link href="/home"><img src={`${apiUrl}${logo}`} width="160px" height="32px"/></Link>
                     
                 </div>
                 <div className={styles.center}>

@@ -2,9 +2,19 @@
 
 
 module.exports = {
+    basePath: 'localhost:3000',
     images: {
       domains: ['images.unsplash.com', 'localhost'],
     },
+    async redirects() {
+      return [
+        {
+          source: '/',
+          destination: '/home',
+          permanent: true,
+        },
+      ]
+    },    
   }
 
 

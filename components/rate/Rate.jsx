@@ -1,61 +1,62 @@
 import { Fragment } from "react";
 import styles from "./rate.module.scss";
 import Image from "next/image";
+import { apiUrl } from "../../config/variable";
 
 export default function Rate(props) {
 
     function Star5() {
         return (
-            <Fragment>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
+            <Fragment>                
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
             </Fragment>
         )
     }
     function Star4() {
         return (
             <Fragment>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_blank_b59eeecd7b.png" alt="star blank" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_blank_b59eeecd7b.png"} alt="star blank" width="16" height="14"/>
             </Fragment>
         )
     }
     function Star3() {
         return (
             <Fragment>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_blank_b59eeecd7b.png" alt="star blank" width="16" height="14"/>
-                <Image src="/uploads/star_blank_b59eeecd7b.png" alt="star blank" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_blank_b59eeecd7b.png"} alt="star blank" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_blank_b59eeecd7b.png"} alt="star blank" width="16" height="14"/>
             </Fragment>
         )
     }
     function Star2() {
         return (
             <Fragment>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_blank_b59eeecd7b.png" alt="star blank" width="16" height="14"/>
-                <Image src="/uploads/star_blank_b59eeecd7b.png" alt="star blank" width="16" height="14"/>
-                <Image src="/uploads/star_blank_b59eeecd7b.png" alt="star blank" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_blank_b59eeecd7b.png"} alt="star blank" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_blank_b59eeecd7b.png"} alt="star blank" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_blank_b59eeecd7b.png"} alt="star blank" width="16" height="14"/>
             </Fragment>
         )
     }
     function Star1() {
         return (
             <Fragment>
-                <Image src="/uploads/star_full_f8bc483685.png" alt="star full" width="16" height="14"/>
-                <Image src="/uploads/star_blank_b59eeecd7b.png" alt="star blank" width="16" height="14"/>
-                <Image src="/uploads/star_blank_b59eeecd7b.png" alt="star blank" width="16" height="14"/>
-                <Image src="/uploads/star_blank_b59eeecd7b.png" alt="star blank" width="16" height="14"/>
-                <Image src="/uploads/star_blank_b59eeecd7b.png" alt="star blank" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_full_f8bc483685.png"} alt="star full" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_blank_b59eeecd7b.png"} alt="star blank" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_blank_b59eeecd7b.png"} alt="star blank" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_blank_b59eeecd7b.png"} alt="star blank" width="16" height="14"/>
+                <Image src={apiUrl+"/uploads/star_blank_b59eeecd7b.png"} alt="star blank" width="16" height="14"/>
             </Fragment>
         )
     }

@@ -11,7 +11,11 @@
         justify-content: space-between;
         align-items: center;
     }
+    .left {
+        cursor: pointer;
+    }
 }
+
 
 .mainmenu {
     display: flex;
