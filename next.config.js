@@ -5,15 +5,15 @@ module.exports = {
     images: {
       domains: ['images.unsplash.com', 'localhost'],
     },
-    async redirects() {
-      return [
-        {
-          source: '/',
-          destination: '/home',
-          permanent: true,
-        },
-      ]
-    },    
+    // async redirects() {
+    //   return [
+    //     {
+    //       source: '/',
+    //       destination: '/home',
+    //       permanent: true,
+    //     },
+    //   ]
+    // },    
   }
 
 

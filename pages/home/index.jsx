@@ -42,8 +42,8 @@ export async function getStaticProps() {
             dataTopAds, dataContentAds, dataContentAds4,dataContentAds5, dataCompare,
             dataProducts, mainNews, topNews, contNews, dataVerticalAds,
             topApp, listApp, tipsTrik, tipsTrikMain, tipsTrikSecond
-
-        }
+        },
+        revalidate: 5
     }
 }
 
@@ -478,7 +478,7 @@ export default function Home({
                     : <Ads banner={contentAds5.iframe}/>
                 }            
                 {contentAds5.bannerImage}
-                
+
             </LayoutHome>
         </React.Fragment>
     )

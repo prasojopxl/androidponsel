@@ -33,10 +33,8 @@ export default function Header() {
     return (
         <div className={styles.header}>
             <div className={styles.contents}>
-                <div className={styles.left}>
-                    
-                    <Link href={baseUrl+"/home"}><img src={`${apiUrl}${logo}`} width="160px" height="32px"/></Link>
-                    
+                <div className={styles.left}>                    
+                    <Link href={baseUrl}><a><img src={`${apiUrl}${logo}`} width="160px" height="32px"/></a></Link>                    
                 </div>
                 <div className={styles.center}>
                     <ul className={styles.mainmenu}>
