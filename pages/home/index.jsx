@@ -12,6 +12,8 @@ export async function getStaticProps() {
     const dataContentAds = await res2.json()
     const res4 = await fetch(`${apiUrl}/ads/4`)
     const dataContentAds4 = await res4.json()
+    const res5 = await fetch(`${apiUrl}/ads/5`)
+    const dataContentAds5 = await res5.json()
     const resDataCompare = await fetch(`${apiUrl}/compares?_sort=updated_at:ASC`)
     const dataCompare = await resDataCompare.json();
     const resDataProducts =  await fetch(`${apiUrl}/products?_limit=12`)
@@ -28,21 +30,27 @@ export async function getStaticProps() {
     const topApp = await resTopApp.json();
     const resListApp = await fetch(`${apiUrl}/posts?menu=10&_limit=15&_start=3&_sort=updated_at:DESC`)
     const listApp = await resListApp.json();
+    const resTipsTrik = await fetch (`${apiUrl}/posts?menu=8&_limit=8&_sort=updated_at:DESC&_start=4`)
+    const tipsTrik = await resTipsTrik.json();
+    const resTipsTrikMain = await fetch (`${apiUrl}/posts?menu=8&_limit=1&_sort=updated_at:DESC&_start=1`)
+    const tipsTrikMain = await resTipsTrikMain.json();
+    const resTipsTrikSecond = await fetch (`${apiUrl}/posts?menu=8&_limit=2&_sort=updated_at:DESC&_start=2`)
+    const tipsTrikSecond = await resTipsTrikSecond.json();
 
     return {
         props: {
-            dataTopAds, dataContentAds, dataContentAds4, dataCompare,
+            dataTopAds, dataContentAds, dataContentAds4,dataContentAds5, dataCompare,
             dataProducts, mainNews, topNews, contNews, dataVerticalAds,
-            topApp, listApp
+            topApp, listApp, tipsTrik, tipsTrikMain, tipsTrikSecond
 
         }
     }
 }
 
 export default function Home({
-        dataTopAds, dataContentAds, dataContentAds4, dataCompare,
+        dataTopAds, dataContentAds, dataContentAds4, dataContentAds5, dataCompare,
         dataProducts, mainNews, topNews, contNews, dataVerticalAds,
-        topApp, listApp
+        topApp, listApp, tipsTrik, tipsTrikMain, tipsTrikSecond
     }) {
     const [topAds, setTopAds] = useState({
         iframe:[],
@@ -90,7 +98,7 @@ export default function Home({
         heightImage:[]
     })
     const getContentAds4 = () => {
-            dataContentAds4.Image_Banner === null ? setContentAds4({iframe:dataContentAds4.URL_Iframe}) : setContentAds2({
+            dataContentAds4.Image_Banner === null ? setContentAds4({iframe:dataContentAds4.URL_Iframe}) : setContentAds4({
                 bannerImage:"withBanner",
                 link:dataContentAds4.url,
                 urlImage:dataContentAds4.Image_Banner.url,
@@ -98,6 +106,26 @@ export default function Home({
                 heightImage: dataContentAds4.Image_Banner.height,
             })
     }
+
+    const [contentAds5, setContentAds5] = useState({
+        iframe:[],
+        bannerImage:[],
+        link:[],
+        urlImage:[],
+        widthImage:[],
+        heightImage:[]
+    })
+    const getContentAds5 = () => {
+            dataContentAds5.Image_Banner === null ? setContentAds5({iframe:dataContentAds5.URL_Iframe}) : setContentAds5({
+                bannerImage:"withBanner",
+                link:dataContentAds5.url,
+                urlImage:dataContentAds5.Image_Banner.url,
+                widthImage: dataContentAds5.Image_Banner.width,
+                heightImage: dataContentAds5.Image_Banner.height,
+            })
+    }
+
+
 
     const [verticalAds, setVerticalAds] = useState({
         iframe:[],
@@ -123,6 +151,7 @@ export default function Home({
         getTopAds();
         getContentAds();
         getContentAds4();
+        getContentAds5();
         getVerticalAds();
     },[])
 
@@ -348,6 +377,108 @@ export default function Home({
                     : <Ads banner={contentAds4.iframe}/>
                 }            
 
+                <div className={styles.tipstrik}>
+                    <div className={styles.contents}>
+                        <Title title="Tips & Trik"></Title>
+                        <div className="row">
+                            <div className="col-lg-7">
+                                <div className="row">
+                                    {
+                                        tipsTrik.map((item,i) => {
+                                            return (
+                                                <div className="col-lg-6" key={item.id}>
+                                                    <div className={styles.itemcontent}>
+                                                        <div className={styles.left}>
+                                                            <div className={styles.desc}>
+                                                                <div className={styles.tags}>
+                                                                    {(item.tags).map(data=> {
+                                                                        return (
+                                                                            <a href="#" key={data.id}>{data.tag_name}</a>
+                                                                        )
+                                                                    })}
+                                                                </div>
+                                                                <a href="#"><h5>{item.title.substr(0,50)}..</h5></a>
+                                                                <div className={styles.infodate}>
+                                                                    <span>By {item.author === null ? "admin" : item.author}</span> 
+                                                                    <span>{(item.updated_at).substr(8,2)}-{(item.updated_at).substr(5,2)}-{(item.updated_at).substr(0,4)} </span>
+                                                                </div>
+                                                            </div>                                                            
+                                                        </div>
+                                                        <div className={styles.right}>
+                                                            <div className={styles.imgwrp}><Image src={apiUrl+item.thumbnail.url} width={item.thumbnail.width/3} height={item.thumbnail.height/3} alt={item.title}/></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }                                    
+                                </div>
+                            </div>
+                            <div className="col-lg-5">
+                                <div className={styles.maintipstrik}>
+                                    {
+                                        tipsTrikMain.map((item,i)=> {
+                                            return (
+                                                <div key="item.id">
+                                                    <div className={styles.topberita}>
+                                                        <div className={styles.imgwrp}>
+                                                            <Image src={apiUrl+item.thumbnail.url} width={item.thumbnail.width*1.3} height={item.thumbnail.height*1.3} alt="item.title"/>
+                                                        </div>
+                                                        <div className={styles.desc}>
+                                                            <a href="#"><h5>{item.title}</h5></a>
+                                                            <p>{(item.content).substr(0, 110)}...</p>
+                                                            <div className={styles.infodate}>
+                                                                <span>By {item.author === null ? "admin" : item.author}</span> 
+                                                                <span>{(item.updated_at).substr(8,2)}-{(item.updated_at).substr(5,2)}-{(item.updated_at).substr(0,4)} </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                                <div className={styles.secondtipstrik}>
+                                    {
+                                        tipsTrikSecond.map((item,i)=> {
+                                            return (
+                                                <div className={styles.itemcontent} key={item.id}>
+                                                    <div className={styles.left}>
+                                                        <div className={styles.desc}>
+                                                            <div className={styles.tags}>
+                                                                {(item.tags).map(data=> {
+                                                                    return (
+                                                                        <a href="#" key={data.id}>{data.tag_name}</a>
+                                                                    )
+                                                                })}
+                                                            </div>
+                                                            <a href="#"><h5>{item.title.substr(0,55)}..</h5></a>
+                                                            <div className={styles.infodate}>
+                                                                <span>By {item.author === null ? "admin" : item.author}</span> 
+                                                                <span>{(item.updated_at).substr(8,2)}-{(item.updated_at).substr(5,2)}-{(item.updated_at).substr(0,4)} </span>
+                                                            </div>
+                                                        </div>                                                            
+                                                    </div>
+                                                    <div className={styles.right}>
+                                                        <div className={styles.imgwrp}><Image src={apiUrl+item.thumbnail.url} width={item.thumbnail.width/3} height={item.thumbnail.height/3} alt={item.title}/></div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {
+                    contentAds5.bannerImage === "withBanner" ? <AdsBanner linkbanner={contentAds5.link} urlImage={contentAds5.urlImage} width={contentAds5.widthImage} height={contentAds5.heightImage}/>
+                    : <Ads banner={contentAds5.iframe}/>
+                }            
+                {contentAds5.bannerImage}
+                
             </LayoutHome>
         </React.Fragment>
     )

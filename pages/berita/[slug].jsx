@@ -4,12 +4,16 @@ import LayoutBerita from "../../layout/layoutberita/LayoutBerita";
 
 export async function getServerSideProps(context) {
     const slug = context.query.slug;
-    const resDataBerita = await fetch(`${apiUrl}/posts/${slug}`)
-    const dataBerita = await resDataBerita.json();
-    return {
-        props: {
-            dataBerita
-        }
+    try {
+        const resDataBerita = await fetch(`${apiUrl}/posts/${slug}`)
+        const dataBerita = await resDataBerita.json();
+        return {
+            props: {
+                dataBerita
+            }
+        }    
+    } catch (error) {
+        return {error};
     }
 }
 
@@ -20,8 +24,8 @@ export default function DetailBerita({dataBerita}) {
     return (
         <LayoutBerita>
         <div>
-            <h4>{dataBerita.title}</h4>
-            {dataBerita.content}
+            <h4>{dataBerita.title && dataBerita.title}</h4>
+            {dataBerita.content && dataBerita.content}
         </div>
         </LayoutBerita>
     )

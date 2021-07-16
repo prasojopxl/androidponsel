@@ -2,7 +2,6 @@
 
 
 module.exports = {
-    basePath: 'localhost:3000',
     images: {
       domains: ['images.unsplash.com', 'localhost'],
     },

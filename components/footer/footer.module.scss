@@ -7,9 +7,10 @@
 }
 
 .contents {
+    width: 100%;
     max-width: $widthdefault;
     margin: 0 auto;
-    display: block;
+    padding: 0 15px;
 }
 
 .top {
