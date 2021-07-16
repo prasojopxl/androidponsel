@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import styles from "./index.module.scss";
 import LayoutBerita from '../../layout/layoutberita/LayoutBerita'
 import Image from "next/image"
 import axios from "axios";
 import { Title, Ads, AdsBanner } from "../../components";
 import { apiUrl } from "../../config/variable";
+import Link from "next/link"
 
 export async function getStaticProps () {
     const res = await fetch(`${apiUrl}/posts?menu=2&_limit=9&_start=0`)
@@ -64,11 +65,13 @@ export default function Berita({dataListNews, dataBanner}) {
                                                             <div className={styles.tags}>
                                                                 {(item.tags).map(data=> {
                                                                     return (
-                                                                        <a href="#" key={data.id}>{data.tag_name}</a>
+                                                                        <Fragment key={data.id}>
+                                                                        <a href="#">{data.tag_name}</a>
+                                                                        </Fragment>
                                                                     )
                                                                 })}
                                                             </div>
-                                                            <a href="#"><h5>{item.title}</h5></a>
+                                                            <Link href={item.menu.title+"/"+item.slug}><a><h5>{item.title}</h5></a></Link>
                                                             <div className={styles.infodate}>
                                                                 <span>By {item.author === null ? "admin" : item.author}</span> 
                                                                 <span>{(item.updated_at).substr(8,2)}-{(item.updated_at).substr(5,2)}-{(item.updated_at).substr(0,4)} </span>

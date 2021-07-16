@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link"
 import styles from "./Header.module.scss";
 import axios from "axios";
-import { apiUrl } from '../../config/variable';
+import { baseUrl, apiUrl } from '../../config/variable';
 
 
 
@@ -35,14 +35,14 @@ export default function Header() {
             <div className={styles.contents}>
                 <div className={styles.left}>
                     
-                    <Link href="/home"><img src={`${apiUrl}${logo}`} width="160px" height="32px"/></Link>
+                    <Link href={baseUrl+"/home"}><img src={`${apiUrl}${logo}`} width="160px" height="32px"/></Link>
                     
                 </div>
                 <div className={styles.center}>
                     <ul className={styles.mainmenu}>
                     {menu.map((item,i)=> {
                         return(
-                            <li key={item.id}><Link href={item.title}><a>{item.title}</a></Link></li>
+                            <li key={item.id}><Link href={baseUrl+"/"+item.title}><a>{item.title}</a></Link></li>
                         )
                     })}
                     </ul>
