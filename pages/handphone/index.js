@@ -1,10 +1,11 @@
 import { Rate, Title } from "../../components";
+import styles from "./index.module.scss";
+
 import { apiUrl } from "../../config/variable";
 import LayoutHandphone from "../../layout/layouthandphone/LayoutHandphone";
 import Image from "next/image"
-import styles from "./index.module.scss";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const resListHanphone = await fetch(`http://localhost:1337/products?category=1&_limit=12`)
     const dataListHandphone = await resListHanphone.json();
 
