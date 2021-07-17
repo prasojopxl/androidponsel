@@ -8,7 +8,7 @@ import { apiUrl } from "../../config/variable";
 import Link from "next/link"
 
 export async function getStaticProps () {
-    const res = await fetch(`${apiUrl}/posts?menu=2&_limit=9&_start=0`)
+    const res = await fetch(`${apiUrl}/posts?menu=2&_start=0&_limit=6`)
     const dataListNews = await res.json();
 
     const res2 = await fetch (`${apiUrl}/ads/3`)
