@@ -1,9 +1,9 @@
 import { Fragment, useEffect, useState } from 'react';
 import Image from "next/image"
 import Link from "next/link"
-import { Title, Ads, AdsBanner } from '../../../components';
+import { Title, Ads, AdsBanner,Rate } from '../../../components';
 import { apiUrl, baseUrl, totalItem } from '../../../config/variable';
-import LayoutBerita from '../../../layout/layoutberita/LayoutBerita';
+import LayoutHandphone from '../../../layout/layouthandphone/LayoutHandphone';
 import styles from "../index.module.scss";
 
 export default function Berita({post, dataBanner,pages}) {     
@@ -49,41 +49,33 @@ export default function Berita({post, dataBanner,pages}) {
         getVerticalAds();
     },[])
 
-
     return (
-        <LayoutBerita>
-            <div className={styles.berita}>
+        <LayoutHandphone>
+            <div className={styles.pagelisthandphone}>
                 <div className={styles.contents}>
-                    <Title title="Berita"></Title>
+                    <Title title="Handphone"></Title>
                     <div className="row">
                         <div className="col-lg-9">
                             <div className="row">
                                 {
                                     post.map((item,i)=> {
                                         return (
-                                            <div className="col-lg-4" key={item.id}>                                
-                                                <div className={styles.wrpitemnews}>
-                                                        <div className={styles.imgwrp}>
-                                                            <Image src={`${apiUrl}${item.thumbnail.url}`} width={item.thumbnail.width} height={item.thumbnail.height} alt={item.title}/>
+                                            <div className="col-lg-4" key={item.id}>
+                                                <div className={styles.productItem}>
+                                                    <div className={styles.shortproduct}>
+                                                        <div className={styles.imageprod}><Image src={apiUrl+item.product_image[0].url} width={item.product_image[0].width/3} height={item.product_image[0].height/3}/> </div>
+                                                        <div className={styles.productinfo}>
+                                                            <h5>{item.title}</h5>
+                                                            <h6>{item.memory_internal}</h6>
+                                                            <Rate TotalRate={item.rate.rating}/>
                                                         </div>
-                                                        <div className={styles.content}>
-                                                            <div className={styles.tags}>
-                                                                {(item.tags).map(data=> {
-                                                                    return (
-                                                                        <Fragment key={data.id}>
-                                                                        <a href="#">{data.tag_name}</a>
-                                                                        </Fragment>
-                                                                    )
-                                                                })}
-                                                            </div>
-                                                            <Link href={baseUrl+item.menu.title+"/"+item.slug}><a><h5>{item.title}</h5></a></Link>
-                                                            <div className={styles.infodate}>
-                                                                <span>By {item.author === null ? "admin" : item.author}</span> 
-                                                                <span>{(item.updated_at).substr(8,2)}-{(item.updated_at).substr(5,2)}-{(item.updated_at).substr(0,4)} </span>
-                                                            </div>                                                    
-                                                        </div>
-                                                    </div>                                    
-                                            </div>   
+                                                    </div>
+                                                    <div className={styles.wrpbtn}>
+                                                        <a href="#" className={styles.btnfull}>BANDINGKAN PRODUK</a>
+                                                        <a href={"handphone/"+item.slug} className={styles.btnblank}>LIHAT SELENGKAPNYA</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         )
                                     })
                                 }
@@ -98,16 +90,15 @@ export default function Berita({post, dataBanner,pages}) {
                             </div>                            
                         </div>
                     </div>
-                    <Paging/>
-                    
+                    <Paging/>                    
                 </div>
-            </div> 
-        </LayoutBerita>
+            </div>
+        </LayoutHandphone>
     )
 }
 
 export async function getStaticPaths() {    
-    const res = await fetch(`${apiUrl}/posts?menu=2`);
+    const res = await fetch(`${apiUrl}/products?category=1`);
     const posts = await res.json();
     
     let limitpages = Math.ceil(posts.length/totalItem)
@@ -130,14 +121,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({params}) {
-    const res = await fetch(`${apiUrl}/posts?menu=2&_limit=${totalItem}&_start=${params.id*totalItem-totalItem}`)
+    const res = await fetch(`${apiUrl}/products?category=1&_limit=${totalItem}&_start=${params.id*totalItem-totalItem}`)
     const post = await res.json();
 
     const res2 = await fetch (`${apiUrl}/ads/3`)
     const dataBanner = await res2.json();
 
-    const resPostsBerita = await fetch(`${apiUrl}/posts?menu=2`);
-    const posts = await resPostsBerita.json();    
+    const resPostsProducts = await fetch(`${apiUrl}/products?category=1`);
+    const posts = await resPostsProducts.json();    
     let limitpages = Math.ceil(posts.length/totalItem)
     var pages = [];
     for (let i=1; i<=limitpages; i++ ) {

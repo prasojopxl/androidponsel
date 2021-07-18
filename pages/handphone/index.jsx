@@ -4,23 +4,35 @@ import { useState, useEffect } from "react";
 import { apiUrl, baseUrl, totalItem } from "../../config/variable";
 import LayoutHandphone from "../../layout/layouthandphone/LayoutHandphone";
 import Image from "next/image"
+import Link from "next/link"
 
 export async function getServerSideProps() {
-    const resListHanphone = await fetch(`http://localhost:1337/products?category=1&_limit=${totalItem}`)
+    const resListHanphone = await fetch(`${apiUrl}/products?category=1&_limit=${totalItem}`)
     const dataListHandphone = await resListHanphone.json();
 
     const res2 = await fetch (`${apiUrl}/ads/3`)
     const dataBanner = await res2.json();
 
+    const resProductsHP = await fetch(`${apiUrl}/products?category=1`);
+    const productsHP = await resProductsHP.json();    
+    let limitpages = Math.ceil(productsHP.length/totalItem)
+    var pages = [];
+    for (let i=1; i<=limitpages; i++ ) {
+        pages.push(i)
+    }        
+
+
     return {
         props: {
             dataListHandphone,
-            dataBanner
+            dataBanner,
+            pages,
+            limitpages                        
         }
     }
 }
 
-export default function Handphone({dataListHandphone, dataBanner}) {
+export default function Handphone({dataListHandphone, dataBanner, pages, limitpages}) {
     const [verticalAds, setVerticalAds] = useState({
         iframe:[],
         bannerImage:[],
@@ -39,6 +51,25 @@ export default function Handphone({dataListHandphone, dataBanner}) {
             heightImage: dataBanner.Image_Banner.height
         })    
     }
+
+    const Paging = () => {
+        return (
+            <div className={styles.paging}>
+                <Link href={`${baseUrl}handphone/`}><a>Awal</a></Link>
+                <ul>
+                    {
+                        pages.map((item,i)=> {
+                            return (
+                                <li key={item}><Link href={baseUrl+"handphone/page/"+item}><a>{item}</a></Link></li>
+                            )
+                        })
+                    }
+                </ul>
+                <Link href={`${baseUrl}handphone/page/${pages.length}`}><a>Akhir</a></Link>
+            </div>
+
+        )
+    }    
 
     useEffect (()=> {
         getVerticalAds();
@@ -86,6 +117,7 @@ export default function Handphone({dataListHandphone, dataBanner}) {
                             </div>                            
                         </div>
                     </div>
+                    <Paging/>                    
                 </div>
             </div>
         </LayoutHandphone>
