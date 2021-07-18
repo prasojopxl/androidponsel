@@ -40,7 +40,7 @@ export default function Header() {
                     <ul className={styles.mainmenu}>
                     {menu.map((item,i)=> {
                         return(
-                            <li key={item.id}><Link href={baseUrl+"/"+item.title}><a>{item.title}</a></Link></li>
+                            <li key={item.id}><Link href={baseUrl+item.title}><a>{item.title}</a></Link></li>
                         )
                     })}
                     </ul>
