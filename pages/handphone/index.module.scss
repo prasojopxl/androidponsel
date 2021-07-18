@@ -1,59 +1,10 @@
 @import "../../styles/variable.scss";
 
-.pagelisthandphone {
+.detailproducts {
     padding: 50px 0;
     .contents {
-        width: 100%;
-        padding: 0 15px;
-        margin: 0 auto;
         max-width: $widthdefault;
-    }
-}
-
-.productItem {
-    box-shadow: $shadow2;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    min-height: 150px;
-    .shortproduct {
-        display: flex;
-    }
-    .imageprod {
-        max-width: 150px;
-        margin-right: 10px;
-    }
-    h5 {
-        font-size: 16px;
-        margin-bottom: 0;
-        min-height: 40px;
-    }
-    h6 {
-        font-weight: normal;
-        font-size: 11px;
-    }
-    .wrpbtn {
-        text-align: center;
-        margin-top: 15px;
-        opacity: 1;
-        visibility: visible;
-        transition: $animate;
-        a {
-            display: block;
-            color: $color-green;
-        }
-        .btnfull {
-            color: #fff;
-            margin-bottom: 10px;
-        }
-    }
-    &:hover {
-        .wrpbtn {
-            opacity: 1;
-            visibility: visible;
-            transition: $animate;
-
-        }
+        margin: 0 auto;
+        width: 100%;
     }
 }

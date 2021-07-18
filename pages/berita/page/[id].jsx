@@ -111,7 +111,7 @@ export async function getStaticPaths() {
     const res = await fetch(`${apiUrl}/posts?menu=2`);
     const posts = await res.json();
     
-    let limitpages = Math.ceil(posts.length/6)
+    let limitpages = Math.ceil(posts.length/totalItem)
     var pages = [];
     for (let i=0; i<=limitpages; i++ ) {
         pages.push(i)
@@ -139,7 +139,7 @@ export async function getStaticProps({params}) {
 
     const resPostsBerita = await fetch(`${apiUrl}/posts?menu=2`);
     const posts = await resPostsBerita.json();    
-    let limitpages = Math.ceil(posts.length/6)
+    let limitpages = Math.ceil(posts.length/totalItem)
     var pages = [];
     for (let i=1; i<=limitpages; i++ ) {
         pages.push(i)

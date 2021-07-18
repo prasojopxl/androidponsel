@@ -7,13 +7,13 @@ import axios from "axios";
 import { Title, Ads, AdsBanner } from "../../components";
 import { apiUrl, baseUrl, totalItem } from "../../config/variable";
 
-export async function getStaticProps () {
+export async function getServerSideProps () {
     const res = await fetch(`${apiUrl}/posts?menu=2&_start=0&_limit=${totalItem}`)
     const dataListNews = await res.json();
 
     const resPostsBerita = await fetch(`${apiUrl}/posts?menu=2`);
     const posts = await resPostsBerita.json();    
-    let limitpages = Math.ceil(posts.length/6)
+    let limitpages = Math.ceil(posts.length/totalItem)
     var pages = [];
     for (let i=1; i<=limitpages; i++ ) {
         pages.push(i)
@@ -61,7 +61,7 @@ export default function Berita({dataListNews, dataBanner,pages,limitpages}) {
                 {
                     pages.map((item,i)=> {
                         return (
-                            <li><Link href={baseUrl+"berita/page/"+item}><a>{item}</a></Link></li>
+                            <li key={item}><Link href={baseUrl+"berita/page/"+item}><a>{item}</a></Link></li>
                         )
                     })
                 }
