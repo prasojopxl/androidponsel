@@ -2,14 +2,23 @@ import { useState, useEffect, Fragment } from "react";
 import styles from "./index.module.scss";
 import LayoutBerita from '../../layout/layoutberita/LayoutBerita'
 import Image from "next/image"
+import Link from "next/link"
 import axios from "axios";
 import { Title, Ads, AdsBanner } from "../../components";
-import { apiUrl } from "../../config/variable";
-import Link from "next/link"
+import { apiUrl, baseUrl, totalItem } from "../../config/variable";
 
 export async function getStaticProps () {
-    const res = await fetch(`${apiUrl}/posts?menu=2&_start=0&_limit=6`)
+    const res = await fetch(`${apiUrl}/posts?menu=2&_start=0&_limit=${totalItem}`)
     const dataListNews = await res.json();
+
+    const resPostsBerita = await fetch(`${apiUrl}/posts?menu=2`);
+    const posts = await resPostsBerita.json();    
+    let limitpages = Math.ceil(posts.length/6)
+    var pages = [];
+    for (let i=1; i<=limitpages; i++ ) {
+        pages.push(i)
+    }        
+
 
     const res2 = await fetch (`${apiUrl}/ads/3`)
     const dataBanner = await res2.json();
@@ -17,12 +26,14 @@ export async function getStaticProps () {
     return {
         props: {
             dataListNews,
-            dataBanner
+            dataBanner,
+            pages,
+            limitpages            
         }
     }
 }
 
-export default function Berita({dataListNews, dataBanner}) {
+export default function Berita({dataListNews, dataBanner,pages,limitpages}) {
     const [verticalAds, setVerticalAds] = useState({
         iframe:[],
         bannerImage:[],
@@ -41,6 +52,27 @@ export default function Berita({dataListNews, dataBanner}) {
             heightImage: dataBanner.Image_Banner.height
         })    
     }
+
+    const Paging = () => {
+        return (
+            <div className={styles.paging}>
+                <Link href={`${baseUrl}berita/`}><a>Awal</a></Link>
+                <ul>
+                {
+                    pages.map((item,i)=> {
+                        return (
+                            <li><Link href={baseUrl+"berita/page/"+item}><a>{item}</a></Link></li>
+                        )
+                    })
+                }
+                </ul>
+                <Link href={`${baseUrl}berita/page/${pages.length}`}><a>Akhir</a></Link>
+            </div>
+
+        )
+    }
+
+
     useEffect (()=> {
         getVerticalAds();
     },[])
@@ -71,7 +103,7 @@ export default function Berita({dataListNews, dataBanner}) {
                                                                     )
                                                                 })}
                                                             </div>
-                                                            <Link href={item.menu.title+"/"+item.slug}><a><h5>{item.title}</h5></a></Link>
+                                                            <Link href={baseUrl+item.menu.title+"/"+item.slug}><a><h5>{item.title}</h5></a></Link>
                                                             <div className={styles.infodate}>
                                                                 <span>By {item.author === null ? "admin" : item.author}</span> 
                                                                 <span>{(item.updated_at).substr(8,2)}-{(item.updated_at).substr(5,2)}-{(item.updated_at).substr(0,4)} </span>
@@ -94,6 +126,8 @@ export default function Berita({dataListNews, dataBanner}) {
                             </div>                            
                         </div>
                     </div>
+                    <Paging/>
+
                 </div>
             </div>
         </LayoutBerita>

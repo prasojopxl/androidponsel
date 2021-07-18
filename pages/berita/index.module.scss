@@ -64,3 +64,19 @@
     }
 
 }
+
+.paging {
+    display: flex;
+    justify-content: center;
+    a{
+        padding: 5px 10px;
+        display: block;
+    }
+    ul {
+        display: flex;
+        margin: 0;
+        li {
+            list-style-type: none;
+        }
+    }
+}
