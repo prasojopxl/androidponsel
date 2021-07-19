@@ -2,6 +2,8 @@
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 
+//icon
+
 //home
 import ListCategories from "./listcategories/ListCategories";
 import Title from "./title/Title";
@@ -16,4 +18,8 @@ import ListNews from "./listNews/ListNews";
 import OverviewProduct from "./overviewproduct/OverviewProduct"
 
 // export components
-export {Header, Footer, ListCategories, Title, Ads, AdsBanner, Rate, ListNews, OverviewProduct}
+export {
+    Header, Footer, 
+    ListCategories, Title, Ads, AdsBanner, Rate, ListNews, OverviewProduct,
+
+}

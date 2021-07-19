@@ -72,7 +72,7 @@ export default function Berita({post, dataBanner,pages}) {
                                                     </div>
                                                     <div className={styles.wrpbtn}>
                                                         <a href="#" className={styles.btnfull}>BANDINGKAN PRODUK</a>
-                                                        <a href={"handphone/"+item.slug} className={styles.btnblank}>LIHAT SELENGKAPNYA</a>
+                                                        <Link href={"handphone/"+item.slug}><a className={styles.btnblank}>LIHAT SELENGKAPNYA</a></Link>
                                                     </div>
                                                 </div>
                                             </div>
