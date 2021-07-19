@@ -176,7 +176,6 @@ export default function DetailPage({post, dataContentAds}) {
                     contentAds.bannerImage === "withBanner" ? <AdsBanner linkbanner={contentAds.link} urlImage={contentAds.urlImage} width={contentAds.widthImage} height={contentAds.heightImage}/>
                     : <Ads banner={contentAds.iframe}/>
                 }            
-
                 
                 <div className={styles.contents}>
                     <div className="row">
@@ -355,10 +354,18 @@ export default function DetailPage({post, dataContentAds}) {
                         </div>
 
                         <div className="col-lg-2">
-                            <Title title="Table of Content"/>
                             <div className={styles.boxTableContent}>
+                                <Title title="Table of Content"/>
                                 <ul>
-                                    <li><a href="#">Basic Information</a></li>
+                                    <li><a href="#basic">Basic Information</a></li>
+                                    <li><a href="#design">Design Material</a></li>
+                                    <li><a href="#hardware">Performance & Hardware</a></li>
+                                    <li><a href="#camera">Camera</a></li>
+                                    <li><a href="#battery">Battery</a></li>
+                                    <li><a href="#sofware">Sofware</a></li>
+                                    <li><a href="#sensors">Sensors</a></li>
+                                    <li><a href="#network">Network</a></li>
+                                    <li><a href="#harga">Harga di Marketplace</a></li>
                                 </ul>
                             </div>
                         </div>
