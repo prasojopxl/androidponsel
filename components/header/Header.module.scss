@@ -1,35 +1,34 @@
 @import "../../styles/variable";
 
 .header {
-    background: #fff;
-    border-bottom: $color-gray solid 1px;
-    .contents {
-        max-width: $widthdefault;
-        margin: 0 auto;
-        padding: 0 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .left {
-        cursor: pointer;
-    }
+  background: #fff;
+  border-bottom: $color-gray solid 1px;
+  .contents {
+    max-width: $widthdefault;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .left {
+    cursor: pointer;
+  }
 }
 
-
 .mainmenu {
-    display: flex;
-    margin: 0;
-    li {
-        list-style: none;
-        font-family: $font-MulishBold;
-        font-size: 16px;
-        color: $color-black;
-        text-transform: capitalize;
-        a {
-            color: $color-black;
-            display: block;
-            padding: 17px 10px;
-        }
+  display: flex;
+  margin: 0;
+  li {
+    list-style: none;
+    font-family: $font-MulishBold;
+    font-size: 16px;
+    color: $color-black;
+    text-transform: capitalize;
+    a {
+      color: $color-black;
+      display: block;
+      padding: 17px 10px;
     }
+  }
 }

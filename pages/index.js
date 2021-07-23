@@ -1,12 +1,12 @@
-import React,{useEffect, useState} from 'react';
-import LayoutHome from '../layout/layouthome/layoutHome';
-import styles from "./index.module.scss";
-import {Ads, AdsBanner, Title,Rate} from "../components/";
 import Image from "next/image";
+import React, { useEffect, useState } from 'react';
+import { Ads, AdsBanner, Rate, Title } from "../components/";
 // import { apiUrl } from '../../config/variable';
 import { apiUrl } from '../config/variable';
+import LayoutHome from '../layout/layouthome/layoutHome';
+import styles from "./index.module.scss";
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
     const res = await fetch(`${apiUrl}/ads/1`)
     const dataTopAds = await res.json()
     const res2 = await fetch(`${apiUrl}/ads/2`)
@@ -37,7 +37,20 @@ export async function getStaticProps() {
     const tipsTrikMain = await resTipsTrikMain.json();
     const resTipsTrikSecond = await fetch (`${apiUrl}/posts?menu=8&_limit=2&_sort=updated_at:DESC&_start=2`)
     const tipsTrikSecond = await resTipsTrikSecond.json();
-
+    // const settings = {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //         "identifier": "guest@androidponsel.com",
+    //         "password": "Guest123"            
+    //     }),
+    //     headers: {
+    //       'Accept': 'application/json',
+    //       'Content-Type': 'application/json',          
+    //     }
+    // }    
+    // const resAuth = await fetch(`${apiUrl}/auth/local`,settings)
+    // const dataAuth = await resAuth.json();
+    // const jwtValue = dataAuth.jwt;
     return {
         props: {
             dataTopAds, dataContentAds, dataContentAds4,dataContentAds5, dataCompare,
@@ -51,8 +64,9 @@ export async function getStaticProps() {
 export default function Home({
         dataTopAds, dataContentAds, dataContentAds4, dataContentAds5, dataCompare,
         dataProducts, mainNews, topNews, contNews, dataVerticalAds,
-        topApp, listApp, tipsTrik, tipsTrikMain, tipsTrikSecond
+        topApp, listApp, tipsTrik, tipsTrikMain, tipsTrikSecond, jwtValue
     }) {
+    
     const [topAds, setTopAds] = useState({
         iframe:[],
         bannerImage:[],
@@ -126,8 +140,6 @@ export default function Home({
             })
     }
 
-
-
     const [verticalAds, setVerticalAds] = useState({
         iframe:[],
         bannerImage:[],
@@ -147,13 +159,14 @@ export default function Home({
         })
     }
 
-
     useEffect(()=> {
         getTopAds();
         getContentAds();
         getContentAds4();
         getContentAds5();
         getVerticalAds();
+        localStorage.setItem("JWT",jwtValue)
+
     },[])
 
     return (
@@ -348,7 +361,7 @@ export default function Home({
                         <div className="row">
                             {listApp.map((item,i)=> {
                                 return (
-                                    <div className="col-lg-4">
+                                    <div className="col-lg-4" key={item.id}>
                                         <div className={styles.wrplistapp}>
                                             <div className={styles.imgwrp}>
                                                 {item.thumbnail != null ? <Image src={apiUrl+item.thumbnail.url} width={item.thumbnail.width} height={item.thumbnail.height} alt={item.title}/> : <div style={{display:'flex', height:'100%', minHeight:60, alignItems:"center", justifyContent:"space-around", margin:'0 auto', textAlign:"center"}}><span>Image</span></div>}

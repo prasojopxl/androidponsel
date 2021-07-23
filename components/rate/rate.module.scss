@@ -1,24 +1,24 @@
 @import "../../styles/variable";
 
 .rate {
+  display: flex;
+  .totalrate {
+    background: $color-green;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    width: 40px;
+    text-align: center;
     display: flex;
-    .totalrate {
-        background: $color-green;
-        color: #fff;
-        border-radius: 5px;
-        padding: 5px;    
-        width: 40px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 10px;
-        font-size: 15px;
-    }
-    .wrpvote {
-        flex: 1;
-    }
-    h6 {
-        margin: 0;
-    }
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  .wrpvote {
+    flex: 1;
+  }
+  h6 {
+    margin: 0 !important;
+  }
 }

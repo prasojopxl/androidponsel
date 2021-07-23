@@ -1,3 +1,3 @@
-export const apiUrl= `http://localhost:1337`;
+export const apiUrl = `http://localhost:1337`;
 export const baseUrl = `http://localhost:3000/`;
 export const totalItem = 9;
