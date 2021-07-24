@@ -1,4 +1,5 @@
 import axios from "axios";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { apiUrl, baseUrl } from "../../config/variable";
@@ -41,7 +42,12 @@ export default function Header() {
         <div className={styles.left}>
           <Link href={baseUrl}>
             <a>
-              <img src={`${apiUrl}${logo}`} width="160px" height="32px" />
+              <Image
+                src={`${apiUrl}${logo}`}
+                width="153.6px"
+                height="46.4px"
+                alt="androindponsel.com"
+              />
             </a>
           </Link>
         </div>

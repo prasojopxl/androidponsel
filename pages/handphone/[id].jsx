@@ -40,7 +40,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
   const showData = () => {
     show === true ? setShow(false) : setShow(true);
   };
-  const currentPage = ["berita"];
+  const currentPage = ["handphone"];
   const PageName = () => {
     post.post.menu === 1
       ? currentPage.push("home")
@@ -71,7 +71,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
       nav2: slider2.current,
     });
     getContentAds();
-    PageName();
+    post.post && PageName();
   }, []);
 
   return (
@@ -492,53 +492,63 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
                 {post.usb}
               </div>
 
-              <Title title="Harga di Marketplace" idName="harga" />
-              <div className={styles.marketplaceprice}>
-                <div className="row">
-                  {post.Price_Marketplace.map((mp, i) => {
-                    return (
-                      <div className="col-lg-3" key={mp.id}>
-                        <div className={styles.wrpItem}>
-                          <div className={styles.logomp}>
-                            <Image
-                              src={apiUrl + mp.logo.url}
-                              width={mp.logo.width}
-                              height={mp.logo.height}
-                              alt={mp.title}
-                            />
+              {post.Price_Marketplace & (post.marketplace !== []) ? (
+                <Fragment>
+                  <Title title="Harga di Marketplace" idName="harga" />
+                  <div className={styles.marketplaceprice}>
+                    <div className="row">
+                      {post.Price_Marketplace.map((mp, i) => {
+                        return (
+                          <div className="col-lg-3" key={mp.id}>
+                            <div className={styles.wrpItem}>
+                              <div className={styles.logomp}>
+                                <Image
+                                  src={apiUrl + mp.logo.url}
+                                  width={mp.logo.width}
+                                  height={mp.logo.height}
+                                  alt={mp.title}
+                                />
+                              </div>
+                              <div className={styles.itemprodmp}>
+                                {mp.List.map((mpList, x) => {
+                                  return (
+                                    <div
+                                      className={styles.itemlist}
+                                      key={mpList.id}
+                                    >
+                                      <div className={styles.imgwrp}>
+                                        <Image
+                                          src={apiUrl + mpList.thumbnail[0].url}
+                                          width={mpList.thumbnail[0].width / 2}
+                                          height={
+                                            mpList.thumbnail[0].height / 2
+                                          }
+                                          alt={mpList.title}
+                                        />{" "}
+                                      </div>
+                                      <h6>{mpList.spec}</h6>
+                                      <h4>
+                                        Rp.{" "}
+                                        {mpList.price.toLocaleString("id-ID")}
+                                      </h4>
+                                      <a
+                                        href={`${mpList.link}`}
+                                        target="_blank"
+                                      >
+                                        Check di {mp.title}
+                                      </a>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
                           </div>
-                          <div className={styles.itemprodmp}>
-                            {mp.List.map((mpList, x) => {
-                              return (
-                                <div
-                                  className={styles.itemlist}
-                                  key={mpList.id}
-                                >
-                                  <div className={styles.imgwrp}>
-                                    <Image
-                                      src={apiUrl + mpList.thumbnail[0].url}
-                                      width={mpList.thumbnail[0].width / 2}
-                                      height={mpList.thumbnail[0].height / 2}
-                                      alt={mpList.title}
-                                    />{" "}
-                                  </div>
-                                  <h6>{mpList.spec}</h6>
-                                  <h4>
-                                    Rp. {mpList.price.toLocaleString("id-ID")}
-                                  </h4>
-                                  <a href={`${mpList.link}`} target="_blank">
-                                    Check di {mp.title}
-                                  </a>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </Fragment>
+              ) : null}
 
               {post.post && (
                 <div>
@@ -609,7 +619,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
             <div className="row">
               {dataRelatedProd.map((value, index) => {
                 return (
-                  <Fragment>
+                  <Fragment key={value.id}>
                     <div
                       className={
                         dataRelatedProd !== 3 ? `col-lg-3` : `col-lg-4`
@@ -635,7 +645,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
                           <a href="#" className={styles.btnfull}>
                             BANDINGKAN PRODUK
                           </a>
-                          <Link href={baseUrl + "handphone/" + value.slug}>
+                          <Link href={baseUrl + currentPage + "/" + value.slug}>
                             <a className={styles.btnblank}>
                               LIHAT SELENGKAPNYA
                             </a>
@@ -708,7 +718,6 @@ export async function getStaticProps({ params }) {
     `${apiUrl}/products?_id=${random1}&_id=${random2}&_id=${random3}&_id=${random4}`
   );
   const dataRelatedProd = await res4.json();
-  console.log(res4);
   return {
     props: {
       dataContentAds,
