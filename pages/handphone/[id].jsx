@@ -492,7 +492,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
                 {post.usb}
               </div>
 
-              {post.Price_Marketplace & (post.marketplace !== []) ? (
+              {post.Price_Marketplace & (post.Price_Marketplace !== []) ? (
                 <Fragment>
                   <Title title="Harga di Marketplace" idName="harga" />
                   <div className={styles.marketplaceprice}>
@@ -638,7 +638,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
                           <div className={styles.productinfo}>
                             <h5>{value.title}</h5>
                             <h6>{value.memory_internal}</h6>
-                            <Rate TotalRate={value.rate.rating} />
+                            <Rate TotalRate={value.rating} />
                           </div>
                         </div>
                         <div className={styles.wrpbtn}>

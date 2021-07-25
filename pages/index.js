@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useEffect, useState } from 'react';
-import { Ads, AdsBanner, Rate, Title } from "../components/";
+import { Ads, AdsBanner, Title } from "../components/";
 // import { apiUrl } from '../../config/variable';
 import { apiUrl } from '../config/variable';
 import LayoutHome from '../layout/layouthome/layoutHome';
@@ -179,7 +179,7 @@ export default function Home({
 
                 <div className={styles.compareItem}>
                     <div className={styles.contens}>
-                        <Title title="Top Perbandingan Minggu Ini"/>
+                        <Title title="Top Perbandingan"/>
                         <div className="row">
                             {dataCompare.map((item,index)=> {
                                 return (
@@ -193,7 +193,7 @@ export default function Home({
                                                             <div className={styles.contentDec}>
                                                                 <h5>{data.title}</h5>
                                                                 <h6>{data.memory_internal}</h6>
-                                                                <Rate TotalRate={data.rate}/>                                                        
+                                                       
                                                             </div>
                                                         </div>
                                                     )
@@ -215,7 +215,6 @@ export default function Home({
                                                 <div className={styles.productinfo}>
                                                     <h5>{item.title}</h5>
                                                     <h6>{item.memory_internal}</h6>
-                                                    <Rate TotalRate={item.rate.rating}/>
                                                 </div>
                                             </div>
                                             <div className={styles.wrpbtn}>
