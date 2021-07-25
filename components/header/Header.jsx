@@ -1,33 +1,10 @@
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import { apiUrl, baseUrl } from "../../config/variable";
 import styles from "./Header.module.scss";
 
-export default function Header() {
-  const [menu, setMenu] = useState([]);
-
-  const getMenu = () => {
-    axios
-      // .get(`${apiUrl}/menus`, {
-      //   headers: {
-      //     Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      //   },
-      // })
-      .get(`${apiUrl}/menus`)
-      .then((res) => {
-        setMenu(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    getMenu();
-  }, []);
-
+export default function Header(props) {
   return (
     <Fragment>
       <div className={styles.header}>
@@ -45,24 +22,17 @@ export default function Header() {
             </Link>
           </div>
           <div className={styles.center}>
-            <ul className={styles.mainmenu}>
-              {menu.map((item, i) => {
-                return (
-                  <li key={item.id}>
-                    <Link href={baseUrl + item.title}>
-                      <a>{item.title}</a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <ul className={styles.mainmenu}>{props.listmenu}</ul>
           </div>
           <div className={styles.right}>
             {/* <Image src={IconSearch} alt="seacrh" width="24px" height="24px" /> */}
           </div>
         </div>
       </div>
-      <div className={styles.TopBrands}>das</div>
+      <div className={styles.TopBrands}>
+        <label>Merk:</label>
+        <ul>{props.listTopBrands}</ul>
+      </div>
     </Fragment>
   );
 }

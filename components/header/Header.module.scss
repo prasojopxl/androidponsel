@@ -33,3 +33,28 @@
     }
   }
 }
+
+.TopBrands {
+  text-align: center;
+  padding: 10px 15px;
+  label {
+    font-family: $font-MulishBold;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  ul {
+    display: inline-block;
+    li {
+      display: inline-block;
+      a {
+        display: block;
+        padding: 0 10px;
+        color: $color-gray3;
+        &:hover {
+          color: $color-green;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
