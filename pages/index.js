@@ -9,6 +9,7 @@ import styles from "./index.module.scss";
 
 export async function getStaticProps(context) {
   // ads
+
   const resBanerHome1 = await fetch(
     `${apiUrl}/ads/1?_publicationState=preview`
   );
@@ -78,6 +79,15 @@ export async function getStaticProps(context) {
   const getMenu = await resMenu.json();
   const resTopBrands = await fetch(`${apiUrl}/brands?_top_brand=true`);
   const getTopBrands = await resTopBrands.json();
+  const androidNews = await fetch(
+    `https://www.androidponsel.com/wp-json/wp/v2/posts?per_page=1`
+  );
+  const dataAndroidNews = await androidNews.json();
+  const userId = await fetch(
+    `https://www.androidponsel.com/wp-json/wp/v2/users`
+  );
+  const dataUserId = await userId.json();
+
   // const settings = {
   //     method: 'POST',
   //     body: JSON.stringify({
@@ -113,6 +123,8 @@ export async function getStaticProps(context) {
       tipsTrikSecond,
       getMenu,
       getTopBrands,
+      dataAndroidNews,
+      dataUserId,
     },
     revalidate: 5,
   };
@@ -139,6 +151,8 @@ export default function Home({
   jwtValue,
   getMenu,
   getTopBrands,
+  dataAndroidNews,
+  dataUserId,
 }) {
   const [ads1, setAds1] = useState({
     iframe: [],
@@ -159,9 +173,22 @@ export default function Home({
           heightImage: dataTopAds.Image_Banner.height,
         });
   };
+
+  const userAndroidponsel = [];
+  dataUserId.map((item, i) => {
+    userAndroidponsel.push({ id: item.id, name: item.name });
+  });
+  console.log(userAndroidponsel);
+
+  const UserPost = (props) => {
+    // props.userId = 15 ? [userAndroidponsel[0].name] : "admin";
+
+    return <span>By {props.userId}</span>;
+  };
+
+  console.log(userAndroidponsel);
   useEffect(() => {
     getAds1();
-    localStorage.setItem("JWT", jwtValue);
   }, []);
 
   return (
@@ -197,14 +224,14 @@ export default function Home({
           </Fragment>
         )}
         {/* {ads1.bannerImage === "withBanner" ? (
-          <AdsBanner
+            <AdsBanner
             linkbanner={ads1.link}
             urlImage={ads1.urlImage}
             width={ads1.widthImage}
             height={ads1.heightImage}
-          />
+            />
         ) : (
-          <Ads banner={ads1.iframe} />
+            <Ads banner={ads1.iframe} />
         )} */}
         <div className={styles.compareItem}>
           <div className={styles.contens}>
@@ -290,40 +317,24 @@ export default function Home({
               <div className="col-lg-12">
                 <div className="row">
                   <div className="col-lg-5">
-                    {mainNews.map((item, i) => {
+                    {dataAndroidNews.map((item, i) => {
                       return (
                         <div className={styles.mainpost} key={item.id}>
                           <div className={styles.imgwrp}>
                             <Image
-                              src={apiUrl + item.thumbnail.url}
-                              width={item.thumbnail.width}
-                              height={item.thumbnail.height}
-                              alt={item.title}
+                              src={item.yoast_head_json.og_image[0].url}
+                              width={item.yoast_head_json.og_image[0].width}
+                              height={item.yoast_head_json.og_image[0].height}
+                              alt={item.title.rendered}
                             />
                           </div>
                           <div className={styles.desc}>
-                            <div className={styles.tags}>
-                              {item.tags.map((data) => {
-                                return (
-                                  <a href="#" key={data.id}>
-                                    {data.tag_name}
-                                  </a>
-                                );
-                              })}
-                            </div>
-                            <a href="#">
-                              <h4>{item.title}</h4>
+                            <a href={item.link}>
+                              <h4>{item.title.rendered}</h4>
                             </a>
                             <div className={styles.infodate}>
-                              <span>
-                                By{" "}
-                                {item.author === null ? "admin" : item.author}
-                              </span>
-                              <span>
-                                {item.updated_at.substr(8, 2)}-
-                                {item.updated_at.substr(5, 2)}-
-                                {item.updated_at.substr(0, 4)}{" "}
-                              </span>
+                              <UserPost userId={item.author} />
+                              <span>{item.date.substr(0, 10)}</span>
                             </div>
                           </div>
                         </div>
@@ -335,7 +346,7 @@ export default function Home({
                       <div className="row">
                         {topNews.map((item, i) => {
                           return (
-                            <div className="col-lg-6">
+                            <div className="col-lg-6" key={item.id}>
                               <div className={styles.wrpitemnews} key={item.id}>
                                 <div className={styles.imgwrp}>
                                   <Image
