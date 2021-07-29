@@ -80,13 +80,11 @@ export async function getStaticProps(context) {
   const resTopBrands = await fetch(`${apiUrl}/brands?_top_brand=true`);
   const getTopBrands = await resTopBrands.json();
   const androidNews = await fetch(
-    `https://www.androidponsel.com/wp-json/wp/v2/posts?per_page=1`
+    `https://www.androidponsel.com/wp-json/wp/v2/posts?per_page=1&_embed=author,wp:featuredmedia`
   );
   const dataAndroidNews = await androidNews.json();
-  const userId = await fetch(
-    `https://www.androidponsel.com/wp-json/wp/v2/users`
-  );
-  const dataUserId = await userId.json();
+  // api data second
+  // https://www.androidponsel.com/wp-json/wp/v2/posts?per_page=4&_embed=author,wp:featuredmedia&offset=1
 
   // const settings = {
   //     method: 'POST',
@@ -174,19 +172,6 @@ export default function Home({
         });
   };
 
-  const userAndroidponsel = [];
-  dataUserId.map((item, i) => {
-    userAndroidponsel.push({ id: item.id, name: item.name });
-  });
-  console.log(userAndroidponsel);
-
-  const UserPost = (props) => {
-    // props.userId = 15 ? [userAndroidponsel[0].name] : "admin";
-
-    return <span>By {props.userId}</span>;
-  };
-
-  console.log(userAndroidponsel);
   useEffect(() => {
     getAds1();
   }, []);
@@ -322,9 +307,17 @@ export default function Home({
                         <div className={styles.mainpost} key={item.id}>
                           <div className={styles.imgwrp}>
                             <Image
-                              src={item.yoast_head_json.og_image[0].url}
-                              width={item.yoast_head_json.og_image[0].width}
-                              height={item.yoast_head_json.og_image[0].height}
+                              src={
+                                item._embedded["wp:featuredmedia"][0].source_url
+                              }
+                              width={
+                                item._embedded["wp:featuredmedia"][0]
+                                  .media_details.width
+                              }
+                              height={
+                                item._embedded["wp:featuredmedia"][0]
+                                  .media_details.height
+                              }
                               alt={item.title.rendered}
                             />
                           </div>
@@ -332,8 +325,9 @@ export default function Home({
                             <a href={item.link}>
                               <h4>{item.title.rendered}</h4>
                             </a>
+                            {console.log()}
                             <div className={styles.infodate}>
-                              <UserPost userId={item.author} />
+                              <span>By {item._embedded.author[0].name}</span>
                               <span>{item.date.substr(0, 10)}</span>
                             </div>
                           </div>
