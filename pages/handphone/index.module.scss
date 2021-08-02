@@ -10,12 +10,22 @@
 }
 
 .productItem {
-  box-shadow: $shadow2;
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 15px;
   margin-top: 15px;
   min-height: 150px;
+  position: relative;
+  background: #fff;
+  transition: $animate;
+  border: none;
+  &:hover {
+    box-shadow: $shadow;
+    transform: scale(1.1);
+    z-index: 1;
+    animation: $animate;
+    border: $color-gray2 solid 1px;
+  }
   .shortproduct {
     display: flex;
   }
@@ -45,6 +55,9 @@
     }
     .btnfull {
       color: #fff;
+      background: $color-green;
+      border-radius: 10px;
+      padding: 5px 10px;
       margin-bottom: 10px;
     }
   }

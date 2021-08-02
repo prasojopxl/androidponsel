@@ -24,7 +24,10 @@ export default function LayoutHandphone(props) {
       </Head>
 
       <div className={styles.headerweb}>
-        <Header />
+        <Header
+          listmenu={props.menu}
+          listTopBrands={props.listTopBrands}
+        ></Header>
       </div>
 
       <div className={styles.bodyweb}>{props.children}</div>

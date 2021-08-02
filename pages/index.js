@@ -280,6 +280,7 @@ export default function Home({
 	return (
 		<React.Fragment>
 			<LayoutHome
+			title="androidponsel.com | Perbandingan Handphone"
 			menu={getMenu.map((item, i) => {
 				return (
 				<li key={item.id}>
@@ -326,30 +327,30 @@ export default function Home({
 					{dataCompare.map((item, index) => {
 					return (
 						<div className="col-lg-6" key={item.id}>
-						<div className={styles.itemcompare}>
-							<div className={styles.wrpCompare}>
-							{item.products.map((data) => {
-								return (
-								<div className={styles.item} key={data.id}>
-									<div className={styles.imgwrp}>
-									<Image
-										src={apiUrl + data.product_image[0].url}
-										width={data.product_image[0].width / 2}
-										height={data.product_image[0].height / 2}
-									></Image>
+							<div className={styles.itemcompare}>
+								<div className={styles.wrpCompare}>
+								{item.products.map((data) => {
+									return (
+									<div className={styles.item} key={data.id}>
+										<div className={styles.imgwrp}>
+										<Image
+											src={apiUrl + data.product_image[0].url}
+											width={data.product_image[0].width / 2}
+											height={data.product_image[0].height / 2}
+										></Image>
+										</div>
+										<div className={styles.contentDec}>
+										<h5>{data.title}</h5>
+										<h6>{data.memory_internal}</h6>
+										</div>
 									</div>
-									<div className={styles.contentDec}>
-									<h5>{data.title}</h5>
-									<h6>{data.memory_internal}</h6>
-									</div>
+									);
+								})}
 								</div>
-								);
-							})}
+								<a href="#" className={styles.fullLink}>
+								LIHAT PERBANDINGAN
+								</a>
 							</div>
-							<a href="#" className={styles.fullLink}>
-							LIHAT PERBANDINGAN
-							</a>
-						</div>
 						</div>
 					);
 					})}
@@ -647,13 +648,20 @@ export default function Home({
 							/>
 							</div>
 							<div className={styles.desc}>
-							<a href={item.link}>
-								<h5>{item.title.rendered}</h5>
-							</a>	
-							<div className={styles.infodate}>
-								<span>By {item._embedded.author[0].name}</span>
-								<span>{item.date.substr(0, 10)}</span>
-							</div>
+								<div className={styles.tags}>
+									{item._embedded["wp:term"][0].map((data) => {
+										return (
+											<a href={data.link} key={data.id}>{data.name}</a>
+										)
+									})}
+								</div>							  
+								<a href={item.link}>
+									<h5>{item.title.rendered}</h5>
+								</a>	
+								<div className={styles.infodate}>
+									<span>By {item._embedded.author[0].name}</span>
+									<span>{item.date.substr(0, 10)}</span>
+								</div>
 							</div>
 						</div>
 						</div>

@@ -311,6 +311,34 @@
   }
 }
 
+.desc {
+  .tags {
+    background: $color-green2;
+    border-radius: 30px;
+    padding: 1px 10px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 11px;
+    transition: $animate;
+    a {
+      color: $color-green;
+      &:after {
+        content: "/";
+        margin: 0 3px;
+      }
+      &:last-child {
+        &::after {
+          content: none;
+        }
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 .topkanal,
 .topberita {
   position: relative;
