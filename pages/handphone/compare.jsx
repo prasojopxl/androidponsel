@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import useSWR from 'swr';
-import { Ads, AdsBanner, Rate } from "../../components";
+import { Ads, Rate, AdsBanner } from "../../components";
+import Image from "next/image";
 import { apiUrl } from "../../config/variable";
 import LayoutHandphone from "../../layout/layouthandphone/LayoutHandphone";
 import styles from "./index.module.scss";
@@ -12,8 +12,6 @@ import styles from "./index.module.scss";
 export default function compare({
 	getMenu,
 	getTopBrands,
-	dataBanerCompareTop,
-	dataBanerCompareBody,
 }) {
 	const router = useRouter();
 	const { produk1, produk2, produk3 } = router.query;
@@ -24,52 +22,39 @@ export default function compare({
 	};
 
 	// const [dataCompare, setDataCompare] = useState([])
-	const [ads1, setAds1] = useState({
-		iframe: [],
-		bannerImage: [],
-		link: [],
-		urlImage: [],
-		widthImage: [],
-		heightImage: [],
-	});
-	const getAds1 = () => {
-		dataBanerCompareTop.Image_Banner === null
-			? setAds1({ iframe: dataBanerCompareTop.URL_Iframe })
-			: setAds1({
-				bannerImage: "withBanner",
-				link: dataTopAds.url,
-				urlImage: apiUrl + dataTopAds.Image_Banner.url,
-				widthImage: dataTopAds.Image_Banner.width,
-				heightImage: dataTopAds.Image_Banner.height,
-			});
-	};
+	// const [ads1, setAds1] = useState({
+	// 	iframe: [],
+	// 	bannerImage: [],
+	// 	link: [],
+	// 	urlImage: [],
+	// 	widthImage: [],
+	// 	heightImage: [],
+	// });
+	// const getAds1 = () => {
+	// 	dataBanerCompareTop.Image_Banner === null
+	// 		? setAds1({ iframe: dataBanerCompareTop.URL_Iframe })
+	// 		: setAds1({
+	// 			bannerImage: "withBanner",
+	// 			link: dataTopAds.url,
+	// 			urlImage: apiUrl + dataTopAds.Image_Banner.url,
+	// 			widthImage: dataTopAds.Image_Banner.width,
+	// 			heightImage: dataTopAds.Image_Banner.height,
+	// 		});
+	// };
+	const { data: produkData, error: produkError } = useSWR(`${apiUrl}/products?slug=${produk1}&slug=${produk2}&slug=${produk3}`)
+	const { data: dataBanerCompareTop } = useSWR(`${apiUrl}/ads/10?_publicationState=preview`)
 
-	const [ads2, setAds2] = useState({
-		iframe: [],
-		bannerImage: [],
-		link: [],
-		urlImage: [],
-		widthImage: [],
-		heightImage: [],
-	});
-	const getAds2 = () => {
-		dataBanerCompareBody.Image_Banner === null
-			? setAds2({ iframe: dataBanerCompareBody.URL_Iframe })
-			: setAds2({
-				bannerImage: "withBanner",
-				link: dataTopAds.url,
-				urlImage: apiUrl + dataTopAds.Image_Banner.url,
-				widthImage: dataTopAds.Image_Banner.width,
-				heightImage: dataTopAds.Image_Banner.height,
-			});
-	};
+	if (!produkData) return <div>Loading</div>
+	if (produkError) return <div>Failed</div>
+	const dataCompare = produkData;
 
-	const url = `${apiUrl}/products?slug=${produk1}&slug=${produk2}&slug=${produk3}`
-	const { data, error } = useSWR(`${url}`)
-	if (!data) return <div>Loading</div>
-	if (error) return <div>Failed</div>
 
-	const dataCompare = data;
+
+
+	// dataBanerCompareTop
+	// useEffect(() => {
+	// 	getAds1();
+	// }, [])
 
 
 	// const getCompare = () => {
@@ -86,10 +71,7 @@ export default function compare({
 	// getCompare();
 
 
-	// useEffect(() => {
-	// 	getAds1();
-	// 	getAds2();
-	// }, []);
+
 	return (
 		<LayoutHandphone
 			title="handphone"
@@ -109,21 +91,22 @@ export default function compare({
 			})}
 		>
 			<div className={styles.comparepage}>
-				{dataBanerCompareTop.published_at && (
-					<Fragment>
-						{ads1.bannerImage === "withBanner" ? (
-							<AdsBanner
-								linkbanner={ads1.link}
-								urlImage={ads1.urlImage}
-								width={ads1.widthImage}
-								height={ads1.heightImage}
-							/>
-						) : (
-							<Ads banner={ads1.iframe} />
-						)}
+				{dataBanerCompareTop.published_at !== null && (
+					<Fragment >
+						{
+							dataBanerCompareTop.Image_Banner !== null ? (
+								<AdsBanner
+									linkbanner={dataBanerCompareTop.url}
+									urlImage={apiUrl + dataBanerCompareTop.Image_Banner.url}
+									width={dataBanerCompareTop.Image_Banner.width}
+									height={dataBanerCompareTop.Image_Banner.height}
+								/>
+							) : (
+								<Ads banner={dataBanerCompareTop.URL_Iframe} />
+							)
+						}
 					</Fragment>
 				)}
-
 				<div className={styles.detailCompare}>
 					<div className={styles.contents}>
 						<div className="row justify-content-center">
@@ -607,6 +590,7 @@ export default function compare({
 
 					</div>
 				</div>
+
 			</div>
 		</LayoutHandphone >
 	);
@@ -632,7 +616,6 @@ export async function getStaticProps() {
 		props: {
 			getMenu,
 			getTopBrands,
-			dataBanerCompareTop,
 			dataBanerCompareBody,
 		},
 	};
