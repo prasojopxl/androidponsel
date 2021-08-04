@@ -492,9 +492,9 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
                                 {post.usb}
                             </div>
 
-                            {post.Price_Marketplace & (post.Price_Marketplace !== []) ? (
-                                <Fragment>
-                                    <Title title="Harga di Marketplace" idName="harga" />
+                            <Fragment>
+                                <Title title="Harga di Marketplace" idName="harga" />
+                                {post.Price_Marketplace !== [] ? (
                                     <div className={styles.marketplaceprice}>
                                         <div className="row">
                                             {post.Price_Marketplace.map((mp, i) => {
@@ -547,8 +547,9 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
                                             })}
                                         </div>
                                     </div>
-                                </Fragment>
-                            ) : null}
+                                ) : "Data belum "}
+
+                            </Fragment>
 
                             {post.post && (
                                 <div>

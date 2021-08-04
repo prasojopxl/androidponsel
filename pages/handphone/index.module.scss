@@ -9,6 +9,15 @@
     }
 }
 
+.spaceHeight {
+    display: block;
+    width: 100%;
+    height: 30px;
+    &50 {
+        height: 50px;
+    }
+}
+
 .productItem {
     padding: 20px;
     border-radius: 5px;
@@ -278,7 +287,8 @@
     .prodItem {
         border: $color-gray solid 1px;
         text-align: center;
-        padding: 25px;
+        padding: 30px 20px;
+        padding-bottom: 20px;
         max-width: 250px;
         display: flex;
         flex-direction: column;
@@ -295,5 +305,40 @@
     }
     .imgwrp {
         text-align: center;
+    }
+    h5 {
+    }
+}
+
+.itemInfoCompare {
+    padding: 15px 0;
+    border-bottom: $color-gray solid 1px;
+    h5 {
+        margin-bottom: 15px;
+        font-family: $font-MulishBold;
+    }
+    ul {
+        font-size: 12.5px;
+    }
+}
+
+h4 {
+    &.titleCompare {
+        font-size: 17px;
+        font-family: $font-MulishBold;
+        text-transform: capitalize;
+        position: relative;
+        padding-left: 15px;
+        &::before {
+            content: "";
+            position: absolute;
+            background: $color-green;
+            width: 5px;
+            height: 100%;
+            display: inline-block;
+            margin-right: 10px;
+            left: 0;
+            top: 0;
+        }
     }
 }
