@@ -7,7 +7,7 @@ import { apiUrl, baseUrl } from "../../config/variable";
 import LayoutHandphone from "../../layout/layouthandphone/LayoutHandphone";
 import styles from "./index.module.scss";
 
-export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
+export default function DetailPage({ post, dataContentAds, dataRelatedProd, getMenu, getTopBrands }) {
     const [state, setState] = useState({ nav1: null, nav2: null });
     const slider1 = useRef();
     const slider2 = useRef();
@@ -75,7 +75,23 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
     }, []);
 
     return (
-        <LayoutHandphone>
+        <LayoutHandphone
+            title="handphone"
+            menu={getMenu.map((item, i) => {
+                return (
+                    <li key={item.id}>
+                        <Link href={item.url}>{item.title}</Link>
+                    </li>
+                );
+            })}
+            listTopBrands={getTopBrands.map((item, i) => {
+                return (
+                    <li key={item.id}>
+                        <Link href="#">{item.title}</Link>
+                    </li>
+                );
+            })}
+        >
             <div className={styles.detailproducts}>
                 <div className={styles.contents}>
                     <Title title="Overview Produk"></Title>
@@ -666,8 +682,16 @@ export async function getStaticProps({ params }) {
         `${apiUrl}/products?_id=${random1}&_id=${random2}&_id=${random3}&_id=${random4}`
     );
     const dataRelatedProd = await res4.json();
+
+    const resMenu = await fetch(`${apiUrl}/menus?_sort=order`);
+    const getMenu = await resMenu.json();
+    const resTopBrands = await fetch(`${apiUrl}/brands?_top_brand=true`);
+    const getTopBrands = await resTopBrands.json();
+
     return {
         props: {
+            getMenu,
+            getTopBrands,
             dataContentAds,
             post,
             dataRelatedProd,

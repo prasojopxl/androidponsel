@@ -669,10 +669,6 @@ export async function getStaticProps() {
 	const getTopBrands = await resTopBrands.json();
 
 	//ads
-	const resBanerCompareTop = await fetch(
-		`${apiUrl}/ads/10?_publicationState=preview`
-	);
-	const dataBanerCompareTop = await resBanerCompareTop.json();
 	const resBanerCompareBody = await fetch(
 		`${apiUrl}/ads/11?_publicationState=preview`
 	);
