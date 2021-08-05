@@ -494,60 +494,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd }) {
 
                             <Fragment>
                                 <Title title="Harga di Marketplace" idName="harga" />
-                                {post.Price_Marketplace !== [] ? (
-                                    <div className={styles.marketplaceprice}>
-                                        <div className="row">
-                                            {post.Price_Marketplace.map((mp, i) => {
-                                                return (
-                                                    <div className="col-lg-3" key={mp.id}>
-                                                        <div className={styles.wrpItem}>
-                                                            <div className={styles.logomp}>
-                                                                <Image
-                                                                    src={apiUrl + mp.logo.url}
-                                                                    width={mp.logo.width}
-                                                                    height={mp.logo.height}
-                                                                    alt={mp.title}
-                                                                />
-                                                            </div>
-                                                            <div className={styles.itemprodmp}>
-                                                                {mp.List.map((mpList, x) => {
-                                                                    return (
-                                                                        <div
-                                                                            className={styles.itemlist}
-                                                                            key={mpList.id}
-                                                                        >
-                                                                            <div className={styles.imgwrp}>
-                                                                                <Image
-                                                                                    src={apiUrl + mpList.thumbnail[0].url}
-                                                                                    width={mpList.thumbnail[0].width / 2}
-                                                                                    height={
-                                                                                        mpList.thumbnail[0].height / 2
-                                                                                    }
-                                                                                    alt={mpList.title}
-                                                                                />{" "}
-                                                                            </div>
-                                                                            <h6>{mpList.spec}</h6>
-                                                                            <h4>
-                                                                                Rp.{" "}
-                                                                                {mpList.price.toLocaleString("id-ID")}
-                                                                            </h4>
-                                                                            <a
-                                                                                href={`${mpList.link}`}
-                                                                                target="_blank"
-                                                                            >
-                                                                                Check di {mp.title}
-                                                                            </a>
-                                                                        </div>
-                                                                    );
-                                                                })}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                ) : "Data belum "}
+
 
                             </Fragment>
 

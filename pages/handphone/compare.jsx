@@ -4,7 +4,7 @@ import { Fragment, useState } from "react";
 import useSWR from 'swr';
 import { Ads, Rate, AdsBanner } from "../../components";
 import Image from "next/image";
-import { apiUrl } from "../../config/variable";
+import { apiUrl, baseUrl } from "../../config/variable";
 import LayoutHandphone from "../../layout/layouthandphone/LayoutHandphone";
 import styles from "./index.module.scss";
 
@@ -578,16 +578,82 @@ export default function compare({
 								<h4 className={styles.titleCompare}>Harga di Marketplace</h4>
 							</div>
 						</div>
-						{
-							dataCompare.map((item, i) => {
-								return (
-									<div className={`row justify-content-center ${styles.itemInfoCompare}`} key={item.id}>
+						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
+							<div className="col-lg-3">
+								<Image src="/logo-tokopedia.png" width={171} height={50} alt="tokopedia" />
+							</div>
 
-									</div>
-								)
-							})
-						}
+							{
+								dataCompare.map((item, i) => {
+									return (
+										<div className="col-lg-3" key={item.id}>
+											{
+												item.Tokopedia !== null ? <div>{item.Tokopedia.title}<br /><a href={item.Tokopedia.link}>Cek harga di {item.Tokopedia.marketplace} </a></div>
+													: "Belum ada data"
 
+											}
+										</div>
+									)
+								})
+							}
+						</div>
+						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
+							<div className="col-lg-3">
+								<Image src="/logo-shopee.png" width={171} height={50} alt="shopee" />
+							</div>
+
+							{
+								dataCompare.map((item, i) => {
+									return (
+										<div className="col-lg-3" key={item.id}>
+											{
+												item.Shopee !== null ? <div>{item.Shopee.title}<br /><a href={item.Shopee.link}>Cek harga di {item.Shopee.marketplace} </a></div>
+													: "Belum ada data"
+
+											}
+										</div>
+									)
+								})
+							}
+						</div>
+						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
+							<div className="col-lg-3">
+								<Image src="/logo-blibli.png" width={171} height={50} alt="Blibli" />
+							</div>
+
+							{
+								dataCompare.map((item, i) => {
+									return (
+										<div className="col-lg-3" key={item.id}>
+											{
+												item.Blibli !== null ? <div>{item.Blibli.title}<br /><a href={item.Blibli.link}>Cek harga di {item.Blibli.marketplace} </a></div>
+													: "Belum ada data"
+
+											}
+										</div>
+									)
+								})
+							}
+						</div>
+						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
+							<div className="col-lg-3">
+								<Image src="/logo-lazada.png" width={171} height={50} alt="Lazada" />
+							</div>
+
+							{
+								dataCompare.map((item, i) => {
+									return (
+										<div className="col-lg-3" key={item.id}>
+											{
+												item.Lazada !== null ? <div>{item.Lazada.title}<br /><a href={item.Lazada.link}>Cek harga di {item.Lazada.marketplace} </a></div>
+													: "Belum ada data"
+
+											}
+										</div>
+									)
+								})
+							}
+						</div>
 					</div>
 				</div>
 
