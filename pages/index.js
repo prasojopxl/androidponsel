@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import { Ads, AdsBanner, Title } from "../components/";
-import { apiUrl } from "../config/variable";
+import { apiUrl, baseUrl } from "../config/variable";
 import LayoutHome from "../layout/layouthome/layoutHome";
 import styles from "./index.module.scss";
 
@@ -77,7 +77,7 @@ export async function getStaticProps(context) {
     );
     const topApp = await resTopApp.json();
     const resListApp = await fetch(
-        `https://www.androidponsel.com/wp-json/wp/v2/posts?categories=19&per_page=15&_embed=author,wp:featuredmedia,wp:term&offset=2`
+        `https://www.androidponsel.com/download/wp-json/wp/v2/posts?per_page=15&_embed=author,wp:featuredmedia,wp:term&offset=0`
     );
     const listApp = await resListApp.json();
     const resTipsTrik = await fetch(
@@ -415,12 +415,23 @@ export default function Home({
                                                     );
                                                 })}
                                             </div>
-                                            <a
-                                                href="#"
-                                                className={styles.fullLink}
+
+                                            <Link
+                                                href={
+                                                    baseUrl +
+                                                    "handphone/compare?produk1=" +
+                                                    item.products[0].slug +
+                                                    "&produk2=" +
+                                                    item.products[1].slug
+                                                }
                                             >
-                                                LIHAT PERBANDINGAN
-                                            </a>
+                                                <a className={styles.fullLink}>
+                                                    LIHAT PERBANDINGAN
+                                                    {console.log(
+                                                        item.products[0].slug
+                                                    )}
+                                                </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 );
@@ -1090,7 +1101,7 @@ export default function Home({
                             }}
                         >
                             <a
-                                href="https://www.androidponsel.com/aplikasi/"
+                                href="https://www.androidponsel.com/download/"
                                 className="btn medium"
                             >
                                 Lihat aplikasi lainnya

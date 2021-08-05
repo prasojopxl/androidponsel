@@ -21,56 +21,12 @@ export default function compare({
 		show === true ? setShow(false) : setShow(true);
 	};
 
-	// const [dataCompare, setDataCompare] = useState([])
-	// const [ads1, setAds1] = useState({
-	// 	iframe: [],
-	// 	bannerImage: [],
-	// 	link: [],
-	// 	urlImage: [],
-	// 	widthImage: [],
-	// 	heightImage: [],
-	// });
-	// const getAds1 = () => {
-	// 	dataBanerCompareTop.Image_Banner === null
-	// 		? setAds1({ iframe: dataBanerCompareTop.URL_Iframe })
-	// 		: setAds1({
-	// 			bannerImage: "withBanner",
-	// 			link: dataTopAds.url,
-	// 			urlImage: apiUrl + dataTopAds.Image_Banner.url,
-	// 			widthImage: dataTopAds.Image_Banner.width,
-	// 			heightImage: dataTopAds.Image_Banner.height,
-	// 		});
-	// };
 	const { data: produkData, error: produkError } = useSWR(`${apiUrl}/products?slug=${produk1}&slug=${produk2}&slug=${produk3}`)
 	const { data: dataBanerCompareTop } = useSWR(`${apiUrl}/ads/10?_publicationState=preview`)
 
 	if (!produkData) return <div>Loading</div>
 	if (produkError) return <div>Failed</div>
 	const dataCompare = produkData;
-
-
-
-
-	// dataBanerCompareTop
-	// useEffect(() => {
-	// 	getAds1();
-	// }, [])
-
-
-	// const getCompare = () => {
-	// 	axios.get(`${apiUrl}/products?slug=${produk1}&slug=${produk2}&slug=${produk3}`).then((res) => {
-	// 		setDataCompare(res.data)
-	// 	})
-	// }
-
-	// const getCompare = async () => {
-	// 	const res = await fetch(`${apiUrl}/products?slug=${produk1}&slug=${produk2}&slug=${produk3}`);
-	// 	const dataCompare = await res.json();
-	// 	setDataCompare(dataCompare)
-	// }
-	// getCompare();
-
-
 
 	return (
 		<LayoutHandphone
@@ -110,11 +66,12 @@ export default function compare({
 				<div className={styles.detailCompare}>
 					<div className={styles.contents}>
 						<div className="row justify-content-center">
-							<div className="col-lg-3"></div>
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}></div>
+
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
 											<div className={styles.prodItem}>
 												<div className={styles.imgwrp}>
 													<Image src={apiUrl + item.product_image[0].url} width={item.product_image[0].width / 1.2} height={item.product_image[0].height / 1.2} />
@@ -129,13 +86,13 @@ export default function compare({
 						</div>
 						<div className={styles.spaceHeight}></div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								<h4 className={styles.titleCompare}>rating</h4>
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
 											<Rate TotalRate={item.rating} />
 										</div>
 									)
@@ -148,37 +105,37 @@ export default function compare({
 							</div>
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Brand Produk
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.brand.title}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.brand.title}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Status dan Release
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.status}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.status}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Warna
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.color}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.color}</div>
 									)
 								})
 							}
@@ -189,61 +146,61 @@ export default function compare({
 							</div>
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Ukuran Dimensi
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.size}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.size}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Weight
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.weight}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.weight}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Resolution
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.resolution}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.resolution}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Type
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.display_type}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.display_type}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Protection
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.protection}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.protection}</div>
 									)
 								})
 							}
@@ -254,49 +211,49 @@ export default function compare({
 							</div>
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Processor
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.cpu}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.cpu}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Graphic
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.gpu}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.gpu}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Memory
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.ram}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.ram}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Card Slot
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.card_slot}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.card_slot}</div>
 									)
 								})
 							}
@@ -310,37 +267,37 @@ export default function compare({
 							<div className="col-lg-12">
 								<h5>Main Camera</h5>
 							</div>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Quad
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.main_cam_triple}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.main_cam_triple}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Feature
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.main_cam_features}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.main_cam_features}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Video
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.main_cam_video}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.main_cam_video}</div>
 									)
 								})
 							}
@@ -349,37 +306,37 @@ export default function compare({
 							<div className="col-lg-12">
 								<h5>Selfie Camera</h5>
 							</div>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Quad
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.selfie_cam_single}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.selfie_cam_single}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Feature
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.selfie_cam_features}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.selfie_cam_features}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Video
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.selfie_cam_video}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.selfie_cam_video}</div>
 									)
 								})
 							}
@@ -390,13 +347,13 @@ export default function compare({
 							</div>
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Baterai
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.charging_type}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.charging_type}</div>
 									)
 								})
 							}
@@ -407,25 +364,25 @@ export default function compare({
 							</div>
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Operating System
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.os}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.os}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Chipset
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.chipset}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.chipset}</div>
 									)
 								})
 							}
@@ -436,25 +393,25 @@ export default function compare({
 							</div>
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Sensor
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.sensors}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.sensors}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								NFC
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.nfc}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.nfc}</div>
 									)
 								})
 							}
@@ -465,7 +422,7 @@ export default function compare({
 							</div>
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Teknologi | {" "}
 								<span className={styles.linkGeneral} onClick={showData}>
 									Lihat Detail
@@ -474,7 +431,7 @@ export default function compare({
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
 											{item.technology}
 											{show && (
 												<ul>
@@ -490,85 +447,85 @@ export default function compare({
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								SIM
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.sim}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.sim}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								WLAN
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.wlan}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.wlan}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Bluetooth
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.bluetooth}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.bluetooth}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								GPS
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.gps}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.gps}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Infrared
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.infrared}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.infrared}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								Radio
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.radio}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.radio}</div>
 									)
 								})
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								USB
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>{item.usb}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>{item.usb}</div>
 									)
 								})
 							}
@@ -579,14 +536,14 @@ export default function compare({
 							</div>
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								<Image src="/logo-tokopedia.png" width={171} height={50} alt="tokopedia" />
 							</div>
 
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
 											{
 												item.Tokopedia !== null ? <div>{item.Tokopedia.title}<br /><a href={item.Tokopedia.link}>Cek harga di {item.Tokopedia.marketplace} </a></div>
 													: "Belum ada data"
@@ -598,14 +555,14 @@ export default function compare({
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								<Image src="/logo-shopee.png" width={171} height={50} alt="shopee" />
 							</div>
 
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
 											{
 												item.Shopee !== null ? <div>{item.Shopee.title}<br /><a href={item.Shopee.link}>Cek harga di {item.Shopee.marketplace} </a></div>
 													: "Belum ada data"
@@ -617,14 +574,14 @@ export default function compare({
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								<Image src="/logo-blibli.png" width={171} height={50} alt="Blibli" />
 							</div>
 
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
 											{
 												item.Blibli !== null ? <div>{item.Blibli.title}<br /><a href={item.Blibli.link}>Cek harga di {item.Blibli.marketplace} </a></div>
 													: "Belum ada data"
@@ -636,14 +593,14 @@ export default function compare({
 							}
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-3">
+							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								<Image src="/logo-lazada.png" width={171} height={50} alt="Lazada" />
 							</div>
 
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className="col-lg-3" key={item.id}>
+										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
 											{
 												item.Lazada !== null ? <div>{item.Lazada.title}<br /><a href={item.Lazada.link}>Cek harga di {item.Lazada.marketplace} </a></div>
 													: "Belum ada data"

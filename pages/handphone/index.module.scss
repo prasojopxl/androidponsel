@@ -30,10 +30,9 @@
     border: none;
     &:hover {
         box-shadow: $shadow;
-        transform: scale(1.1);
+        transform: scale(1.02);
         z-index: 1;
         animation: $animate;
-        border: $color-gray2 solid 1px;
     }
     .shortproduct {
         display: flex;
