@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
@@ -62,6 +63,8 @@ export default function Handphone({
     dataBanerProdukBody,
     limitpages,
 }) {
+    const router = useRouter()
+
     const Paging = () => {
         return (
             <div className={styles.paging}>
@@ -132,9 +135,36 @@ export default function Handphone({
     const compareProd = () => {
         console.log();
     };
+
+    const [disable, setDisable] = useState(false)
+    const [show, setShow] = useState(false)
+    const [selectedCompare, setSelectedCompare] = useState(false)
+    const addCompare = (slug, event) => {
+        localStorage.getItem("produk1") == null ? localStorage.setItem("produk1", slug) :
+            localStorage.getItem("produk1") !== null && localStorage.getItem("produk2") !== null ? localStorage.setItem("produk3", slug) :
+                localStorage.setItem("produk2", slug);
+        localStorage.getItem("produk1") && localStorage.getItem("produk2") || localStorage.getItem("produk1") && localStorage.getItem("produk3") || localStorage.getItem("produk2") && localStorage.getItem("produk3") !== null ? setShow(true) : setShow(false);
+        console.log(disable)
+    }
+    const removeLocalProd = () => {
+        localStorage.removeItem("produk1")
+        localStorage.removeItem("produk2")
+        localStorage.removeItem("produk3")
+    }
+    const [def, setDef] = useState("");
+    const toggleDef = () => {
+        setDef(def === true ? "active" : null)
+    }
+    const goToCompare = () => {
+        // {`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`}        
+        router.push(`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`)
+    }
     useEffect(() => {
         getAds1();
         getAds2();
+        setTimeout(() => {
+            removeLocalProd();
+        }, 500)
     }, []);
 
     return (
@@ -179,7 +209,12 @@ export default function Handphone({
                                 {dataListHandphone.map((item, i) => {
                                     return (
                                         <div className="col-lg-3" key={item.id}>
-                                            <div className={styles.productItem} onClick={compareProd}>
+                                            <div className={styles.productItem}>
+                                                {
+                                                    selectedCompare && (
+                                                        <div className={`selectedCompare ${"selected-" + i}`}></div>
+                                                    )
+                                                }
                                                 <div className={styles.shortproduct}>
                                                     <div className={styles.imageprod}>
                                                         <Image
@@ -196,10 +231,10 @@ export default function Handphone({
                                                         )}
                                                     </div>
                                                 </div>
-                                                <div className={styles.wrpbtn}>
-                                                    <div className={styles.btnfull}>
-                                                        BANDINGKAN PRODUK
-                                                    </div>
+                                                <div className={`${styles.wrpbtn}`}>
+                                                    <button className={`${styles.btnfull}`} name="mybtn" onClick={() => addCompare(item.slug)}>
+                                                        BANDINGKAN PRODUK 1
+                                                    </button>
                                                     <Link href={`${"/handphone/" + item.slug}`}>
                                                         <a className={styles.btnblank}>
                                                             LIHAT SELENGKAPNYA
@@ -248,9 +283,9 @@ export default function Handphone({
                                                     </div>
                                                 </div>
                                                 <div className={styles.wrpbtn}>
-                                                    <div className={styles.btnfull}>
+                                                    <button className={styles.btnfull} onClick={() => addCompare(item.slug)} disabled={true}>
                                                         BANDINGKAN PRODUK
-                                                    </div>
+                                                    </button>
                                                     <Link href={`${"/handphone/" + item.slug}`}>
                                                         <a className={styles.btnblank}>
                                                             LIHAT SELENGKAPNYA
@@ -266,7 +301,19 @@ export default function Handphone({
                     </div>
                     <Paging />
                 </div>
+                {
+                    show && (
+                        <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
+                            Bandingkan
+                            {/* <Link onClick={removeLocalProd} href={`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`}>
+                        <a className={styles.btnCompareProd}>Bandingkan</a>
+                    </Link> */}
+                        </div>
+                    )
+                }
+
+
             </div>
-        </LayoutHandphone>
+        </LayoutHandphone >
     );
 }

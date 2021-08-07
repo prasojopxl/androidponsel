@@ -22,10 +22,13 @@ export default function compare({
 	};
 
 	const { data: produkData, error: produkError } = useSWR(`${apiUrl}/products?slug=${produk1}&slug=${produk2}&slug=${produk3}`)
-	const { data: dataBanerCompareTop } = useSWR(`${apiUrl}/ads/10?_publicationState=preview`)
+	const { data: dataBanerCompareTop, errorDataBanerCompareTop } = useSWR(`${apiUrl}/ads/10?_publicationState=preview`)
 
 	if (!produkData) return <div>Loading</div>
 	if (produkError) return <div>Failed</div>
+	if (!dataBanerCompareTop) return <div>Loading</div>
+	if (errorDataBanerCompareTop) return <div>Failed</div>
+
 	const dataCompare = produkData;
 
 	return (
