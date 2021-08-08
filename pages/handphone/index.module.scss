@@ -347,14 +347,36 @@ h4 {
     }
 }
 
-.btnCompareProd {
+.containerCompare {
     position: fixed;
     right: 0;
     bottom: 0;
-    background: $color-green;
-    padding: 10px 20px;
-    color: #fff;
-    cursor: pointer;
+    background: $color-gray;
     z-index: 10;
-    outline: none;
+    .desc {
+        padding: 15px;
+    }
+}
+
+.wrpAction {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    .btnReset,
+    .btnCompareProd {
+        padding: 10px 5px;
+        cursor: pointer;
+    }
+    .btnReset {
+        flex: 1;
+        background: $color-green2;
+    }
+    .btnCompareProd {
+        flex: 1;
+        background: $color-green;
+        color: #fff;
+        z-index: 10;
+        outline: none;
+    }
 }

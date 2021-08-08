@@ -129,22 +129,39 @@ export default function Handphone({
             });
     };
 
-    const [compare1, setCompare1] = useState("");
-    const [compare2, setCompare2] = useState("");
-    const [compare3, setCompare3] = useState("");
     const compareProd = () => {
         console.log();
     };
-
-    const [disable, setDisable] = useState(false)
     const [show, setShow] = useState(false)
+    const [compare1, setCompare1] = useState("")
+    const [compare2, setCompare2] = useState("")
+    const [compare3, setCompare3] = useState("")
     const [selectedCompare, setSelectedCompare] = useState(false)
-    const addCompare = (slug, event) => {
-        localStorage.getItem("produk1") == null ? localStorage.setItem("produk1", slug) :
-            localStorage.getItem("produk1") !== null && localStorage.getItem("produk2") !== null ? localStorage.setItem("produk3", slug) :
-                localStorage.setItem("produk2", slug);
-        localStorage.getItem("produk1") && localStorage.getItem("produk2") || localStorage.getItem("produk1") && localStorage.getItem("produk3") || localStorage.getItem("produk2") && localStorage.getItem("produk3") !== null ? setShow(true) : setShow(false);
-        console.log(disable)
+    const addCompare = (slug, i, title) => {
+        const p1 = localStorage.getItem("produk1");
+        const p2 = localStorage.getItem("produk2");
+        const p3 = localStorage.getItem("produk3");
+        // localStorage.getItem("produk1") == null ? localStorage.setItem("produk1", slug) :
+        //     localStorage.getItem("produk1") !== null && localStorage.getItem("produk2") !== null ? localStorage.setItem("produk3", slug) :
+        //         localStorage.setItem("produk2", slug);
+
+        if (p1 == null && p2 == null && p3 == null) {
+            localStorage.setItem("produk1", slug)
+            setCompare1(title)
+            console.log(i)
+        }
+        else if (p1 !== null && p2 == null && p3 == null) {
+            localStorage.setItem("produk2", slug)
+            setCompare2(title)
+            setShow(true)
+            console.log(i)
+        }
+        else if (p1 !== null && p2 !== null && p3 == null) {
+            localStorage.setItem("produk3", slug)
+            setCompare3(title)
+            console.log(i)
+        }
+
     }
     const removeLocalProd = () => {
         localStorage.removeItem("produk1")
@@ -158,6 +175,13 @@ export default function Handphone({
     const goToCompare = () => {
         // {`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`}        
         router.push(`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`)
+    }
+    const resetCompare = () => {
+        removeLocalProd();
+        setCompare1("")
+        setCompare2("")
+        setCompare3("")
+        setShow(false)
     }
     useEffect(() => {
         getAds1();
@@ -232,7 +256,7 @@ export default function Handphone({
                                                     </div>
                                                 </div>
                                                 <div className={`${styles.wrpbtn}`}>
-                                                    <button className={`${styles.btnfull}`} name="mybtn" onClick={() => addCompare(item.slug)}>
+                                                    <button className={`${styles.btnfull}`} name="mybtn" onClick={() => addCompare(item.slug, i, item.title)}>
                                                         BANDINGKAN PRODUK 1
                                                     </button>
                                                     <Link href={`${"/handphone/" + item.slug}`}>
@@ -303,11 +327,19 @@ export default function Handphone({
                 </div>
                 {
                     show && (
-                        <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
-                            Bandingkan
-                            {/* <Link onClick={removeLocalProd} href={`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`}>
-                        <a className={styles.btnCompareProd}>Bandingkan</a>
-                    </Link> */}
+                        <div className={styles.containerCompare}>
+                            <div className={styles.desc}>
+                                <h5>Judul1: {compare1}</h5>
+                                <h5>Judul2: {compare2}</h5>
+                                {localStorage.getItem("produk3") !== null && <h5>Judul3: {compare3}</h5>}
+                            </div>
+                            <div className={styles.wrpAction}>
+                                <div className={styles.btnReset} onClick={() => resetCompare()}>Reset</div>
+                                <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
+                                    Bandingkan
+                                </div>
+                            </div>
+
                         </div>
                     )
                 }
