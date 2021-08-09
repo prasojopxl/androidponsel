@@ -136,59 +136,70 @@ export default function Handphone({
     const [compare1, setCompare1] = useState("")
     const [compare2, setCompare2] = useState("")
     const [compare3, setCompare3] = useState("")
-    const [selectedCompare, setSelectedCompare] = useState(false)
-    const addCompare = (slug, i, title) => {
-        const p1 = localStorage.getItem("produk1");
-        const p2 = localStorage.getItem("produk2");
-        const p3 = localStorage.getItem("produk3");
-        // localStorage.getItem("produk1") == null ? localStorage.setItem("produk1", slug) :
-        //     localStorage.getItem("produk1") !== null && localStorage.getItem("produk2") !== null ? localStorage.setItem("produk3", slug) :
-        //         localStorage.setItem("produk2", slug);
-
+    const [disable, setDisabled] = useState(false)
+    const addCompare = (slug, e, title) => {
+        let p1 = localStorage.getItem("produk1");
+        let p2 = localStorage.getItem("produk2");
+        let p3 = localStorage.getItem("produk3");
         if (p1 == null && p2 == null && p3 == null) {
             localStorage.setItem("produk1", slug)
             setCompare1(title)
-            console.log(i)
+            setShow(true)
+            e.target.disabled = true
         }
         else if (p1 !== null && p2 == null && p3 == null) {
             localStorage.setItem("produk2", slug)
             setCompare2(title)
             setShow(true)
-            console.log(i)
+            e.target.disabled = true
         }
-        else if (p1 !== null && p2 !== null && p3 == null) {
+        else {
             localStorage.setItem("produk3", slug)
             setCompare3(title)
-            console.log(i)
+            setDisabled(true)
         }
-
+        if (p2 == null) {
+            console.log(disable)
+        }
+        else {
+            console.log(disable)
+        }
     }
-    const removeLocalProd = () => {
+    function removeLocalProd() {
         localStorage.removeItem("produk1")
         localStorage.removeItem("produk2")
         localStorage.removeItem("produk3")
-    }
-    const [def, setDef] = useState("");
-    const toggleDef = () => {
-        setDef(def === true ? "active" : null)
+        setDisabled(false)
     }
     const goToCompare = () => {
         // {`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`}        
-        router.push(`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`)
+        const p1 = localStorage.getItem("produk1");
+        const p2 = localStorage.getItem("produk2");
+        const p3 = localStorage.getItem("produk3");
+        if (p1 === p2 || p1 === p3 || p2 === p3) {
+            alert("produk perbandingan tidak boleh sama")
+            removeLocalProd();
+            setShow(false)
+            router.push(`${baseUrl}handphone`)
+        }
+        else {
+            router.push(`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`)
+            removeLocalProd();
+        }
     }
     const resetCompare = () => {
-        removeLocalProd();
         setCompare1("")
         setCompare2("")
         setCompare3("")
+        removeLocalProd()
+        setDisabled(false);
         setShow(false)
     }
     useEffect(() => {
         getAds1();
         getAds2();
-        setTimeout(() => {
-            removeLocalProd();
-        }, 500)
+        removeLocalProd();
+        resetCompare()
     }, []);
 
     return (
@@ -234,11 +245,6 @@ export default function Handphone({
                                     return (
                                         <div className="col-lg-3" key={item.id}>
                                             <div className={styles.productItem}>
-                                                {
-                                                    selectedCompare && (
-                                                        <div className={`selectedCompare ${"selected-" + i}`}></div>
-                                                    )
-                                                }
                                                 <div className={styles.shortproduct}>
                                                     <div className={styles.imageprod}>
                                                         <Image
@@ -256,8 +262,8 @@ export default function Handphone({
                                                     </div>
                                                 </div>
                                                 <div className={`${styles.wrpbtn}`}>
-                                                    <button className={`${styles.btnfull}`} name="mybtn" onClick={() => addCompare(item.slug, i, item.title)}>
-                                                        BANDINGKAN PRODUK 1
+                                                    <button className={`${styles.btnfull}`} name="mybtn" onClick={(e) => addCompare(item.slug, e, item.title)} disabled={disable}>
+                                                        BANDINGKAN PRODUK
                                                     </button>
                                                     <Link href={`${"/handphone/" + item.slug}`}>
                                                         <a className={styles.btnblank}>
@@ -306,8 +312,8 @@ export default function Handphone({
                                                         )}
                                                     </div>
                                                 </div>
-                                                <div className={styles.wrpbtn}>
-                                                    <button className={styles.btnfull} onClick={() => addCompare(item.slug)} disabled={true}>
+                                                <div className={`${styles.wrpbtn}`}>
+                                                    <button className={`${styles.btnfull}`} name="mybtn" onClick={(e) => addCompare(item.slug, e, item.title)} disabled={disable}>
                                                         BANDINGKAN PRODUK
                                                     </button>
                                                     <Link href={`${"/handphone/" + item.slug}`}>
@@ -329,9 +335,9 @@ export default function Handphone({
                     show && (
                         <div className={styles.containerCompare}>
                             <div className={styles.desc}>
-                                <h5>Judul1: {compare1}</h5>
-                                <h5>Judul2: {compare2}</h5>
-                                {localStorage.getItem("produk3") !== null && <h5>Judul3: {compare3}</h5>}
+                                {localStorage.getItem("produk1") !== null && <h5>Handphone 1: {compare1}</h5>}
+                                {localStorage.getItem("produk2") !== null && <h5>Handphone 2: {compare2}</h5>}
+                                {localStorage.getItem("produk3") !== null && <h5>Handphone 3: {compare3}</h5>}
                             </div>
                             <div className={styles.wrpAction}>
                                 <div className={styles.btnReset} onClick={() => resetCompare()}>Reset</div>

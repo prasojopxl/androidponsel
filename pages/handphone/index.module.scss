@@ -73,6 +73,13 @@
                 outline: none;
             }
         }
+        button {
+            &:disabled,
+            &[disabled] {
+                background: $color-gray;
+                cursor: default;
+            }
+        }
     }
     &:hover {
         .wrpbtn {
