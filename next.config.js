@@ -1,16 +1,21 @@
 module.exports = {
-  images: {
-    domains: ["images.unsplash.com", "localhost", "www.androidponsel.com"],
-  },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: '/',
-  //       destination: '/home',
-  //       permanent: true,
-  //     },
-  //   ]
-  // },
+    images: {
+        domains: [
+            "images.unsplash.com",
+            "localhost",
+            "www.androidponsel.com",
+            "papiandro.stagingaja.com",
+        ],
+    },
+    // async redirects() {
+    //   return [
+    //     {
+    //       source: '/',
+    //       destination: '/home',
+    //       permanent: true,
+    //     },
+    //   ]
+    // },
 };
 
 // const withOptimizedImages = require('next-optimized-images')
