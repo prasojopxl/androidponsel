@@ -75,14 +75,14 @@ export default function Handphone({
                     {pages.map((item, i) => {
                         return (
                             <li key={item}>
-                                <Link href={baseUrl + "/handphone/page/" + item}>
+                                <Link href="#">
                                     <a>{item}</a>
                                 </Link>
                             </li>
                         );
                     })}
                 </ul>
-                <Link href={`${baseUrl}handphone/page/${pages.length}`}>
+                <Link href="#">
                     <a>Akhir</a>
                 </Link>
             </div>
@@ -329,7 +329,7 @@ export default function Handphone({
                             </div>
                         </div>
                     </div>
-                    <Paging />
+
                 </div>
                 {
                     show && (

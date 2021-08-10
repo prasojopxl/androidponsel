@@ -52,37 +52,14 @@ export default function Berita({
     dataBanner.Image_Banner == null
       ? setVerticalAds({ iframe: dataBanner.URL_Iframe })
       : setVerticalAds({
-          bannerImage: "withBanner",
-          link: dataBanner.url,
-          urlImage: apiUrl + dataBanner.Image_Banner.url,
-          widthImage: dataBanner.Image_Banner.width,
-          heightImage: dataBanner.Image_Banner.height,
-        });
+        bannerImage: "withBanner",
+        link: dataBanner.url,
+        urlImage: apiUrl + dataBanner.Image_Banner.url,
+        widthImage: dataBanner.Image_Banner.width,
+        heightImage: dataBanner.Image_Banner.height,
+      });
   };
 
-  const Paging = () => {
-    return (
-      <div className={styles.paging}>
-        <Link href={`${baseUrl}berita/`}>
-          <a>Awal</a>
-        </Link>
-        <ul>
-          {pages.map((item, i) => {
-            return (
-              <li key={item}>
-                <Link href={baseUrl + "berita/page/" + item}>
-                  <a>{item}</a>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-        <Link href={`${baseUrl}berita/page/${pages.length}`}>
-          <a>Akhir</a>
-        </Link>
-      </div>
-    );
-  };
 
   useEffect(() => {
     getVerticalAds();
@@ -157,7 +134,6 @@ export default function Berita({
               </div>
             </div>
           </div>
-          <Paging />
         </div>
       </div>
     </LayoutBerita>
