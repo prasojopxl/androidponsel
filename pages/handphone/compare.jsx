@@ -538,11 +538,10 @@ export default function compare({
 								<h4 className={styles.titleCompare}>Harga di Marketplace</h4>
 							</div>
 						</div>
-						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
+						{/* <div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								<Image src="/logo-tokopedia.png" width={171} height={50} alt="tokopedia" />
 							</div>
-
 							{
 								dataCompare.map((item, i) => {
 									return (
@@ -613,7 +612,7 @@ export default function compare({
 									)
 								})
 							}
-						</div>
+						</div> */}
 					</div>
 				</div>
 
