@@ -6,51 +6,7 @@ import { Ads, AdsBanner, Rate, Title } from "../../components";
 import { apiUrl, baseUrl, totalItem } from "../../config/variable";
 import LayoutHandphone from "../../layout/layouthandphone/LayoutHandphone";
 import styles from "./index.module.scss";
-
-export async function getStaticProps() {
-    const resListHanphone = await fetch(
-        `${apiUrl}/products?category=1&_limit=${totalItem}`
-    );
-    const dataListHandphone = await resListHanphone.json();
-    const resListHandphone2 = await fetch(
-        `${apiUrl}/products?category=1&_limit=${totalItem}&offset=8`
-    );
-    const dataListHandphone2 = await resListHandphone2.json();
-
-    const resBanerProdukTop = await fetch(
-        `${apiUrl}/ads/8?_publicationState=preview`
-    );
-    const dataBanerProdukTop = await resBanerProdukTop.json();
-    const resBanerProdukBody = await fetch(
-        `${apiUrl}/ads/9?_publicationState=preview`
-    );
-    const dataBanerProdukBody = await resBanerProdukBody.json();
-
-    const resMenu = await fetch(`${apiUrl}/menus?_sort=order`);
-    const getMenu = await resMenu.json();
-    const resTopBrands = await fetch(`${apiUrl}/brands?_top_brand=true`);
-    const getTopBrands = await resTopBrands.json();
-
-    const resProductsHP = await fetch(`${apiUrl}/products?category=1`);
-    const productsHP = await resProductsHP.json();
-
-    // let limitpages = Math.ceil(productsHP.length / totalItem);
-    // var pages = [];
-    // for (let i = 1; i <= limitpages; i++) {
-    //     pages.push(i);
-    // }
-
-    return {
-        props: {
-            dataListHandphone,
-            dataListHandphone2,
-            getMenu,
-            getTopBrands,
-            dataBanerProdukTop,
-            dataBanerProdukBody,
-        },
-    };
-}
+import { fetchData } from '../../config/data';
 
 export default function Handphone({
     dataListHandphone,
@@ -61,29 +17,6 @@ export default function Handphone({
 }) {
     const router = useRouter()
 
-    const Paging = () => {
-        return (
-            <div className={styles.paging}>
-                <Link href="#">
-                    <a>Awal</a>
-                </Link>
-                <ul>
-                    {pages.map((item, i) => {
-                        return (
-                            <li key={item}>
-                                <Link href="#">
-                                    <a>{item}</a>
-                                </Link>
-                            </li>
-                        );
-                    })}
-                </ul>
-                <Link href="#">
-                    <a>Akhir</a>
-                </Link>
-            </div>
-        );
-    };
 
     const [ads1, setAds1] = useState({
         iframe: [],
@@ -132,7 +65,7 @@ export default function Handphone({
     const [compare1, setCompare1] = useState("")
     const [compare2, setCompare2] = useState("")
     const [compare3, setCompare3] = useState("")
-    const [disable, setDisabled] = useState(false)
+    const [disable, setDisabled] = useState("")
     const addCompare = (slug, e, title) => {
         let p1 = localStorage.getItem("produk1");
         let p2 = localStorage.getItem("produk2");
@@ -154,12 +87,6 @@ export default function Handphone({
             setCompare3(title)
             setDisabled(true)
         }
-        if (p2 == null) {
-            console.log(disable)
-        }
-        else {
-            console.log(disable)
-        }
     }
     function removeLocalProd() {
         localStorage.removeItem("produk1")
@@ -168,12 +95,10 @@ export default function Handphone({
         setDisabled(false)
     }
     const goToCompare = () => {
-        // {`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`}        
         const p1 = localStorage.getItem("produk1");
         const p2 = localStorage.getItem("produk2");
         const p3 = localStorage.getItem("produk3");
         if (p1 === p2 || p1 === p3 || p2 === p3) {
-            alert("produk perbandingan tidak boleh sama")
             removeLocalProd();
             setShow(false)
             router.push(`${baseUrl}handphone`)
@@ -184,18 +109,23 @@ export default function Handphone({
         }
     }
     const resetCompare = () => {
+        const p3 = localStorage.getItem("produk3");
+        const p2 = localStorage.getItem("produk2");
         setCompare1("")
         setCompare2("")
         setCompare3("")
         removeLocalProd()
-        setDisabled(false);
         setShow(false)
+        if (p2 == null || p3 == null) {
+            location.reload();
+        }
     }
+
     useEffect(() => {
         getAds1();
         getAds2();
         removeLocalProd();
-        resetCompare()
+        setShow(false)
     }, []);
 
     return (
@@ -258,7 +188,7 @@ export default function Handphone({
                                                     </div>
                                                 </div>
                                                 <div className={`${styles.wrpbtn}`}>
-                                                    <button className={`${styles.btnfull}`} name="mybtn" onClick={(e) => addCompare(item.slug, e, item.title)} disabled={disable}>
+                                                    <button className={`${styles.btnfull} btncompare`} name="mybtn" onClick={(e) => addCompare(item.slug, e, item.title)} disabled={disable}>
                                                         BANDINGKAN PRODUK
                                                     </button>
                                                     <Link href={`${"/handphone/" + item.slug}`}>
@@ -325,7 +255,6 @@ export default function Handphone({
                             </div>
                         </div>
                     </div>
-
                 </div>
                 {
                     show && (
@@ -350,4 +279,23 @@ export default function Handphone({
             </div>
         </LayoutHandphone >
     );
+}
+
+export async function getStaticProps() {
+    const dataListHandphone = await fetchData(`/products?category=1&_limit=${totalItem}`);
+    const dataListHandphone2 = await fetchData(`/products?category=1&_limit=${totalItem}&offset=8`);
+    const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
+    const dataBanerProdukBody = await fetchData(`/ads/9?_publicationState=preview`);
+    const getMenu = await fetchData(`/menus?_sort=order`);
+    const getTopBrands = await fetchData(`/brands?_top_brand=true`);
+    return {
+        props: {
+            dataListHandphone,
+            dataListHandphone2,
+            getMenu,
+            getTopBrands,
+            dataBanerProdukTop,
+            dataBanerProdukBody,
+        },
+    };
 }
