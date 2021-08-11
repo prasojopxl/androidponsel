@@ -50,6 +50,30 @@ export async function getStaticProps(context) {
     const getMenu = await resMenu.json();
     const resTopBrands = await fetch(`${apiUrl}/brands?_top_brand=true`);
     const getTopBrands = await resTopBrands.json();
+    if (
+        !dataBanerHome1 ||
+        !dataBanerHome2 ||
+        !dataBanerHome3 ||
+        !dataBanerHome4 ||
+        !dataBanerHome5 ||
+        !dataBanerHome6 ||
+        !dataBanerHome7 ||
+        !dataCompare ||
+        !dataProducts ||
+        !mainNews ||
+        !topNews ||
+        !contNews ||
+        !topApp ||
+        !listApp ||
+        !tipsTrik ||
+        !tipsTrikMain ||
+        !tipsTrikSecond ||
+        !dataAndroidNews
+    ) {
+        return {
+            notFound: true,
+        };
+    }
     return {
         props: {
             dataBanerHome1,
@@ -73,7 +97,7 @@ export async function getStaticProps(context) {
             getTopBrands,
             dataAndroidNews,
         },
-        revalidate: 5,
+        revalidate: 3,
     };
 }
 
@@ -95,7 +119,6 @@ export default function Home({
     tipsTrik,
     tipsTrikMain,
     tipsTrikSecond,
-    jwtValue,
     getMenu,
     getTopBrands,
     dataAndroidNews,
