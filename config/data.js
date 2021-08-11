@@ -1,8 +1,13 @@
-import { apiUrl } from "./variable";
+import { apiUrl, apiUrlBlog } from "./variable";
 
-const fetchData = async (itemData) => {
-    const res = await fetch(`${apiUrl}  ${itemData}`);
+const fetchData = async (url) => {
+    const res = await fetch(`${apiUrl + url}`);
     return await res.json();
 };
 
-export { fetchData };
+const fetchDataBlog = async (url) => {
+    const res = await fetch(`${apiUrlBlog + url}`);
+    return await res.json();
+};
+
+export { fetchData, fetchDataBlog };

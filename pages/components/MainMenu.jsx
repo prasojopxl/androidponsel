@@ -1,5 +1,5 @@
 import React from 'react'
-import { fetchData, fetchMenu } from '../../config/data'
+import { fetchData } from '../../config/data'
 
 export default function MainMenu(props) {
     console.log(props.dataku)
@@ -19,7 +19,7 @@ export default function MainMenu(props) {
 }
 
 export async function getStaticProps(context) {
-    const data = await fetchMenu();
+    const data = await fetchData("/menus");
     const dataku = await fetchData("/posts");
 
     return {

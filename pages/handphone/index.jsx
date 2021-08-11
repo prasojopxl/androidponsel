@@ -33,18 +33,17 @@ export async function getStaticProps() {
 
     const resProductsHP = await fetch(`${apiUrl}/products?category=1`);
     const productsHP = await resProductsHP.json();
-    let limitpages = Math.ceil(productsHP.length / totalItem);
-    var pages = [];
-    for (let i = 1; i <= limitpages; i++) {
-        pages.push(i);
-    }
+
+    // let limitpages = Math.ceil(productsHP.length / totalItem);
+    // var pages = [];
+    // for (let i = 1; i <= limitpages; i++) {
+    //     pages.push(i);
+    // }
 
     return {
         props: {
             dataListHandphone,
             dataListHandphone2,
-            pages,
-            limitpages,
             getMenu,
             getTopBrands,
             dataBanerProdukTop,
@@ -55,13 +54,10 @@ export async function getStaticProps() {
 
 export default function Handphone({
     dataListHandphone,
-    dataListHandphone2,
-    pages,
     getMenu,
     getTopBrands,
     dataBanerProdukTop,
     dataBanerProdukBody,
-    limitpages,
 }) {
     const router = useRouter()
 

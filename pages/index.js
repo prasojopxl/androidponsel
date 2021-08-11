@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import { Ads, AdsBanner, Title } from "../components/";
+import { fetchData, fetchDataBlog } from "../config/data";
 import { apiUrl, baseUrl } from "../config/variable";
 import LayoutHome from "../layout/layouthome/layoutHome";
 import styles from "./index.module.scss";
@@ -23,100 +24,52 @@ const monthName = [
 ];
 
 export async function getStaticProps(context) {
-    // ads
+    // const resBanerHome1 = await fetch(
+    //     `${apiUrl}/ads/1?_publicationState=preview`
+    // );
+    // const dataBanerHome1 = await resBanerHome1.json();
 
-    const resBanerHome1 = await fetch(
-        `${apiUrl}/ads/1?_publicationState=preview`
+    const dataBanerHome1 = await fetchData("/ads/1?_publicationState=preview");
+    const dataBanerHome2 = await fetchData("/ads/2?_publicationState=preview");
+    const dataBanerHome3 = await fetchData("/ads/3?_publicationState=preview");
+    const dataBanerHome4 = await fetchData("/ads/4?_publicationState=preview");
+    const dataBanerHome5 = await fetchData("/ads/5?_publicationState=preview");
+    const dataBanerHome6 = await fetchData("/ads/6?_publicationState=preview");
+    const dataBanerHome7 = await fetchData("/ads/7?_publicationState=preview");
+    const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
+    const dataProducts = await fetchData("/products?_limit=12");
+    const mainNews = await fetchData(
+        "/posts?menu=2&_sort=updated_at:DESC&_limit=1"
     );
-    const dataBanerHome1 = await resBanerHome1.json();
-    const resBanerHome2 = await fetch(
-        `${apiUrl}/ads/2?_publicationState=preview`
+    const topNews = await fetchDataBlog(
+        "categories=8&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
     );
-    const dataBanerHome2 = await resBanerHome2.json();
-    const resBanerHome3 = await fetch(
-        `${apiUrl}/ads/3?_publicationState=preview`
+    const contNews = await fetchDataBlog(
+        "categories=8&per_page=9&_embed=author,wp:featuredmedia,wp:term&offset=5"
     );
-    const dataBanerHome3 = await resBanerHome3.json();
-    const resBanerHome4 = await fetch(
-        `${apiUrl}/ads/4?_publicationState=preview`
+    const topApp = await fetchDataBlog(
+        "categories=19&per_page=2&_embed=author,wp:featuredmedia,wp:term"
     );
-    const dataBanerHome4 = await resBanerHome4.json();
-    const resBanerHome5 = await fetch(
-        `${apiUrl}/ads/5?_publicationState=preview`
+    const listApp = await fetchDataBlog(
+        "per_page=15&_embed=author,wp:featuredmedia,wp:term&offset=0"
     );
-    const dataBanerHome5 = await resBanerHome5.json();
-    const resBanerHome6 = await fetch(
-        `${apiUrl}/ads/6?_publicationState=preview`
+    const tipsTrik = await fetchDataBlog(
+        "categories=20&per_page=8&_embed=author,wp:featuredmedia,wp:term&offset=3"
     );
-    const dataBanerHome6 = await resBanerHome6.json();
-    const resBanerHome7 = await fetch(
-        `${apiUrl}/ads/7?_publicationState=preview`
+    const tipsTrikMain = await fetchDataBlog(
+        "categories=20&per_page=1&_embed=author,wp:featuredmedia,wp:term&offset=0"
     );
-    const dataBanerHome7 = await resBanerHome7.json();
+    const tipsTrikSecond = await fetchDataBlog(
+        "categories=20&per_page=2&_embed=author,wp:featuredmedia,wp:term&offset=1"
+    );
+    const dataAndroidNews = await fetchDataBlog(
+        "categories=8&per_page=1&_embed=author,wp:featuredmedia,wp:term"
+    );
 
-    const resDataCompare = await fetch(
-        `${apiUrl}/compares?_sort=updated_at:ASC`
-    );
-    const dataCompare = await resDataCompare.json();
-    const resDataProducts = await fetch(`${apiUrl}/products?_limit=12`);
-    const dataProducts = await resDataProducts.json();
-    const resMainNews = await fetch(
-        `${apiUrl}/posts?menu=2&_sort=updated_at:DESC&_limit=1`
-    );
-    const mainNews = await resMainNews.json();
-    const resTopNews = await fetch(
-        `https://www.androidponsel.com/wp-json/wp/v2/posts?categories=8&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1`
-    );
-    const topNews = await resTopNews.json();
-    const resContNews = await fetch(
-        `https://www.androidponsel.com/wp-json/wp/v2/posts?categories=8&per_page=9&_embed=author,wp:featuredmedia,wp:term&offset=5`
-    );
-    const contNews = await resContNews.json();
-    const resTopApp = await fetch(
-        `https://www.androidponsel.com/wp-json/wp/v2/posts?categories=19&per_page=2&_embed=author,wp:featuredmedia,wp:term`
-    );
-    const topApp = await resTopApp.json();
-    const resListApp = await fetch(
-        `https://www.androidponsel.com/download/wp-json/wp/v2/posts?per_page=15&_embed=author,wp:featuredmedia,wp:term&offset=0`
-    );
-    const listApp = await resListApp.json();
-    const resTipsTrik = await fetch(
-        `https://www.androidponsel.com/wp-json/wp/v2/posts?categories=20&per_page=8&_embed=author,wp:featuredmedia,wp:term&offset=3`
-    );
-    const tipsTrik = await resTipsTrik.json();
-    const resTipsTrikMain = await fetch(
-        `https://www.androidponsel.com/wp-json/wp/v2/posts?categories=20&per_page=1&_embed=author,wp:featuredmedia,wp:term&offset=0`
-    );
-    const tipsTrikMain = await resTipsTrikMain.json();
-    const resTipsTrikSecond = await fetch(
-        `https://www.androidponsel.com/wp-json/wp/v2/posts?categories=20&per_page=2&_embed=author,wp:featuredmedia,wp:term&offset=1`
-    );
-    const tipsTrikSecond = await resTipsTrikSecond.json();
     const resMenu = await fetch(`${apiUrl}/menus?_sort=order`);
     const getMenu = await resMenu.json();
     const resTopBrands = await fetch(`${apiUrl}/brands?_top_brand=true`);
     const getTopBrands = await resTopBrands.json();
-    const androidNews = await fetch(
-        `https://www.androidponsel.com/wp-json/wp/v2/posts?categories=8&per_page=1&_embed=author,wp:featuredmedia,wp:term`
-    );
-    const dataAndroidNews = await androidNews.json();
-    // api data second
-    // https://www.androidponsel.com/wp-json/wp/v2/posts?per_page=4&_embed=author,wp:featuredmedia&offset=1
-
-    // const settings = {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //         "identifier": "guest@androidponsel.com",
-    //         "password": "Guest123"
-    //     }),
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json',
-    //     }
-    // }
-    // const resAuth = await fetch(`${apiUrl}/auth/local`,settings)
-    // const dataAuth = await resAuth.json();
-    // const jwtValue = dataAuth.jwt;
     return {
         props: {
             dataBanerHome1,
@@ -344,16 +297,6 @@ export default function Home({
                         )}
                     </Fragment>
                 )}
-                {/* {ads1.bannerImage === "withBanner" ? (
-				<AdsBanner
-				linkbanner={ads1.link}
-				urlImage={ads1.urlImage}
-				width={ads1.widthImage}
-				height={ads1.heightImage}
-				/>
-			) : (
-				<Ads banner={ads1.iframe} />
-			)} */}
                 <div className={styles.compareItem}>
                     <div className={styles.contens}>
                         <Title title="Top Perbandingan" />
