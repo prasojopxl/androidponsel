@@ -8,27 +8,7 @@ import { apiUrl, baseUrl } from "../config/variable";
 import LayoutHome from "../layout/layouthome/layoutHome";
 import styles from "./index.module.scss";
 
-const monthName = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "Mei",
-    "Jun",
-    "Jul",
-    "Agust",
-    "Sep",
-    "Okt",
-    "Nov",
-    "Des",
-];
-
 export async function getStaticProps(context) {
-    // const resBanerHome1 = await fetch(
-    //     `${apiUrl}/ads/1?_publicationState=preview`
-    // );
-    // const dataBanerHome1 = await resBanerHome1.json();
-
     const dataBanerHome1 = await fetchData("/ads/1?_publicationState=preview");
     const dataBanerHome2 = await fetchData("/ads/2?_publicationState=preview");
     const dataBanerHome3 = await fetchData("/ads/3?_publicationState=preview");
@@ -370,9 +350,6 @@ export default function Home({
                                             >
                                                 <a className={styles.fullLink}>
                                                     LIHAT PERBANDINGAN
-                                                    {console.log(
-                                                        item.products[0].slug
-                                                    )}
                                                 </a>
                                             </Link>
                                         </div>
