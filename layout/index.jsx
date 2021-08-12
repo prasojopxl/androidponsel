@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { Html, Head } from "next/document";
 import { Fragment } from "react";
 import { Footer, Header, SEO } from "../components";
 import styles from "./layout.module.scss";
@@ -6,7 +6,7 @@ import styles from "./layout.module.scss";
 export default function Layout(props) {
     const { dataSEO, dataMainMenu, dataBrands } = props;
     return (
-        <Fragment>
+        <Html lang="id">
             <Head>
                 <SEO title={dataSEO.title} description={dataSEO.description} keywords={dataSEO.keywords} />
             </Head>
@@ -19,6 +19,6 @@ export default function Layout(props) {
             <div className={styles.footerweb}>
                 <Footer />
             </div>
-        </Fragment>
+        </Html>
     );
 }
