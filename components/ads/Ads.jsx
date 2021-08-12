@@ -1,5 +1,4 @@
 import styles from "./ads.module.scss";
-import Image from "next/image";
 
 export default function Ads(props) {
     return (

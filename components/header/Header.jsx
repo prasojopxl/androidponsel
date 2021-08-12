@@ -34,7 +34,6 @@ export default function Header(props) {
                         </ul>
                     </div>
                     <div className={styles.right}>
-                        {/* <Image src={IconSearch} alt="seacrh" width="24px" height="24px" /> */}
                     </div>
                 </div>
             </div>

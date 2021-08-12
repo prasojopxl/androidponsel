@@ -5,10 +5,7 @@ import Header from "./header/Header";
 import SEO from "./seo";
 //home
 import ListCategories from "./listcategories/ListCategories";
-//berita
-import ListNews from "./listNews/ListNews";
 //product
-import OverviewProduct from "./overviewproduct/OverviewProduct";
 import Rate from "./rate/Rate";
 import Title from "./title/Title";
 
@@ -21,7 +18,5 @@ export {
   Ads,
   AdsBanner,
   Rate,
-  ListNews,
-  OverviewProduct,
   SEO
 };
