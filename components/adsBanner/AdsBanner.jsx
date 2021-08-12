@@ -6,7 +6,7 @@ export default function AdsBanner(props) {
         <div className={styles.ads}>
             <div className={styles.contents}>
                 <a href={props.linkbanner}>
-                    <Image src={props.urlImage} width={props.width} height={props.height} alt="banner"/>
+                    <Image src={props.urlImage} width={props.width} height={props.height} alt="baner" />
                 </a>
             </div>
         </div>

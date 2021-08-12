@@ -330,6 +330,11 @@ export default function Home({
                                                                             .height /
                                                                         2
                                                                     }
+                                                                    alt={
+                                                                        data
+                                                                            .product_image[0]
+                                                                            .name
+                                                                    }
                                                                 ></Image>
                                                             </div>
                                                             <div
@@ -410,6 +415,11 @@ export default function Home({
                                                             item
                                                                 .product_image[0]
                                                                 .height / 3
+                                                        }
+                                                        alt={
+                                                            item
+                                                                .product_image[0]
+                                                                .name
                                                         }
                                                     />{" "}
                                                 </div>

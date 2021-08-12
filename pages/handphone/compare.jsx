@@ -67,7 +67,7 @@ export default function compare({
 										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
 											<div className={styles.prodItem}>
 												<div className={styles.imgwrp}>
-													<Image src={apiUrl + item.product_image[0].url} width={item.product_image[0].width / 1.2} height={item.product_image[0].height / 1.2} />
+													<Image src={apiUrl + item.product_image[0].url} width={item.product_image[0].width / 1.2} height={item.product_image[0].height / 1.2} alt={item.product_image[0].name} />
 												</div>
 												<h4>{item.title}</h4>
 												<span>{item.memory_internal}</span>

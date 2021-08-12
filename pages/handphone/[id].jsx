@@ -586,6 +586,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                             src={apiUrl + value.product_image[0].url}
                                                             width={value.product_image[0].width / 3}
                                                             height={value.product_image[0].height / 3}
+                                                            alt={value.product_image[0].name}
                                                         />{" "}
                                                     </div>
                                                     <div className={styles.productinfo}>

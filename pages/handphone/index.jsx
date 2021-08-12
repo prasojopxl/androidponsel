@@ -166,6 +166,7 @@ export default function Handphone({
                                                             src={apiUrl + item.product_image[0].url}
                                                             width={item.product_image[0].width / 3}
                                                             height={item.product_image[0].height / 3}
+                                                            alt={item.product_image[0].name}
                                                         />{" "}
                                                     </div>
                                                     <div className={styles.productinfo}>
@@ -217,6 +218,7 @@ export default function Handphone({
                                                             src={apiUrl + item.product_image[0].url}
                                                             width={item.product_image[0].width / 3}
                                                             height={item.product_image[0].height / 3}
+                                                            alt={item.product_image[0].name}
                                                         />{" "}
                                                     </div>
                                                     <div className={styles.productinfo}>

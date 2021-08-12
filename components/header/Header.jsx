@@ -44,7 +44,7 @@ export default function Header(props) {
                     {
                         brands.map(item => {
                             return (
-                                <li key={item.key}><Link href="#"><a>{item.title}</a></Link></li>
+                                <li key={item.id}><Link href="#"><a>{item.title}</a></Link></li>
                             )
                         })
                     }
