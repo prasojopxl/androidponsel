@@ -18,6 +18,7 @@ export async function getStaticProps(context) {
     const dataBanerHome7 = await fetchData("/ads/7?_publicationState=preview");
     const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
     const dataProducts = await fetchData("/products?_limit=12");
+    const dataSEO = await fetchData("/general");
     const mainNews = await fetchData(
         "/posts?menu=2&_sort=updated_at:DESC&_limit=1"
     );
@@ -76,6 +77,7 @@ export async function getStaticProps(context) {
     }
     return {
         props: {
+            dataSEO,
             dataBanerHome1,
             dataBanerHome2,
             dataBanerHome3,
@@ -122,6 +124,7 @@ export default function Home({
     getMenu,
     getTopBrands,
     dataAndroidNews,
+    dataSEO,
 }) {
     const [ads1, setAds1] = useState({
         iframe: [],
@@ -270,6 +273,7 @@ export default function Home({
     return (
         <React.Fragment>
             <LayoutHome
+                dataSEO={dataSEO.seo}
                 title="androidponsel.com | Perbandingan Handphone"
                 menu={getMenu.map((item, i) => {
                     return (
