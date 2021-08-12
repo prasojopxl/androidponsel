@@ -1,11 +1,9 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import { Footer, Header } from "../../components";
-import SEO from "../../components/seo";
-import { apiUrl } from "../../config/variable";
-import styles from "./layouthome.module.scss";
+import { Footer, Header, SEO } from "../components";
+import styles from "./layout.module.scss";
 
-export default function LayoutHome(props) {
+export default function Layout(props) {
     const { dataSEO, dataMainMenu, dataBrands } = props;
     return (
         <Fragment>

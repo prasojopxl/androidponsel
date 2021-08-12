@@ -5,7 +5,7 @@ import ReactHtmlParser from "react-html-parser";
 import { Ads, AdsBanner, Title } from "../components/";
 import { fetchData, fetchDataBlog } from "../config/data";
 import { apiUrl, baseUrl } from "../config/variable";
-import LayoutHome from "../layout/layouthome/layoutHome";
+import Layout from "../layout";
 import styles from "./index.module.scss";
 
 export async function getStaticProps(context) {
@@ -47,10 +47,8 @@ export async function getStaticProps(context) {
         "categories=8&per_page=1&_embed=author,wp:featuredmedia,wp:term"
     );
 
-    const resMenu = await fetch(`${apiUrl}/menus?_sort=order`);
-    const getMenu = await resMenu.json();
-    const resTopBrands = await fetch(`${apiUrl}/brands?_top_brand=true`);
-    const getTopBrands = await resTopBrands.json();
+    const getMenu = await fetchData("/menus?_sort=order");
+    const getTopBrands = await fetchData("/brands?_top_brand=true");
     if (
         !dataBanerHome1 ||
         !dataBanerHome2 ||
@@ -272,7 +270,7 @@ export default function Home({
 
     return (
         <React.Fragment>
-            <LayoutHome
+            <Layout
                 dataSEO={dataSEO.seo}
                 dataMainMenu={getMenu}
                 dataBrands={getTopBrands}
@@ -1408,7 +1406,7 @@ export default function Home({
                         </div>
                     </div>
                 </div>
-            </LayoutHome>
+            </Layout>
         </React.Fragment>
     );
 }

@@ -4,14 +4,15 @@ import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
 import { Ads, AdsBanner, Rate, Title } from "../../components";
 import { apiUrl, baseUrl, totalItem } from "../../config/variable";
-import LayoutHandphone from "../../layout/layouthandphone/LayoutHandphone";
 import styles from "./index.module.scss";
 import { fetchData } from '../../config/data';
+import Layout from '../../layout';
 
 export default function Handphone({
     dataListHandphone,
     getMenu,
     getTopBrands,
+    dataSEO,
     dataBanerProdukTop,
     dataBanerProdukBody,
 }) {
@@ -129,22 +130,10 @@ export default function Handphone({
     }, []);
 
     return (
-        <LayoutHandphone
-            title="handphone"
-            menu={getMenu.map((item, i) => {
-                return (
-                    <li key={item.id}>
-                        <Link href={item.url}>{item.title}</Link>
-                    </li>
-                );
-            })}
-            listTopBrands={getTopBrands.map((item, i) => {
-                return (
-                    <li key={item.id}>
-                        <Link href="#">{item.title}</Link>
-                    </li>
-                );
-            })}
+        <Layout
+            dataSEO={dataSEO.seo}
+            dataMainMenu={getMenu}
+            dataBrands={getTopBrands}
         >
             {dataBanerProdukTop.published_at && (
                 <Fragment>
@@ -275,9 +264,8 @@ export default function Handphone({
                     )
                 }
 
-
             </div>
-        </LayoutHandphone >
+        </Layout>
     );
 }
 
@@ -286,14 +274,17 @@ export async function getStaticProps() {
     const dataListHandphone2 = await fetchData(`/products?category=1&_limit=${totalItem}&offset=8`);
     const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
     const dataBanerProdukBody = await fetchData(`/ads/9?_publicationState=preview`);
-    const getMenu = await fetchData(`/menus?_sort=order`);
-    const getTopBrands = await fetchData(`/brands?_top_brand=true`);
+    const dataSEO = await fetchData("/general");
+    const getMenu = await fetchData("/menus?_sort=order");
+    const getTopBrands = await fetchData("/brands?_top_brand=true");
+
     return {
         props: {
             dataListHandphone,
             dataListHandphone2,
             getMenu,
             getTopBrands,
+            dataSEO,
             dataBanerProdukTop,
             dataBanerProdukBody,
         },

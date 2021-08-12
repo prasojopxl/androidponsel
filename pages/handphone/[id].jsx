@@ -3,11 +3,12 @@ import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { Ads, AdsBanner, Rate, Title } from "../../components";
+import { fetchData } from "../../config/data";
 import { apiUrl, baseUrl } from "../../config/variable";
-import LayoutHandphone from "../../layout/layouthandphone/LayoutHandphone";
+import Layout from "../../layout";
 import styles from "./index.module.scss";
 
-export default function DetailPage({ post, dataContentAds, dataRelatedProd, getMenu, getTopBrands }) {
+export default function DetailPage({ post, dataContentAds, dataRelatedProd, getMenu, getTopBrands, dataSEO }) {
     const [state, setState] = useState({ nav1: null, nav2: null });
     const slider1 = useRef();
     const slider2 = useRef();
@@ -75,22 +76,10 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
     }, []);
 
     return (
-        <LayoutHandphone
-            title="handphone"
-            menu={getMenu.map((item, i) => {
-                return (
-                    <li key={item.id}>
-                        <Link href={item.url}>{item.title}</Link>
-                    </li>
-                );
-            })}
-            listTopBrands={getTopBrands.map((item, i) => {
-                return (
-                    <li key={item.id}>
-                        <Link href="#">{item.title}</Link>
-                    </li>
-                );
-            })}
+        <Layout
+            dataSEO={dataSEO.seo}
+            dataMainMenu={getMenu}
+            dataBrands={getTopBrands}
         >
             <div className={styles.detailproducts}>
                 <div className={styles.contents}>
@@ -624,7 +613,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                     </div>
                 </div>
             </div>
-        </LayoutHandphone>
+        </Layout>
     );
 }
 
@@ -683,15 +672,15 @@ export async function getStaticProps({ params }) {
     );
     const dataRelatedProd = await res4.json();
 
-    const resMenu = await fetch(`${apiUrl}/menus?_sort=order`);
-    const getMenu = await resMenu.json();
-    const resTopBrands = await fetch(`${apiUrl}/brands?_top_brand=true`);
-    const getTopBrands = await resTopBrands.json();
+    const dataSEO = await fetchData("/general");
+    const getMenu = await fetchData("/menus?_sort=order");
+    const getTopBrands = await fetchData("/brands?_top_brand=true");
 
     return {
         props: {
             getMenu,
             getTopBrands,
+            dataSEO,
             dataContentAds,
             post,
             dataRelatedProd,

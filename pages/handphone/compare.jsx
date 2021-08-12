@@ -5,13 +5,15 @@ import useSWR from 'swr';
 import { Ads, Rate, AdsBanner } from "../../components";
 import Image from "next/image";
 import { apiUrl, baseUrl } from "../../config/variable";
-import LayoutHandphone from "../../layout/layouthandphone/LayoutHandphone";
 import styles from "./index.module.scss";
+import { fetchData } from "../../config/data";
+import Layout from "../../layout";
 
 
 export default function compare({
 	getMenu,
 	getTopBrands,
+	dataSEO
 }) {
 	const router = useRouter();
 	const { produk1, produk2, produk3 } = router.query;
@@ -32,22 +34,10 @@ export default function compare({
 	const dataCompare = produkData;
 
 	return (
-		<LayoutHandphone
-			title="handphone"
-			menu={getMenu.map((item, i) => {
-				return (
-					<li key={item.id}>
-						<Link href={item.url}>{item.title}</Link>
-					</li>
-				);
-			})}
-			listTopBrands={getTopBrands.map((item, i) => {
-				return (
-					<li key={item.id}>
-						<Link href="#">{item.title}</Link>
-					</li>
-				);
-			})}
+		<Layout
+			dataSEO={dataSEO.seo}
+			dataMainMenu={getMenu}
+			dataBrands={getTopBrands}
 		>
 			<div className={styles.comparepage}>
 				{dataBanerCompareTop.published_at !== null && (
@@ -617,15 +607,14 @@ export default function compare({
 				</div>
 
 			</div>
-		</LayoutHandphone >
+		</Layout>
 	);
 }
 
 export async function getStaticProps() {
-	const resMenu = await fetch(`${apiUrl}/menus?_sort=order`);
-	const getMenu = await resMenu.json();
-	const resTopBrands = await fetch(`${apiUrl}/brands?_top_brand=true`);
-	const getTopBrands = await resTopBrands.json();
+	const dataSEO = await fetchData("/general");
+	const getMenu = await fetchData("/menus?_sort=order");
+	const getTopBrands = await fetchData("/brands?_top_brand=true");
 
 	//ads
 	const resBanerCompareBody = await fetch(
@@ -637,6 +626,7 @@ export async function getStaticProps() {
 		props: {
 			getMenu,
 			getTopBrands,
+			dataSEO,
 			dataBanerCompareBody,
 		},
 	};

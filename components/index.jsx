@@ -2,6 +2,7 @@ import Ads from "./ads/Ads";
 import AdsBanner from "./adsBanner/AdsBanner";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
+import SEO from "./seo";
 //home
 import ListCategories from "./listcategories/ListCategories";
 //berita
@@ -22,4 +23,5 @@ export {
   Rate,
   ListNews,
   OverviewProduct,
+  SEO
 };
