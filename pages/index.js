@@ -274,21 +274,8 @@ export default function Home({
         <React.Fragment>
             <LayoutHome
                 dataSEO={dataSEO.seo}
-                title="androidponsel.com | Perbandingan Handphone"
-                menu={getMenu.map((item, i) => {
-                    return (
-                        <li key={item.id}>
-                            <Link href={item.url}>{item.title}</Link>
-                        </li>
-                    );
-                })}
-                listTopBrands={getTopBrands.map((item, i) => {
-                    return (
-                        <li key={item.id}>
-                            <Link href="#">{item.title}</Link>
-                        </li>
-                    );
-                })}
+                dataMainMenu={getMenu}
+                dataBrands={getTopBrands}
             >
                 {dataBanerHome1.published_at && (
                     <Fragment>

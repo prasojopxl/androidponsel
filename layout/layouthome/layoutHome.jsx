@@ -6,7 +6,7 @@ import { apiUrl } from "../../config/variable";
 import styles from "./layouthome.module.scss";
 
 export default function LayoutHome(props) {
-    const { dataSEO } = props;
+    const { dataSEO, dataMainMenu, dataBrands } = props;
     return (
         <Fragment>
             <Head>
@@ -14,10 +14,7 @@ export default function LayoutHome(props) {
             </Head>
 
             <div className={styles.headerweb}>
-                <Header
-                    listmenu={props.menu}
-                    listTopBrands={props.listTopBrands}
-                ></Header>
+                <Header mainMenu={dataMainMenu} brands={dataBrands} />
             </div>
             <div className={styles.bodyweb}>{props.children}</div>
 
