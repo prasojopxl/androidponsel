@@ -4,7 +4,7 @@ export default function Brand({ data }) {
     console.log(data)
     return (
         <div>
-            t
+            index all brands here
         </div>
     )
 }
