@@ -867,6 +867,7 @@ export default function Home({
                         )}
                     </Fragment>
                 )}
+
                 <div className={styles.kanalapp}>
                     <div className={styles.contents}>
                         <Title title="Kanal Aplikasi" />
@@ -1053,6 +1054,7 @@ export default function Home({
                         </div>
                     </div>
                 </div>
+
                 {dataBanerHome7.published_at && (
                     <Fragment>
                         {ads7.bannerImage === "withBanner" ? (
@@ -1067,7 +1069,8 @@ export default function Home({
                         )}
                     </Fragment>
                 )}
-                <div className={styles.tipstrik}>
+
+                {/* <div className={styles.tipstrik}>
                     <div className={styles.contents}>
                         <Title title="Tips & Trik"></Title>
                         <div className="row">
@@ -1417,7 +1420,7 @@ export default function Home({
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </Layout>
         </React.Fragment>
     );

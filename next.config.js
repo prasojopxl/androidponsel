@@ -5,6 +5,7 @@ module.exports = {
             "localhost",
             "www.androidponsel.com",
             "papiandro.stagingaja.com",
+            "android-omega.vercel.app",
         ],
     },
 };
