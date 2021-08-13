@@ -6,7 +6,7 @@ import styles from "./layout.module.scss";
 export default function Layout(props) {
     const { dataSEO, dataMainMenu, dataBrands } = props;
     return (
-        <html xmlns="http://www.w3.org/1999/xhtml" lang="id">
+        <Fragment>
             <Head>
                 <SEO title={dataSEO.title} description={dataSEO.description} keywords={dataSEO.keywords} />
             </Head>
@@ -19,6 +19,6 @@ export default function Layout(props) {
             <div className={styles.footerweb}>
                 <Footer />
             </div>
-        </html>
+        </Fragment>
     );
 }

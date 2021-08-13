@@ -4,7 +4,6 @@ import { apiUrl } from "../../config/variable";
 export default function SEO(props) {
     return (
         <Fragment>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <title>{props.title || "Androidponsel spesifikasi dan perbandingan handphone"} </title>
             <meta name="description" content={props.description} />
             <meta name="keywords" content={props.keywords} />
@@ -23,7 +22,6 @@ export default function SEO(props) {
             <meta property="og:description" content={props.description} />
             <meta property="og:url" content="https://www.androidponsel.com/" />
             {/* <meta property="og:image" content={props.ogimage} /> */}
-            <meta property="og:site_name" content="AndroidPonsel" />
         </Fragment>
     )
 }
