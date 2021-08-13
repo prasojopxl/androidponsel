@@ -460,9 +460,9 @@ export default function Home({
                                 marginTop: 30,
                             }}
                         >
-                            <a href="#" className="btn medium">
-                                Lihat Selegkapnya
-                            </a>
+                            <Link href={baseUrl + "handphone"}>
+                                <a className="btn medium">Lihat Selegkapnya</a>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -198,26 +198,6 @@
     h4 {
         font-size: 20px;
     }
-    .tags {
-        background: $color-green;
-        border-radius: 30px;
-        padding: 2px 10px;
-        text-align: center;
-        display: inline-block;
-        margin-bottom: 5px;
-        a {
-            color: #fff;
-            &:after {
-                content: "/";
-                margin: 0 3px;
-            }
-            &:last-child {
-                &::after {
-                    content: none;
-                }
-            }
-        }
-    }
 }
 
 .infodate {
@@ -235,8 +215,31 @@
 .tags {
     background: $color-green2;
     color: #fff;
+    padding: 2px 7px;
+    color: $color-green;
+    display: inline-block;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 11px;
+    margin-bottom: 5px;
+    transition: $animate;
     a {
         color: $color-green;
+        transition: $animate;
+
+        &:after {
+            content: "/";
+            margin: 0 3px;
+        }
+        &:last-child {
+            &::after {
+                content: none;
+            }
+        }
+        &:hover {
+            transition: $animate;
+            text-decoration: none;
+        }
     }
 }
 
@@ -253,25 +256,6 @@
     padding-left: 200px;
     flex: 1;
     margin: 15px 0;
-    .tags {
-        display: inline-block;
-        border-radius: 30px;
-        padding: 0px 10px;
-        text-align: center;
-        font-size: 11px;
-        margin-bottom: 5px;
-        a {
-            &:after {
-                content: "/";
-                margin: 0 3px;
-            }
-            &:last-child {
-                &::after {
-                    content: none;
-                }
-            }
-        }
-    }
     .imgwrp {
         position: absolute;
         left: 0;
@@ -308,34 +292,6 @@
         max-width: $widthdefault;
         margin: 0 auto;
         padding: 0 15px;
-    }
-}
-
-.desc {
-    .tags {
-        background: $color-green2;
-        border-radius: 30px;
-        padding: 1px 10px;
-        text-align: center;
-        display: inline-block;
-        margin-bottom: 5px;
-        font-size: 11px;
-        transition: $animate;
-        a {
-            color: $color-green;
-            &:after {
-                content: "/";
-                margin: 0 3px;
-            }
-            &:last-child {
-                &::after {
-                    content: none;
-                }
-            }
-            &:hover {
-                text-decoration: none;
-            }
-        }
     }
 }
 
@@ -422,7 +378,9 @@
     min-height: 60px;
     max-width: 420px;
     a {
-        color: $color-black;
+        h5 {
+            color: $color-black;
+        }
     }
     .imgwrp {
         background: $color-gray2;
@@ -452,26 +410,6 @@
         max-width: $widthdefault;
         margin: 0 auto;
         padding: 0 15px;
-    }
-    .tags {
-        background: $color-green2;
-        border-radius: 30px;
-        padding: 2px 10px;
-        text-align: center;
-        display: inline-block;
-        margin-bottom: 10px;
-        a {
-            color: $color-green;
-            &:after {
-                content: "/";
-                margin: 0 3px;
-            }
-            &:last-child {
-                &::after {
-                    content: none;
-                }
-            }
-        }
     }
     .itemcontent {
         position: relative;
