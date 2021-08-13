@@ -215,12 +215,12 @@
 .tags {
     background: $color-green2;
     color: #fff;
-    padding: 2px 7px;
+    padding: 0px 10px;
     color: $color-green;
     display: inline-block;
     border-radius: 30px;
     text-align: center;
-    font-size: 11px;
+    font-size: 10px;
     margin-bottom: 5px;
     transition: $animate;
     a {
@@ -238,7 +238,6 @@
         }
         &:hover {
             transition: $animate;
-            text-decoration: none;
         }
     }
 }
@@ -265,6 +264,14 @@
     h5 {
         font-size: 14px;
         color: $color-black;
+    }
+    &:hover {
+        .tags {
+            background: $color-green;
+            a {
+                color: #fff;
+            }
+        }
     }
 }
 
@@ -401,6 +408,14 @@
     h5 {
         font-size: 15px;
     }
+    &:hover {
+        .tags {
+            background: $color-green;
+            a {
+                color: #fff;
+            }
+        }
+    }
 }
 
 .tipstrik {
@@ -419,17 +434,26 @@
         .left {
             padding-right: 180px;
         }
-        h5 {
-            font-size: 16px;
-        }
         a {
-            color: $color-black;
+            color: inherit;
+            h5 {
+                font-size: 16px;
+                color: $color-black;
+            }
         }
         .right {
             position: absolute;
             right: 0;
             top: 0;
             max-width: 170px;
+        }
+        &:hover {
+            .tags {
+                background: $color-green;
+                a {
+                    color: #fff;
+                }
+            }
         }
     }
 }

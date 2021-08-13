@@ -802,10 +802,10 @@ export default function Home({
                                                         </div>
                                                         <a href={item.link}>
                                                             <h5>
-                                                                {
+                                                                {ReactHtmlParser(
                                                                     item.title
                                                                         .rendered
-                                                                }
+                                                                )}
                                                             </h5>
                                                         </a>
                                                         <div
@@ -1009,7 +1009,9 @@ export default function Home({
                                                 </div>
                                                 <a href={item.link}>
                                                     <h5>
-                                                        {item.title.rendered}
+                                                        {ReactHtmlParser(
+                                                            item.title.rendered
+                                                        )}
                                                     </h5>
                                                 </a>
                                                 <div
