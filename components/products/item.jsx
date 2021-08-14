@@ -12,33 +12,58 @@ export default function ItemProduct(props) {
     const [compare3, setCompare3] = useState("")
     const [isActive, setIsActive] = useState(false)
 
-    function removeLocalProd() {
+    const removeLocalProd = () => {
         localStorage.removeItem("produk1")
         localStorage.removeItem("produk2")
         localStorage.removeItem("produk3")
         setIsActive(false)
     }
-
+    const resetColor = () => {
+        var elements = document.getElementsByClassName('btncompare'); // get all elements
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.backgroundColor = "#89c340";
+            elements[i].innerText = "BANDINGKAN PRODUK";
+        }
+    }
     const addCompare = (slug, e, title) => {
         let p1 = localStorage.getItem("produk1");
         let p2 = localStorage.getItem("produk2");
         let p3 = localStorage.getItem("produk3");
-        if (p1 == null && p2 == null && p3 == null) {
-            localStorage.setItem("produk1", slug)
-            setCompare1(title)
-            setShow(true)
-            e.target.disabled = true
-        }
-        else if (p1 !== null && p2 == null && p3 == null) {
-            localStorage.setItem("produk2", slug)
-            setCompare2(title)
-            setShow(true)
-            e.target.disabled = true
+        if (e.target.innerText === "BANDINGKAN PRODUK") {
+            e.target.innerText = "DIBANDINGKAN"
+            e.target.style.background = "#ddd"
+            if (p1 === null) {
+                localStorage.setItem("produk1", props.slug)
+                e.target.title = "produk1"
+            }
+            else if (p1 !== null && p2 == null) {
+                localStorage.setItem("produk2", props.slug)
+                e.target.title = "produk2"
+            }
+            else if (p1 !== null && p2 !== null && p3 == null) {
+                localStorage.setItem("produk3", props.slug)
+                e.target.title = "produk3"
+            }
+            else {
+                alert("Maximal 3 produk")
+                localStorage.removeItem("produk1")
+                localStorage.removeItem("produk2")
+                localStorage.removeItem("produk3")
+                resetColor();
+            }
         }
         else {
-            localStorage.setItem("produk3", slug)
-            // setCompare3(title)
-            setIsActive(true)
+            e.target.innerText = "BANDINGKAN PRODUK"
+            e.target.style.background = "#89c340"
+            if (p2 === null) {
+                localStorage.removeItem(e.target.title)
+            }
+            if (p3 === null) {
+                localStorage.removeItem(e.target.title)
+            }
+            else {
+                localStorage.removeItem(e.target.title)
+            }
         }
     }
     useEffect(() => {
@@ -66,7 +91,7 @@ export default function ItemProduct(props) {
                     </div>
                 </div>
                 <div className={`${styles.wrpbtn}`}>
-                    <button className={`${styles.btnfull} btncompare`} name="mybtn" onClick={(e) => addCompare(props.slug, e, props.title)} disabled={isActive}>
+                    <button className={`${styles.btnfull} btncompare`} name="mybtn" onClick={(e) => addCompare(props.slug, e, props.title)} >
                         BANDINGKAN PRODUK
                     </button>
                     <Link href={`${"/handphone/" + props.slug}`}>

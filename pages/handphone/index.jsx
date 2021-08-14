@@ -51,38 +51,10 @@ export default function Handphone(props) {
             });
     };
 
-    const [show, setShow] = useState(false)
-    const [compare1, setCompare1] = useState("")
-    const [compare2, setCompare2] = useState("")
-    const [compare3, setCompare3] = useState("")
-    const [disable, setDisabled] = useState("")
-    const addCompare = (slug, e, title) => {
-        let p1 = localStorage.getItem("produk1");
-        let p2 = localStorage.getItem("produk2");
-        let p3 = localStorage.getItem("produk3");
-        if (p1 == null && p2 == null && p3 == null) {
-            localStorage.setItem("produk1", slug)
-            setCompare1(title)
-            setShow(true)
-            e.target.disabled = true
-        }
-        else if (p1 !== null && p2 == null && p3 == null) {
-            localStorage.setItem("produk2", slug)
-            setCompare2(title)
-            setShow(true)
-            e.target.disabled = true
-        }
-        else {
-            localStorage.setItem("produk3", slug)
-            setCompare3(title)
-            setDisabled(true)
-        }
-    }
     function removeLocalProd() {
         localStorage.removeItem("produk1")
         localStorage.removeItem("produk2")
         localStorage.removeItem("produk3")
-        setDisabled(false)
     }
     const goToCompare = () => {
         const p1 = localStorage.getItem("produk1");
@@ -98,24 +70,11 @@ export default function Handphone(props) {
             removeLocalProd();
         }
     }
-    const resetCompare = () => {
-        const p3 = localStorage.getItem("produk3");
-        const p2 = localStorage.getItem("produk2");
-        setCompare1("")
-        setCompare2("")
-        setCompare3("")
-        removeLocalProd()
-        setShow(false)
-        if (p2 == null || p3 == null) {
-            location.reload();
-        }
-    }
 
     useEffect(() => {
         getAds1();
         getAds2();
         removeLocalProd();
-        setShow(false)
     }, []);
 
     return (
@@ -149,35 +108,6 @@ export default function Handphone(props) {
                                     return (
                                         <div className="col-lg-3" key={item.id}>
                                             <ItemProduct title={item.title} memoryInternal={item.memory_internal} rating={item.rating} productImage={item.product_image[0]} slug={item.slug} />
-                                            {/* <div className={styles.productItem}>
-                                                <div className={styles.shortproduct}>
-                                                    <div className={styles.imageprod}>
-                                                        <Image
-                                                            src={apiUrl + item.product_image[0].url}
-                                                            width={item.product_image[0].width / 3}
-                                                            height={item.product_image[0].height / 3}
-                                                            alt={item.product_image[0].name}
-                                                        />{" "}
-                                                    </div>
-                                                    <div className={styles.productinfo}>
-                                                        <h5>{item.title}</h5>
-                                                        <h6>{item.memory_internal}</h6>
-                                                        {item.rating !== null && (
-                                                            <Rate TotalRate={item.rating} />
-                                                        )}
-                                                    </div>
-                                                </div>
-                                                <div className={`${styles.wrpbtn}`}>
-                                                    <button className={`${styles.btnfull} btncompare`} name="mybtn" onClick={(e) => addCompare(item.slug, e, item.title)} disabled={disable}>
-                                                        BANDINGKAN PRODUK
-                                                    </button>
-                                                    <Link href={`${"/handphone/" + item.slug}`}>
-                                                        <a className={styles.btnblank}>
-                                                            LIHAT SELENGKAPNYA
-                                                        </a>
-                                                    </Link>
-                                                </div>
-                                            </div> */}
                                         </div>
                                     );
                                 })}
@@ -201,35 +131,7 @@ export default function Handphone(props) {
                                 {props.dataListHandphone.map((item, i) => {
                                     return (
                                         <div className="col-lg-3" key={item.id}>
-                                            <div className={styles.productItem}>
-                                                <div className={styles.shortproduct}>
-                                                    <div className={styles.imageprod}>
-                                                        <Image
-                                                            src={apiUrl + item.product_image[0].url}
-                                                            width={item.product_image[0].width / 3}
-                                                            height={item.product_image[0].height / 3}
-                                                            alt={item.product_image[0].name}
-                                                        />{" "}
-                                                    </div>
-                                                    <div className={styles.productinfo}>
-                                                        <h5>{item.title}</h5>
-                                                        <h6>{item.memory_internal}</h6>
-                                                        {item.rating !== null && (
-                                                            <Rate TotalRate={item.rating} />
-                                                        )}
-                                                    </div>
-                                                </div>
-                                                <div className={`${styles.wrpbtn}`}>
-                                                    <button className={`${styles.btnfull}`} name="mybtn" onClick={(e) => addCompare(item.slug, e, item.title)} disabled={disable}>
-                                                        BANDINGKAN PRODUK
-                                                    </button>
-                                                    <Link href={`${"/handphone/" + item.slug}`}>
-                                                        <a className={styles.btnblank}>
-                                                            LIHAT SELENGKAPNYA
-                                                        </a>
-                                                    </Link>
-                                                </div>
-                                            </div>
+                                            <ItemProduct title={item.title} memoryInternal={item.memory_internal} rating={item.rating} productImage={item.product_image[0]} slug={item.slug} />
                                         </div>
                                     );
                                 })}
@@ -237,7 +139,7 @@ export default function Handphone(props) {
                         </div>
                     </div>
                 </div>
-                {
+                {/* {
                     show && (
                         <div className={styles.containerCompare}>
                             <div className={styles.desc}>
@@ -254,7 +156,7 @@ export default function Handphone(props) {
 
                         </div>
                     )
-                }
+                } */}
 
             </div>
         </Layout>
