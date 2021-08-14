@@ -12,7 +12,16 @@ export default function Brand({ brands, getMenu, getTopBrands, dataSEO }) {
         >            {
                 brands.map((item) => {
                     return (
-                        <div key={item.id}><h1>{item.title}</h1></div>
+                        <div key={item.id}>
+                            <h1>{item.title}</h1>
+                            {
+                                item.products.map(data => {
+                                    return (
+                                        <div key={data.id}>{data.title}</div>
+                                    )
+                                })
+                            }
+                        </div>
                     )
                 })
             }

@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import { Ads, AdsBanner, Title } from "../components/";
-import { fetchData, fetchDataBlog } from "../config/data";
+import { fetchData, fetchDataApp, fetchDataBlog } from "../config/data";
 import { apiUrl, baseUrl } from "../config/variable";
 import Layout from "../layout";
 import styles from "./index.module.scss";
@@ -31,7 +31,7 @@ export async function getStaticProps(context) {
     const topApp = await fetchDataBlog(
         "categories=19&per_page=2&_embed=author,wp:featuredmedia,wp:term"
     );
-    const listApp = await fetchDataBlog(
+    const listApp = await fetchDataApp(
         "per_page=15&_embed=author,wp:featuredmedia,wp:term&offset=0"
     );
     const tipsTrik = await fetchDataBlog(
@@ -342,9 +342,20 @@ export default function Home({
                                                                     styles.contentDec
                                                                 }
                                                             >
-                                                                <h5>
-                                                                    {data.title}
-                                                                </h5>
+                                                                <Link
+                                                                    href={
+                                                                        "handphone/" +
+                                                                        data.slug
+                                                                    }
+                                                                >
+                                                                    <a>
+                                                                        <h5>
+                                                                            {
+                                                                                data.title
+                                                                            }
+                                                                        </h5>
+                                                                    </a>
+                                                                </Link>
                                                                 <h6>
                                                                     {
                                                                         data.memory_internal
@@ -366,6 +377,21 @@ export default function Home({
                                                 }
                                             >
                                                 <a className={styles.fullLink}>
+                                                    <div
+                                                        style={{
+                                                            marginRight: "10px",
+                                                            display: "flex",
+                                                            alignItems:
+                                                                "center",
+                                                        }}
+                                                    >
+                                                        <Image
+                                                            src="/icon-vs-small.png"
+                                                            width={31}
+                                                            height={21}
+                                                            alt="camera"
+                                                        />
+                                                    </div>
                                                     LIHAT PERBANDINGAN
                                                 </a>
                                             </Link>
@@ -1070,7 +1096,7 @@ export default function Home({
                     </Fragment>
                 )}
 
-                {/* <div className={styles.tipstrik}>
+                <div className={styles.tipstrik}>
                     <div className={styles.contents}>
                         <Title title="Tips & Trik"></Title>
                         <div className="row">
@@ -1420,7 +1446,7 @@ export default function Home({
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
             </Layout>
         </React.Fragment>
     );

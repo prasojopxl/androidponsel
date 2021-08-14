@@ -24,11 +24,31 @@
 .wrpCompare {
     display: flex;
     justify-content: space-between;
+    position: relative;
     .item {
         flex: 1;
+        &:first-child {
+            .imgwrp {
+                &:before {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    margin-right: -51px;
+                    width: 103px;
+                    height: 65px;
+                    transform: translate(0, -50%);
+                    background: url("../public/icon-vs.png");
+                    z-index: 1;
+                }
+            }
+        }
     }
     .contentDec {
         padding: 20px;
+        a {
+            color: $color-black;
+        }
     }
     .imgwrp {
         padding: 20px;
@@ -52,6 +72,7 @@
             #f8fdff 100%
         ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff6ff', endColorstr='#f8fdff',GradientType=1 ); /* IE6-9 */
+        position: relative;
     }
     h5 {
         margin-bottom: 5px;
@@ -69,7 +90,9 @@
     text-transform: uppercase;
     border-radius: 7px;
     padding: 10px 5px;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     margin-top: 15px;
     width: 90%;
@@ -78,6 +101,9 @@
     &:hover {
         text-decoration: none;
         color: $color-black;
+    }
+    img {
+        margin-right: 10px;
     }
 }
 
@@ -402,8 +428,9 @@
         overflow: hidden;
         margin-right: 15px;
         text-align: center;
-        border-radius: 5px;
+        border-radius: 10px;
         overflow: hidden;
+        border: $color-green2 solid 1px;
     }
     h5 {
         font-size: 15px;

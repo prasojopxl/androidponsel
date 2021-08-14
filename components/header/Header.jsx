@@ -11,7 +11,7 @@ export default function Header(props) {
             <div className={styles.header}>
                 <div className={styles.contents}>
                     <div className={styles.left}>
-                        <Link href={baseUrl}>
+                        <Link href="/">
                             <a>
                                 <Image
                                     src={`${apiUrl}/uploads/logo_2b23bd5ec1.png`}
@@ -43,7 +43,7 @@ export default function Header(props) {
                     {
                         brands.map(item => {
                             return (
-                                <li key={item.id}><Link href="#"><a>{item.title}</a></Link></li>
+                                <li key={item.id}><Link href={`/brand/${item.slug}`}><a>{item.title}</a></Link></li>
                             )
                         })
                     }

@@ -7,18 +7,10 @@ import { apiUrl, baseUrl, totalItem } from "../../config/variable";
 import styles from "./index.module.scss";
 import { fetchData } from '../../config/data';
 import Layout from '../../layout';
+import ItemProduct from '../../components/products/item';
 
-export default function Handphone({
-    dataListHandphone,
-    getMenu,
-    getTopBrands,
-    dataSEO,
-    dataBanerProdukTop,
-    dataBanerProdukBody,
-}) {
+export default function Handphone(props) {
     const router = useRouter()
-
-
     const [ads1, setAds1] = useState({
         iframe: [],
         bannerImage: [],
@@ -28,8 +20,8 @@ export default function Handphone({
         heightImage: [],
     });
     const getAds1 = () => {
-        dataBanerProdukTop.Image_Banner === null
-            ? setAds1({ iframe: dataBanerProdukTop.URL_Iframe })
+        props.dataBanerProdukTop.Image_Banner === null
+            ? setAds1({ iframe: props.dataBanerProdukTop.URL_Iframe })
             : setAds1({
                 bannerImage: "withBanner",
                 link: dataTopAds.url,
@@ -48,8 +40,8 @@ export default function Handphone({
         heightImage: [],
     });
     const getAds2 = () => {
-        dataBanerProdukBody.Image_Banner === null
-            ? setAds2({ iframe: dataBanerProdukBody.URL_Iframe })
+        props.dataBanerProdukBody.Image_Banner === null
+            ? setAds2({ iframe: props.dataBanerProdukBody.URL_Iframe })
             : setAds2({
                 bannerImage: "withBanner",
                 link: dataTopAds.url,
@@ -59,9 +51,6 @@ export default function Handphone({
             });
     };
 
-    const compareProd = () => {
-        console.log();
-    };
     const [show, setShow] = useState(false)
     const [compare1, setCompare1] = useState("")
     const [compare2, setCompare2] = useState("")
@@ -131,11 +120,11 @@ export default function Handphone({
 
     return (
         <Layout
-            dataSEO={dataSEO.seo}
-            dataMainMenu={getMenu}
-            dataBrands={getTopBrands}
+            dataSEO={props.dataSEO.seo}
+            dataMainMenu={props.getMenu}
+            dataBrands={props.getTopBrands}
         >
-            {dataBanerProdukTop.published_at && (
+            {props.dataBanerProdukTop.published_at && (
                 <Fragment>
                     {ads1.bannerImage === "withBanner" ? (
                         <AdsBanner
@@ -156,10 +145,11 @@ export default function Handphone({
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="row">
-                                {dataListHandphone.map((item, i) => {
+                                {props.dataListHandphone.map((item, i) => {
                                     return (
                                         <div className="col-lg-3" key={item.id}>
-                                            <div className={styles.productItem}>
+                                            <ItemProduct title={item.title} memoryInternal={item.memory_internal} rating={item.rating} productImage={item.product_image[0]} slug={item.slug} />
+                                            {/* <div className={styles.productItem}>
                                                 <div className={styles.shortproduct}>
                                                     <div className={styles.imageprod}>
                                                         <Image
@@ -187,12 +177,12 @@ export default function Handphone({
                                                         </a>
                                                     </Link>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     );
                                 })}
                             </div>
-                            {dataBanerProdukBody.published_at && (
+                            {props.dataBanerProdukBody.published_at && (
                                 <Fragment>
                                     {ads2.bannerImage === "withBanner" ? (
                                         <AdsBanner
@@ -208,10 +198,10 @@ export default function Handphone({
                             )}
 
                             <div className="row">
-                                {dataListHandphone.map((item, i) => {
+                                {props.dataListHandphone.map((item, i) => {
                                     return (
                                         <div className="col-lg-3" key={item.id}>
-                                            <div className={styles.productItem} onClick={compareProd}>
+                                            <div className={styles.productItem}>
                                                 <div className={styles.shortproduct}>
                                                     <div className={styles.imageprod}>
                                                         <Image
