@@ -6,17 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ItemProduct(props) {
-    const [show, setShow] = useState(false)
-    const [compare1, setCompare1] = useState("")
-    const [compare2, setCompare2] = useState("")
-    const [compare3, setCompare3] = useState("")
-    const [isActive, setIsActive] = useState(false)
-
     const removeLocalProd = () => {
         localStorage.removeItem("produk1")
         localStorage.removeItem("produk2")
         localStorage.removeItem("produk3")
-        setIsActive(false)
     }
     const resetColor = () => {
         var elements = document.getElementsByClassName('btncompare'); // get all elements
@@ -33,15 +26,16 @@ export default function ItemProduct(props) {
             e.target.innerText = "DIBANDINGKAN"
             e.target.style.background = "#ddd"
             if (p1 === null) {
-                localStorage.setItem("produk1", props.slug)
+                localStorage.setItem("produk1", slug)
                 e.target.title = "produk1"
+                console.log(title)
             }
             else if (p1 !== null && p2 == null) {
-                localStorage.setItem("produk2", props.slug)
+                localStorage.setItem("produk2", slug)
                 e.target.title = "produk2"
             }
             else if (p1 !== null && p2 !== null && p3 == null) {
-                localStorage.setItem("produk3", props.slug)
+                localStorage.setItem("produk3", slug)
                 e.target.title = "produk3"
             }
             else {

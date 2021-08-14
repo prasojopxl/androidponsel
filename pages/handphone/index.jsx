@@ -70,6 +70,29 @@ export default function Handphone(props) {
             removeLocalProd();
         }
     }
+    const [show, setShow] = useState(true)
+    const [compare1, setCompare1] = useState("")
+    const [compare2, setCompare2] = useState("")
+    const [compare3, setCompare3] = useState("")
+
+    const showDetected = () => {
+        setCompare1(localStorage.getItem("produk1"))
+        setCompare2(localStorage.getItem("produk2"))
+        setCompare3(localStorage.getItem("produk3"))
+        if (localStorage.getItem("produk1") !== null) {
+            setShow(true)
+        }
+        else (
+            setShow(false)
+        )
+    }
+
+    useEffect(() => {
+
+        return () => {
+            showDetected();
+        }
+    }, [])
 
     useEffect(() => {
         getAds1();
@@ -139,24 +162,20 @@ export default function Handphone(props) {
                         </div>
                     </div>
                 </div>
-                {/* {
-                    show && (
-                        <div className={styles.containerCompare}>
-                            <div className={styles.desc}>
-                                {localStorage.getItem("produk1") !== null && <h5>Handphone 1: {compare1}</h5>}
-                                {localStorage.getItem("produk2") !== null && <h5>Handphone 2: {compare2}</h5>}
-                                {localStorage.getItem("produk3") !== null && <h5>Handphone 3: {compare3}</h5>}
-                            </div>
-                            <div className={styles.wrpAction}>
-                                <div className={styles.btnReset} onClick={() => resetCompare()}>Reset</div>
-                                <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
-                                    Bandingkan
-                                </div>
-                            </div>
 
+                <div className={styles.containerCompare}>
+                    <div className={styles.desc}>
+
+                        produk1: {compare1}
+                    </div>
+                    <div className={styles.wrpAction}>
+                        <div className={styles.btnReset} onClick={() => resetCompare()}>Reset</div>
+                        <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
+                            Bandingkan
                         </div>
-                    )
-                } */}
+                    </div>
+
+                </div>
 
             </div>
         </Layout>
