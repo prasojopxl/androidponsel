@@ -1045,13 +1045,6 @@ export default function Home({
                                                     className={styles.infodate}
                                                 >
                                                     <span>
-                                                        By{" "}
-                                                        {
-                                                            item._embedded
-                                                                .author[0].name
-                                                        }
-                                                    </span>
-                                                    <span>
                                                         {item.date.substr(
                                                             0,
                                                             10
