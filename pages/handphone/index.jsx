@@ -51,6 +51,7 @@ export default function Handphone(props) {
             });
     };
 
+
     function removeLocalProd() {
         localStorage.removeItem("produk1")
         localStorage.removeItem("produk2")
@@ -60,37 +61,57 @@ export default function Handphone(props) {
         const p1 = localStorage.getItem("produk1");
         const p2 = localStorage.getItem("produk2");
         const p3 = localStorage.getItem("produk3");
-        if (p1 === p2 || p1 === p3 || p2 === p3) {
+        const titleCompare1 = JSON.parse(localStorage.getItem("produk1"));
+        const titleCompare2 = JSON.parse(localStorage.getItem("produk2"));
+        const titleCompare3 = JSON.parse(localStorage.getItem("produk3"));
+        if (p1 !== null && p2 == null && p3 == null) {
+            router.push(`${baseUrl}handphone/compare?produk1=${titleCompare1.slug}`)
             removeLocalProd();
-            setShow(false)
-            router.push(`${baseUrl}handphone`)
+        }
+        else if (p1 !== null && p2 !== null && p3 == null) {
+            router.push(`${baseUrl}handphone/compare?produk1=${titleCompare1.slug}&produk2=${titleCompare2.slug}`)
+            removeLocalProd();
         }
         else {
-            router.push(`${baseUrl}handphone/compare?produk1=${localStorage.getItem("produk1")}&produk2=${localStorage.getItem("produk2")}&produk3=${localStorage.getItem("produk3")}`)
+            router.push(`${baseUrl}handphone/compare?produk1=${titleCompare1.slug}&produk2=${titleCompare2.slug}&produk3=${titleCompare3.slug}`)
             removeLocalProd();
         }
     }
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false)
     const [compare1, setCompare1] = useState("")
     const [compare2, setCompare2] = useState("")
     const [compare3, setCompare3] = useState("")
-
-    const showDetected = () => {
-        setCompare1(localStorage.getItem("produk1"))
-        setCompare2(localStorage.getItem("produk2"))
-        setCompare3(localStorage.getItem("produk3"))
-        if (localStorage.getItem("produk1") !== null) {
+    const getLocalProd = () => {
+        const p1 = localStorage.getItem("produk1");
+        const p2 = localStorage.getItem("produk2");
+        const p3 = localStorage.getItem("produk3");
+        const titleCompare1 = JSON.parse(localStorage.getItem("produk1"));
+        const titleCompare2 = JSON.parse(localStorage.getItem("produk2"));
+        const titleCompare3 = JSON.parse(localStorage.getItem("produk3"));
+        if (p1 !== null || p2 !== null || p3 !== null) {
             setShow(true)
+            if (p1 !== null && p2 == null && p3 == null) {
+                setCompare1(titleCompare1.title)
+            }
+            else if (p1 !== null && p2 !== null && p3 == null) {
+                setCompare2(titleCompare2.title)
+            }
+            else {
+                setCompare3(titleCompare3.title)
+            }
         }
-        else (
+        else {
             setShow(false)
-        )
+        }
     }
 
     useEffect(() => {
         getAds1();
         getAds2();
         removeLocalProd();
+        return (
+            getLocalProd()
+        )
     }, []);
 
     return (
@@ -123,7 +144,7 @@ export default function Handphone(props) {
                                 {props.dataListHandphone.map((item, i) => {
                                     return (
                                         <div className="col-lg-3" key={item.id}>
-                                            <ItemProduct title={item.title} memoryInternal={item.memory_internal} rating={item.rating} productImage={item.product_image[0]} slug={item.slug} />
+                                            <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating} productImage={item.product_image[0]} slug={item.slug} />
                                         </div>
                                     );
                                 })}
@@ -147,7 +168,7 @@ export default function Handphone(props) {
                                 {props.dataListHandphone.map((item, i) => {
                                     return (
                                         <div className="col-lg-3" key={item.id}>
-                                            <ItemProduct title={item.title} memoryInternal={item.memory_internal} rating={item.rating} productImage={item.product_image[0]} slug={item.slug} />
+                                            <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating} productImage={item.product_image[0]} slug={item.slug} />
                                         </div>
                                     );
                                 })}
@@ -157,19 +178,24 @@ export default function Handphone(props) {
                 </div>
 
                 <div className={styles.containerCompare}>
-                    <div className={styles.desc}>
-
-                        produk1: {compare1}
-                    </div>
-                    <div className={styles.wrpAction}>
-                        <div className={styles.btnReset} onClick={() => resetCompare()}>Reset</div>
-                        <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
-                            Bandingkan
-                        </div>
-                    </div>
-
+                    {
+                        show && (
+                            <Fragment>
+                                <div className={styles.desc}>
+                                    Badingkan Produk:
+                                    {compare1 && <h5>{compare1}</h5>}
+                                    {compare2 && <h5>{compare2}</h5>}
+                                    {compare3 && <h5>{compare3}</h5>}
+                                </div>
+                                <div className={styles.wrpAction}>
+                                    <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
+                                        Bandingkan
+                                    </div>
+                                </div>
+                            </Fragment>
+                        )
+                    }
                 </div>
-
             </div>
         </Layout>
     );

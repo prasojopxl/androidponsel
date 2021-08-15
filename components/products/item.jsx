@@ -22,20 +22,20 @@ export default function ItemProduct(props) {
         let p1 = localStorage.getItem("produk1");
         let p2 = localStorage.getItem("produk2");
         let p3 = localStorage.getItem("produk3");
+        let valueLocalStore = { slug, title };
         if (e.target.innerText === "BANDINGKAN PRODUK") {
             e.target.innerText = "DIBANDINGKAN"
             e.target.style.background = "#ddd"
             if (p1 === null) {
-                localStorage.setItem("produk1", slug)
+                localStorage.setItem("produk1", JSON.stringify(valueLocalStore))
                 e.target.title = "produk1"
-                console.log(title)
             }
             else if (p1 !== null && p2 == null) {
-                localStorage.setItem("produk2", slug)
+                localStorage.setItem("produk2", JSON.stringify(valueLocalStore))
                 e.target.title = "produk2"
             }
             else if (p1 !== null && p2 !== null && p3 == null) {
-                localStorage.setItem("produk3", slug)
+                localStorage.setItem("produk3", JSON.stringify(valueLocalStore))
                 e.target.title = "produk3"
             }
             else {
@@ -85,9 +85,11 @@ export default function ItemProduct(props) {
                     </div>
                 </div>
                 <div className={`${styles.wrpbtn}`}>
-                    <button className={`${styles.btnfull} btncompare`} name="mybtn" onClick={(e) => addCompare(props.slug, e, props.title)} >
-                        BANDINGKAN PRODUK
-                    </button>
+                    <div onClick={props.action}>
+                        <button className={`${styles.btnfull} btncompare`} name="mybtn" onClick={(e) => addCompare(props.slug, e, props.title)} >
+                            BANDINGKAN PRODUK
+                        </button>
+                    </div>
                     <Link href={`${"/handphone/" + props.slug}`}>
                         <a className={styles.btnblank}>
                             LIHAT SELENGKAPNYA
