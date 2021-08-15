@@ -88,13 +88,6 @@ export default function Handphone(props) {
     }
 
     useEffect(() => {
-
-        return () => {
-            showDetected();
-        }
-    }, [])
-
-    useEffect(() => {
         getAds1();
         getAds2();
         removeLocalProd();
