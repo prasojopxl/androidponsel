@@ -90,6 +90,7 @@ export default function Handphone(props) {
         const titleCompare3 = JSON.parse(localStorage.getItem("produk3"));
         if (p1 !== null || p2 !== null || p3 !== null) {
             setShow(true)
+            alert("mencari mendeteksi button active or tidak")
             if (p1 !== null && p2 == null && p3 == null) {
                 setCompare1(titleCompare1.title)
             }
@@ -102,6 +103,7 @@ export default function Handphone(props) {
         }
         else {
             setShow(false)
+            removeLocalProd();
         }
     }
 
