@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import ReactHtmlParser from "react-html-parser";
 import { Ads, AdsBanner, Title } from "../components/";
+// import ItemProduct from "../../components/products/item";
+import ItemProduct from "../components/products/item";
 import { fetchData, fetchDataApp, fetchDataBlog } from "../config/data";
 import { apiUrl, baseUrl } from "../config/variable";
 import Layout from "../layout";
@@ -17,7 +20,9 @@ export async function getStaticProps(context) {
     const dataBanerHome6 = await fetchData("/ads/6?_publicationState=preview");
     const dataBanerHome7 = await fetchData("/ads/7?_publicationState=preview");
     const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
-    const dataProducts = await fetchData("/products?_limit=12");
+    // const dataProducts = await fetchData("/products?_limit=12");
+    const dataListHandphone = await fetchData(`/products?category=1&_limit=12`);
+
     const dataSEO = await fetchData("/general");
     const mainNews = await fetchData(
         "/posts?menu=2&_sort=updated_at:DESC&_limit=1"
@@ -58,7 +63,7 @@ export async function getStaticProps(context) {
         !dataBanerHome6 ||
         !dataBanerHome7 ||
         !dataCompare ||
-        !dataProducts ||
+        !dataListHandphone ||
         !mainNews ||
         !topNews ||
         !contNews ||
@@ -84,7 +89,7 @@ export async function getStaticProps(context) {
             dataBanerHome6,
             dataBanerHome7,
             dataCompare,
-            dataProducts,
+            dataListHandphone,
             mainNews,
             topNews,
             contNews,
@@ -101,29 +106,8 @@ export async function getStaticProps(context) {
     };
 }
 
-export default function Home({
-    dataBanerHome1,
-    dataBanerHome2,
-    dataBanerHome3,
-    dataBanerHome4,
-    dataBanerHome5,
-    dataBanerHome6,
-    dataBanerHome7,
-    dataCompare,
-    dataProducts,
-    mainNews,
-    topNews,
-    contNews,
-    topApp,
-    listApp,
-    tipsTrik,
-    tipsTrikMain,
-    tipsTrikSecond,
-    getMenu,
-    getTopBrands,
-    dataAndroidNews,
-    dataSEO,
-}) {
+export default function Home(props) {
+    const router = useRouter();
     const [ads1, setAds1] = useState({
         iframe: [],
         bannerImage: [],
@@ -133,14 +117,14 @@ export default function Home({
         heightImage: [],
     });
     const getAds1 = () => {
-        dataBanerHome1.Image_Banner === null
-            ? setAds1({ iframe: dataBanerHome1.URL_Iframe })
+        props.dataBanerHome1.Image_Banner === null
+            ? setAds1({ iframe: props.dataBanerHome1.URL_Iframe })
             : setAds1({
                   bannerImage: "withBanner",
-                  link: dataTopAds.url,
-                  urlImage: apiUrl + dataTopAds.Image_Banner.url,
-                  widthImage: dataTopAds.Image_Banner.width,
-                  heightImage: dataTopAds.Image_Banner.height,
+                  link: props.dataBanerHome1.url,
+                  urlImage: apiUrl + props.dataBanerHome1.Image_Banner.url,
+                  widthImage: props.dataBanerHome1.Image_Banner.width,
+                  heightImage: props.dataBanerHome1.Image_Banner.height,
               });
     };
     const [ads2, setAds2] = useState({
@@ -152,14 +136,14 @@ export default function Home({
         heightImage: [],
     });
     const getAds2 = () => {
-        dataBanerHome2.Image_Banner === null
-            ? setAds2({ iframe: dataBanerHome2.URL_Iframe })
+        props.dataBanerHome2.Image_Banner === null
+            ? setAds2({ iframe: props.dataBanerHome2.URL_Iframe })
             : setAds2({
                   bannerImage: "withBanner",
-                  link: dataBanerHome2.url,
-                  urlImage: apiUrl + dataBanerHome2.Image_Banner.url,
-                  widthImage: dataBanerHome2.Image_Banner.width,
-                  heightImage: dataBanerHome2.Image_Banner.height,
+                  link: props.dataBanerHome2.url,
+                  urlImage: apiUrl + props.dataBanerHome2.Image_Banner.url,
+                  widthImage: props.dataBanerHome2.Image_Banner.width,
+                  heightImage: props.dataBanerHome2.Image_Banner.height,
               });
     };
     const [ads3, setAds3] = useState({
@@ -171,14 +155,14 @@ export default function Home({
         heightImage: [],
     });
     const getAds3 = () => {
-        dataBanerHome3.Image_Banner === null
-            ? setAds3({ iframe: dataBanerHome3.URL_Iframe })
+        props.dataBanerHome3.Image_Banner === null
+            ? setAds3({ iframe: props.dataBanerHome3.URL_Iframe })
             : setAds3({
                   bannerImage: "withBanner",
-                  link: dataBanerHome3.url,
-                  urlImage: apiUrl + dataBanerHome3.Image_Banner.url,
-                  widthImage: dataBanerHome3.Image_Banner.width,
-                  heightImage: dataBanerHome3.Image_Banner.height,
+                  link: props.dataBanerHome3.url,
+                  urlImage: apiUrl + props.dataBanerHome3.Image_Banner.url,
+                  widthImage: props.dataBanerHome3.Image_Banner.width,
+                  heightImage: props.dataBanerHome3.Image_Banner.height,
               });
     };
     const [ads4, setAds4] = useState({
@@ -190,14 +174,14 @@ export default function Home({
         heightImage: [],
     });
     const getAds4 = () => {
-        dataBanerHome4.Image_Banner === null
-            ? setAds4({ iframe: dataBanerHome4.URL_Iframe })
+        props.dataBanerHome4.Image_Banner === null
+            ? setAds4({ iframe: props.dataBanerHome4.URL_Iframe })
             : setAds4({
                   bannerImage: "withBanner",
-                  link: dataBanerHome4.url,
-                  urlImage: apiUrl + dataBanerHome4.Image_Banner.url,
-                  widthImage: dataBanerHome4.Image_Banner.width,
-                  heightImage: dataBanerHome4.Image_Banner.height,
+                  link: props.dataBanerHome4.url,
+                  urlImage: apiUrl + props.dataBanerHome4.Image_Banner.url,
+                  widthImage: props.dataBanerHome4.Image_Banner.width,
+                  heightImage: props.dataBanerHome4.Image_Banner.height,
               });
     };
     const [ads5, setAds5] = useState({
@@ -209,14 +193,14 @@ export default function Home({
         heightImage: [],
     });
     const getAds5 = () => {
-        dataBanerHome5.Image_Banner === null
-            ? setAds5({ iframe: dataBanerHome5.URL_Iframe })
+        props.dataBanerHome5.Image_Banner === null
+            ? setAds5({ iframe: props.dataBanerHome5.URL_Iframe })
             : setAds5({
                   bannerImage: "withBanner",
-                  link: dataBanerHome5.url,
-                  urlImage: apiUrl + dataBanerHome5.Image_Banner.url,
-                  widthImage: dataBanerHome5.Image_Banner.width,
-                  heightImage: dataBanerHome5.Image_Banner.height,
+                  link: props.dataBanerHome5.url,
+                  urlImage: apiUrl + props.dataBanerHome5.Image_Banner.url,
+                  widthImage: props.dataBanerHome5.Image_Banner.width,
+                  heightImage: props.dataBanerHome5.Image_Banner.height,
               });
     };
     const [ads6, setAds6] = useState({
@@ -228,14 +212,14 @@ export default function Home({
         heightImage: [],
     });
     const getAds6 = () => {
-        dataBanerHome6.Image_Banner === null
-            ? setAds6({ iframe: dataBanerHome6.URL_Iframe })
+        props.dataBanerHome6.Image_Banner === null
+            ? setAds6({ iframe: props.dataBanerHome6.URL_Iframe })
             : setAds6({
                   bannerImage: "withBanner",
-                  link: dataBanerHome6.url,
-                  urlImage: apiUrl + dataBanerHome6.Image_Banner.url,
-                  widthImage: dataBanerHome6.Image_Banner.width,
-                  heightImage: dataBanerHome6.Image_Banner.height,
+                  link: props.dataBanerHome6.url,
+                  urlImage: apiUrl + props.dataBanerHome6.Image_Banner.url,
+                  widthImage: props.dataBanerHome6.Image_Banner.width,
+                  heightImage: props.dataBanerHome6.Image_Banner.height,
               });
     };
     const [ads7, setAds7] = useState({
@@ -247,8 +231,8 @@ export default function Home({
         heightImage: [],
     });
     const getAds7 = () => {
-        dataBanerHome7.Image_Banner === null
-            ? setAds7({ iframe: dataBanerHome7.URL_Iframe })
+        props.dataBanerHome7.Image_Banner === null
+            ? setAds7({ iframe: props.dataBanerHome7.URL_Iframe })
             : setAds7({
                   bannerImage: "withBanner",
                   link: dataBanerHome7.url,
@@ -257,7 +241,82 @@ export default function Home({
                   heightImage: dataBanerHome7.Image_Banner.height,
               });
     };
+    function removeLocalProd() {
+        localStorage.removeItem("produk1");
+        localStorage.removeItem("produk2");
+        localStorage.removeItem("produk3");
+        setCompare1("");
+        setCompare2("");
+        setCompare3("");
+    }
+    const goToCompare = () => {
+        const p1 = localStorage.getItem("produk1");
+        const p2 = localStorage.getItem("produk2");
+        const p3 = localStorage.getItem("produk3");
+        const titleCompare1 = JSON.parse(localStorage.getItem("produk1"));
+        const titleCompare2 = JSON.parse(localStorage.getItem("produk2"));
+        const titleCompare3 = JSON.parse(localStorage.getItem("produk3"));
+        if (p1 !== null && p2 == null && p3 == null) {
+            router.push(
+                `${baseUrl}handphone/compare?produk1=${titleCompare1.slug}`
+            );
+            removeLocalProd();
+        } else if (p1 !== null && p2 !== null && p3 == null) {
+            router.push(
+                `${baseUrl}handphone/compare?produk1=${titleCompare1.slug}&produk2=${titleCompare2.slug}`
+            );
+            removeLocalProd();
+        } else {
+            router.push(
+                `${baseUrl}handphone/compare?produk1=${titleCompare1.slug}&produk2=${titleCompare2.slug}&produk3=${titleCompare3.slug}`
+            );
+            removeLocalProd();
+        }
+    };
+    const [show, setShow] = useState(false);
+    const [compare1, setCompare1] = useState("");
+    const [compare2, setCompare2] = useState("");
+    const [compare3, setCompare3] = useState("");
+    const getLocalProd = () => {
+        const p1 = localStorage.getItem("produk1");
+        const p2 = localStorage.getItem("produk2");
+        const p3 = localStorage.getItem("produk3");
+        const titleCompare1 = JSON.parse(localStorage.getItem("produk1"));
+        const titleCompare2 = JSON.parse(localStorage.getItem("produk2"));
+        const titleCompare3 = JSON.parse(localStorage.getItem("produk3"));
+        if (p1 !== null || p2 !== null || p3 !== null) {
+            setShow(true);
+            if (p1 !== null && p2 == null && p3 == null) {
+                setCompare1(titleCompare1.title);
+            } else if (p1 !== null && p2 !== null && p3 == null) {
+                setCompare2(titleCompare2.title);
+            } else if (p1 !== null && p2 !== null) {
+                setCompare1(titleCompare1.title);
+                setCompare2(titleCompare2.title);
+                setCompare3(titleCompare3.title);
+            } else if (p1 !== null && p3 !== null) {
+                setCompare1(titleCompare1.title);
+                setCompare2("");
+                setCompare3(titleCompare3.title);
+            } else {
+                if (p2 !== null || p3 !== null) {
+                    setCompare1("");
+                } else {
+                    setCompare3(titleCompare3.title);
+                }
+            }
+        } else {
+            setShow(false);
+            removeLocalProd();
+        }
 
+        if (p2 == null) {
+            setCompare2("");
+        }
+        if (p3 == null) {
+            setCompare3("");
+        }
+    };
     useEffect(() => {
         getAds1();
         getAds2();
@@ -266,16 +325,18 @@ export default function Home({
         getAds5();
         getAds6();
         getAds7();
+        removeLocalProd();
+        return getLocalProd();
     }, []);
 
     return (
         <React.Fragment>
             <Layout
-                dataSEO={dataSEO.seo}
-                dataMainMenu={getMenu}
-                dataBrands={getTopBrands}
+                dataSEO={props.dataSEO.seo}
+                dataMainMenu={props.getMenu}
+                dataBrands={props.getTopBrands}
             >
-                {dataBanerHome1.published_at && (
+                {props.dataBanerHome1.published_at && (
                     <Fragment>
                         {ads1.bannerImage === "withBanner" ? (
                             <AdsBanner
@@ -293,7 +354,7 @@ export default function Home({
                     <div className={styles.contens}>
                         <Title title="Top Perbandingan" />
                         <div className="row">
-                            {dataCompare.map((item, index) => {
+                            {props.dataCompare.map((item, index) => {
                                 return (
                                     <div className="col-lg-6" key={item.id}>
                                         <div className={styles.itemcompare}>
@@ -344,6 +405,7 @@ export default function Home({
                                                             >
                                                                 <Link
                                                                     href={
+                                                                        baseUrl +
                                                                         "handphone/" +
                                                                         data.slug
                                                                     }
@@ -400,7 +462,7 @@ export default function Home({
                                 );
                             })}
                         </div>
-                        {dataBanerHome2.published_at && (
+                        {props.dataBanerHome2.published_at && (
                             <Fragment>
                                 {ads2.bannerImage === "withBanner" ? (
                                     <AdsBanner
@@ -415,66 +477,23 @@ export default function Home({
                             </Fragment>
                         )}
                         <div className="row">
-                            {dataProducts.map((item, index) => {
+                            {props.dataListHandphone.map((item, i) => {
                                 return (
                                     <div className="col-lg-3" key={item.id}>
-                                        <div className={styles.productItem}>
-                                            <div
-                                                className={styles.shortproduct}
-                                            >
-                                                <div
-                                                    className={styles.imageprod}
-                                                >
-                                                    <Image
-                                                        src={
-                                                            apiUrl +
-                                                            item
-                                                                .product_image[0]
-                                                                .url
-                                                        }
-                                                        width={
-                                                            item
-                                                                .product_image[0]
-                                                                .width / 3
-                                                        }
-                                                        height={
-                                                            item
-                                                                .product_image[0]
-                                                                .height / 3
-                                                        }
-                                                        alt={
-                                                            item
-                                                                .product_image[0]
-                                                                .name
-                                                        }
-                                                    />{" "}
-                                                </div>
-                                                <div
-                                                    className={
-                                                        styles.productinfo
-                                                    }
-                                                >
-                                                    <h5>{item.title}</h5>
-                                                    <h6>
-                                                        {item.memory_internal}
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                            <div className={styles.wrpbtn}>
-                                                <a
-                                                    href="#"
-                                                    className={styles.btnfull}
-                                                >
-                                                    BANDINGKAN PRODUK
-                                                </a>
-                                                <a
-                                                    href="#"
-                                                    className={styles.btnblank}
-                                                >
-                                                    LIHAT SELENGKAPNYA
-                                                </a>
-                                            </div>
-                                        </div>
+                                        {/* <div>
+                                            <h4>{item.product_image[0]}</h4>
+                                            Rate: {item.rating}
+                                        </div> */}
+                                        <ItemProduct
+                                            action={getLocalProd}
+                                            title={item.title}
+                                            memoryInternal={
+                                                item.memory_internal
+                                            }
+                                            rating={item.rating}
+                                            productImage={item.product_image[0]}
+                                            slug={item.slug}
+                                        />
                                     </div>
                                 );
                             })}
@@ -492,7 +511,7 @@ export default function Home({
                         </div>
                     </div>
                 </div>
-                {dataBanerHome3.published_at && (
+                {props.dataBanerHome3.published_at && (
                     <Fragment>
                         {ads3.bannerImage === "withBanner" ? (
                             <AdsBanner
@@ -513,234 +532,251 @@ export default function Home({
                             <div className="col-lg-12">
                                 <div className="row">
                                     <div className="col-lg-5">
-                                        {dataAndroidNews.map((item, i) => {
-                                            return (
-                                                <div
-                                                    className={styles.mainpost}
-                                                    key={item.id}
-                                                >
+                                        {props.dataAndroidNews.map(
+                                            (item, i) => {
+                                                return (
                                                     <div
                                                         className={
-                                                            styles.imgwrp
+                                                            styles.mainpost
                                                         }
-                                                    >
-                                                        <Image
-                                                            src={
-                                                                item._embedded[
-                                                                    "wp:featuredmedia"
-                                                                ][0].source_url
-                                                            }
-                                                            width={
-                                                                item._embedded[
-                                                                    "wp:featuredmedia"
-                                                                ][0]
-                                                                    .media_details
-                                                                    .width
-                                                            }
-                                                            height={
-                                                                item._embedded[
-                                                                    "wp:featuredmedia"
-                                                                ][0]
-                                                                    .media_details
-                                                                    .height
-                                                            }
-                                                            alt={
-                                                                item.title
-                                                                    .rendered
-                                                            }
-                                                        />
-                                                    </div>
-                                                    <div
-                                                        className={styles.desc}
+                                                        key={item.id}
                                                     >
                                                         <div
                                                             className={
-                                                                styles.tags
+                                                                styles.imgwrp
                                                             }
                                                         >
-                                                            {item._embedded[
-                                                                "wp:term"
-                                                            ][0].map((data) => {
-                                                                return (
-                                                                    <a
-                                                                        href={
-                                                                            data.link
-                                                                        }
-                                                                        key={
-                                                                            data.id
-                                                                        }
-                                                                    >
-                                                                        {
-                                                                            data.name
-                                                                        }
-                                                                    </a>
-                                                                );
-                                                            })}
-                                                        </div>
-                                                        <a href={item.link}>
-                                                            <h4>
-                                                                {
+                                                            <Image
+                                                                src={
+                                                                    item
+                                                                        ._embedded[
+                                                                        "wp:featuredmedia"
+                                                                    ][0]
+                                                                        .source_url
+                                                                }
+                                                                width={
+                                                                    item
+                                                                        ._embedded[
+                                                                        "wp:featuredmedia"
+                                                                    ][0]
+                                                                        .media_details
+                                                                        .width
+                                                                }
+                                                                height={
+                                                                    item
+                                                                        ._embedded[
+                                                                        "wp:featuredmedia"
+                                                                    ][0]
+                                                                        .media_details
+                                                                        .height
+                                                                }
+                                                                alt={
                                                                     item.title
                                                                         .rendered
                                                                 }
-                                                            </h4>
-                                                        </a>
+                                                            />
+                                                        </div>
                                                         <div
                                                             className={
-                                                                styles.infodate
+                                                                styles.desc
                                                             }
                                                         >
-                                                            <span>
-                                                                By{" "}
-                                                                {
-                                                                    item
-                                                                        ._embedded
-                                                                        .author[0]
-                                                                        .name
+                                                            <div
+                                                                className={
+                                                                    styles.tags
                                                                 }
-                                                            </span>
-                                                            <span>
-                                                                {item.date.substr(
-                                                                    0,
-                                                                    10
+                                                            >
+                                                                {item._embedded[
+                                                                    "wp:term"
+                                                                ][0].map(
+                                                                    (data) => {
+                                                                        return (
+                                                                            <a
+                                                                                href={
+                                                                                    data.link
+                                                                                }
+                                                                                key={
+                                                                                    data.id
+                                                                                }
+                                                                            >
+                                                                                {
+                                                                                    data.name
+                                                                                }
+                                                                            </a>
+                                                                        );
+                                                                    }
                                                                 )}
-                                                            </span>
+                                                            </div>
+                                                            <a href={item.link}>
+                                                                <h4>
+                                                                    {
+                                                                        item
+                                                                            .title
+                                                                            .rendered
+                                                                    }
+                                                                </h4>
+                                                            </a>
+                                                            <div
+                                                                className={
+                                                                    styles.infodate
+                                                                }
+                                                            >
+                                                                <span>
+                                                                    By{" "}
+                                                                    {
+                                                                        item
+                                                                            ._embedded
+                                                                            .author[0]
+                                                                            .name
+                                                                    }
+                                                                </span>
+                                                                <span>
+                                                                    {item.date.substr(
+                                                                        0,
+                                                                        10
+                                                                    )}
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            );
-                                        })}
+                                                );
+                                            }
+                                        )}
                                     </div>
                                     <div className="col-lg-7">
                                         <div className={styles.wrptopnews}>
                                             <div className="row">
-                                                {topNews.map((item, i) => {
-                                                    return (
-                                                        <div
-                                                            className="col-lg-6"
-                                                            key={item.id}
-                                                        >
+                                                {props.topNews.map(
+                                                    (item, i) => {
+                                                        return (
                                                             <div
-                                                                className={
-                                                                    styles.wrpitemnews
-                                                                }
+                                                                className="col-lg-6"
                                                                 key={item.id}
                                                             >
                                                                 <div
                                                                     className={
-                                                                        styles.imgwrp
+                                                                        styles.wrpitemnews
                                                                     }
-                                                                >
-                                                                    <Image
-                                                                        src={
-                                                                            item
-                                                                                ._embedded[
-                                                                                "wp:featuredmedia"
-                                                                            ][0]
-                                                                                .source_url
-                                                                        }
-                                                                        width={
-                                                                            item
-                                                                                ._embedded[
-                                                                                "wp:featuredmedia"
-                                                                            ][0]
-                                                                                .media_details
-                                                                                .width /
-                                                                            6
-                                                                        }
-                                                                        height={
-                                                                            item
-                                                                                ._embedded[
-                                                                                "wp:featuredmedia"
-                                                                            ][0]
-                                                                                .media_details
-                                                                                .height /
-                                                                            6
-                                                                        }
-                                                                        alt={
-                                                                            item
-                                                                                .title
-                                                                                .rendered
-                                                                        }
-                                                                    />
-                                                                </div>
-                                                                <div
-                                                                    className={
-                                                                        styles.content
+                                                                    key={
+                                                                        item.id
                                                                     }
                                                                 >
                                                                     <div
                                                                         className={
-                                                                            styles.tags
+                                                                            styles.imgwrp
                                                                         }
                                                                     >
-                                                                        {item._embedded[
-                                                                            "wp:term"
-                                                                        ][0].map(
-                                                                            (
-                                                                                data
-                                                                            ) => {
-                                                                                return (
-                                                                                    <a
-                                                                                        href={
-                                                                                            data.link
-                                                                                        }
-                                                                                        key={
-                                                                                            data.id
-                                                                                        }
-                                                                                    >
-                                                                                        {
-                                                                                            data.name
-                                                                                        }
-                                                                                    </a>
-                                                                                );
+                                                                        <Image
+                                                                            src={
+                                                                                item
+                                                                                    ._embedded[
+                                                                                    "wp:featuredmedia"
+                                                                                ][0]
+                                                                                    .source_url
                                                                             }
-                                                                        )}
-                                                                    </div>
-                                                                    <a
-                                                                        href={
-                                                                            item.link
-                                                                        }
-                                                                    >
-                                                                        <h5>
-                                                                            {
+                                                                            width={
+                                                                                item
+                                                                                    ._embedded[
+                                                                                    "wp:featuredmedia"
+                                                                                ][0]
+                                                                                    .media_details
+                                                                                    .width /
+                                                                                6
+                                                                            }
+                                                                            height={
+                                                                                item
+                                                                                    ._embedded[
+                                                                                    "wp:featuredmedia"
+                                                                                ][0]
+                                                                                    .media_details
+                                                                                    .height /
+                                                                                6
+                                                                            }
+                                                                            alt={
                                                                                 item
                                                                                     .title
                                                                                     .rendered
                                                                             }
-                                                                        </h5>
-                                                                    </a>
+                                                                        />
+                                                                    </div>
                                                                     <div
                                                                         className={
-                                                                            styles.infodate
+                                                                            styles.content
                                                                         }
                                                                     >
-                                                                        <span>
-                                                                            By{" "}
-                                                                            {
-                                                                                item
-                                                                                    ._embedded
-                                                                                    .author[0]
-                                                                                    .name
+                                                                        <div
+                                                                            className={
+                                                                                styles.tags
                                                                             }
-                                                                        </span>
-                                                                        <span>
-                                                                            {item.date.substr(
-                                                                                0,
-                                                                                10
+                                                                        >
+                                                                            {item._embedded[
+                                                                                "wp:term"
+                                                                            ][0].map(
+                                                                                (
+                                                                                    data
+                                                                                ) => {
+                                                                                    return (
+                                                                                        <a
+                                                                                            href={
+                                                                                                data.link
+                                                                                            }
+                                                                                            key={
+                                                                                                data.id
+                                                                                            }
+                                                                                        >
+                                                                                            {
+                                                                                                data.name
+                                                                                            }
+                                                                                        </a>
+                                                                                    );
+                                                                                }
                                                                             )}
-                                                                        </span>
+                                                                        </div>
+                                                                        <a
+                                                                            href={
+                                                                                item.link
+                                                                            }
+                                                                        >
+                                                                            <h5>
+                                                                                {
+                                                                                    item
+                                                                                        .title
+                                                                                        .rendered
+                                                                                }
+                                                                            </h5>
+                                                                        </a>
+                                                                        <div
+                                                                            className={
+                                                                                styles.infodate
+                                                                            }
+                                                                        >
+                                                                            <span>
+                                                                                By{" "}
+                                                                                {
+                                                                                    item
+                                                                                        ._embedded
+                                                                                        .author[0]
+                                                                                        .name
+                                                                                }
+                                                                            </span>
+                                                                            <span>
+                                                                                {item.date.substr(
+                                                                                    0,
+                                                                                    10
+                                                                                )}
+                                                                            </span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    );
-                                                })}
+                                                        );
+                                                    }
+                                                )}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {dataBanerHome4.published_at && (
+                                {props.dataBanerHome4.published_at && (
                                     <Fragment>
                                         {ads4.bannerImage === "withBanner" ? (
                                             <AdsBanner
@@ -755,7 +791,7 @@ export default function Home({
                                     </Fragment>
                                 )}
                                 <div className="row">
-                                    {contNews.map((item, i) => {
+                                    {props.contNews.map((item, i) => {
                                         return (
                                             <div
                                                 className="col-lg-4"
@@ -879,7 +915,7 @@ export default function Home({
                         </div>
                     </div>
                 </div>
-                {dataBanerHome5.published_at && (
+                {props.dataBanerHome5.published_at && (
                     <Fragment>
                         {ads5.bannerImage === "withBanner" ? (
                             <AdsBanner
@@ -898,7 +934,7 @@ export default function Home({
                     <div className={styles.contents}>
                         <Title title="Kanal Aplikasi" />
                         <div className="row">
-                            {topApp.map((item, i) => {
+                            {props.topApp.map((item, i) => {
                                 return (
                                     <div className="col-lg-6" key={item.id}>
                                         <div className={styles.topkanal}>
@@ -979,7 +1015,7 @@ export default function Home({
                                 );
                             })}
                         </div>
-                        {dataBanerHome6.published_at && (
+                        {props.dataBanerHome6.published_at && (
                             <Fragment>
                                 {ads6.bannerImage === "withBanner" ? (
                                     <AdsBanner
@@ -994,7 +1030,7 @@ export default function Home({
                             </Fragment>
                         )}
                         <div className="row">
-                            {listApp.map((item, i) => {
+                            {props.listApp.map((item, i) => {
                                 return (
                                     <div className="col-lg-4" key={item.id}>
                                         <div className={styles.wrplistapp}>
@@ -1074,7 +1110,7 @@ export default function Home({
                     </div>
                 </div>
 
-                {dataBanerHome7.published_at && (
+                {props.dataBanerHome7.published_at && (
                     <Fragment>
                         {ads7.bannerImage === "withBanner" ? (
                             <AdsBanner
@@ -1095,7 +1131,7 @@ export default function Home({
                         <div className="row">
                             <div className="col-lg-7">
                                 <div className="row">
-                                    {tipsTrik.map((item, i) => {
+                                    {props.tipsTrik.map((item, i) => {
                                         return (
                                             <div
                                                 className="col-lg-6"
@@ -1219,7 +1255,7 @@ export default function Home({
                             </div>
                             <div className="col-lg-5">
                                 <div className={styles.maintipstrik}>
-                                    {tipsTrikMain.map((item, i) => {
+                                    {props.tipsTrikMain.map((item, i) => {
                                         return (
                                             <div key="item.id">
                                                 <div
@@ -1334,7 +1370,7 @@ export default function Home({
                                     })}
                                 </div>
                                 <div className={styles.secondtipstrik}>
-                                    {tipsTrikSecond.map((item, i) => {
+                                    {props.tipsTrikSecond.map((item, i) => {
                                         return (
                                             <div
                                                 className={styles.itemcontent}
@@ -1439,6 +1475,27 @@ export default function Home({
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div className={styles.containerCompare}>
+                    {show && (
+                        <Fragment>
+                            <div className={styles.desc}>
+                                Badingkan Produk:
+                                {compare1 && <h5>{compare1}</h5>}
+                                {compare2 && <h5>{compare2}</h5>}
+                                {compare3 && <h5>{compare3}</h5>}
+                            </div>
+                            <div className={styles.wrpAction}>
+                                <div
+                                    className={styles.btnCompareProd}
+                                    onClick={() => goToCompare()}
+                                >
+                                    Lihat Bandingkan
+                                </div>
+                            </div>
+                        </Fragment>
+                    )}
                 </div>
             </Layout>
         </React.Fragment>
