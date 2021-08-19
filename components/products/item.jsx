@@ -22,7 +22,7 @@ export default function ItemProduct(props) {
         let p1 = localStorage.getItem("produk1");
         let p2 = localStorage.getItem("produk2");
         let p3 = localStorage.getItem("produk3");
-        let valueLocalStore = { slug, title };
+        let valueLocalStore = { slug, title, status: e.target.innerText === "BANDINGKAN PRODUK" ? "enable" : "disable" };
         if (e.target.innerText === "BANDINGKAN PRODUK") {
             e.target.innerText = "DIBANDINGKAN"
             e.target.style.background = "#ddd"

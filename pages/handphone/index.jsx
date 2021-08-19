@@ -56,6 +56,9 @@ export default function Handphone(props) {
         localStorage.removeItem("produk1")
         localStorage.removeItem("produk2")
         localStorage.removeItem("produk3")
+        setCompare1("")
+        setCompare2("")
+        setCompare3("")
     }
     const goToCompare = () => {
         const p1 = localStorage.getItem("produk1");
@@ -90,21 +93,43 @@ export default function Handphone(props) {
         const titleCompare3 = JSON.parse(localStorage.getItem("produk3"));
         if (p1 !== null || p2 !== null || p3 !== null) {
             setShow(true)
-            alert("mencari mendeteksi button active or tidak")
             if (p1 !== null && p2 == null && p3 == null) {
                 setCompare1(titleCompare1.title)
             }
             else if (p1 !== null && p2 !== null && p3 == null) {
                 setCompare2(titleCompare2.title)
             }
-            else {
+            else if (p1 !== null && p2 !== null) {
+                setCompare1(titleCompare1.title)
+                setCompare2(titleCompare2.title)
                 setCompare3(titleCompare3.title)
+            }
+            else if (p1 !== null && p3 !== null) {
+                setCompare1(titleCompare1.title)
+                setCompare2("")
+                setCompare3(titleCompare3.title)
+            }
+            else {
+                if (p2 !== null || p3 !== null) {
+                    setCompare1("")
+                }
+                else {
+                    setCompare3(titleCompare3.title)
+                }
             }
         }
         else {
             setShow(false)
             removeLocalProd();
         }
+
+        if (p2 == null) {
+            setCompare2("")
+        }
+        if (p3 == null) {
+            setCompare3("")
+        }
+
     }
 
     useEffect(() => {
@@ -191,7 +216,7 @@ export default function Handphone(props) {
                                 </div>
                                 <div className={styles.wrpAction}>
                                     <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
-                                        Bandingkan
+                                        Lihat Bandingkan
                                     </div>
                                 </div>
                             </Fragment>
