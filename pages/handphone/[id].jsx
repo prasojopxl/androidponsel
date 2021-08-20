@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { Ads, AdsBanner, Rate, Title } from "../../components";
@@ -8,15 +9,36 @@ import { apiUrl, baseUrl } from "../../config/variable";
 import Layout from "../../layout";
 import styles from "./index.module.scss";
 
-export default function DetailPage({ post, dataContentAds, dataRelatedProd, getMenu, getTopBrands, dataSEO }) {
+export default function DetailPage(props) {
     const [state, setState] = useState({ nav1: null, nav2: null });
     const slider1 = useRef();
     const slider2 = useRef();
     var showSlider = 0;
-    post.product_image.length <= 3
-        ? (showSlider = post.product_image.length)
+    props.post.product_image.length <= 3
+        ? (showSlider = props.post.product_image.length)
         : (showSlider = 4);
     const { nav1, nav2 } = state;
+
+    const router = useRouter()
+    const [ads1, setAds1] = useState({
+        iframe: [],
+        bannerImage: [],
+        link: [],
+        urlImage: [],
+        widthImage: [],
+        heightImage: [],
+    });
+    const getAds1 = () => {
+        props.dataBanerProdukTop.Image_Banner === null
+            ? setAds1({ iframe: props.dataBanerProdukTop.URL_Iframe })
+            : setAds1({
+                bannerImage: "withBanner",
+                link: dataTopAds.url,
+                urlImage: apiUrl + dataTopAds.Image_Banner.url,
+                widthImage: dataTopAds.Image_Banner.width,
+                heightImage: dataTopAds.Image_Banner.height,
+            });
+    };
 
     const [contentAds, setContentAds] = useState({
         iframe: [],
@@ -27,14 +49,14 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
         heightImage: [],
     });
     const getContentAds = () => {
-        dataContentAds.Image_Banner === null
-            ? setContentAds({ iframe: dataContentAds.URL_Iframe })
+        props.dataContentAds.Image_Banner === null
+            ? setContentAds({ iframe: props.dataContentAds.URL_Iframe })
             : setContentAds({
                 bannerImage: "withBanner",
-                link: dataContentAds.url,
-                urlImage: apiUrl + dataContentAds.Image_Banner.url,
-                widthImage: dataContentAds.Image_Banner.width,
-                heightImage: dataContentAds.Image_Banner.height,
+                link: props.dataContentAds.url,
+                urlImage: apiUrl + props.dataContentAds.Image_Banner.url,
+                widthImage: props.dataContentAds.Image_Banner.width,
+                heightImage: props.dataContentAds.Image_Banner.height,
             });
     };
     const [show, setShow] = useState(false);
@@ -42,29 +64,29 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
         show === true ? setShow(false) : setShow(true);
     };
     const currentPage = ["handphone"];
-    const PageName = () => {
-        post.post.menu === 1
-            ? currentPage.push("home")
-            : post.post.menu === 2
-                ? currentPage.push("berita")
-                : post.post.menu === 3
-                    ? currentPage.push("handphone")
-                    : post.post.menu === 4
-                        ? currentPage.push("game")
-                        : post.post.menu === 5
-                            ? currentPage.push("kamera")
-                            : post.post.menu === 6
-                                ? currentPage.push("perbandingan")
-                                : post.post.menu === 7
-                                    ? currentPage.push("review")
-                                    : post.post.menu === 8
-                                        ? currentPage.push("tips-and-trik")
-                                        : post.post.menu === 9
-                                            ? currentPage.push("download")
-                                            : post.post.menu === 9
-                                                ? currentPage.push("aplikasi")
-                                                : "notfound";
-    };
+    // const PageName = () => {
+    //     post.post.menu === 1
+    //         ? currentPage.push("home")
+    //         : post.post.menu === 2
+    //             ? currentPage.push("berita")
+    //             : post.post.menu === 3
+    //                 ? currentPage.push("handphone")
+    //                 : post.post.menu === 4
+    //                     ? currentPage.push("game")
+    //                     : post.post.menu === 5
+    //                         ? currentPage.push("kamera")
+    //                         : post.post.menu === 6
+    //                             ? currentPage.push("perbandingan")
+    //                             : post.post.menu === 7
+    //                                 ? currentPage.push("review")
+    //                                 : post.post.menu === 8
+    //                                     ? currentPage.push("tips-and-trik")
+    //                                     : post.post.menu === 9
+    //                                         ? currentPage.push("download")
+    //                                         : post.post.menu === 9
+    //                                             ? currentPage.push("aplikasi")
+    //                                             : "notfound";
+    // };
 
     useEffect(() => {
         setState({
@@ -72,15 +94,31 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
             nav2: slider2.current,
         });
         getContentAds();
-        post.post && PageName();
+        // post.post && PageName();
     }, []);
 
     return (
         <Layout
-            dataSEO={dataSEO.seo}
-            dataMainMenu={getMenu}
-            dataBrands={getTopBrands}
+            dataSEO={props.dataSEO.seo}
+            dataMainMenu={props.getMenu}
+            dataBrands={props.getTopBrands}
         >
+
+            {props.dataBanerProdukTop.published_at && (
+                <Fragment>
+                    {ads1.bannerImage === "withBanner" ? (
+                        <AdsBanner
+                            linkbanner={ads1.link}
+                            urlImage={ads1.urlImage}
+                            width={ads1.widthImage}
+                            height={ads1.heightImage}
+                        />
+                    ) : (
+                        <Ads banner={ads1.iframe} />
+                    )}
+                </Fragment>
+            )}
+
             <div className={styles.detailproducts}>
                 <div className={styles.contents}>
                     <Title title="Overview Produk"></Title>
@@ -95,7 +133,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                             asNavFor={nav2}
                                             ref={(slider) => (slider1.current = slider)}
                                         >
-                                            {post.product_image.map((item, i) => {
+                                            {props.post.product_image.map((item, i) => {
                                                 return (
                                                     <Fragment key={item.id}>
                                                         <div className="main_image_overview">
@@ -112,7 +150,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                         </Slider>
                                     </div>
 
-                                    {post.product_image.length > 1 && (
+                                    {props.post.product_image.length > 1 && (
                                         <div className={styles.subslider}>
                                             <div className="subslide-thub">
                                                 <Slider
@@ -122,7 +160,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     swipeToSlide={true}
                                                     focusOnSelect={true}
                                                 >
-                                                    {post.product_image.map((item, i) => {
+                                                    {props.post.product_image.map((item, i) => {
                                                         return (
                                                             <Fragment key={item.id}>
                                                                 <div className="sub_image_overview">
@@ -144,8 +182,8 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                             </div>
                             <div className="col-lg-7">
                                 <div className={styles.shortdesc}>
-                                    <h1>{post.title}</h1>
-                                    <Rate TotalRate={post.rating} />
+                                    <h1>{props.post.title}</h1>
+                                    <Rate TotalRate={props.post.rating} />
                                     <h4>Spesifikasi Ringkas</h4>
                                     <div className="row">
                                         <div className="col-lg-4">
@@ -159,7 +197,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Brand Product</label>
                                                 </div>
-                                                {post.brand.title}
+                                                {props.post.brand.title}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -173,7 +211,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Status / Release</label>
                                                 </div>
-                                                {post.status}
+                                                {props.post.status}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -187,10 +225,10 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Network</label>
                                                 </div>
-                                                {post.bands_2G !== null && <span>2G</span>}{" "}
-                                                {post.bands_3G !== null && <span>3G</span>}{" "}
-                                                {post.bands_4G !== null && <span>4G</span>}{" "}
-                                                {post.bands_5G !== null && <span>5G</span>}
+                                                {props.post.bands_2G !== null && <span>2G</span>}{" "}
+                                                {props.post.bands_3G !== null && <span>3G</span>}{" "}
+                                                {props.post.bands_4G !== null && <span>4G</span>}{" "}
+                                                {props.post.bands_5G !== null && <span>5G</span>}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -204,7 +242,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Resolution</label>
                                                 </div>
-                                                {post.resolution}
+                                                {props.post.resolution}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -218,7 +256,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Size</label>
                                                 </div>
-                                                {post.size}
+                                                {props.post.size}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -232,7 +270,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Operating Sistem</label>
                                                 </div>
-                                                {post.os}
+                                                {props.post.os}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -246,7 +284,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Prosessor</label>
                                                 </div>
-                                                {post.cpu}
+                                                {props.post.cpu}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -260,7 +298,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Memory Penyimpanan</label>
                                                 </div>
-                                                {post.memory_internal}
+                                                {props.post.memory_internal}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -274,7 +312,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Main Camera</label>
                                                 </div>
-                                                {post.main_cam_triple}
+                                                {props.post.main_cam_triple}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -288,7 +326,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Selfie Camera</label>
                                                 </div>
-                                                {post.selfie_cam_single}
+                                                {props.post.selfie_cam_single}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -302,7 +340,7 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                                     />
                                                     <label>Kapasitas Battery</label>
                                                 </div>
-                                                {post.charging_type}
+                                                {props.post.charging_type}
                                             </div>
                                         </div>
                                     </div>
@@ -329,21 +367,21 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                             <Title title="Basic Information" idName="basic" />
                             <div className={styles.itemDesc}>
                                 <h5>Deskripsi Produk</h5>
-                                {post.description !== null
-                                    ? post.description
+                                {props.post.description !== null
+                                    ? props.post.description
                                     : "Belum ada deskripsi produk"}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Brand Produk</h5>
-                                {post.brand.title}
+                                {props.post.brand.title}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Status dan Release</h5>
-                                {post.status}
+                                {props.post.status}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Warna</h5>
-                                {post.color}
+                                {props.post.color}
                             </div>
 
                             <Title title="Design Material" idName="design" />
@@ -351,43 +389,43 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                 <div className="row">
                                     <div className="col-lg-4">
                                         <h5>Ukuran Dimensi</h5>
-                                        {post.size}
+                                        {props.post.size}
                                     </div>
                                     <div className="col-lg-4">
                                         <h5>Weight</h5>
-                                        {post.weight}
+                                        {props.post.weight}
                                     </div>
                                     <div className="col-lg-4">
                                         <h5>Resolution</h5>
-                                        {post.resolution}
+                                        {props.post.resolution}
                                     </div>
                                 </div>
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Type</h5>
-                                {post.display_type}
+                                {props.post.display_type}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Protection</h5>
-                                {post.protection}
+                                {props.post.protection}
                             </div>
 
                             <Title title="Performance & Hardware" idName="hardware" />
                             <div className={styles.itemDesc}>
                                 <h5>Processor</h5>
-                                {post.cpu}
+                                {props.post.cpu}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Graphic</h5>
-                                {post.gpu}
+                                {props.post.gpu}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Memory</h5>
-                                {post.ram}
+                                {props.post.ram}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Card Slot</h5>
-                                {post.card_slot}
+                                {props.post.card_slot}
                             </div>
 
                             <Title title="Camera" idName="camera" />
@@ -396,15 +434,15 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                 <div className="row">
                                     <div className="col-lg-4">
                                         <h6>Quad</h6>
-                                        {post.main_cam_triple}
+                                        {props.post.main_cam_triple}
                                     </div>
                                     <div className="col-lg-4">
                                         <h6>Feature</h6>
-                                        {post.main_cam_features}
+                                        {props.post.main_cam_features}
                                     </div>
                                     <div className="col-lg-4">
                                         <h6>Video</h6>
-                                        {post.main_cam_video}
+                                        {props.post.main_cam_video}
                                     </div>
                                 </div>
                             </div>
@@ -413,15 +451,15 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                                 <div className="row">
                                     <div className="col-lg-4">
                                         <h6>Quad</h6>
-                                        {post.selfie_cam_single}
+                                        {props.post.selfie_cam_single}
                                     </div>
                                     <div className="col-lg-4">
                                         <h6>Feature</h6>
-                                        {post.selfie_cam_features}
+                                        {props.post.selfie_cam_features}
                                     </div>
                                     <div className="col-lg-4">
                                         <h6>Video</h6>
-                                        {post.selfie_cam_video}
+                                        {props.post.selfie_cam_video}
                                     </div>
                                 </div>
                             </div>
@@ -429,72 +467,72 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                             <Title title="Battery" idName="battery" />
                             <div className={styles.itemDesc}>
                                 <h5>Batterai</h5>
-                                {post.charging_type}
+                                {props.post.charging_type}
                             </div>
 
                             <Title title="Sofware" idName="software" />
                             <div className={styles.itemDesc}>
                                 <h5>Operating System</h5>
-                                {post.os}
+                                {props.post.os}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Chipset</h5>
-                                {post.chipset}
+                                {props.post.chipset}
                             </div>
 
                             <Title title="Sensors" idName="sensors" />
                             <div className={styles.itemDesc}>
                                 <h5>Sensor</h5>
-                                {post.sensors}
+                                {props.post.sensors}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>NFC</h5>
-                                {post.nfc}
+                                {props.post.nfc}
                             </div>
 
                             <Title title="Network" idName="network" />
                             <div className={styles.itemDesc}>
                                 <h5>Teknologi</h5>
-                                {post.technology} |{" "}
+                                {props.post.technology} |{" "}
                                 <span className={styles.linkGeneral} onClick={showData}>
                                     Lihat Detail
                                 </span>
                                 {show && (
                                     <ul>
-                                        <li>2G : {post.bands_2G}</li>
-                                        <li>3G : {post.bands_3G}</li>
-                                        <li>4G : {post.bands_4G}</li>
-                                        <li>5G : {post.bands_5G}</li>
+                                        <li>2G : {props.post.bands_2G}</li>
+                                        <li>3G : {props.post.bands_3G}</li>
+                                        <li>4G : {props.post.bands_4G}</li>
+                                        <li>5G : {props.post.bands_5G}</li>
                                     </ul>
                                 )}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>SIM</h5>
-                                {post.sim}
+                                {props.post.sim}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>WLAN</h5>
-                                {post.wlan}
+                                {props.post.wlan}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Bluetooth</h5>
-                                {post.bluetooth}
+                                {props.post.bluetooth}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>GPS</h5>
-                                {post.gps}
+                                {props.post.gps}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Infrared</h5>
-                                {post.infrared}
+                                {props.post.infrared}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Radio</h5>
-                                {post.radio}
+                                {props.post.radio}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>USB</h5>
-                                {post.usb}
+                                {props.post.usb}
                             </div>
 
                             <Fragment>
@@ -503,16 +541,16 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
 
                             </Fragment>
 
-                            {post.post && (
+                            {props.post.post && (
                                 <div>
                                     <Title title="Review" idName="review" />
                                     <div className={styles.contentreview}>
-                                        <h4>{post.post.title}</h4>
+                                        <h4>{props.post.post.title}</h4>
                                         <div className={styles.bodypost}>
-                                            {post.post.content}
+                                            {props.post.post.content}
                                             <p style={{ marginTop: 20 }}>
                                                 <Link
-                                                    href={baseUrl + currentPage + "/" + post.post.slug}
+                                                    href={baseUrl + currentPage + "/" + props.post.post.slug}
                                                 >
                                                     <a className="btn">Full Review</a>
                                                 </Link>
@@ -570,12 +608,12 @@ export default function DetailPage({ post, dataContentAds, dataRelatedProd, getM
                     <div className={styles.contents}>
                         <Title title="Produk Terkait" />
                         <div className="row">
-                            {dataRelatedProd.map((value, index) => {
+                            {props.dataRelatedProd.map((value, index) => {
                                 return (
                                     <Fragment key={value.id}>
                                         <div
                                             className={
-                                                dataRelatedProd !== 3 ? `col-lg-3` : `col-lg-4`
+                                                props.dataRelatedProd !== 3 ? `col-lg-3` : `col-lg-4`
                                             }
                                             key={value.id}
                                         >
@@ -676,6 +714,8 @@ export async function getStaticProps({ params }) {
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
+    const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
+
 
     return {
         props: {
@@ -685,6 +725,7 @@ export async function getStaticProps({ params }) {
             dataContentAds,
             post,
             dataRelatedProd,
+            dataBanerProdukTop
         },
     };
 }

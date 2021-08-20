@@ -203,26 +203,25 @@ export default function Handphone(props) {
                         </div>
                     </div>
                 </div>
-
-                <div className={styles.containerCompare}>
-                    {
-                        show && (
-                            <Fragment>
-                                <div className={styles.desc}>
-                                    Badingkan Produk:
-                                    {compare1 && <h5>{compare1}</h5>}
-                                    {compare2 && <h5>{compare2}</h5>}
-                                    {compare3 && <h5>{compare3}</h5>}
+            </div>
+            <div className={styles.containerCompare}>
+                {
+                    show && (
+                        <Fragment>
+                            <div className={styles.desc}>
+                                Badingkan Produk:
+                                {compare1 && <h5>{compare1}</h5>}
+                                {compare2 && <h5>{compare2}</h5>}
+                                {compare3 && <h5>{compare3}</h5>}
+                            </div>
+                            <div className={styles.wrpAction}>
+                                <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
+                                    Lihat Bandingkan
                                 </div>
-                                <div className={styles.wrpAction}>
-                                    <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
-                                        Lihat Bandingkan
-                                    </div>
-                                </div>
-                            </Fragment>
-                        )
-                    }
-                </div>
+                            </div>
+                        </Fragment>
+                    )
+                }
             </div>
         </Layout>
     );

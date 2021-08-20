@@ -1,0 +1,39 @@
+@import "../../styles/variable.scss";
+
+.pageBrand {
+    padding: 50px 0;
+    .contents {
+        max-width: $widthdefault;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+.containerCompare {
+    right: 0;
+    bottom: 0;
+    background: $color-gray;
+    z-index: 10;
+    position: fixed;
+    .desc {
+        padding: 15px;
+    }
+}
+
+.wrpAction {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    .btnCompareProd {
+        padding: 10px 5px;
+        cursor: pointer;
+    }
+    .btnCompareProd {
+        flex: 1;
+        background: $color-green;
+        color: #fff;
+        z-index: 10;
+        outline: none;
+    }
+}
