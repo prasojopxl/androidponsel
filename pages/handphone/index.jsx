@@ -192,7 +192,7 @@ export default function Handphone(props) {
                             )}
 
                             <div className="row">
-                                {props.dataListHandphone.map((item, i) => {
+                                {props.dataListHandphone2.map((item, i) => {
                                     return (
                                         <div className="col-lg-3" key={item.id}>
                                             <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating} productImage={item.product_image[0]} slug={item.slug} />
@@ -229,13 +229,13 @@ export default function Handphone(props) {
 
 export async function getStaticProps() {
     const dataListHandphone = await fetchData(`/products?category=1&_limit=${totalItem}`);
-    const dataListHandphone2 = await fetchData(`/products?category=1&_limit=${totalItem}&offset=8`);
+    const dataListHandphone2 = await fetchData(`/products?category=1&_limit=${8}&_start=8`);
     const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
     const dataBanerProdukBody = await fetchData(`/ads/9?_publicationState=preview`);
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
-
+    console.log(dataListHandphone2)
     return {
         props: {
             dataListHandphone,

@@ -102,7 +102,6 @@ export default function Brand(props) {
             dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
-
             <div className={styles.pageBrand}>
                 <div className={styles.contents}>
                     {
