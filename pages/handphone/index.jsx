@@ -235,7 +235,6 @@ export async function getStaticProps() {
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
-    console.log(dataListHandphone2)
     return {
         props: {
             dataListHandphone,
