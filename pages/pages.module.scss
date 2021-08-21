@@ -1,0 +1,55 @@
+@import "../styles/variable.scss";
+
+.pages {
+    background: #fff;
+    .contents {
+        width: 100%;
+        max-width: $widthdefault;
+        margin: 0 auto;
+        padding: 50px 15px;
+    }
+    h2 {
+        font-size: 25px;
+        font-family: $font-MulishBold;
+        margin-bottom: 15px;
+        margin-top: 30px;
+    }
+}
+
+.subContents {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.itemBox {
+    background: $color-gray2;
+    padding: 12px 20px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    transition: $animate;
+    span {
+        margin-left: 7px;
+        transition: $animate;
+    }
+    a {
+        color: $color-black2;
+    }
+    &:hover {
+        background: $color-green;
+        transition: $animate;
+        a {
+            color: #fff;
+        }
+        span {
+            transition: $animate;
+            margin-left: 15px;
+        }
+    }
+}
+
+.mainImage {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    background: $color-gray2;
+}
