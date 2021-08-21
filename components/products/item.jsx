@@ -61,7 +61,7 @@ export default function ItemProduct(props) {
         }
     }
     useEffect(() => {
-        removeLocalProd();
+        // removeLocalProd();
     }, [])
     return (
         <Fragment>

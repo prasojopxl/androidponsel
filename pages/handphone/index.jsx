@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
-import { Ads, AdsBanner, Rate, Title } from "../../components";
+import { Ads, AdsBanner, Paging, Rate, Title } from "../../components";
 import { apiUrl, baseUrl, totalItem } from "../../config/variable";
 import styles from "./index.module.scss";
 import { fetchData } from '../../config/data';
@@ -202,6 +202,7 @@ export default function Handphone(props) {
                             </div>
                         </div>
                     </div>
+                    <Paging linkPrev={0} linkNext={`${1 + 1}`} lengthPost={props.totalPaging} />
                 </div>
             </div>
             <div className={styles.containerCompare}>
@@ -228,8 +229,10 @@ export default function Handphone(props) {
 }
 
 export async function getStaticProps() {
+    const posts = await fetchData(`/products?category=1`);
     const dataListHandphone = await fetchData(`/products?category=1&_limit=${totalItem}`);
     const dataListHandphone2 = await fetchData(`/products?category=1&_limit=${8}&_start=8`);
+    const totalPaging = Math.ceil(posts.length / (totalItem * 2));
     const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
     const dataBanerProdukBody = await fetchData(`/ads/9?_publicationState=preview`);
     const dataSEO = await fetchData("/general");
@@ -244,6 +247,7 @@ export async function getStaticProps() {
             dataSEO,
             dataBanerProdukTop,
             dataBanerProdukBody,
+            totalPaging
         },
     };
 }

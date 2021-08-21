@@ -6,8 +6,10 @@ import LayoutBlank from "../../layout/layoutBlank";
 import ItemProduct from "../../components/products/item";
 import styles from "./index.module.scss"
 import { Title } from "../../components";
+import { baseUrl } from "../../config/variable";
 
 export default function Brand(props) {
+    const router = useRouter();
     function removeLocalProd() {
         localStorage.removeItem("produk1")
         localStorage.removeItem("produk2")

@@ -1,0 +1,31 @@
+@import "../../styles/variable";
+
+.paging {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    ul {
+        display: flex;
+        border-radius: 20px;
+        overflow: hidden;
+        li {
+        }
+    }
+    .btnPaging,
+    .disable {
+        height: 100%;
+        display: flex;
+        padding: 10px 20px;
+        width: 130px;
+        text-align: center;
+    }
+    .btnPaging {
+        background: $color-green;
+        color: #fff;
+    }
+    .disable {
+        background: $color-gray;
+        color: rgb(0 0 0 / 43%);
+    }
+}

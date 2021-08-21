@@ -8,15 +8,17 @@ import ListCategories from "./listcategories/ListCategories";
 //product
 import Rate from "./rate/Rate";
 import Title from "./title/Title";
+import Paging from "./paging";
 
 // export components
 export {
-  Header,
-  Footer,
-  ListCategories,
-  Title,
-  Ads,
-  AdsBanner,
-  Rate,
-  SEO
+    Header,
+    Footer,
+    ListCategories,
+    Title,
+    Ads,
+    AdsBanner,
+    Rate,
+    SEO,
+    Paging
 };
