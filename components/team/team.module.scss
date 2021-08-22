@@ -3,7 +3,8 @@
 .teamMember {
     display: flex;
     position: relative;
-    background: red;
+    align-items: center;
+    margin-bottom: 30px;
 }
 .left {
     position: relative;
@@ -11,4 +12,18 @@
     height: 70px;
     overflow: hidden;
     border-radius: 50%;
+    margin-right: 20px;
+}
+
+.right {
+    h4 {
+        font-family: $font-MulishBold;
+        font-size: 20px;
+        margin-bottom: 5px !important;
+        margin-top: 0 !important;
+    }
+
+    h6 {
+        font-family: $font-MulishRegular;
+    }
 }

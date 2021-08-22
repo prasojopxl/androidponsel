@@ -1,13 +1,15 @@
 import { useEffect, useState, Fragment } from "react";
+import { useRouter } from "next/router"
 import { Ads, AdsBanner, ItemTeam } from "../components";
 import styles from "./pages.module.scss";
-
 import { fetchData } from '../config/data';
 import Layout from '../layout'
 import Link from "next/link";
-
+import { baseUrl } from "../config/variable";
 
 export default function Team(props) {
+    const router = useRouter();
+
     const [ads1, setAds1] = useState({
         iframe: [],
         bannerImage: [],
@@ -57,35 +59,53 @@ export default function Team(props) {
                         backgroundAttachment: "fixed",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "right center",
-                        minHeight: 300,
+                        minHeight: 400,
                     }}>
                         <div className={styles.contents}>
                             <h2>Aturan di Android Ponsel</h2>
+
                             <ul>
-                                <li><Link href="#"><a>Home</a></Link></li>
-                                <li><Link href="#"><a>Team</a></Link></li>
+                                <li><Link href="/"><a>Home</a></Link></li>
+                                <li><Link href={router.route}><a>Team</a></Link></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div className={styles.contents}>
-                    <h2>Tim Kami</h2>
-                    <div className="row">
-                        <div className="col-lg-4">
-                            <ItemTeam />
-                        </div>
-                        <div className="col-lg-4">
-                            <ItemTeam />
-                        </div>
-                        <div className="col-lg-4">
-                            <ItemTeam />
-                        </div>
-                        <div className="col-lg-4">
-                            <ItemTeam />
-                        </div>
-                        <div className="col-lg-4">
-                            <ItemTeam />
+                    <div className={styles.subContents}>
+                        <h2>Tim Kami</h2>
+                        <div className="row">
+                            <div className="col-lg-4">
+                                <ItemTeam name="Bambang" title="CEO" />
+                            </div>
+                            <div className="col-lg-4">
+                                <ItemTeam name="Joko" title="CMO" />
+                            </div>
+                            <div className="col-lg-4">
+                                <ItemTeam name="Bejo" title="CTO" />
+                            </div>
+                            <div className="col-lg-4">
+                                <ItemTeam name="Seteja" title="COO" />
+                            </div>
+                            <div className="col-lg-4">
+                                <ItemTeam name="Budiman" title="CBO" />
+                            </div>
+                            <div className="col-lg-4">
+                                <ItemTeam name="Bambang" title="CEO" />
+                            </div>
+                            <div className="col-lg-4">
+                                <ItemTeam name="Joko" title="CMO" />
+                            </div>
+                            <div className="col-lg-4">
+                                <ItemTeam name="Bejo" title="CTO" />
+                            </div>
+                            <div className="col-lg-4">
+                                <ItemTeam name="Seteja" title="COO" />
+                            </div>
+                            <div className="col-lg-4">
+                                <ItemTeam name="Budiman" title="CBO" />
+                            </div>
                         </div>
                     </div>
                 </div>
