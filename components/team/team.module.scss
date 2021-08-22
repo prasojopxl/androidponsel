@@ -1,0 +1,14 @@
+@import "../../styles/variable";
+
+.teamMember {
+    display: flex;
+    position: relative;
+    background: red;
+}
+.left {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    border-radius: 50%;
+}

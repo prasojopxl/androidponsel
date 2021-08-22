@@ -19,6 +19,11 @@
 .subContents {
     max-width: 800px;
     margin: 0 auto;
+    h4 {
+        font-size: 17px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
 }
 
 .itemBox {
@@ -52,4 +57,54 @@
     text-align: center;
     margin: 0 auto;
     background: $color-gray2;
+}
+
+.bgGradient {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eafed3+0,f7fff9+100 */
+    background: #eafed3; /* Old browsers */
+    background: -moz-linear-gradient(
+        top,
+        #eafed3 0%,
+        #f7fff9 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+        top,
+        #eafed3 0%,
+        #f7fff9 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+        to bottom,
+        #eafed3 0%,
+        #f7fff9 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eafed3', endColorstr='#f7fff9',GradientType=0 ); /* IE6-9 */
+    .contents {
+        width: 100%;
+        max-width: $widthdefault;
+        margin: 0 auto;
+        padding: 50px 15px;
+    }
+    h2 {
+        font-size: 40px;
+        font-family: $font-MulishBold;
+        margin-bottom: 10px;
+    }
+    ul {
+        margin-top: 0;
+        li {
+            display: inline-block;
+            &::after {
+                content: "/";
+                margin: 0 5px;
+            }
+            &:last-child {
+                &::after {
+                    content: none;
+                }
+            }
+            a {
+                color: $color-black;
+            }
+        }
+    }
 }

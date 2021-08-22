@@ -1,13 +1,15 @@
 import { useEffect, useState, Fragment } from "react";
-import { Ads, AdsBanner, ItemTeam } from "../components";
+import Image from "next/image"
+import { Ads, AdsBanner } from "../components";
 import styles from "./pages.module.scss";
-
 import { fetchData } from '../config/data';
 import Layout from '../layout'
+import { faLink, faEnvelope, faHandshake, faBriefcase, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.to/vuongddang/how-to-use-fontawesome-in-next-js-5bl5
 import Link from "next/link";
 
 
-export default function Team(props) {
+export default function Tnc(props) {
     const [ads1, setAds1] = useState({
         iframe: [],
         bannerImage: [],
@@ -37,7 +39,7 @@ export default function Team(props) {
             dataBrands={props.getTopBrands}
         >
             {props.dataBanerProdukTop.published_at && (
-                <Fragment>
+                <div style={{ background: "#fff" }}>
                     {ads1.bannerImage === "withBanner" ? (
                         <AdsBanner
                             linkbanner={ads1.link}
@@ -48,12 +50,12 @@ export default function Team(props) {
                     ) : (
                         <Ads banner={ads1.iframe} />
                     )}
-                </Fragment>
+                </div>
             )}
             <div className={styles.pages}>
                 <div className={styles.bgGradient}>
                     <div style={{
-                        backgroundImage: "url(/team-kami.png)",
+                        backgroundImage: "url(/tnc.png)",
                         backgroundAttachment: "fixed",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "right center",
@@ -63,34 +65,43 @@ export default function Team(props) {
                             <h2>Aturan di Android Ponsel</h2>
                             <ul>
                                 <li><Link href="#"><a>Home</a></Link></li>
-                                <li><Link href="#"><a>Team</a></Link></li>
+                                <li><Link href="#"><a>Syarat dan ketentuan</a></Link></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div className={styles.contents}>
-                    <h2>Tim Kami</h2>
-                    <div className="row">
-                        <div className="col-lg-4">
-                            <ItemTeam />
-                        </div>
-                        <div className="col-lg-4">
-                            <ItemTeam />
-                        </div>
-                        <div className="col-lg-4">
-                            <ItemTeam />
-                        </div>
-                        <div className="col-lg-4">
-                            <ItemTeam />
-                        </div>
-                        <div className="col-lg-4">
-                            <ItemTeam />
-                        </div>
+                    <div className={styles.subContents}>
+                        <h2>Syarat dan Ketentuan</h2>
+                        <ol>
+                            <li>
+                                <h4>Penggunaan Situs</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, aspernatur aliquid odit repudiandae a voluptas eligendi laudantium, hic deleniti temporibus sequi doloremque omnis amet provident tempora pariatur in dolores culpa.</p>
+                            </li>
+                            <li>
+                                <h4>Penggunaan Situs</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, aspernatur aliquid odit repudiandae a voluptas eligendi laudantium, hic deleniti temporibus sequi doloremque omnis amet provident tempora pariatur in dolores culpa.</p>
+                            </li>
+                            <li>
+                                <h4>Penggunaan Situs</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, aspernatur aliquid odit repudiandae a voluptas eligendi laudantium, hic deleniti temporibus sequi doloremque omnis amet provident tempora pariatur in dolores culpa.</p>
+                            </li>
+                            <li>
+                                <h4>Penggunaan Situs</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, aspernatur aliquid odit repudiandae a voluptas eligendi laudantium, hic deleniti temporibus sequi doloremque omnis amet provident tempora pariatur in dolores culpa.</p>
+                                <ol>
+                                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+                                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+                                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+                                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+                                </ol>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
-        </Layout>
+        </Layout >
     )
 }
 

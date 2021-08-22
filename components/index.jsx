@@ -9,7 +9,7 @@ import ListCategories from "./listcategories/ListCategories";
 import Rate from "./rate/Rate";
 import Title from "./title/Title";
 import Paging from "./paging";
-
+import ItemTeam from "./team/itemteam";
 // export components
 export {
     Header,
@@ -20,5 +20,6 @@ export {
     AdsBanner,
     Rate,
     SEO,
-    Paging
+    Paging,
+    ItemTeam
 };
