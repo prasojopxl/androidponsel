@@ -64,10 +64,10 @@ export default function Tnc(props) {
                         minHeight: 300,
                     }}>
                         <div className={styles.contents}>
-                            <h2>Aturan di Android Ponsel</h2>
+                            <h2>Privacy Police</h2>
                             <ul>
                                 <li><Link href="#"><a>Home</a></Link></li>
-                                <li><Link href={router.route}><a>Syarat dan ketentuan</a></Link></li>
+                                <li><Link href={router.route}><a>Privacy Police</a></Link></li>
                             </ul>
                         </div>
                     </div>
@@ -75,7 +75,7 @@ export default function Tnc(props) {
 
                 <div className={styles.contents}>
                     <div className={styles.subContents}>
-                        <h2>Syarat dan Ketentuan</h2>
+                        <h2>Privacy Police androidponsel</h2>
                         <ol>
                             <li>
                                 <h4>Penggunaan Situs</h4>

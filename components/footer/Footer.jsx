@@ -11,17 +11,17 @@ export default function Footer() {
                         <h4>Tentang Kami</h4>
                         <div className={styles.item}>
                             <ul>
-                                <li><Link href="#"><a>Android Ponsel</a></Link></li>
-                                <li><Link href="#"><a>Staff</a></Link></li>
-                                <li><Link href="#"><a>Hubungi Kami</a></Link></li>
-                                <li><Link href="#"><a>Kerja Sama</a></Link></li>
-                                <li><Link href="#"><a>Karir</a></Link></li>
+                                <li><Link href="/tentang-kami"><a>Android Ponsel</a></Link></li>
+                                <li><Link href="/team"><a>Team</a></Link></li>
+                                <li><Link href="/hubungi-kami"><a>Hubungi Kami</a></Link></li>
+                                <li><Link href="/kerjasama"><a>Kerja Sama</a></Link></li>
+                                <li><Link href="/karir"><a>Karir</a></Link></li>
                             </ul>
                             <ul>
-                                <li><Link href="#"><a>Redaksi</a></Link></li>
-                                <li><Link href="#"><a>Menulis di Android Ponsel</a></Link></li>
-                                <li><Link href="#"><a>FAQ</a></Link></li>
-                                <li><Link href="#"><a>Sitemap</a></Link></li>
+                                <li><Link href="/redaksi"><a>Redaksi</a></Link></li>
+                                <li><Link href="/menulis"><a>Menulis di Android Ponsel</a></Link></li>
+                                <li><Link href="/faq"><a>FAQ</a></Link></li>
+                                <li><Link href="/sitemap"><a>Sitemap</a></Link></li>
                             </ul>
                         </div>
                     </div>
@@ -29,10 +29,10 @@ export default function Footer() {
                         <h4>Legal</h4>
                         <div className={styles.item}>
                             <ul>
-                                <li><Link href="#"><a>Privacy Policy</a></Link></li>
-                                <li><Link href="#"><a>Term of Service</a></Link></li>
-                                <li><Link href="#"><a>Kode Etik</a></Link></li>
-                                <li><Link href="#"><a>Pedoman Media Siber</a></Link></li>
+                                <li><Link href="/privacy"><a>Privacy Policy</a></Link></li>
+                                <li><Link href="/syarat-dan-ketentuan"><a>Syarat dan Ketentuan</a></Link></li>
+                                <li><Link href="/kode-etik"><a>Kode Etik</a></Link></li>
+                                <li><Link href="/pedoman"><a>Pedoman Media Cyber</a></Link></li>
                             </ul>
                         </div>
                     </div>

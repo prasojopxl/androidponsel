@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useRouter } from "next/router"
 
 
-export default function Tnc(props) {
+export default function Redaksi(props) {
     const router = useRouter();
     const [ads1, setAds1] = useState({
         iframe: [],
@@ -64,10 +64,10 @@ export default function Tnc(props) {
                         minHeight: 300,
                     }}>
                         <div className={styles.contents}>
-                            <h2>Aturan di Android Ponsel</h2>
+                            <h2>Ketentuan Redaksi</h2>
                             <ul>
                                 <li><Link href="#"><a>Home</a></Link></li>
-                                <li><Link href={router.route}><a>Syarat dan ketentuan</a></Link></li>
+                                <li><Link href={router.route}><a>Redaksi</a></Link></li>
                             </ul>
                         </div>
                     </div>
@@ -75,7 +75,7 @@ export default function Tnc(props) {
 
                 <div className={styles.contents}>
                     <div className={styles.subContents}>
-                        <h2>Syarat dan Ketentuan</h2>
+                        <h2>Ketentuan Redaksi</h2>
                         <ol>
                             <li>
                                 <h4>Penggunaan Situs</h4>
