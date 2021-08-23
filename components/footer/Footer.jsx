@@ -12,8 +12,8 @@ export default function Footer() {
                         <div className={styles.item}>
                             <ul>
                                 <li><Link href="/tentang-kami"><a>Android Ponsel</a></Link></li>
-                                <li><Link href="/team"><a>Staff</a></Link></li>
-                                <li><Link href="/hubungu-kami"><a>Hubungi Kami</a></Link></li>
+                                <li><Link href="/team"><a>Team</a></Link></li>
+                                <li><Link href="/hubungi-kami"><a>Hubungi Kami</a></Link></li>
                                 <li><Link href="/kerjasama"><a>Kerja Sama</a></Link></li>
                                 <li><Link href="/karir"><a>Karir</a></Link></li>
                             </ul>
@@ -29,10 +29,10 @@ export default function Footer() {
                         <h4>Legal</h4>
                         <div className={styles.item}>
                             <ul>
-                                <li><Link href="/tnc"><a>Privacy Policy</a></Link></li>
-                                <li><Link href="/service"><a>Term of Service</a></Link></li>
+                                <li><Link href="/privacy"><a>Privacy Policy</a></Link></li>
+                                <li><Link href="/syarat-dan-ketentuan"><a>Syarat dan Ketentuan</a></Link></li>
                                 <li><Link href="/kode-etik"><a>Kode Etik</a></Link></li>
-                                <li><Link href="/pedoman"><a>Pedoman Media Siber</a></Link></li>
+                                <li><Link href="/pedoman"><a>Pedoman Media Cyber</a></Link></li>
                             </ul>
                         </div>
                     </div>

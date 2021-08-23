@@ -6,7 +6,7 @@ import Layout from '../layout'
 import Link from "next/link";
 import { useRouter } from "next/router"
 
-export default function Faq(props) {
+export default function Menulis(props) {
     const router = useRouter();
 
     const [ads1, setAds1] = useState({
@@ -37,9 +37,6 @@ export default function Faq(props) {
             dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
-            {
-                console.log(props.dataBanerProdukTop.published_at)
-            }
             {props.dataBanerProdukTop.published_at && (
                 <Fragment>
                     {ads1.bannerImage === "withBanner" ? (
@@ -64,17 +61,17 @@ export default function Faq(props) {
                         minHeight: 400,
                     }}>
                         <div className={styles.contents}>
-                            <h2>Ada yang bisa<br />Kami Bantu?</h2>
+                            <h2>Bergabung Sebagai Penulis?</h2>
 
                             <ul>
                                 <li><Link href="/"><a>Home</a></Link></li>
-                                <li><Link href={router.route}><a>F.A Q</a></Link></li>
+                                <li><Link href={router.route}><a>Menulis</a></Link></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div className={styles.contents}>
-                    <h2>FAQ</h2>
+                    <h2>Bagaimana Bergabung Menjadi Penulis?</h2>
                     <div className={styles.itemfaq}>
                         <h4>Bagaimana cara menulis dan berkontribusi di androidponsel?</h4>
                         <p>Consequatur similique nulla ipsa voluptatum illum aperiam incidunt, voluptates magnam illo, possimus eligendi blanditiis</p>

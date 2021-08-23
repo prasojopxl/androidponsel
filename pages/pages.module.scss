@@ -10,9 +10,7 @@
     }
     h2 {
         font-size: 25px;
-        font-family: $font-MulishBold;
-        margin-bottom: 15px;
-        margin-top: 30px;
+        font-family: $font-MulishExtraBold;
     }
 }
 
@@ -23,6 +21,12 @@
         font-size: 17px;
         margin-bottom: 20px;
         margin-top: 20px;
+    }
+    h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        font-family: $font-MulishExtraBold;
     }
 }
 
@@ -42,6 +46,7 @@
     &:hover {
         background: $color-green;
         transition: $animate;
+        color: #fff;
         a {
             color: #fff;
         }
@@ -78,15 +83,21 @@
         #f7fff9 100%
     ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eafed3', endColorstr='#f7fff9',GradientType=0 ); /* IE6-9 */
+    position: relative;
     .contents {
         width: 100%;
         max-width: $widthdefault;
         margin: 0 auto;
-        padding: 50px 15px;
+        padding: 0 15px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 0;
+        right: 0;
     }
     h2 {
         font-size: 40px;
-        font-family: $font-MulishBold;
+        font-family: $font-MulishBlack;
         margin-bottom: 10px;
     }
     ul {
@@ -106,5 +117,52 @@
                 color: $color-black;
             }
         }
+    }
+}
+
+.itemContact {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 20px;
+    h5 {
+        font-family: $font-MulishExtraBold;
+    }
+    .icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 17px;
+        color: $color-green;
+    }
+    a {
+        color: $color-green;
+        text-decoration: underline;
+    }
+}
+
+.listlowker {
+    line-height: 27px;
+}
+
+.googleMaps {
+    position: relative;
+    padding-bottom: 35%;
+    height: 0;
+    overflow: hidden;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: none;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+.itemfaq {
+    margin-top: 30px;
+    h4 {
+        margin-bottom: 10px;
+        font-size: 20px;
     }
 }
