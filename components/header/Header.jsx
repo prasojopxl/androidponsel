@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { apiUrl, baseUrl } from "../../config/variable";
 import styles from "./Header.module.scss";
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.to/vuongddang/how-to-use-fontawesome-in-next-js-5bl5
 
 export default function Header(props) {
     const { mainMenu, brands } = props;
@@ -34,6 +36,7 @@ export default function Header(props) {
                         </ul>
                     </div>
                     <div className={styles.right}>
+                        <FontAwesomeIcon icon={faSearch} />
                     </div>
                 </div>
             </div>
