@@ -21,7 +21,6 @@ export async function getStaticProps(context) {
     const dataBanerHome7 = await fetchData("/ads/7?_publicationState=preview");
     const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
     // const dataProducts = await fetchData("/products?_limit=12");
-    const dataListHandphone = await fetchData(`/products?category=1&_limit=12`);
 
     const dataSEO = await fetchData("/general");
     const mainNews = await fetchData(
@@ -46,7 +45,7 @@ export async function getStaticProps(context) {
         "categories=20&per_page=1&_embed=author,wp:featuredmedia,wp:term&offset=0"
     );
     const tipsTrikSecond = await fetchDataBlog(
-        "categories=20&per_page=2&_embed=author,wp:featuredmedia,wp:term&offset=1"
+        "categories=20&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
     );
     const dataAndroidNews = await fetchDataBlog(
         "categories=8&per_page=1&_embed=author,wp:featuredmedia,wp:term"
@@ -63,7 +62,6 @@ export async function getStaticProps(context) {
         !dataBanerHome6 ||
         !dataBanerHome7 ||
         !dataCompare ||
-        !dataListHandphone ||
         !mainNews ||
         !topNews ||
         !contNews ||
@@ -89,7 +87,6 @@ export async function getStaticProps(context) {
             dataBanerHome6,
             dataBanerHome7,
             dataCompare,
-            dataListHandphone,
             mainNews,
             topNews,
             contNews,
@@ -462,7 +459,19 @@ export default function Home(props) {
                                 );
                             })}
                         </div>
-                        {props.dataBanerHome2.published_at && (
+                        <div
+                            style={{
+                                textAlign: "center",
+                                display: "block",
+                                marginTop: 30,
+                            }}
+                        >
+                            <Link href={baseUrl + "handphone"}>
+                                <a className="btn medium">Lihat Selegkapnya</a>
+                            </Link>
+                        </div>
+
+                        {/* {props.dataBanerHome2.published_at && (
                             <Fragment>
                                 {ads2.bannerImage === "withBanner" ? (
                                     <AdsBanner
@@ -475,40 +484,7 @@ export default function Home(props) {
                                     <Ads banner={ads2.iframe} />
                                 )}
                             </Fragment>
-                        )}
-                        <div className="row">
-                            {props.dataListHandphone.map((item, i) => {
-                                return (
-                                    <div className="col-lg-3" key={item.id}>
-                                        {/* <div>
-                                            <h4>{item.product_image[0]}</h4>
-                                            Rate: {item.rating}
-                                        </div> */}
-                                        <ItemProduct
-                                            action={getLocalProd}
-                                            title={item.title}
-                                            memoryInternal={
-                                                item.memory_internal
-                                            }
-                                            rating={item.rating}
-                                            productImage={item.product_image[0]}
-                                            slug={item.slug}
-                                        />
-                                    </div>
-                                );
-                            })}
-                        </div>
-                        <div
-                            style={{
-                                textAlign: "center",
-                                display: "block",
-                                marginTop: 30,
-                            }}
-                        >
-                            <Link href={baseUrl + "handphone"}>
-                                <a className="btn medium">Lihat Selegkapnya</a>
-                            </Link>
-                        </div>
+                        )} */}
                     </div>
                 </div>
                 {props.dataBanerHome3.published_at && (
@@ -776,7 +752,7 @@ export default function Home(props) {
                                         </div>
                                     </div>
                                 </div>
-                                {props.dataBanerHome4.published_at && (
+                                {/* {props.dataBanerHome4.published_at && (
                                     <Fragment>
                                         {ads4.bannerImage === "withBanner" ? (
                                             <AdsBanner
@@ -789,116 +765,10 @@ export default function Home(props) {
                                             <Ads banner={ads4.iframe} />
                                         )}
                                     </Fragment>
-                                )}
-                                <div className="row">
-                                    {props.contNews.map((item, i) => {
-                                        return (
-                                            <div
-                                                className="col-lg-4"
-                                                key={item.id}
-                                            >
-                                                <div
-                                                    className={
-                                                        styles.wrpitemnews
-                                                    }
-                                                >
-                                                    <div
-                                                        className={
-                                                            styles.imgwrp
-                                                        }
-                                                    >
-                                                        <Image
-                                                            src={
-                                                                item._embedded[
-                                                                    "wp:featuredmedia"
-                                                                ][0].source_url
-                                                            }
-                                                            width={
-                                                                item._embedded[
-                                                                    "wp:featuredmedia"
-                                                                ][0]
-                                                                    .media_details
-                                                                    .width / 6
-                                                            }
-                                                            height={
-                                                                item._embedded[
-                                                                    "wp:featuredmedia"
-                                                                ][0]
-                                                                    .media_details
-                                                                    .height / 6
-                                                            }
-                                                            alt={
-                                                                item.title
-                                                                    .rendered
-                                                            }
-                                                        />
-                                                    </div>
-                                                    <div
-                                                        className={
-                                                            styles.content
-                                                        }
-                                                    >
-                                                        <div
-                                                            className={
-                                                                styles.tags
-                                                            }
-                                                        >
-                                                            {item._embedded[
-                                                                "wp:term"
-                                                            ][0].map((data) => {
-                                                                return (
-                                                                    <a
-                                                                        href={
-                                                                            data.link
-                                                                        }
-                                                                        key={
-                                                                            data.id
-                                                                        }
-                                                                    >
-                                                                        {
-                                                                            data.name
-                                                                        }
-                                                                    </a>
-                                                                );
-                                                            })}
-                                                        </div>
-                                                        <a href={item.link}>
-                                                            <h5>
-                                                                {ReactHtmlParser(
-                                                                    item.title
-                                                                        .rendered
-                                                                )}
-                                                            </h5>
-                                                        </a>
-                                                        <div
-                                                            className={
-                                                                styles.infodate
-                                                            }
-                                                        >
-                                                            <span>
-                                                                By{" "}
-                                                                {
-                                                                    item
-                                                                        ._embedded
-                                                                        .author[0]
-                                                                        .name
-                                                                }
-                                                            </span>
-                                                            <span>
-                                                                {item.date.substr(
-                                                                    0,
-                                                                    10
-                                                                )}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
+                                )} */}
                             </div>
                         </div>
+
                         <div
                             style={{
                                 textAlign: "center",
@@ -1015,84 +885,6 @@ export default function Home(props) {
                                 );
                             })}
                         </div>
-                        {props.dataBanerHome6.published_at && (
-                            <Fragment>
-                                {ads6.bannerImage === "withBanner" ? (
-                                    <AdsBanner
-                                        linkbanner={ads6.link}
-                                        urlImage={ads6.urlImage}
-                                        width={ads6.widthImage}
-                                        height={ads6.heightImage}
-                                    />
-                                ) : (
-                                    <Ads banner={ads6.iframe} />
-                                )}
-                            </Fragment>
-                        )}
-                        <div className="row">
-                            {props.listApp.map((item, i) => {
-                                return (
-                                    <div className="col-lg-4" key={item.id}>
-                                        <div className={styles.wrplistapp}>
-                                            <div className={styles.imgwrp}>
-                                                <Image
-                                                    src={
-                                                        item._embedded[
-                                                            "wp:featuredmedia"
-                                                        ][0].source_url
-                                                    }
-                                                    width={
-                                                        item._embedded[
-                                                            "wp:featuredmedia"
-                                                        ][0].media_details.width
-                                                    }
-                                                    height={
-                                                        item._embedded[
-                                                            "wp:featuredmedia"
-                                                        ][0].media_details
-                                                            .height
-                                                    }
-                                                    alt={item.title.rendered}
-                                                />
-                                            </div>
-                                            <div className={styles.desc}>
-                                                <div className={styles.tags}>
-                                                    {item._embedded[
-                                                        "wp:term"
-                                                    ][0].map((data) => {
-                                                        return (
-                                                            <a
-                                                                href={data.link}
-                                                                key={data.id}
-                                                            >
-                                                                {data.name}
-                                                            </a>
-                                                        );
-                                                    })}
-                                                </div>
-                                                <a href={item.link}>
-                                                    <h5>
-                                                        {ReactHtmlParser(
-                                                            item.title.rendered
-                                                        )}
-                                                    </h5>
-                                                </a>
-                                                <div
-                                                    className={styles.infodate}
-                                                >
-                                                    <span>
-                                                        {item.date.substr(
-                                                            0,
-                                                            10
-                                                        )}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
                         <div
                             style={{
                                 textAlign: "center",
@@ -1107,6 +899,21 @@ export default function Home(props) {
                                 Lihat aplikasi lainnya
                             </a>
                         </div>
+
+                        {props.dataBanerHome6.published_at && (
+                            <Fragment>
+                                {ads6.bannerImage === "withBanner" ? (
+                                    <AdsBanner
+                                        linkbanner={ads6.link}
+                                        urlImage={ads6.urlImage}
+                                        width={ads6.widthImage}
+                                        height={ads6.heightImage}
+                                    />
+                                ) : (
+                                    <Ads banner={ads6.iframe} />
+                                )}
+                            </Fragment>
+                        )}
                     </div>
                 </div>
 
@@ -1129,130 +936,6 @@ export default function Home(props) {
                     <div className={styles.contents}>
                         <Title title="Tips & Trik"></Title>
                         <div className="row">
-                            <div className="col-lg-7">
-                                <div className="row">
-                                    {props.tipsTrik.map((item, i) => {
-                                        return (
-                                            <div
-                                                className="col-lg-6"
-                                                key={item.id}
-                                            >
-                                                <div
-                                                    className={
-                                                        styles.itemcontent
-                                                    }
-                                                >
-                                                    <div
-                                                        className={styles.left}
-                                                    >
-                                                        <div
-                                                            className={
-                                                                styles.desc
-                                                            }
-                                                        >
-                                                            <div
-                                                                className={
-                                                                    styles.tags
-                                                                }
-                                                            >
-                                                                {item._embedded[
-                                                                    "wp:term"
-                                                                ][0].map(
-                                                                    (data) => {
-                                                                        return (
-                                                                            <a
-                                                                                href={
-                                                                                    data.link
-                                                                                }
-                                                                                key={
-                                                                                    data.id
-                                                                                }
-                                                                            >
-                                                                                {
-                                                                                    data.name
-                                                                                }
-                                                                            </a>
-                                                                        );
-                                                                    }
-                                                                )}
-                                                            </div>
-                                                            <a href={item.link}>
-                                                                <h5>
-                                                                    {
-                                                                        item
-                                                                            .title
-                                                                            .rendered
-                                                                    }
-                                                                </h5>
-                                                            </a>
-                                                            <div
-                                                                className={
-                                                                    styles.infodate
-                                                                }
-                                                            >
-                                                                <span>
-                                                                    By{" "}
-                                                                    {
-                                                                        item
-                                                                            ._embedded
-                                                                            .author[0]
-                                                                            .name
-                                                                    }
-                                                                </span>
-                                                                <span>
-                                                                    {item.date.substr(
-                                                                        0,
-                                                                        10
-                                                                    )}
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        className={styles.right}
-                                                    >
-                                                        <div
-                                                            className={
-                                                                styles.imgwrp
-                                                            }
-                                                        >
-                                                            <Image
-                                                                src={
-                                                                    item
-                                                                        ._embedded[
-                                                                        "wp:featuredmedia"
-                                                                    ][0]
-                                                                        .source_url
-                                                                }
-                                                                width={
-                                                                    item
-                                                                        ._embedded[
-                                                                        "wp:featuredmedia"
-                                                                    ][0]
-                                                                        .media_details
-                                                                        .width
-                                                                }
-                                                                height={
-                                                                    item
-                                                                        ._embedded[
-                                                                        "wp:featuredmedia"
-                                                                    ][0]
-                                                                        .media_details
-                                                                        .height
-                                                                }
-                                                                alt={
-                                                                    item.title
-                                                                        .rendered
-                                                                }
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
                             <div className="col-lg-5">
                                 <div className={styles.maintipstrik}>
                                     {props.tipsTrikMain.map((item, i) => {
@@ -1369,110 +1052,156 @@ export default function Home(props) {
                                         );
                                     })}
                                 </div>
+                            </div>
+                            <div className="col-lg-7">
                                 <div className={styles.secondtipstrik}>
-                                    {props.tipsTrikSecond.map((item, i) => {
-                                        return (
-                                            <div
-                                                className={styles.itemcontent}
-                                                key={item.id}
-                                            >
-                                                <div className={styles.left}>
-                                                    <div
-                                                        className={styles.desc}
-                                                    >
-                                                        <div
-                                                            className={
-                                                                styles.tags
-                                                            }
-                                                        >
-                                                            {item._embedded[
-                                                                "wp:term"
-                                                            ][0].map((data) => {
-                                                                return (
-                                                                    <a
-                                                                        href={
-                                                                            data.link
-                                                                        }
-                                                                        key={
-                                                                            data.id
-                                                                        }
-                                                                    >
-                                                                        {
-                                                                            data.name
-                                                                        }
-                                                                    </a>
-                                                                );
-                                                            })}
-                                                        </div>
-                                                        <a href={item.link}>
-                                                            <h5>
-                                                                {
-                                                                    item.title
-                                                                        .rendered
-                                                                }
-                                                            </h5>
-                                                        </a>
-                                                        <div
-                                                            className={
-                                                                styles.infodate
-                                                            }
-                                                        >
-                                                            <span>
-                                                                By{" "}
-                                                                {
-                                                                    item
-                                                                        ._embedded
-                                                                        .author[0]
-                                                                        .name
-                                                                }
-                                                            </span>
-                                                            <span>
-                                                                {item.date.substr(
-                                                                    0,
-                                                                    10
-                                                                )}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className={styles.right}>
+                                    <div className="row">
+                                        {props.tipsTrikSecond.map((item, i) => {
+                                            return (
+                                                <div className="col-lg-6">
                                                     <div
                                                         className={
-                                                            styles.imgwrp
+                                                            styles.itemcontent
                                                         }
+                                                        key={item.id}
                                                     >
-                                                        <Image
-                                                            src={
-                                                                item._embedded[
-                                                                    "wp:featuredmedia"
-                                                                ][0].source_url
+                                                        <div
+                                                            className={
+                                                                styles.left
                                                             }
-                                                            width={
-                                                                item._embedded[
-                                                                    "wp:featuredmedia"
-                                                                ][0]
-                                                                    .media_details
-                                                                    .width
+                                                        >
+                                                            <div
+                                                                className={
+                                                                    styles.desc
+                                                                }
+                                                            >
+                                                                <div
+                                                                    className={
+                                                                        styles.tags
+                                                                    }
+                                                                >
+                                                                    {item._embedded[
+                                                                        "wp:term"
+                                                                    ][0].map(
+                                                                        (
+                                                                            data
+                                                                        ) => {
+                                                                            return (
+                                                                                <a
+                                                                                    href={
+                                                                                        data.link
+                                                                                    }
+                                                                                    key={
+                                                                                        data.id
+                                                                                    }
+                                                                                >
+                                                                                    {
+                                                                                        data.name
+                                                                                    }
+                                                                                </a>
+                                                                            );
+                                                                        }
+                                                                    )}
+                                                                </div>
+                                                                <a
+                                                                    href={
+                                                                        item.link
+                                                                    }
+                                                                >
+                                                                    <h5>
+                                                                        {
+                                                                            item
+                                                                                .title
+                                                                                .rendered
+                                                                        }
+                                                                    </h5>
+                                                                </a>
+                                                                <div
+                                                                    className={
+                                                                        styles.infodate
+                                                                    }
+                                                                >
+                                                                    <span>
+                                                                        By{" "}
+                                                                        {
+                                                                            item
+                                                                                ._embedded
+                                                                                .author[0]
+                                                                                .name
+                                                                        }
+                                                                    </span>
+                                                                    <span>
+                                                                        {item.date.substr(
+                                                                            0,
+                                                                            10
+                                                                        )}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            className={
+                                                                styles.right
                                                             }
-                                                            height={
-                                                                item._embedded[
-                                                                    "wp:featuredmedia"
-                                                                ][0]
-                                                                    .media_details
-                                                                    .height
-                                                            }
-                                                            alt={
-                                                                item.title
-                                                                    .rendered
-                                                            }
-                                                        />
+                                                        >
+                                                            <div
+                                                                className={
+                                                                    styles.imgwrp
+                                                                }
+                                                            >
+                                                                <Image
+                                                                    src={
+                                                                        item
+                                                                            ._embedded[
+                                                                            "wp:featuredmedia"
+                                                                        ][0]
+                                                                            .source_url
+                                                                    }
+                                                                    width={
+                                                                        item
+                                                                            ._embedded[
+                                                                            "wp:featuredmedia"
+                                                                        ][0]
+                                                                            .media_details
+                                                                            .width
+                                                                    }
+                                                                    height={
+                                                                        item
+                                                                            ._embedded[
+                                                                            "wp:featuredmedia"
+                                                                        ][0]
+                                                                            .media_details
+                                                                            .height
+                                                                    }
+                                                                    alt={
+                                                                        item
+                                                                            .title
+                                                                            .rendered
+                                                                    }
+                                                                />
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        );
-                                    })}
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        <div
+                            style={{
+                                textAlign: "center",
+                                display: "block",
+                                marginTop: 30,
+                            }}
+                        >
+                            <a
+                                href="https://www.androidponsel.com/trik-android/"
+                                className="btn medium"
+                            >
+                                Tips lainnya
+                            </a>
                         </div>
                     </div>
                 </div>
