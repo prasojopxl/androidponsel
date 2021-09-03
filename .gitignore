@@ -36,5 +36,6 @@ yarn-error.log*
 
 #custom
 /config
+/config/variable.js
 
 package-lock.json
