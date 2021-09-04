@@ -5,7 +5,7 @@ import { fetchData } from "../../config/data";
 import LayoutBlank from "../../layout/layoutBlank";
 import ItemProduct from "../../components/products/item";
 import styles from "./index.module.scss"
-import { Title } from "../../components";
+import { Title, GlobalAds } from "../../components";
 import { baseUrl } from "../../config/variable";
 
 export default function Brand(props) {
@@ -103,6 +103,7 @@ export default function Brand(props) {
             dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
+            <GlobalAds adsId="1" />
             <div className={styles.pageBrand}>
                 <div className={styles.contents}>
                     {

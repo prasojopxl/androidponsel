@@ -1,5 +1,4 @@
-import { useEffect, useState, Fragment } from "react";
-import { Ads, AdsBanner } from "../components";
+import { GlobalAds } from "../components";
 import styles from "./pages.module.scss";
 import { fetchData } from '../config/data';
 import Layout from '../layout'
@@ -9,14 +8,13 @@ import { useRouter } from "next/router"
 export default function Faq(props) {
     const router = useRouter();
 
-
     return (
         <Layout
             dataSEO={props.dataSEO.seo}
             dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
-
+            <GlobalAds adsId="1" />
             <div className={styles.pages}>
                 <div className={styles.bgGradient}>
                     <div style={{
