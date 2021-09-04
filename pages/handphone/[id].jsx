@@ -625,10 +625,6 @@ function getRandomDifferent(arr, last = undefined) {
 export async function getStaticProps({ params }) {
     const res = await fetch(`${apiUrl}/products/${params.id}`);
     const post = await res.json();
-
-    const res2 = await fetch(`${apiUrl}/ads/2`);
-    const dataContentAds = await res2.json();
-
     const res3 = await fetch(`${apiUrl}/products?brand=${post.brand.id}`);
     const dataProductBrand = await res3.json();
     const randomID = [];
@@ -639,6 +635,8 @@ export async function getStaticProps({ params }) {
             }
         });
     };
+
+
     listDataBrand();
     const random1 = getRandomDifferent(randomID);
     const random2 = getRandomDifferent(randomID, random1);
@@ -652,7 +650,6 @@ export async function getStaticProps({ params }) {
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
-    const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
 
 
     return {
@@ -660,10 +657,8 @@ export async function getStaticProps({ params }) {
             getMenu,
             getTopBrands,
             dataSEO,
-            dataContentAds,
             post,
             dataRelatedProd,
-            dataBanerProdukTop
         },
     };
 }

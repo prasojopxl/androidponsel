@@ -11,8 +11,6 @@ import ItemProduct from '../../components/products/item';
 
 export default function Handphone(props) {
     const router = useRouter()
-
-
     function removeLocalProd() {
         localStorage.removeItem("produk1")
         localStorage.removeItem("produk2")
@@ -170,7 +168,6 @@ export async function getStaticProps() {
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
-    console.log(dataBanerProdukTop)
     return {
         props: {
             dataListHandphone,
