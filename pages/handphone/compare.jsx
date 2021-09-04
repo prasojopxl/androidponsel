@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import useSWR from 'swr';
-import { Ads, Rate, AdsBanner } from "../../components";
+import { GlobalAds, Rate, } from "../../components";
 import Image from "next/image";
 import { apiUrl, baseUrl } from "../../config/variable";
 import styles from "./index.module.scss";
@@ -40,22 +40,7 @@ export default function compare({
 			dataBrands={getTopBrands}
 		>
 			<div className={styles.comparepage}>
-				{dataBanerCompareTop.published_at !== null && (
-					<Fragment >
-						{
-							dataBanerCompareTop.Image_Banner !== null ? (
-								<AdsBanner
-									linkbanner={dataBanerCompareTop.url}
-									urlImage={apiUrl + dataBanerCompareTop.Image_Banner.url}
-									width={dataBanerCompareTop.Image_Banner.width}
-									height={dataBanerCompareTop.Image_Banner.height}
-								/>
-							) : (
-								<Ads banner={dataBanerCompareTop.URL_Iframe} />
-							)
-						}
-					</Fragment>
-				)}
+				<GlobalAds adsId="11" />
 				<div className={styles.detailCompare}>
 					<div className={styles.contents}>
 						<div className="row justify-content-center">
@@ -616,18 +601,12 @@ export async function getStaticProps() {
 	const getMenu = await fetchData("/menus?_sort=order");
 	const getTopBrands = await fetchData("/brands?_top_brand=true");
 
-	//ads
-	const resBanerCompareBody = await fetch(
-		`${apiUrl}/ads/11?_publicationState=preview`
-	);
-	const dataBanerCompareBody = await resBanerCompareBody.json();
 
 	return {
 		props: {
 			getMenu,
 			getTopBrands,
 			dataSEO,
-			dataBanerCompareBody,
 		},
 	};
 }

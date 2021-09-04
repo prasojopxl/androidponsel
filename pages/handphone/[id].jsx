@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-import { Ads, AdsBanner, Rate, Title } from "../../components";
+import { GlobalAds, Rate, Title } from "../../components";
 import { fetchData } from "../../config/data";
 import { apiUrl, baseUrl } from "../../config/variable";
 import Layout from "../../layout";
@@ -20,45 +20,7 @@ export default function DetailPage(props) {
     const { nav1, nav2 } = state;
 
     const router = useRouter()
-    const [ads1, setAds1] = useState({
-        iframe: [],
-        bannerImage: [],
-        link: [],
-        urlImage: [],
-        widthImage: [],
-        heightImage: [],
-    });
-    const getAds1 = () => {
-        props.dataBanerProdukTop.Image_Banner === null
-            ? setAds1({ iframe: props.dataBanerProdukTop.URL_Iframe })
-            : setAds1({
-                bannerImage: "withBanner",
-                link: dataTopAds.url,
-                urlImage: apiUrl + dataTopAds.Image_Banner.url,
-                widthImage: dataTopAds.Image_Banner.width,
-                heightImage: dataTopAds.Image_Banner.height,
-            });
-    };
 
-    const [contentAds, setContentAds] = useState({
-        iframe: [],
-        bannerImage: [],
-        link: [],
-        urlImage: [],
-        widthImage: [],
-        heightImage: [],
-    });
-    const getContentAds = () => {
-        props.dataContentAds.Image_Banner === null
-            ? setContentAds({ iframe: props.dataContentAds.URL_Iframe })
-            : setContentAds({
-                bannerImage: "withBanner",
-                link: props.dataContentAds.url,
-                urlImage: apiUrl + props.dataContentAds.Image_Banner.url,
-                widthImage: props.dataContentAds.Image_Banner.width,
-                heightImage: props.dataContentAds.Image_Banner.height,
-            });
-    };
     const [show, setShow] = useState(false);
     const showData = () => {
         show === true ? setShow(false) : setShow(true);
@@ -93,8 +55,6 @@ export default function DetailPage(props) {
             nav1: slider1.current,
             nav2: slider2.current,
         });
-        getContentAds();
-        // post.post && PageName();
     }, []);
 
     return (
@@ -104,20 +64,7 @@ export default function DetailPage(props) {
             dataBrands={props.getTopBrands}
         >
 
-            {props.dataBanerProdukTop.published_at && (
-                <Fragment>
-                    {ads1.bannerImage === "withBanner" ? (
-                        <AdsBanner
-                            linkbanner={ads1.link}
-                            urlImage={ads1.urlImage}
-                            width={ads1.widthImage}
-                            height={ads1.heightImage}
-                        />
-                    ) : (
-                        <Ads banner={ads1.iframe} />
-                    )}
-                </Fragment>
-            )}
+            <GlobalAds adsId="1" />
 
             <div className={styles.detailproducts}>
                 <div className={styles.contents}>
@@ -350,16 +297,7 @@ export default function DetailPage(props) {
                     </div>
                 </div>
 
-                {contentAds.bannerImage === "withBanner" ? (
-                    <AdsBanner
-                        linkbanner={contentAds.link}
-                        urlImage={contentAds.urlImage}
-                        width={contentAds.widthImage}
-                        height={contentAds.heightImage}
-                    />
-                ) : (
-                    <Ads banner={contentAds.iframe} />
-                )}
+                <GlobalAds adsId="2" />
 
                 <div className={styles.contents}>
                     <div className="row">

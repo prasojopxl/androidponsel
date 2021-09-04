@@ -1,6 +1,5 @@
-import { useEffect, useState, Fragment } from "react";
 import Image from "next/image"
-import { Ads, AdsBanner } from "../components";
+import { GlobalAds } from "../components";
 import styles from "./pages.module.scss";
 import { fetchData } from '../config/data';
 import Layout from '../layout'
@@ -12,48 +11,13 @@ import { useRouter } from "next/router"
 
 export default function Redaksi(props) {
     const router = useRouter();
-    const [ads1, setAds1] = useState({
-        iframe: [],
-        bannerImage: [],
-        link: [],
-        urlImage: [],
-        widthImage: [],
-        heightImage: [],
-    });
-    const getAds1 = () => {
-        props.dataBanerProdukTop.Image_Banner === null
-            ? setAds1({ iframe: props.dataBanerProdukTop.URL_Iframe })
-            : setAds1({
-                bannerImage: "withBanner",
-                link: dataTopAds.url,
-                urlImage: apiUrl + dataTopAds.Image_Banner.url,
-                widthImage: dataTopAds.Image_Banner.width,
-                heightImage: dataTopAds.Image_Banner.height,
-            });
-    };
-    useEffect(() => {
-        getAds1();
-    }, [])
     return (
         <Layout
             dataSEO={props.dataSEO.seo}
             dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
-            {props.dataBanerProdukTop.published_at && (
-                <div style={{ background: "#fff" }}>
-                    {ads1.bannerImage === "withBanner" ? (
-                        <AdsBanner
-                            linkbanner={ads1.link}
-                            urlImage={ads1.urlImage}
-                            width={ads1.widthImage}
-                            height={ads1.heightImage}
-                        />
-                    ) : (
-                        <Ads banner={ads1.iframe} />
-                    )}
-                </div>
-            )}
+            <GlobalAds adsId="1" />
             <div className={styles.pages}>
                 <div className={styles.bgGradient}>
                     <div style={{
