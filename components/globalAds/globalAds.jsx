@@ -6,7 +6,11 @@ import Image from "next/image";
 export default function GlobalAds(props) {
     const { data, error } = useSWR(`${apiUrl}/ads/${props.adsId}?_publicationState=preview`)
     if (error) return "An error has occurred.";
-    if (!data) return "Loading...";
+    if (!data) return (
+        <div style={{ textAlign: "center" }}>
+            loading
+        </div>
+    );
     console.log(data)
     return (
         <div>
