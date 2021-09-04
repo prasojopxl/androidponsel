@@ -97,7 +97,6 @@ export default function Brand(props) {
         )
     }, []);
 
-
     return (
         <Layout
             dataSEO={props.dataSEO.seo}

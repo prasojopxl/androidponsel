@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
-import { Ads, AdsBanner, Paging, Rate, Title } from "../../components";
+import { Ads, AdsBanner, Paging, Rate, Title, GlobalAds } from "../../components";
 import { apiUrl, baseUrl, totalItem } from "../../config/variable";
 import styles from "./index.module.scss";
 import { fetchData } from '../../config/data';
@@ -11,45 +11,6 @@ import ItemProduct from '../../components/products/item';
 
 export default function Handphone(props) {
     const router = useRouter()
-    const [ads1, setAds1] = useState({
-        iframe: [],
-        bannerImage: [],
-        link: [],
-        urlImage: [],
-        widthImage: [],
-        heightImage: [],
-    });
-    const getAds1 = () => {
-        props.dataBanerProdukTop.Image_Banner === null
-            ? setAds1({ iframe: props.dataBanerProdukTop.URL_Iframe })
-            : setAds1({
-                bannerImage: "withBanner",
-                link: dataTopAds.url,
-                urlImage: apiUrl + dataTopAds.Image_Banner.url,
-                widthImage: dataTopAds.Image_Banner.width,
-                heightImage: dataTopAds.Image_Banner.height,
-            });
-    };
-
-    const [ads2, setAds2] = useState({
-        iframe: [],
-        bannerImage: [],
-        link: [],
-        urlImage: [],
-        widthImage: [],
-        heightImage: [],
-    });
-    const getAds2 = () => {
-        props.dataBanerProdukBody.Image_Banner === null
-            ? setAds2({ iframe: props.dataBanerProdukBody.URL_Iframe })
-            : setAds2({
-                bannerImage: "withBanner",
-                link: dataTopAds.url,
-                urlImage: apiUrl + dataTopAds.Image_Banner.url,
-                widthImage: dataTopAds.Image_Banner.width,
-                heightImage: dataTopAds.Image_Banner.height,
-            });
-    };
 
 
     function removeLocalProd() {
@@ -133,8 +94,6 @@ export default function Handphone(props) {
     }
 
     useEffect(() => {
-        getAds1();
-        getAds2();
         removeLocalProd();
         return (
             getLocalProd()
@@ -147,21 +106,7 @@ export default function Handphone(props) {
             dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
-            {props.dataBanerProdukTop.published_at && (
-                <Fragment>
-                    {ads1.bannerImage === "withBanner" ? (
-                        <AdsBanner
-                            linkbanner={ads1.link}
-                            urlImage={ads1.urlImage}
-                            width={ads1.widthImage}
-                            height={ads1.heightImage}
-                        />
-                    ) : (
-                        <Ads banner={ads1.iframe} />
-                    )}
-                </Fragment>
-            )}
-
+            <GlobalAds adsId="1" />
             <div className={styles.pagelisthandphone}>
                 <div className={styles.contents}>
                     <Title title="Handphone"></Title>
@@ -176,20 +121,7 @@ export default function Handphone(props) {
                                     );
                                 })}
                             </div>
-                            {props.dataBanerProdukBody.published_at && (
-                                <Fragment>
-                                    {ads2.bannerImage === "withBanner" ? (
-                                        <AdsBanner
-                                            linkbanner={ads2.link}
-                                            urlImage={ads2.urlImage}
-                                            width={ads2.widthImage}
-                                            height={ads2.heightImage}
-                                        />
-                                    ) : (
-                                        <Ads banner={ads2.iframe} />
-                                    )}
-                                </Fragment>
-                            )}
+                            <GlobalAds adsId="2" />
 
                             <div className="row">
                                 {props.dataListHandphone2.map((item, i) => {
@@ -238,6 +170,7 @@ export async function getStaticProps() {
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
+    console.log(dataBanerProdukTop)
     return {
         props: {
             dataListHandphone,
