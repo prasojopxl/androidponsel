@@ -10,6 +10,9 @@
     background: #fff;
     transition: $animate;
     border: none;
+    a {
+        color: $color-black;
+    }
     &:hover {
         box-shadow: $shadow;
         transform: scale(1.02);

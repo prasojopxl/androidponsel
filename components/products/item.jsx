@@ -76,9 +76,8 @@ export default function ItemProduct(props) {
                         />{" "}
                     </div>
                     <div className={styles.productinfo}>
-                        <h5>{props.title}</h5>
+                        <Link href={`${"/handphone/" + props.slug}`}><a><h5>{props.title}</h5></a></Link>
                         <h6>{props.memoryInternal}</h6>
-
                         {props.rating !== null && (
                             <Rate TotalRate={props.rating} />
                         )}
