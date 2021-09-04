@@ -18,6 +18,37 @@
     }
 }
 
+.itemMarket {
+    .logoMarketplace {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border: $color-gray solid 1px;
+        padding: 15px;
+        border-radius: 5px;
+    }
+    .productMarketplace {
+        margin: 15px 0;
+    }
+    h6 {
+        font-family: $font-MulishRegular;
+        color: $color-gray3;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    h4 {
+        color: $color-black;
+        font-size: 17px;
+        font-family: $font-MulishBold;
+    }
+    a {
+        color: $color-green;
+        text-decoration: underline;
+    }
+}
+
 .productItem {
     padding: 20px;
     border-radius: 5px;

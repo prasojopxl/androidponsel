@@ -26,30 +26,6 @@ export default function DetailPage(props) {
         show === true ? setShow(false) : setShow(true);
     };
     const currentPage = ["handphone"];
-    // const PageName = () => {
-    //     post.post.menu === 1
-    //         ? currentPage.push("home")
-    //         : post.post.menu === 2
-    //             ? currentPage.push("berita")
-    //             : post.post.menu === 3
-    //                 ? currentPage.push("handphone")
-    //                 : post.post.menu === 4
-    //                     ? currentPage.push("game")
-    //                     : post.post.menu === 5
-    //                         ? currentPage.push("kamera")
-    //                         : post.post.menu === 6
-    //                             ? currentPage.push("perbandingan")
-    //                             : post.post.menu === 7
-    //                                 ? currentPage.push("review")
-    //                                 : post.post.menu === 8
-    //                                     ? currentPage.push("tips-and-trik")
-    //                                     : post.post.menu === 9
-    //                                         ? currentPage.push("download")
-    //                                         : post.post.menu === 9
-    //                                             ? currentPage.push("aplikasi")
-    //                                             : "notfound";
-    // };
-
     useEffect(() => {
         setState({
             nav1: slider1.current,
@@ -475,8 +451,34 @@ export default function DetailPage(props) {
 
                             <Fragment>
                                 <Title title="Harga di Marketplace" idName="harga" />
+                                <div className="row" style={{ marginTop: 15 }}>
+                                    {
+                                        props.post.Price_Marketplace.map((item, i) => {
+                                            return (
+                                                <div className="col-lg-3">
+                                                    <div className={styles.itemMarket}>
+                                                        <div className={styles.logoMarketplace}>
+                                                            <Image src={apiUrl + item.logo.url} width={item.logo.width} height={item.logo.height} alt={item.title} />
+                                                        </div>
+                                                        <hr />
+                                                        {
+                                                            item.List.map((listItem, i) => {
+                                                                return (
+                                                                    <div className={styles.productMarketplace}>
+                                                                        <h6>{listItem.spec}</h6>
+                                                                        <h4>{listItem.price}</h4>
+                                                                        <Link href={listItem.link}><a>Check di {item.title}</a></Link>
+                                                                    </div>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
 
-
+                                </div>
                             </Fragment>
 
                             {props.post.post && (

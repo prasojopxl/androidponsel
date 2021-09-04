@@ -11,7 +11,6 @@ export default function GlobalAds(props) {
             loading
         </div>
     );
-    console.log(data)
     return (
         <div>
             {data.Image_Banner !== null ?
