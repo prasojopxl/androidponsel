@@ -9,8 +9,19 @@ import { apiUrl, baseUrl } from "../../config/variable";
 import Layout from "../../layout";
 import styles from "./index.module.scss";
 import { useCookies } from "react-cookie";
+import axios from "axios";
 
 export default function DetailPage(props) {
+    const checkDataUser = () => {
+        axios.post(`https://papiandro.stagingaja.com/auth/local`, {
+            "identifier": "guest@androidponsel.com",
+            "password": "camel0tlancel0t09"
+        }).then((res) => {
+            localStorage.setItem("authRate", res.data.jwt)
+
+        })
+    }
+
     const [cookie, setCookie, removeCookie] = useCookies([])
     const submitRate = () => {
         setCookie("submitGuest", "deactive", {
@@ -18,6 +29,7 @@ export default function DetailPage(props) {
             sameSite: true
         })
         setDisplayRate(false)
+        localStorage.removeItem("authRate")
     }
     const [displayRate, setDisplayRate] = useState(true)
 
@@ -38,7 +50,8 @@ export default function DetailPage(props) {
     };
     const currentPage = ["handphone"];
     useEffect(() => {
-        cookie.submitGuest === "deactive" && setDisplayRate(false)
+        checkDataUser()
+        cookie.submitGuest === "deactive" && setDisplayRate(false), localStorage.removeItem("authRate")
         setState({
             nav1: slider1.current,
             nav2: slider2.current,
@@ -553,7 +566,7 @@ export default function DetailPage(props) {
                             <div className={styles.rateForm}>
                                 <h2>Ini Rate Form</h2>
                                 <button onClick={submitRate}>Submit Rate</button>
-                                
+
                             </div>
                         )
                         }
