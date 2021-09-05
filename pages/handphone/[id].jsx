@@ -12,6 +12,7 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 
 export default function DetailPage(props) {
+    const router = useRouter()
     const checkDataUser = () => {
         axios.post(`https://papiandro.stagingaja.com/auth/local`, {
             "identifier": "guest@androidponsel.com",
@@ -21,11 +22,11 @@ export default function DetailPage(props) {
 
         })
     }
-
+    let cookieName = "cookie-" + router.query.id
     const [cookie, setCookie, removeCookie] = useCookies([])
     const submitRate = () => {
-        setCookie("submitGuest", "deactive", {
-            maxAge: 60 * 60 * 24 * 30,
+        setCookie(`${cookieName}`, "deactive", {
+            maxAge: 60 * 60 * 24 * 1,
             sameSite: true
         })
         setDisplayRate(false)
@@ -42,7 +43,6 @@ export default function DetailPage(props) {
         : (showSlider = 4);
     const { nav1, nav2 } = state;
 
-    const router = useRouter()
 
     const [show, setShow] = useState(false);
     const showData = () => {
@@ -51,7 +51,7 @@ export default function DetailPage(props) {
     const currentPage = ["handphone"];
     useEffect(() => {
         checkDataUser()
-        cookie.submitGuest === "deactive" && setDisplayRate(false), localStorage.removeItem("authRate")
+        cookie.cookieName === "deactive" && setDisplayRate(false), localStorage.removeItem("authRate")
         setState({
             nav1: slider1.current,
             nav2: slider2.current,
