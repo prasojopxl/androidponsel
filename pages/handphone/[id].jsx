@@ -8,8 +8,19 @@ import { fetchData } from "../../config/data";
 import { apiUrl, baseUrl } from "../../config/variable";
 import Layout from "../../layout";
 import styles from "./index.module.scss";
+import { useCookies } from "react-cookie";
 
 export default function DetailPage(props) {
+    const [cookie, setCookie, removeCookie] = useCookies([])
+    const submitRate = () => {
+        setCookie("submitGuest", "deactive", {
+            maxAge: 60 * 60 * 24 * 30,
+            sameSite: true
+        })
+        setDisplayRate(false)
+    }
+    const [displayRate, setDisplayRate] = useState(true)
+
     const [state, setState] = useState({ nav1: null, nav2: null });
     const slider1 = useRef();
     const slider2 = useRef();
@@ -27,6 +38,7 @@ export default function DetailPage(props) {
     };
     const currentPage = ["handphone"];
     useEffect(() => {
+        cookie.submitGuest === "deactive" && setDisplayRate(false)
         setState({
             nav1: slider1.current,
             nav2: slider2.current,
@@ -39,7 +51,6 @@ export default function DetailPage(props) {
             dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
-
             <GlobalAds adsId="1" />
 
             <div className={styles.detailproducts}>
@@ -272,9 +283,7 @@ export default function DetailPage(props) {
                         </div>
                     </div>
                 </div>
-
                 <GlobalAds adsId="2" />
-
                 <div className={styles.contents}>
                     <div className="row">
                         <div className="col-lg-9">
@@ -455,7 +464,7 @@ export default function DetailPage(props) {
                                     {
                                         props.post.Price_Marketplace.map((item, i) => {
                                             return (
-                                                <div className="col-lg-3">
+                                                <div className="col-lg-3" key={item.id}>
                                                     <div className={styles.itemMarket}>
                                                         <div className={styles.logoMarketplace}>
                                                             <Image src={apiUrl + item.logo.url} width={item.logo.width} height={item.logo.height} alt={item.title} />
@@ -464,7 +473,7 @@ export default function DetailPage(props) {
                                                         {
                                                             item.List.map((listItem, i) => {
                                                                 return (
-                                                                    <div className={styles.productMarketplace}>
+                                                                    <div className={styles.productMarketplace} key={listItem.id}>
                                                                         <h6>{listItem.spec}</h6>
                                                                         <h4>{listItem.price}</h4>
                                                                         <Link href={listItem.link}><a>Check di {item.title}</a></Link>
@@ -477,7 +486,6 @@ export default function DetailPage(props) {
                                             )
                                         })
                                     }
-
                                 </div>
                             </Fragment>
 
@@ -540,7 +548,15 @@ export default function DetailPage(props) {
 
                 <div className={styles.ratingSubmit}>
                     <div className={styles.contents}>
-                        <h1>Rating di sini</h1>
+                        <Title title="Rating" />
+                        {displayRate && (
+                            <div className={styles.rateForm}>
+                                <h2>Ini Rate Form</h2>
+                                <button onClick={submitRate}>Submit Rate</button>
+                                
+                            </div>
+                        )
+                        }
                     </div>
                 </div>
 
