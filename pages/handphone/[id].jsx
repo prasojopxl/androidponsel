@@ -8,32 +8,45 @@ import { fetchData } from "../../config/data";
 import { apiUrl, baseUrl } from "../../config/variable";
 import Layout from "../../layout";
 import styles from "./index.module.scss";
-import { useCookies } from "react-cookie";
+import { Cookies, useCookies } from "react-cookie";
+import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.to/vuongddang/how-to-use-fontawesome-in-next-js-5bl5
+
 import axios from "axios";
 
 export default function DetailPage(props) {
+    const [newRate, setNewRate] = useState("")
     const router = useRouter()
     const checkDataUser = () => {
-        axios.post(`https://papiandro.stagingaja.com/auth/local`, {
+        axios.post(`${apiUrl}/auth/local`, {
             "identifier": "guest@androidponsel.com",
             "password": "camel0tlancel0t09"
         }).then((res) => {
             localStorage.setItem("authRate", res.data.jwt)
-
         })
     }
-    let cookieName = "cookie-" + router.query.id
     const [cookie, setCookie, removeCookie] = useCookies([])
     const submitRate = () => {
-        setCookie(`${cookieName}`, "deactive", {
+        setCookie(`statusID`, "deactive", {
             maxAge: 60 * 60 * 24 * 1,
             sameSite: true
         })
         setDisplayRate(false)
-        localStorage.removeItem("authRate")
+        const token = localStorage.getItem("authRate")
+        const valueNewRate = (parseFloat(props.post.rating) + parseFloat(newRate)) / 2;
+        axios.put(`https://papiandro.stagingaja.com/products/${props.post.id}`,
+            {
+                "rating": valueNewRate
+            },
+            {
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        )
     }
     const [displayRate, setDisplayRate] = useState(true)
-
     const [state, setState] = useState({ nav1: null, nav2: null });
     const slider1 = useRef();
     const slider2 = useRef();
@@ -43,15 +56,14 @@ export default function DetailPage(props) {
         : (showSlider = 4);
     const { nav1, nav2 } = state;
 
-
     const [show, setShow] = useState(false);
     const showData = () => {
         show === true ? setShow(false) : setShow(true);
     };
     const currentPage = ["handphone"];
     useEffect(() => {
-        checkDataUser()
-        cookie.cookieName === "deactive" && setDisplayRate(false), localStorage.removeItem("authRate")
+        checkDataUser();
+        cookie.statusID === "deactive" && setDisplayRate(false), localStorage.removeItem("authRate")
         setState({
             nav1: slider1.current,
             nav2: slider2.current,
@@ -65,7 +77,6 @@ export default function DetailPage(props) {
             dataBrands={props.getTopBrands}
         >
             <GlobalAds adsId="1" />
-
             <div className={styles.detailproducts}>
                 <div className={styles.contents}>
                     <Title title="Overview Produk"></Title>
@@ -565,8 +576,15 @@ export default function DetailPage(props) {
                         {displayRate && (
                             <div className={styles.rateForm}>
                                 <h2>Ini Rate Form</h2>
-                                <button onClick={submitRate}>Submit Rate</button>
+                                <FontAwesomeIcon icon={faStar} />
+                                <FontAwesomeIcon icon={faStar} />
+                                <FontAwesomeIcon icon={faStar} />
+                                <FontAwesomeIcon icon={faStar} />
+                                <FontAwesomeIcon icon={faStar} />
 
+                                <input type="number" value={newRate} onChange={(e) => { setNewRate(e.target.value); }} />
+                                {newRate}
+                                <button onClick={submitRate}>Submit Rate</button>
                             </div>
                         )
                         }

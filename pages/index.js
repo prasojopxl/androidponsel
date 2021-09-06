@@ -824,7 +824,7 @@ export default function Home(props) {
                                 <div className={styles.maintipstrik}>
                                     {props.tipsTrikMain.map((item, i) => {
                                         return (
-                                            <div key="item.id">
+                                            <div key={item.id}>
                                                 <div
                                                     className={styles.topberita}
                                                 >
@@ -942,7 +942,10 @@ export default function Home(props) {
                                     <div className="row">
                                         {props.tipsTrikSecond.map((item, i) => {
                                             return (
-                                                <div className="col-lg-6">
+                                                <div
+                                                    className="col-lg-6"
+                                                    key={item.id}
+                                                >
                                                     <div
                                                         className={
                                                             styles.itemcontent
