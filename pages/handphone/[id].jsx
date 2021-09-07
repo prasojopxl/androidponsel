@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.t
 
 export default function DetailPage(props) {
     const [newRate, setNewRate] = useState("")
+    const [newSubmitRate, setNewSubmitRate] = useState(0)
     const router = useRouter()
     const checkDataUser = () => {
         axios.post(`${apiUrl}/auth/local`, {
@@ -31,8 +32,9 @@ export default function DetailPage(props) {
             sameSite: true
         })
         setDisplayRate(false)
+        alert("Terima Kasih Atas Rating Anda")
         const token = localStorage.getItem("authRate")
-        const valueNewRate = (parseFloat(props.post.rating) + parseFloat(newRate)) / parseInt(props.post.total_voters);
+        const valueNewRate = (parseFloat(props.post.rating) + parseFloat(newSubmitRate)) / parseInt(props.post.total_voters);
         axios.put(`${apiUrl}/products/${props.post.id}`,
             {
                 "rating": valueNewRate,
@@ -576,15 +578,17 @@ export default function DetailPage(props) {
                             <div className={styles.ratingBox}>
                                 <RateBox rate={props.post.rating} />
                             </div>
-                            {displayRate && (
+                            {displayRate ? (
                                 <div className={styles.rateForm}>
-                                    <h2>Beri rating produk ini</h2>
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <input type="number" value={newRate} onChange={(e) => { setNewRate(e.target.value); }} />
-                                    {newRate}
-                                    <button onClick={submitRate}>Submit Rate</button>
+                                    <h2>Beri Rating Produk Ini</h2>
+                                    <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 1 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(1) }} />
+                                    <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 2 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(2) }} />
+                                    <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 3 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(3) }} />
+                                    <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 4 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(4) }} />
+                                    <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 5 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(5) }} />
+                                    <div style={{ marginTop: 10 }}><button className={styles.buttonDefault} onClick={submitRate}>Submit Rate</button></div>
                                 </div>
-                            )
+                            ) : <div className={styles.infoRating}>Anda dapat melakukan submit rating setelah maximal 1 x 24jam</div>
                             }
                         </div>
                     </div>
@@ -614,15 +618,12 @@ export default function DetailPage(props) {
                                                         />{" "}
                                                     </div>
                                                     <div className={styles.productinfo}>
-                                                        <h5>{value.title}</h5>
+                                                        <Link href={`${"/handphone/" + value.slug}`}><a><h5>{value.title}</h5></a></Link>
                                                         <h6>{value.memory_internal}</h6>
                                                         <Rate TotalRate={value.rating} />
                                                     </div>
                                                 </div>
                                                 <div className={styles.wrpbtn}>
-                                                    <a href="#" className={styles.btnfull}>
-                                                        BANDINGKAN PRODUK
-                                                    </a>
                                                     <Link href={baseUrl + currentPage + "/" + value.slug}>
                                                         <a className={styles.btnblank}>
                                                             LIHAT SELENGKAPNYA

@@ -7,7 +7,7 @@ export default function RateBox(props) {
         <div className={styles.rateBox}>
             {props.rate === null ? "no rate" :
                 <div>
-                    <h4>{props.rate}</h4>
+                    <h4>{(props.rate).toFixed(2)}</h4>
                     <div className={styles.starBox}>
                         <FontAwesomeIcon icon={faStar} style={{ color: props.rate >= 1 ? "#ffc529" : "#d7d7d7" }} />
                         <FontAwesomeIcon icon={faStar} style={{ color: props.rate >= 2 ? "#ffc529" : "#d7d7d7" }} />

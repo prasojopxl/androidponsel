@@ -385,6 +385,13 @@ h4 {
     }
 }
 
+.productinfo {
+    a {
+        cursor: pointer;
+        color: $color-black;
+    }
+}
+
 .containerCompare {
     right: 0;
     bottom: 0;
@@ -418,6 +425,7 @@ h4 {
     margin-left: 30px;
     h2 {
         margin-bottom: 10px;
+        font-size: 17px;
     }
 }
 
@@ -426,4 +434,14 @@ h4 {
     align-items: center;
 }
 
+.buttonDefault {
+    background: $color-green;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px 10px;
+}
 
+.infoRating {
+    margin-left: 20px;
+}

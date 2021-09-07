@@ -18,7 +18,7 @@ export async function getStaticProps(context) {
         "/posts?menu=2&_sort=updated_at:DESC&_limit=1"
     );
     const topNews = await fetchDataBlog(
-        "categories=8&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
+        "categories=127&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
     );
     const topApp = await fetchDataBlog(
         "per_page=1&_embed=author,wp:featuredmedia,wp:term"
@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
         "categories=20&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
     );
     const dataAndroidNews = await fetchDataBlog(
-        "categories=8&per_page=1&_embed=author,wp:featuredmedia,wp:term"
+        "categories=127&per_page=1&_embed=author,wp:featuredmedia,wp:term"
     );
 
     const getMenu = await fetchData("/menus?_sort=order");
