@@ -1,0 +1,21 @@
+@import "../../styles/variable";
+
+.rateBox {
+    background: $color-gray2;
+    text-align: center;
+    max-width: 150px;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow2;
+    margin-top: 20px;
+    h4 {
+        font-family: $font-MulishBold;
+        font-size: 40px;
+    }
+}
+
+.starBox {
+}

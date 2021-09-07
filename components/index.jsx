@@ -7,6 +7,7 @@ import SEO from "./seo";
 import ListCategories from "./listcategories/ListCategories";
 //product
 import Rate from "./rate/Rate";
+import RateBox from "./rateBox/rateBox";
 import Title from "./title/Title";
 import Paging from "./paging";
 import ItemTeam from "./team/itemteam";
@@ -23,6 +24,7 @@ export {
     Ads,
     AdsBanner,
     Rate,
+    RateBox,
     SEO,
     Paging,
     ItemTeam,

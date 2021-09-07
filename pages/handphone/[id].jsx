@@ -3,16 +3,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-import { GlobalAds, Rate, Title } from "../../components";
+import { GlobalAds, Rate, RateBox, Title } from "../../components";
 import { fetchData } from "../../config/data";
 import { apiUrl, baseUrl } from "../../config/variable";
 import Layout from "../../layout";
 import styles from "./index.module.scss";
 import { Cookies, useCookies } from "react-cookie";
+import axios from "axios";
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.to/vuongddang/how-to-use-fontawesome-in-next-js-5bl5
-
-import axios from "axios";
 
 export default function DetailPage(props) {
     const [newRate, setNewRate] = useState("")
@@ -33,10 +32,10 @@ export default function DetailPage(props) {
         })
         setDisplayRate(false)
         const token = localStorage.getItem("authRate")
-        const valueNewRate = (parseFloat(props.post.rating) + parseFloat(newRate)) / 2;
-        axios.put(`https://papiandro.stagingaja.com/products/${props.post.id}`,
+        const valueNewRate = (parseFloat(props.post.rating) + parseFloat(newRate)) / parseInt(props.post.total_voters);
+        axios.put(`${apiUrl}/products/${props.post.id}`,
             {
-                "rating": valueNewRate
+                "rating": valueNewRate,
             },
             {
                 headers: {
@@ -573,21 +572,21 @@ export default function DetailPage(props) {
                 <div className={styles.ratingSubmit}>
                     <div className={styles.contents}>
                         <Title title="Rating" />
-                        {displayRate && (
-                            <div className={styles.rateForm}>
-                                <h2>Ini Rate Form</h2>
-                                <FontAwesomeIcon icon={faStar} />
-                                <FontAwesomeIcon icon={faStar} />
-                                <FontAwesomeIcon icon={faStar} />
-                                <FontAwesomeIcon icon={faStar} />
-                                <FontAwesomeIcon icon={faStar} />
-
-                                <input type="number" value={newRate} onChange={(e) => { setNewRate(e.target.value); }} />
-                                {newRate}
-                                <button onClick={submitRate}>Submit Rate</button>
+                        <div className={styles.rateInfo}>
+                            <div className={styles.ratingBox}>
+                                <RateBox rate={props.post.rating} />
                             </div>
-                        )
-                        }
+                            {displayRate && (
+                                <div className={styles.rateForm}>
+                                    <h2>Beri rating produk ini</h2>
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <input type="number" value={newRate} onChange={(e) => { setNewRate(e.target.value); }} />
+                                    {newRate}
+                                    <button onClick={submitRate}>Submit Rate</button>
+                                </div>
+                            )
+                            }
+                        </div>
                     </div>
                 </div>
 
