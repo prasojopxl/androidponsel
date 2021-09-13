@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 
 export default function Coba(props) {
-    const { data } = useSWR('', fetch, { initialData: props.posts })
     const people = [
         "Siri",
         "Alexa",
