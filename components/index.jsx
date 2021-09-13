@@ -29,5 +29,5 @@ export {
     Paging,
     ItemTeam,
     ItemProduct,
-    GlobalAds
+    GlobalAds,
 };
