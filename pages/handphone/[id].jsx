@@ -34,12 +34,11 @@ export default function DetailPage(props) {
                 sameSite: true
             })
             setDisplayRate(false)
-            alert("Terima Kasih Atas Rating Anda")
             const token = localStorage.getItem("authRate")
-            const valueNewRate = (parseFloat(props.post.rating) + parseFloat(newSubmitRate)) / parseInt(props.post.total_voters);
+            const valueNewRate = (parseFloat(props.post.rating) + parseInt(newSubmitRate)) / 2;
             axios.put(`${apiUrl}/products/${props.post.id}`,
                 {
-                    "rating": valueNewRate,
+                    "rating": parseFloat(valueNewRate),
                     "total_voters": valueNewVoters + 1
                 },
                 {
