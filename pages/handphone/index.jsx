@@ -160,8 +160,8 @@ export default function Handphone(props) {
 
 export async function getStaticProps() {
     const posts = await fetchData(`/products?category=1`);
-    const dataListHandphone = await fetchData(`/products?category=1&_limit=${totalItem}`);
-    const dataListHandphone2 = await fetchData(`/products?category=1&_limit=${8}&_start=8`);
+    const dataListHandphone = await fetchData(`/products?category=1&_limit=${totalItem}&_sort=release_date:DESC`);
+    const dataListHandphone2 = await fetchData(`/products?category=1&_limit=${8}&_start=8&_sort=release_date:DESC`);
     const totalPaging = Math.ceil(posts.length / (totalItem * 2));
     const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
     const dataBanerProdukBody = await fetchData(`/ads/9?_publicationState=preview`);

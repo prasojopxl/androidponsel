@@ -168,7 +168,7 @@ export async function getStaticProps({ params }) {
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
-    const dataListHandphone = await fetchData(`/products?category=1&_limit=${totalItem * 2}&_start=${(params.id - 1) * 12}`);
+    const dataListHandphone = await fetchData(`/products?category=1&_limit=${totalItem * 2}&_start=${(params.id - 1) * 12}&_sort=release_date:DESC`);
     const lengthPost = dataListHandphone.length;
     const posts = await fetchData("/products?category=1");
     const totalPaging = Math.ceil(posts.length / (totalItem * 2));
