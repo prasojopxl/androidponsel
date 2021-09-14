@@ -2,8 +2,10 @@
 
 .pagelisthandphone {
     padding: 50px 0;
+    background: #fff;
     .contents {
-        max-width: $widthdefault;
+        // max-width: $widthdefault;
+        max-width: $containercustom;
         margin: 0 auto;
         width: 100%;
     }
@@ -70,7 +72,7 @@
     }
     .imageprod {
         max-width: 150px;
-        margin-right: 10px;
+        margin-right: 18px;
     }
     h5 {
         font-size: 16px;
@@ -321,6 +323,9 @@
 
 .detailCompare {
     padding-top: 50px;
+    background: #fff;
+    max-width: 1250px;
+    margin:0 auto;
     .contents {
         width: 100%;
         margin: 0 auto;

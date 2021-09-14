@@ -121,3 +121,19 @@
     src: local("fonts/Mulish Black Italic"),
         url("fonts/Mulish-BlackItalic.woff") format("woff");
 }
+
+@font-face {
+    font-family: "RubikMedium";
+    font-style: normal;
+    font-weight: normal;
+    src: local("fonts/RubikMedium"),
+        url("fonts/RubikMedium.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "Rubik-Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: local("fonts/Rubik-Regular"),
+        url("fonts/Rubik-Regular.ttf") format("ttf");
+}

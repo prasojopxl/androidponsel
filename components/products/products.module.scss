@@ -1,5 +1,5 @@
 @import "../../styles/variable.scss";
-
+@import "../../styles/fonts.scss";
 .productItem {
     padding: 20px;
     border-radius: 5px;
@@ -27,21 +27,30 @@
         margin-right: 10px;
     }
     h5 {
-        font-size: 16px;
-        margin-bottom: 0;
-        min-height: 40px;
+        font-family: "RubikMedium", sans-serif;
+        color: #071723;
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 4px;
     }
     h6 {
         font-weight: normal;
-        font-size: 11px;
         margin-bottom: 10px;
+        font-family: "Mulish-Regular", sans-serif;
+        font-size: 11.5px;
+        line-height: 16px;
+        color: #71716c;        
     }
     .wrpbtn {
         text-align: center;
-        margin-top: 15px;
+        margin-top: 7px;
         opacity: 1;
         visibility: visible;
         transition: $animate;
+        font-family: 'Rubik-Regular', sans-serif;
+        line-height: 1.45;
+        padding: 12px 12px;
+        border-radius: 11.5px;      
         a {
             display: block;
             color: $color-green;
@@ -54,6 +63,9 @@
             margin-bottom: 10px;
             cursor: pointer;
             border: none;
+            min-width: 164px;
+            width: 100%;
+            display: block;       
             &:focus {
                 outline: none;
             }
@@ -62,7 +74,7 @@
             &:disabled,
             &[disabled] {
                 background: $color-gray;
-                cursor: default;
+                cursor: default;                
             }
         }
     }

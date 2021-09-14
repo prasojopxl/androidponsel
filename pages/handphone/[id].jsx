@@ -331,8 +331,12 @@ export default function DetailPage(props) {
                                 {props.post.brand.title}
                             </div>
                             <div className={styles.itemDesc}>
-                                <h5>Status dan Release</h5>
+                                <h5>Status</h5>
                                 {props.post.status}
+                            </div>
+                            <div className={styles.itemDesc}>
+                                <h5>Tanggal Rilis</h5>
+                                {props.post.release_date}
                             </div>
                             <div className={styles.itemDesc}>
                                 <h5>Warna</h5>

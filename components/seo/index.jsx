@@ -8,10 +8,7 @@ export default function SEO(props) {
             <meta name="description" content={props.description} />
             <meta name="keywords" content={props.keywords} />
             <meta name="author" content="androidponsel" />
-            <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1.0, maximum-scale=5.0,"
-            />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <link
                 rel="shortcut icon"
                 href={apiUrl + "/uploads/fav_425b2ec632.png"}
