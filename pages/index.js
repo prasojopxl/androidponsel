@@ -282,7 +282,7 @@ export default function Home(props) {
                                 );
                             })}
                         </div>
-
+                        <GlobalAds adsId="1" />
                         <div className="row">
                             {props.dataListHandphone.map((item, i) => {
                                 return (
@@ -305,7 +305,6 @@ export default function Home(props) {
                                 );
                             })}
                         </div>
-
                         <div
                             style={{
                                 textAlign: "center",
