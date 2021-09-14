@@ -16,6 +16,7 @@ export default function Header(props) {
     const [people, setPeople] = useState([]);
     const [showSearch, setShowSearch] = useState(false)
     const [showResult, setShowResult] = useState(false)
+    const [showMenu, setShowMenu] = useState(false)
     const getDataProd = () => {
         axios.get(`${apiUrl}/products`).then(res => {
             setPeople(res.data)
@@ -27,6 +28,9 @@ export default function Header(props) {
     };
     const resultSearch = () => {
         showResult === false ? setShowResult(true) : setShowResult(false)
+    }
+    const showMenuMobile = () => {
+        showMenu == false ? setShowMenu(true) : setShowMenu(false)
     }
     useEffect(() => {
         getDataProd();
@@ -60,6 +64,11 @@ export default function Header(props) {
                     </div>
                     <div className={styles.right}>
                         <FontAwesomeIcon icon={faSearch} onClick={resultSearch} style={{ cursor: "pointer" }} />
+                        <div className={styles.navMenu} onClick={showMenuMobile}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -99,6 +108,20 @@ export default function Header(props) {
 
                 </>
             }
+            {
+                showMenu &&
+                <ul className={styles.mainMenuMobile}>
+                    {
+                        mainMenu.map(item => {
+                            return (
+                                <li key={item.id}><Link href={item.url}><a>{item.title}</a></Link></li>
+                            )
+                        })
+                    }
+                </ul>
+
+            }
+
             <div className={styles.TopBrands}>
                 <label>Merk:</label>
                 <ul>

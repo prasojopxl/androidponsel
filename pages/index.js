@@ -12,7 +12,6 @@ import styles from "./index.module.scss";
 export async function getStaticProps(context) {
     const dataAllProd = await fetchData("/products");
     const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
-    // const dataProducts = await fetchData("/products?_limit=12");
     const dataListHandphone = await fetchData(
         `/products?category=1&_limit=8&_sort=release_date:DESC`
     );
