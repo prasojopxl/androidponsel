@@ -1,60 +1,106 @@
 @import "../../styles/variable";
 
 .header {
-  background: #fff;
-  border-bottom: $color-gray solid 1px;
-  padding: 5px 0;
-  .contents {
-    max-width: $widthdefault;
-    margin: 0 auto;
-    padding: 0 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .left {
-    cursor: pointer;
-  }
+    background: #fff;
+    border-bottom: $color-gray solid 1px;
+    padding: 5px 0;
+    .contents {
+        max-width: $widthdefault;
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .left {
+        cursor: pointer;
+    }
 }
 
 .mainmenu {
-  display: flex;
-  margin: 0;
-  li {
-    list-style: none;
-    font-family: $font-MulishBold;
-    font-size: 16px;
-    color: $color-black;
-    text-transform: capitalize;
-    a {
-      color: $color-black;
-      display: block;
-      padding: 17px 10px;
+    display: flex;
+    margin: 0;
+    li {
+        list-style: none;
+        font-family: $font-MulishBold;
+        font-size: 16px;
+        color: $color-black;
+        text-transform: capitalize;
+        a {
+            color: $color-black;
+            display: block;
+            padding: 17px 10px;
+        }
     }
-  }
 }
 
 .TopBrands {
-  text-align: center;
-  padding: 10px 15px;
-  label {
-    font-family: $font-MulishBold;
-    display: inline-block;
-    margin-right: 10px;
-  }
-  ul {
-    display: inline-block;
-    li {
-      display: inline-block;
-      a {
-        display: block;
-        padding: 0 10px;
-        color: $color-gray3;
-        &:hover {
-          color: $color-green;
-          text-decoration: none;
-        }
-      }
+    text-align: center;
+    padding: 10px 15px;
+    label {
+        font-family: $font-MulishBold;
+        display: inline-block;
+        margin-right: 10px;
     }
-  }
+    ul {
+        display: inline-block;
+        li {
+            display: inline-block;
+            a {
+                display: block;
+                padding: 0 10px;
+                color: $color-gray3;
+                &:hover {
+                    color: $color-green;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.inputSearch {
+    width: 100%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 550px;
+    span {
+        width: 150px;
+        margin-right: 15px;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 10px 20px;
+        background: #fff;
+        border: $color-green solid 1px;
+        border-radius: 5px;
+    }
+}
+
+.searchResult {
+    max-width: $widthdefault;
+    margin: 0 auto;
+    text-align: center;
+    .itemResult {
+        display: inline-block;
+        background: $color-green2;
+        border-radius: 20px;
+        margin: 5px;
+        transition: $animate;
+        a {
+            display: block;
+            padding: 3px 15px;
+        }
+        &:hover {
+            background: $color-green;
+            color: #fff;
+            transition: $animate;
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
 }

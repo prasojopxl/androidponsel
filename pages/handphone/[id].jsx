@@ -16,6 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.t
 export default function DetailPage(props) {
     const [newRate, setNewRate] = useState("")
     const [newSubmitRate, setNewSubmitRate] = useState(0)
+    const [valueNewVoters, setValueNewVoters] = useState(props.post.total_voters)
     const router = useRouter()
     const checkDataUser = () => {
         axios.post(`${apiUrl}/auth/local`, {
@@ -27,25 +28,31 @@ export default function DetailPage(props) {
     }
     const [cookie, setCookie, removeCookie] = useCookies([])
     const submitRate = () => {
-        setCookie(`statusID`, "deactive", {
-            maxAge: 60 * 60 * 24 * 1,
-            sameSite: true
-        })
-        setDisplayRate(false)
-        alert("Terima Kasih Atas Rating Anda")
-        const token = localStorage.getItem("authRate")
-        const valueNewRate = (parseFloat(props.post.rating) + parseFloat(newSubmitRate)) / parseInt(props.post.total_voters);
-        axios.put(`${apiUrl}/products/${props.post.id}`,
-            {
-                "rating": valueNewRate,
-            },
-            {
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8",
-                    Authorization: `Bearer ${token}`,
+        if (newSubmitRate >= 0) {
+            setCookie(`statusID`, "deactive", {
+                maxAge: 60 * 60 * 24 * 1,
+                sameSite: true
+            })
+            setDisplayRate(false)
+            const token = localStorage.getItem("authRate")
+            const valueNewRate = (parseFloat(props.post.rating) + parseInt(newSubmitRate)) / 2;
+            axios.put(`${apiUrl}/products/${props.post.id}`,
+                {
+                    "rating": parseFloat(valueNewRate),
+                    "total_voters": valueNewVoters + 1
                 },
-            }
-        )
+                {
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8",
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            )
+        }
+        else {
+            alert("Terima kasih")
+        }
+
     }
     const [displayRate, setDisplayRate] = useState(true)
     const [state, setState] = useState({ nav1: null, nav2: null });

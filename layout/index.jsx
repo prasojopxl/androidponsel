@@ -4,7 +4,7 @@ import { Footer, Header, SEO } from "../components";
 import styles from "./layout.module.scss";
 
 export default function Layout(props) {
-    const { dataSEO, dataMainMenu, dataBrands } = props;
+    const { dataSEO, dataMainMenu, dataBrands, dataProd } = props;
     return (
         <Fragment>
             <Head>
@@ -12,7 +12,7 @@ export default function Layout(props) {
             </Head>
 
             <div className={styles.headerweb}>
-                <Header mainMenu={dataMainMenu} brands={dataBrands} />
+                <Header mainMenu={dataMainMenu} brands={dataBrands} searchProd={dataProd} />
             </div>
             <div className={styles.bodyweb}>{props.children}</div>
 

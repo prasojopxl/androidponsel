@@ -10,6 +10,7 @@ import Layout from "../layout";
 import styles from "./index.module.scss";
 
 export async function getStaticProps(context) {
+    const dataAllProd = await fetchData("/products");
     const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
     // const dataProducts = await fetchData("/products?_limit=12");
 
@@ -65,6 +66,7 @@ export async function getStaticProps(context) {
             getMenu,
             getTopBrands,
             dataAndroidNews,
+            dataAllProd,
         },
         revalidate: 3,
     };
@@ -152,13 +154,13 @@ export default function Home(props) {
         removeLocalProd();
         return getLocalProd();
     }, []);
-
     return (
         <React.Fragment>
             <Layout
                 dataSEO={props.dataSEO.seo}
                 dataMainMenu={props.getMenu}
                 dataBrands={props.getTopBrands}
+                dataProd={props.dataAllProd}
             >
                 <GlobalAds adsId="1" />
                 <div className={styles.compareItem}>
