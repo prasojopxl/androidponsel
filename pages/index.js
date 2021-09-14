@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import ReactHtmlParser from "react-html-parser";
-import { Title, GlobalAds } from "../components/";
+import { Title, GlobalAds, ItemProduct } from "../components/";
 import { fetchData, fetchDataApp, fetchDataBlog } from "../config/data";
 import { apiUrl, baseUrl } from "../config/variable";
 import Layout from "../layout";
@@ -13,6 +13,9 @@ export async function getStaticProps(context) {
     const dataAllProd = await fetchData("/products");
     const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
     // const dataProducts = await fetchData("/products?_limit=12");
+    const dataListHandphone = await fetchData(
+        `/products?category=1&_limit=8&_sort=release_date:DESC`
+    );
 
     const dataSEO = await fetchData("/general");
     const mainNews = await fetchData(
@@ -44,6 +47,7 @@ export async function getStaticProps(context) {
         !mainNews ||
         !topNews ||
         !topApp ||
+        !dataListHandphone ||
         !listApp ||
         !tipsTrikMain ||
         !tipsTrikSecond ||
@@ -60,6 +64,7 @@ export async function getStaticProps(context) {
             mainNews,
             topNews,
             topApp,
+            dataListHandphone,
             listApp,
             tipsTrikMain,
             tipsTrikSecond,
@@ -169,7 +174,10 @@ export default function Home(props) {
                         <div className="row">
                             {props.dataCompare.map((item, index) => {
                                 return (
-                                    <div className="col-lg-6 col-md-6 col-sm-12" key={item.id}>
+                                    <div
+                                        className="col-lg-6 col-md-6 col-sm-12"
+                                        key={item.id}
+                                    >
                                         <div className={styles.itemcompare}>
                                             <div className={styles.wrpCompare}>
                                                 {item.products.map((data) => {
@@ -275,6 +283,30 @@ export default function Home(props) {
                                 );
                             })}
                         </div>
+
+                        <div className="row">
+                            {props.dataListHandphone.map((item, i) => {
+                                return (
+                                    <div className="col-lg-3" key={item.id}>
+                                        {/* <div>
+                                            <h4>{item.product_image[0]}</h4>
+                                            Rate: {item.rating}
+                                        </div> */}
+                                        <ItemProduct
+                                            action={getLocalProd}
+                                            title={item.title}
+                                            memoryInternal={
+                                                item.memory_internal
+                                            }
+                                            rating={item.rating}
+                                            productImage={item.product_image[0]}
+                                            slug={item.slug}
+                                        />
+                                    </div>
+                                );
+                            })}
+                        </div>
+
                         <div
                             style={{
                                 textAlign: "center",
@@ -283,7 +315,9 @@ export default function Home(props) {
                             }}
                         >
                             <Link href={baseUrl + "handphone"}>
-                                <a className="btn ap-btn-secondary ap-btn-md">Lihat Selegkapnya</a>
+                                <a className="btn ap-btn-secondary ap-btn-md">
+                                    Lihat Selegkapnya
+                                </a>
                             </Link>
                         </div>
                     </div>
@@ -900,7 +934,7 @@ export default function Home(props) {
                                                             />
                                                         </div>
                                                         <a href={item.link}>
-                                                            <h5  className="titlefloatingCard">
+                                                            <h5 className="titlefloatingCard">
                                                                 {
                                                                     item.title
                                                                         .rendered
