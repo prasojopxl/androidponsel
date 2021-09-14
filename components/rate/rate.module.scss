@@ -2,18 +2,27 @@
 
 .rate {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  -ms-align-items: center;
+  
   .totalrate {
     background: $color-green;
     color: #fff;
     border-radius: 5px;
-    padding: 5px;
-    width: 40px;
+    padding: 4px 0.5px;
+    max-width: 31px;
+    flex: 0 0 31px;
+    -ms-flex: 0 0 31px;
+    height: 28px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 10px;
-    font-size: 14px;
+    margin-right: 8px;
+    font-size: 10.2px;
+    line-height: 13px;
+    font-family: "Mulish-Regular", sans-serif;
   }
   .wrpvote {
     flex: 1;

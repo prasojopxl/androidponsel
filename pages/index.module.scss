@@ -5,7 +5,7 @@
     padding: 50px 0;
     .contens {
         width: 100%;
-        max-width: $widthdefault;
+        max-width: $containercustom;
         margin: 0 auto;
         padding: 0 15px;
     }
@@ -22,7 +22,10 @@
     overflow: hidden;
 }
 .wrpCompare {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
     .item {
@@ -195,7 +198,8 @@
     padding: 50px 0;
     .contents {
         width: 100%;
-        max-width: $widthdefault;
+        // max-width: $widthdefault;
+        max-width: $containercustom;
         margin: 0 auto;
         padding: 0 15px;
     }
@@ -270,12 +274,13 @@
 .tags {
     background: $color-green2;
     color: #fff;
-    padding: 0px 10px;
+    padding: 0px 9px;
     color: $color-green;
     display: inline-block;
     border-radius: 30px;
     text-align: center;
-    font-size: 10px;
+    font-size: 9px;
+    font-family: "Mulish Regular", sans-serif;
     margin-bottom: 5px;
     transition: $animate;
     a {
@@ -299,7 +304,9 @@
 
 .wrptopnews {
     .infodate {
-        font-size: 10px;
+        font-size: 10.5px;
+        font-family: "Mulish Regular", sans-serif;
+        color: $color-graytext-smooth;
     }
     .wrpitemnews {
     }
@@ -307,14 +314,17 @@
 
 .wrpitemnews {
     position: relative;
-    padding-left: 200px;
+    padding-left: 170px;
     flex: 1;
     margin: 15px 0;
+    min-height: 130px;
     .imgwrp {
         position: absolute;
         left: 0;
         top: 0;
-        max-width: 186px;
+        max-width: 150px;
+        border-radius: 8.5px;
+        overflow: hidden;
     }
     h5 {
         font-size: 14px;
@@ -351,7 +361,8 @@
     padding-bottom: 50px;
     .contents {
         width: 100%;
-        max-width: $widthdefault;
+        // max-width: $widthdefault;
+        max-width: $containercustom;
         margin: 0 auto;
         padding: 0 15px;
     }
@@ -478,7 +489,8 @@
     padding: 50px 0;
     .contents {
         width: 100%;
-        max-width: $widthdefault;
+        // max-width: $widthdefault;
+        max-width: $containercustom;
         margin: 0 auto;
         padding: 0 15px;
     }
@@ -488,7 +500,7 @@
         margin-top: 15px;
         min-height: 110px;
         .left {
-            padding-right: 180px;
+            padding-right: 170px;
         }
         a {
             color: inherit;
@@ -501,7 +513,14 @@
             position: absolute;
             right: 0;
             top: 0;
-            max-width: 170px;
+            max-width: 150px;
+            border-radius: 8.5px;
+            overflow: hidden;
+            div{
+                div{
+                    display: block!important;
+                }
+            }
         }
         &:hover {
             .tags {

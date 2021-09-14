@@ -167,7 +167,7 @@ export default function Home(props) {
                         <div className="row">
                             {props.dataCompare.map((item, index) => {
                                 return (
-                                    <div className="col-lg-6" key={item.id}>
+                                    <div className="col-lg-6 col-md-6 col-sm-12" key={item.id}>
                                         <div className={styles.itemcompare}>
                                             <div className={styles.wrpCompare}>
                                                 {item.products.map((data) => {
@@ -222,7 +222,7 @@ export default function Home(props) {
                                                                     }
                                                                 >
                                                                     <a>
-                                                                        <h5>
+                                                                        <h5 className="mediumtitleTile">
                                                                             {
                                                                                 data.title
                                                                             }
@@ -281,7 +281,7 @@ export default function Home(props) {
                             }}
                         >
                             <Link href={baseUrl + "handphone"}>
-                                <a className="btn medium">Lihat Selegkapnya</a>
+                                <a className="btn ap-btn-secondary ap-btn-md">Lihat Selegkapnya</a>
                             </Link>
                         </div>
                     </div>
@@ -370,7 +370,7 @@ export default function Home(props) {
                                                                 )}
                                                             </div>
                                                             <a href={item.link}>
-                                                                <h4>
+                                                                <h4 className="titlefloatingCard">
                                                                     {
                                                                         item
                                                                             .title
@@ -499,7 +499,7 @@ export default function Home(props) {
                                                                                 item.link
                                                                             }
                                                                         >
-                                                                            <h5>
+                                                                            <h5 className="smalltitleTile">
                                                                                 {
                                                                                     item
                                                                                         .title
@@ -550,7 +550,7 @@ export default function Home(props) {
                         >
                             <a
                                 href="https://www.androidponsel.com/news/"
-                                className="btn medium"
+                                className="btn ap-btn-secondary ap-btn-md"
                             >
                                 Lihat berita terbaru lainnya
                             </a>
@@ -630,7 +630,7 @@ export default function Home(props) {
                                                             })}
                                                         </div>
                                                         <a href={item.link}>
-                                                            <h4>
+                                                            <h4 className="titlefloatingCard">
                                                                 {
                                                                     item.title
                                                                         .rendered
@@ -758,7 +758,7 @@ export default function Home(props) {
                                                                                 item.link
                                                                             }
                                                                         >
-                                                                            <h5>
+                                                                            <h5 className="smalltitleTile">
                                                                                 {
                                                                                     item
                                                                                         .title
@@ -808,7 +808,7 @@ export default function Home(props) {
                         >
                             <a
                                 href="https://www.androidponsel.com/download/"
-                                className="btn medium"
+                                className="btn ap-btn-secondary ap-btn-md"
                             >
                                 Lihat aplikasi lainnya
                             </a>
@@ -898,7 +898,7 @@ export default function Home(props) {
                                                             />
                                                         </div>
                                                         <a href={item.link}>
-                                                            <h5>
+                                                            <h5  className="titlefloatingCard">
                                                                 {
                                                                     item.title
                                                                         .rendered
@@ -995,7 +995,7 @@ export default function Home(props) {
                                                                         item.link
                                                                     }
                                                                 >
-                                                                    <h5>
+                                                                    <h5 className="smalltitleTile">
                                                                         {
                                                                             item
                                                                                 .title
@@ -1085,7 +1085,7 @@ export default function Home(props) {
                         >
                             <a
                                 href="https://www.androidponsel.com/trik-android/"
-                                className="btn medium"
+                                className="btn ap-btn-secondary ap-btn-md"
                             >
                                 Tips lainnya
                             </a>

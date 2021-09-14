@@ -64,6 +64,9 @@ $radius: 10px;
 
 .headerweb {
     background: #fff;
+    position: sticky;
+    top: 0px;
+    z-index: 7;    
     @extend .shadow;
     a {
         color: $color-black;
@@ -75,7 +78,8 @@ $radius: 10px;
 /* --------------------- BODYWEB LAYOUT --------------------- */
 
 .bodyweb {
-    background: $color-gray2;
+    // background: $color-gray2;
+    background: #fff;
     min-height: 300px;
 }
 
