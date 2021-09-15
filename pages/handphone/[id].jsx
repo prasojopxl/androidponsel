@@ -35,7 +35,7 @@ export default function DetailPage(props) {
             })
             setDisplayRate(false)
             const token = localStorage.getItem("authRate")
-            const valueNewRate = (parseFloat(props.post.rating) + parseInt(newSubmitRate)) / 2;
+            const valueNewRate = (parseFloat(props.post.rating) + parseInt(newSubmitRate));
             axios.put(`${apiUrl}/products/${props.post.id}`,
                 {
                     "rating": parseFloat(valueNewRate),
@@ -148,8 +148,7 @@ export default function DetailPage(props) {
                             </div>
                             <div className="col-lg-7">
                                 <div className={styles.shortdesc}>
-                                    <h1>{props.post.title}</h1>
-                                    <Rate TotalRate={props.post.rating} />
+                                    <Rate rate={props.post.rating} voters={props.post.total_voters} />
                                     <h4>Spesifikasi Ringkas</h4>
                                     <div className="row">
                                         <div className="col-lg-4">
@@ -429,7 +428,7 @@ export default function DetailPage(props) {
                                 {props.post.charging_type}
                             </div>
 
-                            <Title title="Sofware" idName="software" />
+                            <Title title="Software" idName="software" />
                             <div className={styles.itemDesc}>
                                 <h5>Operating System</h5>
                                 {props.post.os}
@@ -565,7 +564,7 @@ export default function DetailPage(props) {
                                         <a href="#battery">Battery</a>
                                     </li>
                                     <li>
-                                        <a href="#sofware">Sofware</a>
+                                        <a href="#software">Software</a>
                                     </li>
                                     <li>
                                         <a href="#sensors">Sensors</a>
@@ -587,7 +586,7 @@ export default function DetailPage(props) {
                         <Title title="Rating" />
                         <div className={styles.rateInfo}>
                             <div className={styles.ratingBox}>
-                                <RateBox rate={props.post.rating} />
+                                <RateBox rate={props.post.rating} voters={props.post.total_voters} />
                             </div>
                             {displayRate ? (
                                 <div className={styles.rateForm}>
@@ -631,7 +630,7 @@ export default function DetailPage(props) {
                                                     <div className={styles.productinfo}>
                                                         <Link href={`${"/handphone/" + value.slug}`}><a><h5>{value.title}</h5></a></Link>
                                                         <h6>{value.memory_internal}</h6>
-                                                        <Rate TotalRate={value.rating} />
+                                                        <Rate rate={value.rating} voters={value.total_voters} />
                                                     </div>
                                                 </div>
                                                 <div className={styles.wrpbtn}>
@@ -720,5 +719,6 @@ export async function getStaticProps({ params }) {
             post,
             dataRelatedProd,
         },
+        revalidate: 1
     };
 }

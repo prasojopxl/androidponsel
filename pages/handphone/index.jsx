@@ -114,7 +114,8 @@ export default function Handphone(props) {
                                 {props.dataListHandphone.map((item, i) => {
                                     return (
                                         <div className="col-lg-3" key={item.id}>
-                                            <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating} productImage={item.product_image[0]} slug={item.slug} />
+                                            <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating}
+                                                voters={item.total_voters} productImage={item.product_image[0]} slug={item.slug} />
                                         </div>
                                     );
                                 })}
@@ -125,7 +126,8 @@ export default function Handphone(props) {
                                 {props.dataListHandphone2.map((item, i) => {
                                     return (
                                         <div className="col-lg-3" key={item.id}>
-                                            <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating} productImage={item.product_image[0]} slug={item.slug} />
+                                            <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating}
+                                                voters={item.total_voters} productImage={item.product_image[0]} slug={item.slug} />
                                         </div>
                                     );
                                 })}

@@ -4,6 +4,8 @@ import { apiUrl } from "../../config/variable";
 import styles from "./rate.module.scss";
 
 export default function Rate(props) {
+    const rate = (props.rate) / props.voters
+
     function Star5() {
         return (
             <Fragment>
@@ -188,22 +190,21 @@ export default function Rate(props) {
     return (
         <div className={styles.rate}>
             <div className={styles.totalrate}>
-                {" "}
-                {props.TotalRate > 0 ? props.TotalRate.toFixed(2) : 0}
+                {props.rate > 0 ? rate.toFixed(2) : 0}
             </div>
             <div className={styles.wrpvote}>
-                <h6>{props.TotalVote}Rating</h6>
+                <h6>Rating</h6>
                 <div className={styles.star}>
                     {props.star}
-                    {props.TotalRate >= 5 ? (
+                    {rate >= 5 ? (
                         <Star5 />
-                    ) : props.TotalRate >= 4 ? (
+                    ) : rate >= 4 ? (
                         <Star4 />
-                    ) : props.TotalRate >= 3 ? (
+                    ) : rate >= 3 ? (
                         <Star3 />
-                    ) : props.TotalRate >= 2 ? (
+                    ) : rate >= 2 ? (
                         <Star2 />
-                    ) : props.TotalRate >= 1 ? (
+                    ) : rate >= 1 ? (
                         <Star1 />
                     ) : (
                         "no rate"

@@ -78,8 +78,9 @@ export default function ItemProduct(props) {
                     <div className={styles.productinfo}>
                         <Link href={`${"/handphone/" + props.slug}`}><a><h5>{props.title}</h5></a></Link>
                         <h6>{props.memoryInternal}</h6>
+                        {/* <Rate rate={props.post.rating} voters={props.post.total_voters} /> */}
                         {props.rating !== null && (
-                            <Rate TotalRate={props.rating} />
+                            <Rate rate={props.rating} voters={props.voters} />
                         )}
                     </div>
                 </div>

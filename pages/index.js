@@ -298,6 +298,7 @@ export default function Home(props) {
                                                 item.memory_internal
                                             }
                                             rating={item.rating}
+                                            voters={item.total_voters}
                                             productImage={item.product_image[0]}
                                             slug={item.slug}
                                         />

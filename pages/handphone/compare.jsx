@@ -71,7 +71,7 @@ export default function compare({
 								dataCompare.map((item, i) => {
 									return (
 										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
-											<Rate TotalRate={item.rating} />
+											<Rate rate={item.rating} voters={item.total_voters} />
 										</div>
 									)
 								})

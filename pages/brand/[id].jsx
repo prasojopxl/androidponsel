@@ -116,7 +116,8 @@ export default function Brand(props) {
                                             item.products.map(data => {
                                                 return (
                                                     <div className="col-lg-3" key={item.id}>
-                                                        <ItemProduct action={getLocalProd} title={data.title} memoryInternal={data.memory_internal} rating={data.rating} productImage={data.product_image[0]} slug={data.slug} />
+                                                        <ItemProduct action={getLocalProd} title={data.title} memoryInternal={data.memory_internal} rating={data.rating}
+                                                            voters={data.total_voters} productImage={data.product_image[0]} slug={data.slug} />
                                                     </div>
                                                 )
                                             })

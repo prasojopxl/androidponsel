@@ -8,6 +8,7 @@ body {
     font-size: 15px;
     line-height: 23px;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 ol {
@@ -76,8 +77,8 @@ a.btn {
 // BUTTON CUSTOM
 
 button.ap-btn-md,
-a.ap-btn-md{
-    font-family: 'RubikMedium', sans-serif;
+a.ap-btn-md {
+    font-family: "RubikMedium", sans-serif;
     font-size: 15px;
     line-height: 1.4;
     padding: 12px 15px;
@@ -87,43 +88,43 @@ a.ap-btn-md{
 }
 
 button.ap-btn-secondary,
-a.ap-btn-secondary{
+a.ap-btn-secondary {
     background: transparent none;
     border: $color-green solid 2px;
-    color:  $color-green;
+    color: $color-green;
     display: inline-block;
     text-align: center;
-    vertical-align: middle;    
-    cursor: pointer; 
+    vertical-align: middle;
+    cursor: pointer;
     &:hover {
         background: transparent none;
         border: $color-green-dark solid 2px;
-        color:  $color-green-dark;
-        box-shadow: 0 0 11px rgba(137, 195, 64, .25);
-        -ms-box-shadow: 0 0 11px rgba(137, 195, 64, .25);        
+        color: $color-green-dark;
+        box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
+        -ms-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
     }
-    &focus{
+    &focus {
         box-shadow: none;
         outline: none;
     }
 }
 
-.mediumtitleTile{
+.mediumtitleTile {
     font-family: "RubikMedium", sans-serif;
     font-size: 16px;
     line-height: 21.5px;
 }
 
-.smalltitleTile{
+.smalltitleTile {
     font-family: "RubikMedium", sans-serif;
     font-size: 14.5px;
     line-height: 20.5px;
 }
 
-.titlefloatingCard{
+.titlefloatingCard {
     font-family: "RubikMedium", sans-serif;
     font-size: 14px;
-    line-height: 22.5px;    
+    line-height: 22.5px;
 }
 
 .slider_overview {
