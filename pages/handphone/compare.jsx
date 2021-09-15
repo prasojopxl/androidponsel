@@ -513,6 +513,41 @@ export default function compare({
 								<h4 className={styles.titleCompare}>Harga di Marketplace</h4>
 							</div>
 						</div>
+						<div className={`row justify-content-end ${styles.itemInfoCompare}`}>
+							{
+								dataCompare.map((item, i) => {
+									return (
+										<Fragment key={item.id}>
+											{
+												<div className={dataCompare.length == 2 ? "col-lg-4" : "col-lg-3"} key={item.id}>
+													{
+														item.Price_Marketplace.length < 1 ? "Belom ada data" :
+															item.Price_Marketplace.map((market, i) => {
+																return (
+																	<div key={market.id}>
+																		<Image src={apiUrl + market.logo.url} width={171} height={50} alt={market.title} />
+																		{
+																			market.List.map((dataList, i) => {
+																				return (
+																					<div key={dataList.id}>
+																						<h4>{dataList.title}</h4>
+																						<h5>{dataList.price}</h5>
+																						<a href={dataList.link} target="_blank">Cek Harga</a>
+																					</div>
+																				)
+																			})
+																		}
+																	</div>
+																)
+															})
+													}
+												</div>
+											}
+										</Fragment>
+									)
+								})
+							}
+						</div>
 						{/* <div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
 								<Image src="/logo-tokopedia.png" width={171} height={50} alt="tokopedia" />
@@ -600,8 +635,6 @@ export async function getStaticProps() {
 	const dataSEO = await fetchData("/general");
 	const getMenu = await fetchData("/menus?_sort=order");
 	const getTopBrands = await fetchData("/brands?_top_brand=true");
-
-
 	return {
 		props: {
 			getMenu,
