@@ -531,8 +531,9 @@ export default function compare({
 																				return (
 																					<div key={dataList.id}>
 																						<h4>{dataList.title}</h4>
-																						<h5>{dataList.price}</h5>
+																						<h5 style={{ marginBottom: 0 }}>{dataList.price}</h5>
 																						<a href={dataList.link} target="_blank">Cek Harga</a>
+																						<hr />
 																					</div>
 																				)
 																			})
