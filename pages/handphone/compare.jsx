@@ -550,12 +550,13 @@ export default function compare({
 								})
 							}
 						</div>
+						<GlobalAds adsId="2" />
 						<div style={{ marginTop: "30px" }}><Title title="Perbandingan Lainya" /></div>
 						<div className="row">
 							{
 								otherCompare.map(item => {
 									return (
-										<div className="col-lg-4">
+										<div className="col-lg-4" key={item.id}>
 											<div className={styles.itemcompare}>
 												<div className={styles.wrpCompare}>
 													{item.products.map((data) => {
@@ -663,6 +664,8 @@ export default function compare({
 						</div>
 					</div>
 				</div>
+
+
 			</div>
 		</Layout >
 	);
