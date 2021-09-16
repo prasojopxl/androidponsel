@@ -248,7 +248,6 @@ export default function Home(props) {
                                                     );
                                                 })}
                                             </div>
-
                                             <Link
                                                 href={
                                                     baseUrl +

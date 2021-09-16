@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import useSWR from 'swr';
-import { GlobalAds, Rate, } from "../../components";
+import { GlobalAds, Rate, Title, } from "../../components";
 import Image from "next/image";
 import { apiUrl, baseUrl } from "../../config/variable";
 import styles from "./index.module.scss";
@@ -13,7 +13,8 @@ import Layout from "../../layout";
 export default function compare({
 	getMenu,
 	getTopBrands,
-	dataSEO
+	dataSEO,
+	otherCompare,
 }) {
 	const router = useRouter();
 	const { produk1, produk2, produk3 } = router.query;
@@ -513,7 +514,7 @@ export default function compare({
 								<h4 className={styles.titleCompare}>Harga di Marketplace</h4>
 							</div>
 						</div>
-						<div className={`row justify-content-end ${styles.itemInfoCompare}`}>
+						<div className={`row justify-content-end ${styles.itemInfoCompare}`} style={{ border: "none" }}>
 							{
 								dataCompare.map((item, i) => {
 									return (
@@ -549,86 +550,121 @@ export default function compare({
 								})
 							}
 						</div>
-						{/* <div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
-								<Image src="/logo-tokopedia.png" width={171} height={50} alt="tokopedia" />
-							</div>
+						<div style={{ marginTop: "30px" }}><Title title="Perbandingan Lainya" /></div>
+						<div className="row">
 							{
-								dataCompare.map((item, i) => {
+								otherCompare.map(item => {
 									return (
-										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
-											{
-												item.Tokopedia !== null ? <div>{item.Tokopedia.title}<br /><a href={item.Tokopedia.link}>Cek harga di {item.Tokopedia.marketplace} </a></div>
-													: "Belum ada data"
-
-											}
+										<div className="col-lg-4">
+											<div className={styles.itemcompare}>
+												<div className={styles.wrpCompare}>
+													{item.products.map((data) => {
+														return (
+															<div
+																className={
+																	styles.item
+																}
+																key={data.id}
+															>
+																<div
+																	className={
+																		styles.imgwrp
+																	}
+																>
+																	<Image
+																		src={
+																			apiUrl +
+																			data
+																				.product_image[0]
+																				.url
+																		}
+																		width={
+																			data
+																				.product_image[0]
+																				.width /
+																			2
+																		}
+																		height={
+																			data
+																				.product_image[0]
+																				.height /
+																			2
+																		}
+																		alt={
+																			data
+																				.product_image[0]
+																				.name
+																		}
+																	></Image>
+																</div>
+																<div
+																	className={
+																		styles.contentDec
+																	}
+																>
+																	<Link
+																		href={
+																			baseUrl +
+																			"handphone/" +
+																			data.slug
+																		}
+																	>
+																		<a>
+																			<h5 className="mediumtitleTile">
+																				{
+																					data.title
+																				}
+																			</h5>
+																		</a>
+																	</Link>
+																	<h6>
+																		{
+																			data.memory_internal
+																		}
+																	</h6>
+																</div>
+															</div>
+														);
+													})}
+												</div>
+												<Link
+													href={
+														baseUrl +
+														"handphone/compare?produk1=" +
+														item.products[0].slug +
+														"&produk2=" +
+														item.products[1].slug
+													}
+												>
+													<a className={styles.fullLink}>
+														<div
+															style={{
+																marginRight: "10px",
+																display: "flex",
+																alignItems:
+																	"center",
+															}}
+														>
+															<Image
+																src="/icon-vs-small.png"
+																width={31}
+																height={21}
+																alt="camera"
+															/>
+														</div>
+														LIHAT PERBANDINGAN
+													</a>
+												</Link>
+											</div>
 										</div>
 									)
 								})
 							}
 						</div>
-						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
-								<Image src="/logo-shopee.png" width={171} height={50} alt="shopee" />
-							</div>
-
-							{
-								dataCompare.map((item, i) => {
-									return (
-										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
-											{
-												item.Shopee !== null ? <div>{item.Shopee.title}<br /><a href={item.Shopee.link}>Cek harga di {item.Shopee.marketplace} </a></div>
-													: "Belum ada data"
-
-											}
-										</div>
-									)
-								})
-							}
-						</div>
-						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
-								<Image src="/logo-blibli.png" width={171} height={50} alt="Blibli" />
-							</div>
-
-							{
-								dataCompare.map((item, i) => {
-									return (
-										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
-											{
-												item.Blibli !== null ? <div>{item.Blibli.title}<br /><a href={item.Blibli.link}>Cek harga di {item.Blibli.marketplace} </a></div>
-													: "Belum ada data"
-
-											}
-										</div>
-									)
-								})
-							}
-						</div>
-						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"}>
-								<Image src="/logo-lazada.png" width={171} height={50} alt="Lazada" />
-							</div>
-
-							{
-								dataCompare.map((item, i) => {
-									return (
-										<div className={dataCompare.length == 3 ? "col-lg-3" : "col-lg-4"} key={item.id}>
-											{
-												item.Lazada !== null ? <div>{item.Lazada.title}<br /><a href={item.Lazada.link}>Cek harga di {item.Lazada.marketplace} </a></div>
-													: "Belum ada data"
-
-											}
-										</div>
-									)
-								})
-							}
-						</div> */}
 					</div>
 				</div>
-
 			</div>
-		</Layout>
+		</Layout >
 	);
 }
 
@@ -636,11 +672,13 @@ export async function getStaticProps() {
 	const dataSEO = await fetchData("/general");
 	const getMenu = await fetchData("/menus?_sort=order");
 	const getTopBrands = await fetchData("/brands?_top_brand=true");
+	const otherCompare = await fetchData("/compares?_sort=updated_at:ASC&_limit=3");
 	return {
 		props: {
 			getMenu,
 			getTopBrands,
 			dataSEO,
+			otherCompare,
 		},
 	};
 }

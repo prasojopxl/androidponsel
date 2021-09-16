@@ -454,3 +454,102 @@ h4 {
 .infoRating {
     margin-left: 20px;
 }
+
+.itemcompare {
+    box-shadow: $shadow2;
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: $color-gray solid 1px;
+    overflow: hidden;
+}
+.wrpCompare {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    .item {
+        flex: 1;
+        &:first-child {
+            .imgwrp {
+                &:before {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    margin-right: -51px;
+                    width: 103px;
+                    height: 65px;
+                    transform: translate(0, -50%);
+                    background: url("../../public/icon-vs.png");
+                    z-index: 1;
+                }
+            }
+        }
+    }
+    .contentDec {
+        padding: 20px;
+        a {
+            color: $color-black;
+        }
+    }
+    .imgwrp {
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fff6ff+0,f8fdff+100 */
+        background: #fff6ff; /* Old browsers */
+        background: -moz-linear-gradient(
+            left,
+            #fff6ff 0%,
+            #f8fdff 100%
+        ); /* FF3.6-15 */
+        background: -webkit-linear-gradient(
+            left,
+            #fff6ff 0%,
+            #f8fdff 100%
+        ); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(
+            to right,
+            #fff6ff 0%,
+            #f8fdff 100%
+        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff6ff', endColorstr='#f8fdff',GradientType=1 ); /* IE6-9 */
+        position: relative;
+    }
+    h5 {
+        margin-bottom: 5px;
+    }
+    h6 {
+        font-size: 11px;
+        font-family: $font-MulishRegular;
+        color: $color-graytext;
+    }
+}
+
+.fullLink {
+    background: $color-green;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 7px;
+    padding: 10px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 15px;
+    width: 90%;
+    margin: 30px auto;
+    max-width: 500px;
+    &:hover {
+        text-decoration: none;
+        color: $color-black;
+    }
+    img {
+        margin-right: 10px;
+    }
+}
