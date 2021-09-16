@@ -24,6 +24,7 @@ export default function Page(props) {
         const titleCompare1 = JSON.parse(localStorage.getItem("produk1"));
         const titleCompare2 = JSON.parse(localStorage.getItem("produk2"));
         const titleCompare3 = JSON.parse(localStorage.getItem("produk3"));
+        const [totalCompare, setTotalCompare] = useState(0)
         if (p1 !== null && p2 == null && p3 == null) {
             router.push(`${baseUrl}handphone/compare?produk1=${titleCompare1.slug}`)
             removeLocalProd();
@@ -52,19 +53,23 @@ export default function Page(props) {
             setShow(true)
             if (p1 !== null && p2 == null && p3 == null) {
                 setCompare1(titleCompare1.title)
+                setTotalCompare(1)
             }
             else if (p1 !== null && p2 !== null && p3 == null) {
                 setCompare2(titleCompare2.title)
+                setTotalCompare(2)
             }
             else if (p1 !== null && p2 !== null) {
                 setCompare1(titleCompare1.title)
                 setCompare2(titleCompare2.title)
                 setCompare3(titleCompare3.title)
+                setTotalCompare(3)
             }
             else if (p1 !== null && p3 !== null) {
                 setCompare1(titleCompare1.title)
                 setCompare2("")
                 setCompare3(titleCompare3.title)
+                setTotalCompare(2)
             }
             else {
                 if (p2 !== null || p3 !== null) {
@@ -72,6 +77,7 @@ export default function Page(props) {
                 }
                 else {
                     setCompare3(titleCompare3.title)
+                    setTotalCompare(1)
                 }
             }
         }
@@ -133,7 +139,7 @@ export default function Page(props) {
                             </div>
                             <div className={styles.wrpAction}>
                                 <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
-                                    Lihat Bandingkan
+                                    Lihat Bandingkan <span>({totalCompare})</span>
                                 </div>
                             </div>
                         </Fragment>

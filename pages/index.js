@@ -78,6 +78,8 @@ export async function getStaticProps(context) {
 
 export default function Home(props) {
     const router = useRouter();
+    const [totalCompare, setTotalCompare] = useState(0);
+
     function removeLocalProd() {
         localStorage.removeItem("produk1");
         localStorage.removeItem("produk2");
@@ -125,21 +127,26 @@ export default function Home(props) {
             setShow(true);
             if (p1 !== null && p2 == null && p3 == null) {
                 setCompare1(titleCompare1.title);
+                setTotalCompare(1);
             } else if (p1 !== null && p2 !== null && p3 == null) {
                 setCompare2(titleCompare2.title);
+                setTotalCompare(2);
             } else if (p1 !== null && p2 !== null) {
                 setCompare1(titleCompare1.title);
                 setCompare2(titleCompare2.title);
                 setCompare3(titleCompare3.title);
+                setTotalCompare(3);
             } else if (p1 !== null && p3 !== null) {
                 setCompare1(titleCompare1.title);
                 setCompare2("");
                 setCompare3(titleCompare3.title);
+                setTotalCompare(2);
             } else {
                 if (p2 !== null || p3 !== null) {
                     setCompare1("");
                 } else {
                     setCompare3(titleCompare3.title);
+                    setTotalCompare(1);
                 }
             }
         } else {
@@ -1139,7 +1146,8 @@ export default function Home(props) {
                                     className={styles.btnCompareProd}
                                     onClick={() => goToCompare()}
                                 >
-                                    Lihat Bandingkan
+                                    Lihat Perbandingan{" "}
+                                    <span>({totalCompare})</span>
                                 </div>
                             </div>
                         </Fragment>

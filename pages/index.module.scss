@@ -122,6 +122,17 @@
     .desc {
         padding: 15px;
     }
+    @media (max-width: $widthMobileMax) {
+        left: 0;
+        right: 0;
+        bottom: 5px;
+        max-width: 290px;
+        margin: 0 auto;
+        background: none;
+        .desc {
+            display: none;
+        }
+    }
 }
 
 .wrpAction {
@@ -139,52 +150,8 @@
         color: #fff;
         z-index: 10;
         outline: none;
-    }
-}
-
-.productItem {
-    box-shadow: $shadow2;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    min-height: 150px;
-    .shortproduct {
-        display: flex;
-    }
-    .imageprod {
-        max-width: 150px;
-        margin-right: 10px;
-    }
-    h5 {
-        font-size: 16px;
-        margin-bottom: 0;
-        min-height: 40px;
-    }
-    h6 {
-        font-weight: normal;
-        font-size: 11px;
-    }
-    .wrpbtn {
-        text-align: center;
-        margin-top: 15px;
-        opacity: 1;
-        visibility: visible;
-        transition: $animate;
-        a {
-            display: block;
-            color: $color-green;
-        }
-        .btnfull {
-            color: #fff;
-            margin-bottom: 10px;
-        }
-    }
-    &:hover {
-        .wrpbtn {
-            opacity: 1;
-            visibility: visible;
-            transition: $animate;
+        @media (max-width: $widthMobileMax) {
+            border-radius: 30px;
         }
     }
 }
