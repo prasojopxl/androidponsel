@@ -107,7 +107,7 @@ export default function Page(props) {
                             <div className="row">
                                 {props.dataListHandphone.map((item, i) => {
                                     return (
-                                        <div className="col-lg-3" key={item.id}>
+                                        <div className="col-lg-3 col-6" key={item.id}>
                                             <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating}
                                                 voters={item.total_voters} productImage={item.product_image[0]} slug={item.slug} />
                                         </div>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import data from "../../pages/data.json";
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
@@ -39,6 +38,12 @@ export default function Header(props) {
         <Fragment>
             <div className={styles.header}>
                 <div className={styles.contents}>
+                    <div className={styles.navMenu} onClick={showMenuMobile}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
                     <div className={styles.left}>
                         <Link href="/">
                             <a>
@@ -64,11 +69,6 @@ export default function Header(props) {
                     </div>
                     <div className={styles.right}>
                         <FontAwesomeIcon icon={faSearch} onClick={resultSearch} style={{ cursor: "pointer" }} />
-                        <div className={styles.navMenu} onClick={showMenuMobile}>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
                     </div>
                 </div>
             </div>

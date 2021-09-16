@@ -7,6 +7,11 @@
         margin: 0 auto;
         width: 100%;
     }
+    @media (max-width: $widthMobileMax) {
+        padding: 20px 0;
+        .contents {
+        }
+    }
 }
 
 .containerCompare {
