@@ -66,7 +66,7 @@ export default function compare({
 						<div className={styles.spaceHeight}></div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
-								<h4 className={styles.titleCompare}>rating</h4>
+								<h4 className={styles.titleCompare}>Rate</h4>
 							</div>
 							{
 								dataCompare.map((item, i) => {

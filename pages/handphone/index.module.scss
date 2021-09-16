@@ -349,13 +349,14 @@
         height: 100%;
         border-radius: 10px;
         @media (max-width: $widthMobileMax) {
-            padding: 10px;
+            padding: 10px 2px;
         }
         h4 {
             margin-top: 10px;
             font-size: 17px;
             @media (max-width: $widthMobileMax) {
-                font-size: 15px;
+                font-size: 13px;
+                margin-top: 5px;
             }
         }
         span {
