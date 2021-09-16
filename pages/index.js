@@ -1146,7 +1146,7 @@ export default function Home(props) {
                                     className={styles.btnCompareProd}
                                     onClick={() => goToCompare()}
                                 >
-                                    Lihat Bandingkan{" "}
+                                    Lihat Perbandingan{" "}
                                     <span>({totalCompare})</span>
                                 </div>
                             </div>

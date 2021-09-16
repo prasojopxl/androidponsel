@@ -142,7 +142,7 @@ export default function Brand(props) {
                             </div>
                             <div className={styles.wrpAction}>
                                 <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
-                                    Lihat Bandingkan
+                                    Lihat Perbandingan
                                 </div>
                             </div>
                         </Fragment>

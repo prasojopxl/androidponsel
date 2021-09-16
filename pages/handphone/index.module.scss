@@ -8,6 +8,7 @@
         max-width: $containercustom;
         margin: 0 auto;
         width: 100%;
+        padding: 0 15px;
     }
 }
 
@@ -145,6 +146,7 @@
         width: 100%;
         max-width: $widthdefault;
         margin: 0 auto;
+        padding: 0 15px;
     }
 }
 
@@ -334,6 +336,7 @@
         width: 100%;
         margin: 0 auto;
         max-width: $widthdefault;
+        padding: 0 15px;
     }
     .prodItem {
         border: $color-gray solid 1px;

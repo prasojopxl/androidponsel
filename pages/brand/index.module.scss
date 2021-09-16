@@ -6,6 +6,7 @@
         max-width: $widthdefault;
         margin: 0 auto;
         width: 100%;
+        padding: 0 15px;
     }
     @media (max-width: $widthMobileMax) {
         padding: 20px 0;
