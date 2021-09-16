@@ -552,7 +552,7 @@ export default function compare({
 						</div>
 						<GlobalAds adsId="2" />
 						<div style={{ marginTop: "30px" }}><Title title="Perbandingan Lainya" /></div>
-						<div className="row">
+						<div className="row" style={{ marginBottom: 30 }}>
 							{
 								otherCompare.map(item => {
 									return (
