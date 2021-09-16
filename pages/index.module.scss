@@ -9,6 +9,9 @@
         margin: 0 auto;
         padding: 0 15px;
     }
+    @media (max-width: $widthMobileMax) {
+        padding: 20px 0;
+    }
 }
 
 .itemcompare {
@@ -516,9 +519,9 @@
             max-width: 150px;
             border-radius: 8.5px;
             overflow: hidden;
-            div{
-                div{
-                    display: block!important;
+            div {
+                div {
+                    display: block !important;
                 }
             }
         }

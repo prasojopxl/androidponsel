@@ -285,11 +285,10 @@ export default function Home(props) {
                         <div className="row">
                             {props.dataListHandphone.map((item, i) => {
                                 return (
-                                    <div className="col-lg-3" key={item.id}>
-                                        {/* <div>
-                                            <h4>{item.product_image[0]}</h4>
-                                            Rate: {item.rating}
-                                        </div> */}
+                                    <div
+                                        className="col-lg-3 col-6"
+                                        key={item.id}
+                                    >
                                         <ItemProduct
                                             action={getLocalProd}
                                             title={item.title}

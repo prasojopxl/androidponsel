@@ -36,6 +36,7 @@ export default function DetailPage(props) {
             setDisplayRate(false)
             const token = localStorage.getItem("authRate")
             const valueNewRate = (parseFloat(props.post.rating) + parseInt(newSubmitRate));
+            console.log(parseFloat(props.post.rating))
             axios.put(`${apiUrl}/products/${props.post.id}`,
                 {
                     "rating": parseFloat(valueNewRate),
@@ -710,7 +711,6 @@ export async function getStaticProps({ params }) {
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
 
-
     return {
         props: {
             getMenu,
@@ -719,6 +719,6 @@ export async function getStaticProps({ params }) {
             post,
             dataRelatedProd,
         },
-        revalidate: 1
+        revalidate: 2
     };
 }

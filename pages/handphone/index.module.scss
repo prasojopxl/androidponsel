@@ -345,13 +345,22 @@
         flex-direction: column;
         height: 100%;
         border-radius: 10px;
+        @media (max-width: $widthMobileMax) {
+            padding: 10px;
+        }
         h4 {
             margin-top: 10px;
             font-size: 17px;
+            @media (max-width: $widthMobileMax) {
+                font-size: 15px;
+            }
         }
         span {
             font-size: 12px;
             opacity: 0.8;
+            @media (max-width: $widthMobileMax) {
+                display: none;
+            }
         }
     }
     .imgwrp {
