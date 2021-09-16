@@ -199,6 +199,14 @@ export default function Home(props) {
                                                                     styles.imgwrp
                                                                 }
                                                             >
+
+                                                            <Link
+                                                                    href={
+                                                                        baseUrl +
+                                                                        "handphone/" +
+                                                                        data.slug
+                                                                    }    
+                                                                >    
                                                                 <Image
                                                                     src={
                                                                         apiUrl +
@@ -224,6 +232,7 @@ export default function Home(props) {
                                                                             .name
                                                                     }
                                                                 ></Image>
+                                                            </Link> 
                                                             </div>
                                                             <div
                                                                 className={
@@ -237,7 +246,7 @@ export default function Home(props) {
                                                                         data.slug
                                                                     }
                                                                 >
-                                                                    <a>
+                                                                    <a className="min_heigh_two_lines">
                                                                         <h5 className="mediumtitleTile">
                                                                             {
                                                                                 data.title
@@ -280,7 +289,7 @@ export default function Home(props) {
                                                             alt="camera"
                                                         />
                                                     </div>
-                                                    LIHAT PERBANDINGAN
+                                                    Lihat Perbandingan
                                                 </a>
                                             </Link>
                                         </div>
