@@ -23,6 +23,17 @@
     .desc {
         padding: 15px;
     }
+    @media (max-width: $widthMobileMax) {
+        left: 0;
+        right: 0;
+        bottom: 5px;
+        max-width: 290px;
+        margin: 0 auto;
+        background: none;
+        .desc {
+            display: none;
+        }
+    }
 }
 
 .wrpAction {
@@ -40,5 +51,8 @@
         color: #fff;
         z-index: 10;
         outline: none;
+        @media (max-width: $widthMobileMax) {
+            border-radius: 30px;
+        }
     }
 }

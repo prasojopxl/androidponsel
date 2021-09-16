@@ -11,6 +11,8 @@ import ItemProduct from '../../components/products/item';
 
 export default function Handphone(props) {
     const router = useRouter()
+    const [totalCompare, setTotalCompare] = useState(0)
+
     function removeLocalProd() {
         localStorage.removeItem("produk1")
         localStorage.removeItem("produk2")
@@ -54,19 +56,23 @@ export default function Handphone(props) {
             setShow(true)
             if (p1 !== null && p2 == null && p3 == null) {
                 setCompare1(titleCompare1.title)
+                setTotalCompare(1)
             }
             else if (p1 !== null && p2 !== null && p3 == null) {
                 setCompare2(titleCompare2.title)
+                setTotalCompare(2)
             }
             else if (p1 !== null && p2 !== null) {
                 setCompare1(titleCompare1.title)
                 setCompare2(titleCompare2.title)
                 setCompare3(titleCompare3.title)
+                setTotalCompare(3)
             }
             else if (p1 !== null && p3 !== null) {
                 setCompare1(titleCompare1.title)
                 setCompare2("")
                 setCompare3(titleCompare3.title)
+                setTotalCompare(2)
             }
             else {
                 if (p2 !== null || p3 !== null) {
@@ -74,6 +80,7 @@ export default function Handphone(props) {
                 }
                 else {
                     setCompare3(titleCompare3.title)
+                    setTotalCompare(1)
                 }
             }
         }
@@ -149,7 +156,7 @@ export default function Handphone(props) {
                             </div>
                             <div className={styles.wrpAction}>
                                 <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
-                                    Lihat Bandingkan
+                                    Lihat Bandingkan <span>({totalCompare})</span>
                                 </div>
                             </div>
                         </Fragment>
