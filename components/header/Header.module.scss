@@ -168,6 +168,9 @@
         @media screen and (max-width: 768px) {
             padding: 13px 15px;
         }
+        @media screen and (max-width: $widthMobileSm) {
+            padding: 10px 15px;
+        }
     }
     @media (max-width: $widthMobileMax) {
         padding: 5px 0px;

@@ -10,22 +10,31 @@
     background: $color-green;
     color: #fff;
     border-radius: 5px;
-    padding: 4px 0.5px;
+    padding: 4px 0.5px 2px 0.5px;
     max-width: 31px;
     flex: 0 0 31px;
     -ms-flex: 0 0 31px;
-    height: 28px;
+    height: 26px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 8px;
     font-size: 10.2px;
-    line-height: 13px;
+    line-height: 12.5px;
     font-family: "Mulish-Regular", sans-serif;
   }
   .wrpvote {
     flex: 1;
+    img{
+      margin-right: 4px;
+    }  
+    div{
+      font-family: "Mulish-Regular", sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      color: #71716c;
+    }
   }
   h6 {
     margin: 0 !important;
