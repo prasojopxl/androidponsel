@@ -11,9 +11,16 @@
     max-width: $containercustom;
     margin: 0 auto;
     padding: 0 15px;
-    @media screen and (max-width: 320px) {
-        padding: 0 4.5px;
+    @media screen and (max-width: 480px) {
+        padding: 0 5px;
     }
+    @media screen and (max-width: 320px) {
+        padding: 0 5px;
+    }
+    @media screen and (min-width: 1920px) and (max-width: 1920px) {
+        max-width: $containerlarge;
+        padding: 0 5px;
+    }          
 }
 
 .top {

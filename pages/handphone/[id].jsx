@@ -545,7 +545,7 @@ export default function DetailPage(props) {
                             )}
                         </div>
 
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 order-first order-md-last">
                             <div className={styles.boxTableContent}>
                                 <Title title="Table of Content" />
                                 <ul>

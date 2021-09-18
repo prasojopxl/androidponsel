@@ -76,34 +76,40 @@ export default function Header(props) {
                 showResult &&
                 <>
                     <div className={styles.inputSearch}>
-                        <span>Cari Handphone</span>
-                        <input
-                            type="text"
-                            value={inputVal}
-                            onChange={handleChange}
-                            placeholder="search..."
-                        />
+                        <div className="wrp_search_bar">
+                            <div className="container container-custom-large">
+                                <span>Cari Handphone</span>
+                                <input
+                                    type="text"
+                                    value={inputVal}
+                                    onChange={handleChange}
+                                    placeholder="search..."
+                                />
+                            </div>
+                        </div>
                     </div>
                     <div className={styles.searchResult}>
-                        {showSearch &&
-                            people.filter((person) => {
-                                if (inputVal === "") {
-                                    return person;
-                                } else if (
-                                    person.title
-                                        .toLowerCase()
-                                        .includes(inputVal.toLowerCase())
-                                ) {
-                                    return person;
-                                }
-                            })
-                                .map((item, i) => {
-                                    return (
-                                        <div className={styles.itemResult} key={item.id}>
-                                            <a href={`${baseUrl}handphone/${item.slug}`}>{item.title}</a>
-                                        </div>
-                                    );
-                                })}
+                        <div className="container container-custom-large">
+                            {showSearch &&
+                                people.filter((person) => {
+                                    if (inputVal === "") {
+                                        return person;
+                                    } else if (
+                                        person.title
+                                            .toLowerCase()
+                                            .includes(inputVal.toLowerCase())
+                                    ) {
+                                        return person;
+                                    }
+                                })
+                                    .map((item, i) => {
+                                        return (
+                                            <div className={styles.itemResult} key={item.id}>
+                                                <a href={`${baseUrl}handphone/${item.slug}`}>{item.title}</a>
+                                            </div>
+                                        );
+                                    })}
+                        </div>
                     </div>
 
                 </>

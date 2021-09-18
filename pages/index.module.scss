@@ -8,10 +8,14 @@
         max-width: $containercustom;
         margin: 0 auto;
         padding: 0 15px;
+        @media screen and (min-width: 1920px) and (max-width: 1920px) {
+            max-width: $containerlarge;
+        }        
     }
     @media (max-width: $widthMobileMax) {
         padding: 20px 0;
     }
+    
 }
 
 .itemcompare {
@@ -20,8 +24,8 @@
     min-height: 100px;
     margin-bottom: 15px;
     margin-top: 15px;
-    border-radius: 5px;
-    border: $color-gray solid 1px;
+    border-radius: 11.5px;
+    border: #f5f5f5 solid 1px;
     overflow: hidden;
 }
 .wrpCompare {
@@ -39,13 +43,15 @@
                     content: "";
                     position: absolute;
                     right: 0;
-                    top: 50%;
-                    margin-right: -51px;
-                    width: 103px;
+                    top: 52%;
+                    margin-right: -20px;
+                    width: 56px;
                     height: 65px;
                     transform: translate(0, -50%);
                     background: url("../public/icon-vs.png");
                     z-index: 1;
+                    background-size: 100%;
+                    background-repeat: no-repeat;                    
                 }
             }
         }
@@ -57,9 +63,10 @@
         }
     }
     .imgwrp {
-        padding: 20px;
+        padding: 36px 20px 32px 20px;
         width: 100%;
         text-align: center;
+        cursor: pointer;
         /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fff6ff+0,f8fdff+100 */
         background: #fff6ff; /* Old browsers */
         background: -moz-linear-gradient(
@@ -93,9 +100,13 @@
 .fullLink {
     background: $color-green;
     color: #fff;
-    text-transform: uppercase;
-    border-radius: 7px;
-    padding: 10px 5px;
+    font-size: 16.5px;
+    font-family: "RubikMedium", sans-serif;
+    letter-spacing: 0.2px;
+    line-height: 1.6;
+    padding: 14px 15px;
+    border-radius: 18px;
+    min-width: 156px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,13 +114,17 @@
     margin-top: 15px;
     width: 90%;
     margin: 30px auto;
-    max-width: 500px;
+    max-width: 480px;
     &:hover {
         text-decoration: none;
-        color: $color-black;
+        color: $color-white;
+        background: $color-green-dark;
+        box-shadow: 0 0 11px rgba(137, 195, 64, .25);
+        -ms-box-shadow: 0 0 11px rgba(137, 195, 64, .25);        
     }
     img {
         margin-right: 10px;
+        width: 26px;
     }
 }
 
@@ -172,6 +187,9 @@
         max-width: $containercustom;
         margin: 0 auto;
         padding: 0 15px;
+        @media screen and (min-width: 1920px) and (max-width: 1920px) {
+            max-width: $containerlarge;
+        }         
     }
 }
 
@@ -335,6 +353,9 @@
         max-width: $containercustom;
         margin: 0 auto;
         padding: 0 15px;
+        @media screen and (min-width: 1920px) and (max-width: 1920px) {
+            max-width: $containerlarge;
+        }              
     }
 }
 
@@ -463,6 +484,9 @@
         max-width: $containercustom;
         margin: 0 auto;
         padding: 0 15px;
+        @media screen and (min-width: 1920px) and (max-width: 1920px) {
+            max-width: $containerlarge;
+        }              
     }
     .itemcontent {
         position: relative;
