@@ -91,6 +91,13 @@ a.btn {
         max-height: 70px;
         padding: 8px 0px;
     }
+
+    @media screen and (max-width: $widthMobileSm) {
+        min-height: 63px;
+        max-height: 64px;
+        padding: 8px 0px;
+    }        
+
 }
 
 .container-custom-body {
@@ -111,6 +118,20 @@ a.btn {
 
 // BUTTON CUSTOM
 
+.btnMediumLoad{
+    width: 100%;
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 30px;
+    @media screen and (max-width: $widthTabMin) {
+        margin-top: 10px;
+    }    
+    @media screen and (max-width: $widthMobileSm) {
+        margin-top: 5px;
+    }
+}
+
 button.ap-btn-md,
 a.ap-btn-md {
     font-family: "RubikMedium", sans-serif;
@@ -120,6 +141,9 @@ a.ap-btn-md {
     border-radius: 18px;
     min-width: 210px;
     letter-spacing: 0.15px;
+    @media screen and (max-width: $widthMobileSm) {
+        border-radius: 12.5px;
+    }
 }
 
 button.ap-btn-secondary,
@@ -148,6 +172,10 @@ a.ap-btn-secondary {
     font-family: "RubikMedium", sans-serif;
     font-size: 18px;
     line-height: 22px;
+    @media screen and (max-width: $widthMobileSm) {
+        font-size: 16px;
+        line-height: 20px;
+    }
 }
 
 .smalltitleTile {
@@ -163,10 +191,37 @@ a.ap-btn-secondary {
 }
 
 .min_heigh_two_lines {
-    min-height: 49px;
+    min-height: 30px;
     width: 100%;
     height: auto;
     display: block;
+}
+
+.flexing-title-compare{
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.flextitleSpesific{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    -ms-align-items: center;
+    min-height: 92px;    
+    @media (max-width: $widthTabMin) {
+        min-height: 65px;   
+    }
+    @media screen and (max-width: 1200px) {
+        min-height: 107px;
+    }    
+}
+.contTitleSpesific{
+    max-width: 100%;
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
 }
 
 .slider_overview {

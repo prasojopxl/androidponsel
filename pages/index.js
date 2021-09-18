@@ -239,26 +239,28 @@ export default function Home(props) {
                                                                     styles.contentDec
                                                                 }
                                                             >
-                                                                <Link
-                                                                    href={
-                                                                        baseUrl +
-                                                                        "handphone/" +
-                                                                        data.slug
-                                                                    }
-                                                                >
-                                                                    <a className="min_heigh_two_lines">
-                                                                        <h5 className="mediumtitleTile">
-                                                                            {
-                                                                                data.title
-                                                                            }
-                                                                        </h5>
-                                                                    </a>
-                                                                </Link>
-                                                                <h6>
-                                                                    {
-                                                                        data.memory_internal
-                                                                    }
-                                                                </h6>
+                                                                <div className="flexing-title-compare">
+                                                                    <Link
+                                                                        href={
+                                                                            baseUrl +
+                                                                            "handphone/" +
+                                                                            data.slug
+                                                                        }
+                                                                    >
+                                                                        <a className="min_heigh_two_lines">
+                                                                            <h5 className="mediumtitleTile">
+                                                                                {
+                                                                                    data.title
+                                                                                }
+                                                                            </h5>
+                                                                        </a>
+                                                                    </Link>
+                                                                    <h6>
+                                                                        {
+                                                                            data.memory_internal
+                                                                        }
+                                                                    </h6>  
+                                                                </div>    
                                                             </div>
                                                         </div>
                                                     );
@@ -320,13 +322,7 @@ export default function Home(props) {
                                 );
                             })}
                         </div>
-                        <div
-                            style={{
-                                textAlign: "center",
-                                display: "block",
-                                marginTop: 30,
-                            }}
-                        >
+                        <div className="btnMediumLoad">
                             <Link href={baseUrl + "handphone"}>
                                 <a className="btn ap-btn-secondary ap-btn-md">
                                     Lihat Selegkapnya

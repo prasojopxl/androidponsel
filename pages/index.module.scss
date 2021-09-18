@@ -51,13 +51,32 @@
                     background: url("../public/icon-vs.png");
                     z-index: 1;
                     background-size: 100%;
-                    background-repeat: no-repeat;                    
+                    background-repeat: no-repeat;             
+                    @media screen and (max-width: $widthMobileSm) {
+                        width: 48px;
+                        height: 62px;
+                    }    
+                    @media screen and (max-width: $widthMobileXs) {
+                        width: 40px;
+                        height: 50px;
+                    }                                               
                 }
             }
         }
     }
     .contentDec {
-        padding: 20px;
+        padding: 15px 20px 5px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 86px;
+        align-items: center;
+        -ms-align-items: center;
+        @media (max-width: $widthTabMin) {
+            min-height: 125px;
+        }        
+        @media screen and (max-width: $widthMobileSm) {
+            padding: 20px 20px 20px 20px;
+        }        
         a {
             color: $color-black;
         }
@@ -113,8 +132,17 @@
     text-align: center;
     margin-top: 15px;
     width: 90%;
-    margin: 30px auto;
+    margin: 20px auto 36px auto;
     max-width: 480px;
+    @media screen and (max-width: $widthMobileSm) {
+        font-size: 16px;
+        font-family: "RubikMedium", sans-serif;
+        letter-spacing: 0.2px;
+        line-height: 1.55;
+        padding: 12.5px 12.5px;        
+        margin:5px auto 36px auto;
+        border-radius: 12.5px;
+    }
     &:hover {
         text-decoration: none;
         color: $color-white;
