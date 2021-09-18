@@ -26,6 +26,7 @@
         animation: $animate;
         @media (max-width: $widthMobileMax) {
             box-shadow: none;
+            border:1px solid #d7d7d7;
         }       
         @media screen and (max-width: $widthMobileSm) {
             box-shadow: none;
@@ -43,6 +44,8 @@
         padding-top: 10px;
         @media (max-width: $widthMobileMax) {
             text-align: center;
+            margin-right: 0px;
+            padding-top: 1px;
         }
     }
     h5 {

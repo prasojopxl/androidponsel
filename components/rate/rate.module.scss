@@ -26,6 +26,15 @@
   }
   .wrpvote {
     flex: 1;
+    img{
+      margin-right: 4px;
+    }  
+    div{
+      font-family: "Mulish-Regular", sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      color: #71716c;
+    }
   }
   h6 {
     margin: 0 !important;
