@@ -30,6 +30,9 @@
         }       
         @media screen and (max-width: $widthMobileSm) {
             box-shadow: none;
+            border: 0;
+            transform: none;
+            -webkit-transform:none;
         }         
     }
     .shortproduct {
@@ -100,7 +103,10 @@
             letter-spacing: 0.25px;
             font-size: 14px;
             line-height: 1.45;
-            padding: 11px 12px;            
+            padding: 11px 12px;        
+            &:hover{
+                color: $color-green-dark;
+            }    
             @media (max-width: $widthMobileMax) {
                 padding: 5px;
                 text-transform: capitalize;

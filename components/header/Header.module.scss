@@ -134,8 +134,8 @@
 
 .inputSearch {
     width: 99.9vw;
-    height: 100vh;
-    background: #fff;
+    height: auto;
+    background: transparent none;
     margin: 15px auto;
     display: flex;
     justify-content: center;
@@ -144,6 +144,29 @@
     position: absolute;
     z-index: 3;
     top: 53px;
+    &::after{
+        content: " ";
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 105px;
+        left: 0px;
+        background: #fff;
+        @media screen and (max-width: 1200px) {
+            top: 107px;
+        }        
+        @media screen and (max-width: 992px) {
+            top: 64px;
+        }
+        @media (max-width: $widthMobileMax) {
+            top: 64px;
+        }
+        @media (max-width: $widthMobileSm) {
+            top: 50px;
+        }
+
+        
+    }    
     @media screen and (max-width: 1200px) {
         top: 35px;
     }
@@ -161,7 +184,7 @@
     }
     input[type="text"] {
         width: 100%;
-        padding: 14px 20px 15.5px 20px;
+        padding: 12px 20px 13.5px 20px;
         background: #fff;
         border: $color-green solid 1px;
         border-radius: 10.5px;
@@ -191,16 +214,37 @@
     top: 174px;
     font-family: "RubikMedium", sans-serif;
     overflow-y: scroll;
-    max-height: 620px;
+    max-height: 520px;
+    background: #fff;
+    @media screen and (max-width: $widthMobileMax) {
+        top: 115px;
+        max-height: 546px;
+        overflow-y: unset;
+        overflow-x: hidden;
+        z-index: 3;
+        padding-top: 10px;
+        padding-bottom: 110px;
+    }
     .itemResult {
         display: inline-block;
         background: $color-green2;
         border-radius: 20px;
         margin: 5px;
         transition: $animate;
+        @media screen and (max-width: $widthMobileMax) {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin:5px 0px;
+            text-align: left;
+            background: #fff;
+        }
         a {
             display: block;
             padding: 12px 20px;
+            @media screen and (max-width: $widthMobileMax) {
+                padding: 10px 10px 10px 15px;
+            }
         }
         &:hover {
             background: $color-green;

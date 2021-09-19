@@ -5,12 +5,9 @@
     padding: 50px 0;
     .contens {
         width: 100%;
-        max-width: $containercustom;
+        max-width: 100%;
         margin: 0 auto;
-        padding: 0 15px;
-        @media screen and (min-width: 1920px) and (max-width: 1920px) {
-            max-width: $containerlarge;
-        }        
+        padding: 0 0px;    
     }
     @media (max-width: $widthMobileMax) {
         padding: 20px 0;
@@ -141,7 +138,7 @@
     text-align: center;
     margin-top: 15px;
     width: 90%;
-    margin: 20px auto 36px auto;
+    margin: 12px auto 36px auto;
     max-width: 480px;
     @media screen and (min-width: 1920px) and (max-width: 1920px) {
         padding: 14px 15px;
@@ -395,7 +392,7 @@
 
 .kanalapp {
     background: #fff;
-    padding-top: 25px;
+    padding-top: 48px;
     padding-bottom: 50px;
     .contents {
         width: 100%;
@@ -421,15 +418,35 @@
         color: #fff;
         z-index: 1;
         padding: 20px;
-        padding-left: 135px;
+        padding-left: 20px;
+        @media screen and (max-width: 1200px) {
+            position: relative;
+            padding-left: 0px;
+        }
+        @media screen and (max-width: $widthMobileMax) {
+            position: relative;
+            padding:20px 0px;
+        }
         h5 {
-            font-family: $font-MulishBold;
+            font-family: $font-RubikMedium;
             min-height: 42px;
-            margin-bottom: 10px;
             font-size: 20px;
+            line-height: 22.5px;
+            @media screen and (max-width: 1200px) {
+                margin-bottom: 5px;
+            }
+        }
+        p{
+            display: none;
         }
         a {
             color: #fff;
+            @media screen and (max-width: 1200px) {
+                color: $color-black;
+            }
+            @media screen and (max-width: $widthMobileMax) {
+                color: $color-black;
+            }
         }
         .imgwrp {
             position: absolute;
@@ -442,6 +459,7 @@
             border-radius: 7px;
             display: flex;
             align-items: center;
+            display: none;
             img {
                 border-radius: 5px;
             }
@@ -449,38 +467,42 @@
     }
     &::after {
         content: "";
-        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#7db9e8+0,000000+100&0+0,0+56,0.6+100 */
-        background: -moz-linear-gradient(
-            top,
-            rgba(125, 185, 232, 0) 0%,
-            rgba(55, 81, 102, 0) 56%,
-            rgba(0, 0, 0, 0.6) 100%
-        ); /* FF3.6-15 */
-        background: -webkit-linear-gradient(
-            top,
-            rgba(125, 185, 232, 0) 0%,
-            rgba(55, 81, 102, 0) 56%,
-            rgba(0, 0, 0, 0.6) 100%
-        ); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(
-            to bottom,
-            rgba(125, 185, 232, 0) 0%,
-            rgba(55, 81, 102, 0) 56%,
-            rgba(0, 0, 0, 0.6) 100%
-        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#99000000',GradientType=0 ); /* IE6-9 */
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.92)));
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#a6000000",GradientType=0 );
         position: absolute;
         bottom: 0;
         left: 0;
-        height: 100%;
+        height: 67%;
         width: 100%;
+        @media screen and (max-width: 1200px) {
+            display: none;
+        }
+        @media screen and (max-width: $widthMobileMax) {
+            display: none;
+        }
     }
     .infodate {
         font-size: 10px;
+        @media screen and (max-width: 1200px) {
+            color: $color-graytext;
+        }
+        @media screen and (max-width: $widthMobileMax) {
+            color: $color-graytext;
+        }
     }
 }
 .infodate {
     font-size: 10px;
+    font-family: "$font-MulishRegular", sans-serif;
+    color: #fff;
+    position: relative;
+    z-index: 2;    
+    @media screen and (max-width: $widthMobileMax) {
+        color: $color-graytext;
+        font-family: "$font-MulishRegular", sans-serif;
+    }    
 }
 .wrplistapp {
     display: flex;
