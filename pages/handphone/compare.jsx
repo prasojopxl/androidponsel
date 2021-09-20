@@ -556,7 +556,7 @@ export default function compare({
 							{
 								otherCompare.map(item => {
 									return (
-										<div className="col-lg-4" key={item.id}>
+										<div className="col-lg-4 col-md-6 col-sm-12 col-12" key={item.id}>
 											<div className={styles.itemcompare}>
 												<div className={styles.wrpCompare}>
 													{item.products.map((data) => {
@@ -603,26 +603,30 @@ export default function compare({
 																		styles.contentDec
 																	}
 																>
-																	<Link
-																		href={
-																			baseUrl +
-																			"handphone/" +
-																			data.slug
-																		}
-																	>
-																		<a>
-																			<h5 className="mediumtitleTile">
-																				{
-																					data.title
+																	<div className="flexing-title-compare">
+																		<div className="min_heigh_two_lines">
+																			<Link
+																				href={
+																					baseUrl +
+																					"handphone/" +
+																					data.slug
 																				}
-																			</h5>
-																		</a>
-																	</Link>
-																	<h6>
-																		{
-																			data.memory_internal
-																		}
-																	</h6>
+																			>
+																				<a>
+																					<h5 className="mediumtitleTile">
+																						{
+																							data.title
+																						}
+																					</h5>
+																				</a>
+																			</Link>
+																			<h6>
+																				{
+																					data.memory_internal
+																				}
+																			</h6>
+																		</div>
+																	</div>
 																</div>
 															</div>
 														);
@@ -648,12 +652,12 @@ export default function compare({
 														>
 															<Image
 																src="/icon-vs-small.png"
-																width={31}
-																height={21}
+																width={25}
+																height={18}
 																alt="camera"
 															/>
 														</div>
-														LIHAT PERBANDINGAN
+														Lihat Perbandingan
 													</a>
 												</Link>
 											</div>

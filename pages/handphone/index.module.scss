@@ -58,8 +58,8 @@
 }
 
 .productItem {
-    padding: 20px;
-    border-radius: 5px;
+    padding: 32px 20px 24px 20px;
+    border-radius: 11px;
     margin-bottom: 15px;
     margin-top: 15px;
     min-height: 150px;
@@ -67,6 +67,9 @@
     background: #fff;
     transition: $animate;
     border: none;
+    @media screen and (max-width: $widthMobileMax) {
+        padding:0px 0px;
+    }
     &:hover {
         box-shadow: $shadow;
         transform: scale(1.02);
@@ -75,20 +78,38 @@
     }
     .shortproduct {
         display: flex;
+        @media screen and (max-width: $widthMobileMax) {
+            flex-direction: column;
+        }
     }
     .imageprod {
         max-width: 150px;
-        margin-right: 18px;
+        margin-right: 16px;
+        padding-top: 10px;
+        @media screen and (max-width: $widthMobileMax) {
+            text-align: center;
+        }
     }
     h5 {
         font-size: 16px;
         margin-bottom: 0;
-        min-height: 40px;
+        min-height: 23px;
+        font-family: RubikMedium,sans-serif;
+        color: #071723;
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 4px;        
+        @media screen and (max-width: $widthMobileMax) {
+            font-size: 16px;
+            margin-top: 12px;
+        }
     }
     h6 {
-        font-weight: normal;
-        font-size: 11px;
+        font-family: $font-MulishRegular, sans-serif;
+        font-size: 11.5px;
+        line-height: 16px;
         margin-bottom: 10px;
+        color: $color-graytext;
     }
     .wrpbtn {
         text-align: center;
@@ -99,6 +120,29 @@
         a {
             display: block;
             color: $color-green;
+            font-family: RubikMedium;
+            letter-spacing: .2px;
+            font-size: 14px;
+            line-height: 1.45;
+            padding: 11px 12px;
+            border-radius: 11.5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: none;
+            min-width: 164px;
+            width: 100%;            
+            background: transparent none;
+            border: 2px solid #89c340;
+            color: #89c340;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;         
+            @media screen and (max-width: $widthMobileSm) {
+                border-radius: 9.5px;
+                font-size: 12px;
+                min-width: 110px;
+                width: 100%;                
+            }   
         }
         .btnfull {
             color: #fff;
@@ -537,14 +581,21 @@ h4 {
 }
 
 .itemcompare {
-    box-shadow: $shadow2;
+    -webkit-box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.4);
+    box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.4);
     width: 100%;
     min-height: 100px;
     margin-bottom: 15px;
     margin-top: 15px;
-    border-radius: 5px;
+    border-radius: 11.5px;
     border: $color-gray solid 1px;
+    border: #f5f5f5 solid 1px;
     overflow: hidden;
+    @media screen and (max-width: 1200px) {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border: 1px solid #d7d7d7;  
+    }  
 }
 .wrpCompare {
     display: -ms-flexbox;
@@ -561,25 +612,50 @@ h4 {
                     content: "";
                     position: absolute;
                     right: 0;
-                    top: 50%;
-                    margin-right: -51px;
-                    width: 103px;
-                    height: 65px;
+                    top: 52%;
+                    margin-right: -20px;
+                    width: 36px;
+                    height: 46px;
                     transform: translate(0, -50%);
                     background: url("../../public/icon-vs.png");
                     z-index: 1;
+                    background-size: 100%;
+                    background-repeat: no-repeat;                    
                 }
             }
         }
     }
     .contentDec {
-        padding: 20px;
+        padding: 15px 20px 5px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 120px;
+        -moz-box-align: center;
+        align-items: center;
+        -ms-align-items: center;     
+        @media screen and (max-width:1200px) {
+            min-height: 164px;
+        }   
+        @media screen and (max-width:992px) {
+            min-height: 124px;
+        }
+        @media screen and ($widthMobileMax) {
+            min-height: 124px;
+        }     
+        @media screen and ($widthMobileSm) {
+            min-height: 98px;
+            padding: 20px 20px 12px 20px;
+        }  
+         @media screen and ($widthMobileXs) {
+            min-height: 96px;
+            padding: 20px 20px 12px 20px;
+        }                    
         a {
             color: $color-black;
         }
     }
     .imgwrp {
-        padding: 20px;
+        padding: 32px 24px 36px 24px;
         width: 100%;
         text-align: center;
         /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fff6ff+0,f8fdff+100 */
@@ -613,22 +689,33 @@ h4 {
 }
 
 .fullLink {
-    background: $color-green;
+    background: #89c340;
     color: #fff;
-    text-transform: uppercase;
-    border-radius: 7px;
-    padding: 10px 5px;
+    font-size: 15.5px;
+    font-family: "RubikMedium", sans-serif;
+    letter-spacing: 0.2px;
+    line-height: 1.6;
+    padding: 12.5px 15px;
+    border-radius: 17.5px;
+    min-width: 156px;
+    display: -moz-box;
     display: flex;
+    -moz-box-align: center;
     align-items: center;
+    -moz-box-pack: center;
     justify-content: center;
     text-align: center;
     margin-top: 15px;
     width: 90%;
-    margin: 30px auto;
-    max-width: 500px;
+    margin: 12px auto 36px auto;
+    max-width: 480px;
     &:hover {
         text-decoration: none;
-        color: $color-black;
+        color: #fff;
+        background: $color-green-dark;
+        -webkit-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
+        box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
+        -ms-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
     }
     img {
         margin-right: 10px;

@@ -15,7 +15,7 @@
         padding: 0 5px;
     }
     @media screen and (max-width: 320px) {
-        padding: 0 5px;
+        padding: 0 1px;
     }
     @media screen and (min-width: 1920px) and (max-width: 1920px) {
         max-width: $containerlarge;
@@ -35,6 +35,10 @@
     padding: 10px 0;
     background: $color-gray2;
     font-size: 12px;
+    @media screen and (max-width: $widthMobileSm) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 .itemfooter {

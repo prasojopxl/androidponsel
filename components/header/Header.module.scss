@@ -64,17 +64,61 @@
 }
 
 .mainMenuMobile {
-    background: $color-gray2;
-    padding: 10px 5px;
+    // background: $color-gray2;
+    background: transparent none;
+    padding: 10px 5px; 
+    @media screen and (max-width: $widthMobileMax) {
+        background: #fff;
+    }
     li {
         display: block;
         text-align: center;
         text-transform: capitalize;
+        background: #fff;
+        border-radius: 10.5px;
+        margin-bottom: 10px;
+        @media screen and (max-width: 1200px) {
+            max-width: 76%;
+            margin-left: auto;
+            margin-right: auto;
+            border:1px solid #efefef;
+        }
+
+        @media screen and (max-width: $widthMobileMax) {
+            max-width: 96%;
+            margin-left: auto;
+            margin-right: auto;
+            border:1px solid #efefef;            
+        }
+        &:first-child{
+            margin-top: 20px;
+            @media screen and (max-width: $widthMobileMax) {
+                margin-top: 10px;
+            }
+        }
         a {
             display: block;
-            padding: 5px;
+            padding: 12px 10px;
+            font-family: $font-RubikMedium, sans-serif;
+            color: $color-black;
+            font-size: 18px;
+            line-height: 22px;
+            @media screen and (max-width: 1200px) {
+                padding: 18px 20px;
+            }
+            @media screen and (max-width: 1200px) {
+                font-size: 16px;
+                line-height: 20px; 
+                padding: 14px 15px 16px 15px;               
+            }
+            @media screen and (max-width: $widthMobileSm) {
+                text-align: left;
+                font-size: 15px;
+                line-height: 19px;                 
+            }
         }
     }
+
 }
 
 .mainmenu {
@@ -196,7 +240,7 @@
         }
     }
     @media (max-width: $widthMobileMax) {
-        padding: 5px 0px;
+        padding: 1px 0px 4.5px 0px;
         span {
             display: none;
         }
@@ -211,7 +255,7 @@
     text-align: center;
     position: absolute;
     z-index: 3;
-    top: 174px;
+    top: 190px;
     font-family: "RubikMedium", sans-serif;
     overflow-y: scroll;
     max-height: 520px;
@@ -243,7 +287,7 @@
             display: block;
             padding: 12px 20px;
             @media screen and (max-width: $widthMobileMax) {
-                padding: 10px 10px 10px 15px;
+                padding: 10px 10px 10px 2px;
             }
         }
         &:hover {

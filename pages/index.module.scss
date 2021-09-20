@@ -81,7 +81,7 @@
             min-height: 125px;
         }        
         @media screen and (max-width: $widthMobileSm) {
-            padding: 20px 20px 20px 20px;
+            padding: 20px 20px 14px 20px;
         }        
         a {
             color: $color-black;
@@ -168,13 +168,32 @@
 }
 
 .containerCompare {
-    right: 0;
-    bottom: 0;
-    background: $color-gray;
+    right: 24px;
+    bottom: 24px;
+    background: #fff;
     z-index: 10;
     position: fixed;
+    border-radius: 12.5px;
+    box-shadow: 4px 6px 30px 2.5px rgba(214, 214, 214, 0.96);
+    -ms-box-shadow: 4px 6px 30px 2.5px rgba(214, 214, 214, 0.96);  
+    min-width: 274px;
+    overflow: hidden;
+    font-family: "RubikMedium", sans-serif;
+    font-size: 17px;
+    line-height: 24.5px;
+    letter-spacing: 0.3px;
+    h5{
+        font-family: $font-MulishRegular, sans-serif;
+        font-size: 13px;
+        line-height: 24.5px;       
+        color: $color-graytext;
+        margin-bottom: 5px;
+        &:first-child{
+            margin-top: 10px;
+        }
+    }
     .desc {
-        padding: 15px;
+        padding: 15px 24px 12px 24px;
     }
     @media (max-width: $widthMobileMax) {
         left: 0;
@@ -187,6 +206,13 @@
             display: none;
         }
     }
+    @media (max-width: $widthMobileSm) {
+        max-width: 100%;
+        bottom: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        margin-bottom: 0px;
+    }
 }
 
 .wrpAction {
@@ -194,9 +220,31 @@
     justify-content: space-between;
     text-align: center;
     align-items: center;
+    padding: 1px 24px 8px 24px;
+    margin-bottom: 10px;
+    @media (max-width: $widthMobileMax) {
+        position: relative;
+        &::before{
+            position: absolute;
+            content: " ";
+            width: 100vw;
+            height: 99px;
+            background: #fff;
+            left: 0px;
+            top: -15px;
+        }
+    }
+    @media (max-width: $widthMobileSm) {
+        margin-bottom: 3px;
+        margin-top: 10px;
+    }
     .btnCompareProd {
-        padding: 10px 5px;
+        padding: 12px 5px;
         cursor: pointer;
+        border-radius: 14.5px;
+        font-family: "RubikMedium", sans-serif;
+        letter-spacing: 0.25px;
+        font-size: 15px;
     }
     .btnCompareProd {
         flex: 1;
@@ -204,6 +252,13 @@
         color: #fff;
         z-index: 10;
         outline: none;
+        top: 20px;
+        &:hover{
+            background: $color-green-dark;
+            -webkit-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
+            box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
+            -ms-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);            
+        }
         @media (max-width: $widthMobileMax) {
             border-radius: 30px;
         }

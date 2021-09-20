@@ -116,16 +116,19 @@ export default function Header(props) {
             }
             {
                 showMenu &&
-                <ul className={styles.mainMenuMobile}>
-                    {
-                        mainMenu.map(item => {
-                            return (
-                                <li key={item.id}><Link href={item.url}><a>{item.title}</a></Link></li>
-                            )
-                        })
-                    }
-                </ul>
-
+                <div className="wrpMenuMobile">
+                    <div className="wrpRoleNav">
+                        <ul className={styles.mainMenuMobile}>
+                            {
+                                mainMenu.map(item => {
+                                    return (
+                                        <li key={item.id}><Link href={item.url}><a>{item.title}</a></Link></li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
+                </div>
             }
 
             <div className={styles.TopBrands}>
