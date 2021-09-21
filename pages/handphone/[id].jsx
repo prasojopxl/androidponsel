@@ -318,7 +318,7 @@ export default function DetailPage(props) {
                 <GlobalAds adsId="2" />
                 <div className={styles.contents}>
                     <div className="row">
-                        <div className="col-lg-9">
+                        <div className="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
                             <Title title="Basic Information" idName="basic" />
                             <div className={styles.itemDesc}>
                                 <h5>Deskripsi Produk</h5>
@@ -545,7 +545,7 @@ export default function DetailPage(props) {
                             )}
                         </div>
 
-                        <div className="col-lg-3 order-first order-md-last">
+                        <div className="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12 order-first order-md-last">
                             <div className={styles.boxTableContent}>
                                 <Title title="Table of Content" />
                                 <ul>
@@ -614,7 +614,7 @@ export default function DetailPage(props) {
                                     <Fragment key={value.id}>
                                         <div
                                             className={
-                                                props.dataRelatedProd !== 3 ? `col-lg-3` : `col-lg-4`
+                                                props.dataRelatedProd !== 3 ? `col-lg-3 col-sm-6 col-6 relateProduct` : `col-lg-4`
                                             }
                                             key={value.id}
                                         >
@@ -629,15 +629,19 @@ export default function DetailPage(props) {
                                                         />{" "}
                                                     </div>
                                                     <div className={styles.productinfo}>
-                                                        <Link href={`${"/handphone/" + value.slug}`}><a><h5>{value.title}</h5></a></Link>
-                                                        <h6>{value.memory_internal}</h6>
+                                                        <div className="flextitleSpesific">
+                                                            <div className="contTitleSpesific">
+                                                                <Link href={`${"/handphone/" + value.slug}`}><a><h5>{value.title}</h5></a></Link>
+                                                                <h6>{value.memory_internal}</h6>
+                                                            </div>
+                                                        </div>
                                                         <Rate rate={value.rating} voters={value.total_voters} />
                                                     </div>
                                                 </div>
                                                 <div className={styles.wrpbtn}>
                                                     <Link href={baseUrl + currentPage + "/" + value.slug}>
                                                         <a className={styles.btnblank}>
-                                                            LIHAT SELENGKAPNYA
+                                                            Lihat Spesifikasi
                                                         </a>
                                                     </Link>
                                                 </div>

@@ -10,7 +10,7 @@
     background: $color-green;
     color: #fff;
     border-radius: 5px;
-    padding: 4px 0.5px 2px 0.5px;
+    padding: 3px 0.5px 2px 0.5px;
     max-width: 31px;
     flex: 0 0 31px;
     -ms-flex: 0 0 31px;
@@ -23,6 +23,9 @@
     font-size: 10.2px;
     line-height: 12.5px;
     font-family: "Mulish-Regular", sans-serif;
+    @media screen and (max-width: $widthTabMin) {
+      padding: 2.7px 0.5px 1.5px 0.5px;
+    }
   }
   .wrpvote {
     flex: 1;

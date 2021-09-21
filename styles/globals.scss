@@ -79,23 +79,38 @@ a.btn {
 .wrp_search_bar {
     width: 100%;
     min-height: 97px;
-    max-height: 110px;
     height: auto;
     background: #fefefe;
     padding: 12px 0px 18px 0px;
     -webkit-box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
     box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
-
+    z-index: 4;
+    @media screen and (max-width: 1200px) {
+        -webkit-box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
+        box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
+        z-index: 4;
+    }
+    @media screen and (max-width: 992px) {
+        -webkit-box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
+        box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
+        z-index: 4;
+    }    
     @media screen and (max-width: 768px) {
         min-height: 69px;
-        max-height: 70px;
         padding: 8px 0px;
+        position: relative;
+        -webkit-box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
+        box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
+        z-index: 4;        
     }
 
     @media screen and (max-width: $widthMobileSm) {
         min-height: 63px;
         max-height: 64px;
         padding: 8px 0px;
+        -webkit-box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
+        box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
+        z-index: 4;        
     }        
 
 }
@@ -108,12 +123,62 @@ a.btn {
     max-width: 1320px;
 }
 
+.containerComparehome{
+    max-width: 1250px;
+    margin:0 auto;
+    padding: 0 15px;
+    @media screen and (min-width: 1920px) and (max-width: 1920px) {
+        max-width: 1320px;
+    }
+}
+
+.col-top-compared{
+    &:last-child{
+        margin-bottom: 50px;
+        @media screen and (max-width: $widthMobileSm) {
+            margin-bottom: 15px;
+        }        
+    }
+}
+
 // HEADER CUSTOM
 
 .relative_triger {
     position: relative;
     height: auto;
     width: 100%;
+}
+
+.wrpRoleNav{
+    width: 100%;
+    min-height: 156px;
+    max-height: 620px;
+    overflow-y: scroll;
+    height: auto;
+    padding-bottom: 120px;
+}
+
+.wrpMenuMobile{
+    background: #fff;
+    @media screen and (max-width: 1200px) {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 50px;
+        background: #fff;
+    }       
+}
+
+.relateProduct{
+    height: auto;
+    @media screen and (max-width: $widthMobileSm) {
+        &:first-child{
+            margin-top: 15px;
+        }
+        &:nth-child(2){
+            margin-top: 15px;
+        }        
+    }
 }
 
 // BUTTON CUSTOM
@@ -137,7 +202,7 @@ a.ap-btn-md {
     font-family: "RubikMedium", sans-serif;
     font-size: 15px;
     line-height: 1.4;
-    padding: 12px 15px;
+    padding: 11px 15px 12px 15px;
     border-radius: 18px;
     min-width: 210px;
     letter-spacing: 0.15px;
@@ -182,6 +247,7 @@ a.ap-btn-secondary {
     font-family: "RubikMedium", sans-serif;
     font-size: 14.5px;
     line-height: 20.5px;
+    letter-spacing: 0.2px;
 }
 
 .titlefloatingCard {
@@ -209,8 +275,8 @@ a.ap-btn-secondary {
     padding-top: 15px;
     padding-bottom: 15px;
     @media screen and (max-width: $widthMobileMax) {
-        padding-top: 10px;
-        padding-bottom: 10px;        
+        padding-top: 12px;
+        padding-bottom: 12px;        
     }
 }
 .row .gutter-10,
@@ -223,6 +289,117 @@ a.ap-btn-secondary {
 .gutter-10>[class^="col-"] {
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+.largeFeatured{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    -ms-justify-cntent:center;
+    align-items: center;
+    -ms-align-items: center;
+    height: auto;
+    min-height: 270px; 
+    overflow: hidden;
+    border-radius: 12.5px;  
+    margin:15px 0px;
+    @media screen and (max-width: $widthTabMin) {
+        border-radius: 10.5px;   
+    }
+    @media screen and (max-width: $widthMobileMax) {
+        border-radius: 10.5px;   
+    }
+}
+.feturedCard{
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    a{
+        color: #fff;
+        @media screen and (max-width: 1200px) {
+            color: $color-black;
+        }
+        h4{
+            font-family: "RubikMedium", sans-serif;
+            min-height: 42px;
+            font-size: 20px;
+            line-height: 22.5px;
+            margin-bottom: 8px;
+            @media screen and (max-width: $widthMobileSm) {
+                font-size: 18.5px;
+                line-height: 23px;
+                letter-spacing: 0.2px;
+            }
+        }
+    }
+}
+
+.wrpFeatured{
+    border-radius: 12.5px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;    
+    a{
+        z-index: 1;
+        position: relative;
+        img{
+            @media screen and (max-width: 1200px) {
+                border-radius: 12.5px;
+                overflow: hidden;
+            }  
+        }      
+    }
+}
+
+.descFeatured{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    z-index: 1;    
+    overflow: unset;
+    font-family: $font-MulishRegular, sans-serif;
+    p{
+        position: relative;
+        z-index: 2;
+        font-size: 14px;
+        line-height: 18px;
+        color: #fff;
+        @media screen and (max-width: 1200px) {
+            color:$color-graytext;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        position: relative;
+        padding:20px 0px;
+        width: 100%;
+    }
+    @media screen and (max-width: $widthMobileMax) {
+        position: relative;
+        padding:20px 0px 0px 0px;
+        width: 100%;
+    }    
+    &::after{
+    content: "";
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.92)));
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#a6000000",GradientType=0 );
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 110%;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;    
+        @media screen and (max-width: 1200px) {
+            display: none;
+        }
+    }
 }
 
 .wrp_thumbapps{
@@ -250,8 +427,17 @@ a.ap-btn-secondary {
     @media screen and (max-width: $widthMobileMax) {
         min-height: 83px;
         border-radius: 10.5px;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
+    @media screen and (max-width: $widthMobileSm) {
+        min-height: 76px;
+        margin-bottom: 0px;
+    }
+
+    @media screen and (max-width: $widthMobileXs) {
+        min-height: 74px;
+    }
+    
 }
 
 .sm_title_cardNews{
@@ -274,6 +460,11 @@ a.ap-btn-secondary {
     font-size: 9px;
     font-family: "Mulish Regular", sans-serif;
     margin-bottom: 5px;    
+    position: relative;
+    z-index: 2;
+    a{
+        color: #fff;
+    }
     @media screen and (max-width: 1200px) {
         background: $color-green2;
         a{
@@ -302,6 +493,14 @@ a.ap-btn-secondary {
     @media screen and (max-width: 1200px) {
         min-height: 107px;
     }    
+    @media (max-width: $widthMobileSm) {
+        min-height: 105px;
+    }
+
+    @media (max-width: $widthMobileXs) {
+        min-height: 120px;
+    }    
+    
 }
 .contTitleSpesific{
     max-width: 100%;

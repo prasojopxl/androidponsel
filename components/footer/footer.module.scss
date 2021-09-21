@@ -10,12 +10,12 @@
     width: 100%;
     max-width: $containercustom;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0;
     @media screen and (max-width: 480px) {
         padding: 0 5px;
     }
     @media screen and (max-width: 320px) {
-        padding: 0 5px;
+        padding: 0 1px;
     }
     @media screen and (min-width: 1920px) and (max-width: 1920px) {
         max-width: $containerlarge;
@@ -29,12 +29,19 @@
     padding-top: 40px;
     padding-bottom: 30px;
     flex-wrap: wrap;
+    @media screen and (max-width: $widthMobileSm) {
+        padding-bottom: 10px;
+    }
 }
 .btm {
     text-align: center;
     padding: 10px 0;
     background: $color-gray2;
     font-size: 12px;
+    @media screen and (max-width: $widthMobileSm) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 .itemfooter {
