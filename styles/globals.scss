@@ -132,6 +132,15 @@ a.btn {
     }
 }
 
+.col-top-compared{
+    &:last-child{
+        margin-bottom: 50px;
+        @media screen and (max-width: $widthMobileSm) {
+            margin-bottom: 15px;
+        }        
+    }
+}
+
 // HEADER CUSTOM
 
 .relative_triger {
@@ -193,7 +202,7 @@ a.ap-btn-md {
     font-family: "RubikMedium", sans-serif;
     font-size: 15px;
     line-height: 1.4;
-    padding: 12px 15px;
+    padding: 11px 15px 12px 15px;
     border-radius: 18px;
     min-width: 210px;
     letter-spacing: 0.15px;
@@ -238,6 +247,7 @@ a.ap-btn-secondary {
     font-family: "RubikMedium", sans-serif;
     font-size: 14.5px;
     line-height: 20.5px;
+    letter-spacing: 0.2px;
 }
 
 .titlefloatingCard {
@@ -265,8 +275,8 @@ a.ap-btn-secondary {
     padding-top: 15px;
     padding-bottom: 15px;
     @media screen and (max-width: $widthMobileMax) {
-        padding-top: 10px;
-        padding-bottom: 10px;        
+        padding-top: 12px;
+        padding-bottom: 12px;        
     }
 }
 .row .gutter-10,
@@ -318,6 +328,11 @@ a.ap-btn-secondary {
             font-size: 20px;
             line-height: 22.5px;
             margin-bottom: 8px;
+            @media screen and (max-width: $widthMobileSm) {
+                font-size: 18.5px;
+                line-height: 23px;
+                letter-spacing: 0.2px;
+            }
         }
     }
 }
@@ -364,7 +379,7 @@ a.ap-btn-secondary {
     }
     @media screen and (max-width: $widthMobileMax) {
         position: relative;
-        padding:20px 0px;
+        padding:20px 0px 0px 0px;
         width: 100%;
     }    
     &::after{
@@ -412,10 +427,11 @@ a.ap-btn-secondary {
     @media screen and (max-width: $widthMobileMax) {
         min-height: 83px;
         border-radius: 10.5px;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
     @media screen and (max-width: $widthMobileSm) {
         min-height: 76px;
+        margin-bottom: 0px;
     }
 
     @media screen and (max-width: $widthMobileXs) {

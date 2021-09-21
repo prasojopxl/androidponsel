@@ -318,7 +318,7 @@ export default function DetailPage(props) {
                 <GlobalAds adsId="2" />
                 <div className={styles.contents}>
                     <div className="row">
-                        <div className="col-lg-9">
+                        <div className="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
                             <Title title="Basic Information" idName="basic" />
                             <div className={styles.itemDesc}>
                                 <h5>Deskripsi Produk</h5>
@@ -545,7 +545,7 @@ export default function DetailPage(props) {
                             )}
                         </div>
 
-                        <div className="col-lg-3 order-first order-md-last">
+                        <div className="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12 order-first order-md-last">
                             <div className={styles.boxTableContent}>
                                 <Title title="Table of Content" />
                                 <ul>

@@ -275,6 +275,9 @@
 .latestnews {
     background: #fff;
     padding: 50px 0;
+    @media screen and (max-width: $widthMobileSm) {
+        padding:24px 0px;
+    }
     .contents {
         width: 100%;
         // max-width: $widthdefault;
@@ -449,6 +452,9 @@
     background: #fff;
     padding-top: 48px;
     padding-bottom: 50px;
+    @media screen and (max-width: $widthMobileSm) {
+        padding:24px 0px;
+    }    
     .contents {
         width: 100%;
         // max-width: $widthdefault;
@@ -605,6 +611,9 @@
 
 .tipstrik {
     padding: 50px 0;
+    @media screen and (max-width: $widthMobileSm) {
+        padding:24px 0px 45px 0px;      
+    }    
     .contents {
         width: 100%;
         // max-width: $widthdefault;

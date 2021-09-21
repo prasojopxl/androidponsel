@@ -182,7 +182,7 @@ export default function Home(props) {
                                 {props.dataCompare.map((item, index) => {
                                     return (
                                         <div
-                                            className="col-lg-6 col-md-6 col-sm-12"
+                                            className="col-lg-6 col-md-6 col-sm-12 col-12 col-top-compared"
                                             key={item.id}
                                         >
                                             <div className={styles.itemcompare}>

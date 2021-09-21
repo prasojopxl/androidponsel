@@ -14,6 +14,10 @@
     }
     .left {
         cursor: pointer;
+        margin-top: 3px;
+        @media screen and (max-width: $widthMobileMax) {
+            margin-top: 5px;
+        }
     }
     .navMenu {
         display: none;
