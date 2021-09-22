@@ -149,6 +149,7 @@ export default function DetailPage(props) {
                             </div>
                             <div className="col-lg-7 add-md-4">
                                 <div className={styles.shortdesc}>
+                                    <h1>{props.post.title}</h1>
                                     <Rate rate={props.post.rating} voters={props.post.total_voters} />
                                     <h4>Spesifikasi Ringkas</h4>
                                     <div className="row">
