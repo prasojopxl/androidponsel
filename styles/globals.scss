@@ -250,6 +250,13 @@ a.ap-btn-secondary {
     letter-spacing: 0.2px;
 }
 
+.add-md-4{
+    margin-bottom: 45px;
+    @media screen and (max-width: $widthMobileMax) {
+        margin-bottom: 0px;
+    }
+}
+
 .titlefloatingCard {
     font-family: "RubikMedium", sans-serif;
     font-size: 14px;
@@ -440,6 +447,23 @@ a.ap-btn-secondary {
     
 }
 
+.left_side_spesification{
+    padding: 45px 48px 0px 0px;
+    @media screen and (max-width: $widthTabMin) {
+        padding: 45px 24px 0px 0px;
+    }
+    @media screen and (max-width:$widthMobileMax) {
+        padding: 5px 0px 0px 0px;
+    }    
+}
+
+.right_side_spesification{
+    padding: 45px 0px 0px 0px;
+    @media screen and (max-width: $widthMobileSm) {
+        padding: 32px 0px 0px 0px;
+    }
+}
+
 .sm_title_cardNews{
     font-family: "RubikMedium",sans-serif;
     color: $color-black;
@@ -510,6 +534,8 @@ a.ap-btn-secondary {
 
 .slider_overview {
     text-align: center;
+    margin-top: 15px;
+    margin-bottom: 36px;
     .slick-slide {
         padding: 0 10px;
         .sub_image_overview {
