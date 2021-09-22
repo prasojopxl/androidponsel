@@ -70,7 +70,7 @@
 .mainMenuMobile {
     // background: $color-gray2;
     background: transparent none;
-    padding: 10px 5px; 
+    padding: 10px 5px;
     @media screen and (max-width: $widthMobileMax) {
         background: #fff;
     }
@@ -85,16 +85,16 @@
             max-width: 76%;
             margin-left: auto;
             margin-right: auto;
-            border:1px solid #efefef;
+            border: 1px solid #efefef;
         }
 
         @media screen and (max-width: $widthMobileMax) {
             max-width: 96%;
             margin-left: auto;
             margin-right: auto;
-            border:1px solid #efefef;            
+            border: 1px solid #efefef;
         }
-        &:first-child{
+        &:first-child {
             margin-top: 20px;
             @media screen and (max-width: $widthMobileMax) {
                 margin-top: 10px;
@@ -112,17 +112,16 @@
             }
             @media screen and (max-width: 1200px) {
                 font-size: 16px;
-                line-height: 20px; 
-                padding: 14px 15px 16px 15px;               
+                line-height: 20px;
+                padding: 14px 15px 16px 15px;
             }
             @media screen and (max-width: $widthMobileSm) {
                 text-align: left;
                 font-size: 15px;
-                line-height: 19px;                 
+                line-height: 19px;
             }
         }
     }
-
 }
 
 .mainmenu {
@@ -192,7 +191,7 @@
     position: absolute;
     z-index: 3;
     top: 53px;
-    &::after{
+    &::after {
         content: " ";
         position: absolute;
         width: 100vw;
@@ -202,7 +201,7 @@
         background: #fff;
         @media screen and (max-width: 1200px) {
             top: 107px;
-        }        
+        }
         @media screen and (max-width: 992px) {
             top: 64px;
         }
@@ -212,9 +211,7 @@
         @media (max-width: $widthMobileSm) {
             top: 50px;
         }
-
-        
-    }    
+    }
     @media screen and (max-width: 1200px) {
         top: 35px;
     }
@@ -257,7 +254,7 @@
     padding: 18px 0px 32px 0px;
     margin: 0 auto;
     text-align: center;
-    position: absolute;
+    position: fixed;
     z-index: 3;
     top: 190px;
     font-family: "RubikMedium", sans-serif;
@@ -283,7 +280,7 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            margin:5px 0px;
+            margin: 5px 0px;
             text-align: left;
             background: #fff;
         }
