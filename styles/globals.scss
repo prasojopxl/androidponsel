@@ -398,7 +398,7 @@ a.ap-btn-secondary {
         position: absolute;
         left: 0;
         bottom: 0;
-        width: 100%;
+        width: 100vw;
         height: 110%;
         -webkit-box-sizing: content-box;
         -moz-box-sizing: content-box;
@@ -460,7 +460,7 @@ a.ap-btn-secondary {
 .right_side_spesification{
     padding: 45px 0px 0px 0px;
     @media screen and (max-width: $widthMobileSm) {
-        padding: 32px 0px 0px 0px;
+        padding: 5px 0px 0px 0px;
     }
 }
 

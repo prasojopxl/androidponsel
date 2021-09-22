@@ -39,16 +39,24 @@
         font-family: $font-MulishRegular;
         color: $color-gray3;
         font-size: 12px;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
     }
     h4 {
         color: $color-black;
-        font-size: 17px;
-        font-family: $font-MulishBold;
+        font-size: 20px;
+        font-family: $font-RubikMedium;
+        letter-spacing: 0.3px;
     }
     a {
         color: $color-green;
         text-decoration: underline;
+        display: block;
+        color: #89c340;
+        font-family: $font-RubikMedium, sans-serif;
+        letter-spacing: 0.25px;
+        font-size: 14px;
+        line-height: 1.45;
+        padding: 7px 0px;
     }
     @media (max-width: $widthMobileMax) {
         .logoMarketplace {
@@ -203,6 +211,11 @@
     @media (max-width: $widthMobileMax) {
         padding: 25px 0;
     }
+
+    @media (max-width: $widthMobileSm) {
+        padding: 5px 0px 25px 0px;
+    }    
+
 }
 
 .overview {
@@ -231,12 +244,37 @@
     border-left: $color-gray solid 1px;
     padding-left: 40px;
     margin-bottom: 32px;
+    @media screen and (max-width: 992px) {
+        padding-left: 0px;
+        border-left: #fff solid 1px;
+        margin-bottom: 0px;
+        margin-top: 10px;
+    }
+    @media screen and (max-width: $widthMobileMax) {
+        padding-left: 0px;
+        border-left: #fff solid 1px;
+    }
     @media screen and (max-width: $widthMobileSm) {
         margin-bottom: 24px;
     }
     h1 {
         font-size: 30px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+        font-family: $font-RubikMedium, sans-serif;
+        @media screen and (max-width: 1200px) {
+            font-size: 28px;
+        }
+
+        @media screen and (max-width: $widthMobileMax) {
+            font-size: 26px;
+        }
+
+        @media screen and (max-width: $widthMobileSm) {
+            font-size: 24px;
+        }
+        @media screen and (max-width: $widthMobileXs) {
+            font-size: 23px;
+        }        
     }
     h4 {
         font-size: 18px;
@@ -249,12 +287,16 @@
         font-family: $font-MulishRegular;
         display: flex;
         align-items: center;
+        overflow: unset;
         label {
             opacity: 0.8;
             font-weight: normal;
             margin: 0;
             margin-left: 7px;
             margin-bottom: 10px;
+        }
+        img{
+            top:-6.5px!important;
         }
     }
     .itemshort {
@@ -263,6 +305,10 @@
         color: $color-graytext;
         font-family: $font-MulishRegular;
         font-size: 16px;
+        overflow: unset;
+        div{
+            overflow: unset!important;
+        }
         label {
             color: $color-black;
             font-family: $font-RubikMedium;
@@ -301,7 +347,7 @@
     font-family: $font-MulishRegular;
     font-size: 16px;
     h5 {
-        margin-bottom: 5px;
+        margin-bottom: 14px;
     }
     @media (max-width: $widthMobileMax) {
         margin: 15px 0;
@@ -350,19 +396,30 @@
         }
     }
     @media (max-width: $widthMobileMax) {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+        font-family: $font-MulishRegular, sans-serif;
+        font-size: 16px;
         ul {
             margin-top: 15px;
-            padding: 10px 5px;
-            text-align: center;
+            padding: 10px 15px;
+            text-align: left;
+            border-radius: 9.5px;
             li {
-                display: inline-block;
+                display: block;
+                border-bottom: 1px solid #d7d7d7;
+                    &:last-child{
+                        border-bottom: 0px;
+                    }                
                 a {
-                    padding: 2px 10px;
-                    background: $color-green2;
+                    padding: 10px 10px 10px 0px;
+                    background: #fff;
                     border-radius: 30px;
-                    margin: 3px 5px;
+                    margin: 3px 5px 3px 0px;
                     font-size: 12px;
+                    border-radius: 0;
+                    font-family: $font-MulishRegular, sans-serif;
+                    font-size: 16px;
+                    color: $color-graytext, sans-serif;                    
                 }
             }
         }
@@ -438,8 +495,8 @@
     }
     @media (max-width: $widthMobileMax) {
         margin: 24px 0;
-        margin-bottom: 36px;
-        padding: 40px 0;
+        margin-bottom: 45px;
+        padding: 20px 0px 40px 0px;
     }
 }
 
@@ -544,13 +601,32 @@ h4 {
 }
 
 .containerCompare {
-    right: 0;
-    bottom: 0;
-    background: $color-gray;
+    right: 24px;
+    bottom: 24px;
+    background: #fff;
     z-index: 10;
     position: fixed;
+    border-radius: 12.5px;
+    box-shadow: 4px 6px 30px 2.5px rgba(214, 214, 214, 0.96);
+    -ms-box-shadow: 4px 6px 30px 2.5px rgba(214, 214, 214, 0.96);  
+    min-width: 274px;
+    overflow: hidden;
+    font-family: "RubikMedium", sans-serif;
+    font-size: 17px;
+    line-height: 24.5px;
+    letter-spacing: 0.3px;
+    h5{
+        font-family: $font-MulishRegular, sans-serif;
+        font-size: 13px;
+        line-height: 24.5px;       
+        color: $color-graytext;
+        margin-bottom: 5px;
+        &:first-child{
+            margin-top: 10px;
+        }
+    }
     .desc {
-        padding: 15px;
+        padding: 15px 24px 12px 24px;
     }
     @media (max-width: $widthMobileMax) {
         left: 0;
@@ -563,6 +639,13 @@ h4 {
             display: none;
         }
     }
+    @media (max-width: $widthMobileSm) {
+        max-width: 100%;
+        bottom: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        margin-bottom: 0px;
+    }
 }
 
 .wrpAction {
@@ -570,9 +653,31 @@ h4 {
     justify-content: space-between;
     text-align: center;
     align-items: center;
+    padding: 1px 24px 8px 24px;
+    margin-bottom: 10px;
+    @media (max-width: $widthMobileMax) {
+        position: relative;
+        &::before{
+            position: absolute;
+            content: " ";
+            width: 100vw;
+            height: 99px;
+            background: #fff;
+            left: 0px;
+            top: -15px;
+        }
+    }
+    @media (max-width: $widthMobileSm) {
+        margin-bottom: 3px;
+        margin-top: 10px;
+    }  
     .btnCompareProd {
-        padding: 10px 5px;
+        padding: 12px 5px;
         cursor: pointer;
+        border-radius: 14.5px;
+        font-family: "RubikMedium", sans-serif;
+        letter-spacing: 0.25px;
+        font-size: 15px;
     }
     .btnCompareProd {
         flex: 1;
@@ -580,6 +685,13 @@ h4 {
         color: #fff;
         z-index: 10;
         outline: none;
+        top: 20px;
+        &:hover{
+            background: $color-green-dark;
+            -webkit-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
+            box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
+            -ms-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);            
+        }
         @media (max-width: $widthMobileMax) {
             border-radius: 30px;
         }

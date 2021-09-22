@@ -156,7 +156,7 @@ export default function Handphone(props) {
                             </div>
                             <div className={styles.wrpAction}>
                                 <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
-                                    Lihat Bandingkan <span>({totalCompare})</span>
+                                    Lihat Perbandingkan <span>({totalCompare})</span>
                                 </div>
                             </div>
                         </Fragment>
