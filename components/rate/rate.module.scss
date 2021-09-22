@@ -30,7 +30,7 @@
   .wrpvote {
     flex: 1;
     img{
-      margin-right: 4px;
+      margin-right: 6px;
     }  
     div{
       font-family: "Mulish-Regular", sans-serif;
@@ -41,5 +41,9 @@
   }
   h6 {
     margin: 0 !important;
+    @media screen and (max-width: $widthMobileMax) {
+      margin-bottom: 5px!important;
+      display: block;
+    }
   }
 }

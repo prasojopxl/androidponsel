@@ -147,7 +147,7 @@ export default function DetailPage(props) {
                                     )}
                                 </div>
                             </div>
-                            <div className="col-lg-7">
+                            <div className="col-lg-7 add-md-4">
                                 <div className={styles.shortdesc}>
                                     <Rate rate={props.post.rating} voters={props.post.total_voters} />
                                     <h4>Spesifikasi Ringkas</h4>
@@ -319,264 +319,268 @@ export default function DetailPage(props) {
                 <div className={styles.contents}>
                     <div className="row">
                         <div className="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
-                            <Title title="Basic Information" idName="basic" />
-                            <div className={styles.itemDesc}>
-                                <h5>Deskripsi Produk</h5>
-                                {props.post.description !== null
-                                    ? props.post.description
-                                    : "Belum ada deskripsi produk"}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Brand Produk</h5>
-                                {props.post.brand.title}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Status</h5>
-                                {props.post.status}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Tanggal Rilis</h5>
-                                {props.post.release_date}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Warna</h5>
-                                {props.post.color}
-                            </div>
-
-                            <Title title="Design Material" idName="design" />
-                            <div className={styles.itemDesc}>
-                                <div className="row">
-                                    <div className="col-lg-4">
-                                        <h5>Ukuran Dimensi</h5>
-                                        {props.post.size}
-                                    </div>
-                                    <div className="col-lg-4">
-                                        <h5>Weight</h5>
-                                        {props.post.weight}
-                                    </div>
-                                    <div className="col-lg-4">
-                                        <h5>Resolution</h5>
-                                        {props.post.resolution}
-                                    </div>
+                            <div className="left_side_spesification">
+                                <Title title="Basic Information" idName="basic" />
+                                <div className={styles.itemDesc}>
+                                    <h5>Deskripsi Produk</h5>
+                                    {props.post.description !== null
+                                        ? props.post.description
+                                        : "Belum ada deskripsi produk"}
                                 </div>
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Type</h5>
-                                {props.post.display_type}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Protection</h5>
-                                {props.post.protection}
-                            </div>
-
-                            <Title title="Performance & Hardware" idName="hardware" />
-                            <div className={styles.itemDesc}>
-                                <h5>Processor</h5>
-                                {props.post.cpu}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Graphic</h5>
-                                {props.post.gpu}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Memory</h5>
-                                {props.post.ram}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Card Slot</h5>
-                                {props.post.card_slot}
-                            </div>
-
-                            <Title title="Camera" idName="camera" />
-                            <div className={styles.itemDesc}>
-                                <h5>Main Camera</h5>
-                                <div className="row">
-                                    <div className="col-lg-4">
-                                        <h6>Quad</h6>
-                                        {props.post.main_cam_triple}
-                                    </div>
-                                    <div className="col-lg-4">
-                                        <h6>Feature</h6>
-                                        {props.post.main_cam_features}
-                                    </div>
-                                    <div className="col-lg-4">
-                                        <h6>Video</h6>
-                                        {props.post.main_cam_video}
-                                    </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Brand Produk</h5>
+                                    {props.post.brand.title}
                                 </div>
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Selfie Camera</h5>
-                                <div className="row">
-                                    <div className="col-lg-4">
-                                        <h6>Quad</h6>
-                                        {props.post.selfie_cam_single}
-                                    </div>
-                                    <div className="col-lg-4">
-                                        <h6>Feature</h6>
-                                        {props.post.selfie_cam_features}
-                                    </div>
-                                    <div className="col-lg-4">
-                                        <h6>Video</h6>
-                                        {props.post.selfie_cam_video}
-                                    </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Status</h5>
+                                    {props.post.status}
                                 </div>
-                            </div>
-
-                            <Title title="Battery" idName="battery" />
-                            <div className={styles.itemDesc}>
-                                <h5>Batterai</h5>
-                                {props.post.charging_type}
-                            </div>
-
-                            <Title title="Software" idName="software" />
-                            <div className={styles.itemDesc}>
-                                <h5>Operating System</h5>
-                                {props.post.os}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Chipset</h5>
-                                {props.post.chipset}
-                            </div>
-
-                            <Title title="Sensors" idName="sensors" />
-                            <div className={styles.itemDesc}>
-                                <h5>Sensor</h5>
-                                {props.post.sensors}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>NFC</h5>
-                                {props.post.nfc}
-                            </div>
-
-                            <Title title="Network" idName="network" />
-                            <div className={styles.itemDesc}>
-                                <h5>Teknologi</h5>
-                                {props.post.technology} |{" "}
-                                <span className={styles.linkGeneral} onClick={showData}>
-                                    Lihat Detail
-                                </span>
-                                {show && (
-                                    <ul>
-                                        <li>2G : {props.post.bands_2G}</li>
-                                        <li>3G : {props.post.bands_3G}</li>
-                                        <li>4G : {props.post.bands_4G}</li>
-                                        <li>5G : {props.post.bands_5G}</li>
-                                    </ul>
-                                )}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>SIM</h5>
-                                {props.post.sim}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>WLAN</h5>
-                                {props.post.wlan}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Bluetooth</h5>
-                                {props.post.bluetooth}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>GPS</h5>
-                                {props.post.gps}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Infrared</h5>
-                                {props.post.infrared}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>Radio</h5>
-                                {props.post.radio}
-                            </div>
-                            <div className={styles.itemDesc}>
-                                <h5>USB</h5>
-                                {props.post.usb}
-                            </div>
-
-                            <Fragment>
-                                <Title title="Harga di Marketplace" idName="harga" />
-                                <div className="row" style={{ marginTop: 15 }}>
-                                    {
-                                        props.post.Price_Marketplace.map((item, i) => {
-                                            return (
-                                                <div className="col-lg-3" key={item.id}>
-                                                    <div className={styles.itemMarket}>
-                                                        <div className={styles.logoMarketplace}>
-                                                            <Image src={apiUrl + item.logo.url} width={item.logo.width} height={item.logo.height} alt={item.title} />
-                                                        </div>
-                                                        <hr />
-                                                        {
-                                                            item.List.map((listItem, i) => {
-                                                                return (
-                                                                    <div className={styles.productMarketplace} key={listItem.id}>
-                                                                        <h6>{listItem.spec}</h6>
-                                                                        <h4>{listItem.price}</h4>
-                                                                        <Link href={listItem.link}><a>Check di {item.title}</a></Link>
-                                                                    </div>
-                                                                )
-                                                            })
-                                                        }
-                                                    </div>
-                                                </div>
-                                            )
-                                        })
-                                    }
+                                <div className={styles.itemDesc}>
+                                    <h5>Tanggal Rilis</h5>
+                                    {props.post.release_date}
                                 </div>
-                            </Fragment>
+                                <div className={styles.itemDesc}>
+                                    <h5>Warna</h5>
+                                    {props.post.color}
+                                </div>
 
-                            {props.post.post && (
-                                <div>
-                                    <Title title="Review" idName="review" />
-                                    <div className={styles.contentreview}>
-                                        <h4>{props.post.post.title}</h4>
-                                        <div className={styles.bodypost}>
-                                            {props.post.post.content}
-                                            <p style={{ marginTop: 20 }}>
-                                                <Link
-                                                    href={baseUrl + currentPage + "/" + props.post.post.slug}
-                                                >
-                                                    <a className="btn">Full Review</a>
-                                                </Link>
-                                            </p>
+                                <Title title="Design Material" idName="design" />
+                                <div className={styles.itemDesc}>
+                                    <div className="row">
+                                        <div className="col-lg-4">
+                                            <h5>Ukuran Dimensi</h5>
+                                            {props.post.size}
+                                        </div>
+                                        <div className="col-lg-4">
+                                            <h5>Weight</h5>
+                                            {props.post.weight}
+                                        </div>
+                                        <div className="col-lg-4">
+                                            <h5>Resolution</h5>
+                                            {props.post.resolution}
                                         </div>
                                     </div>
                                 </div>
-                            )}
+                                <div className={styles.itemDesc}>
+                                    <h5>Type</h5>
+                                    {props.post.display_type}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Protection</h5>
+                                    {props.post.protection}
+                                </div>
+
+                                <Title title="Performance & Hardware" idName="hardware" />
+                                <div className={styles.itemDesc}>
+                                    <h5>Processor</h5>
+                                    {props.post.cpu}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Graphic</h5>
+                                    {props.post.gpu}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Memory</h5>
+                                    {props.post.ram}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Card Slot</h5>
+                                    {props.post.card_slot}
+                                </div>
+
+                                <Title title="Camera" idName="camera" />
+                                <div className={styles.itemDesc}>
+                                    <h5>Main Camera</h5>
+                                    <div className="row">
+                                        <div className="col-lg-4">
+                                            <h6>Quad</h6>
+                                            {props.post.main_cam_triple}
+                                        </div>
+                                        <div className="col-lg-4">
+                                            <h6>Feature</h6>
+                                            {props.post.main_cam_features}
+                                        </div>
+                                        <div className="col-lg-4">
+                                            <h6>Video</h6>
+                                            {props.post.main_cam_video}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Selfie Camera</h5>
+                                    <div className="row">
+                                        <div className="col-lg-4">
+                                            <h6>Quad</h6>
+                                            {props.post.selfie_cam_single}
+                                        </div>
+                                        <div className="col-lg-4">
+                                            <h6>Feature</h6>
+                                            {props.post.selfie_cam_features}
+                                        </div>
+                                        <div className="col-lg-4">
+                                            <h6>Video</h6>
+                                            {props.post.selfie_cam_video}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <Title title="Battery" idName="battery" />
+                                <div className={styles.itemDesc}>
+                                    <h5>Batterai</h5>
+                                    {props.post.charging_type}
+                                </div>
+
+                                <Title title="Software" idName="software" />
+                                <div className={styles.itemDesc}>
+                                    <h5>Operating System</h5>
+                                    {props.post.os}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Chipset</h5>
+                                    {props.post.chipset}
+                                </div>
+
+                                <Title title="Sensors" idName="sensors" />
+                                <div className={styles.itemDesc}>
+                                    <h5>Sensor</h5>
+                                    {props.post.sensors}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>NFC</h5>
+                                    {props.post.nfc}
+                                </div>
+
+                                <Title title="Network" idName="network" />
+                                <div className={styles.itemDesc}>
+                                    <h5>Teknologi</h5>
+                                    {props.post.technology} |{" "}
+                                    <span className={styles.linkGeneral} onClick={showData}>
+                                        Lihat Detail
+                                    </span>
+                                    {show && (
+                                        <ul>
+                                            <li>2G : {props.post.bands_2G}</li>
+                                            <li>3G : {props.post.bands_3G}</li>
+                                            <li>4G : {props.post.bands_4G}</li>
+                                            <li>5G : {props.post.bands_5G}</li>
+                                        </ul>
+                                    )}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>SIM</h5>
+                                    {props.post.sim}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>WLAN</h5>
+                                    {props.post.wlan}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Bluetooth</h5>
+                                    {props.post.bluetooth}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>GPS</h5>
+                                    {props.post.gps}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Infrared</h5>
+                                    {props.post.infrared}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>Radio</h5>
+                                    {props.post.radio}
+                                </div>
+                                <div className={styles.itemDesc}>
+                                    <h5>USB</h5>
+                                    {props.post.usb}
+                                </div>
+
+                                <Fragment>
+                                    <Title title="Harga di Marketplace" idName="harga" />
+                                    <div className="row" style={{ marginTop: 15 }}>
+                                        {
+                                            props.post.Price_Marketplace.map((item, i) => {
+                                                return (
+                                                    <div className="col-lg-3" key={item.id}>
+                                                        <div className={styles.itemMarket}>
+                                                            <div className={styles.logoMarketplace}>
+                                                                <Image src={apiUrl + item.logo.url} width={item.logo.width} height={item.logo.height} alt={item.title} />
+                                                            </div>
+                                                            <hr />
+                                                            {
+                                                                item.List.map((listItem, i) => {
+                                                                    return (
+                                                                        <div className={styles.productMarketplace} key={listItem.id}>
+                                                                            <h6>{listItem.spec}</h6>
+                                                                            <h4>{listItem.price}</h4>
+                                                                            <Link href={listItem.link}><a>Check di {item.title}</a></Link>
+                                                                        </div>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                </Fragment>
+
+                                {props.post.post && (
+                                    <div>
+                                        <Title title="Review" idName="review" />
+                                        <div className={styles.contentreview}>
+                                            <h4>{props.post.post.title}</h4>
+                                            <div className={styles.bodypost}>
+                                                {props.post.post.content}
+                                                <p style={{ marginTop: 20 }}>
+                                                    <Link
+                                                        href={baseUrl + currentPage + "/" + props.post.post.slug}
+                                                    >
+                                                        <a className="btn">Full Review</a>
+                                                    </Link>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
                         <div className="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12 order-first order-md-last">
                             <div className={styles.boxTableContent}>
-                                <Title title="Table of Content" />
-                                <ul>
-                                    <li>
-                                        <a href="#basic">Basic Information</a>
-                                    </li>
-                                    <li>
-                                        <a href="#design">Design Material</a>
-                                    </li>
-                                    <li>
-                                        <a href="#hardware">Performance & Hardware</a>
-                                    </li>
-                                    <li>
-                                        <a href="#camera">Camera</a>
-                                    </li>
-                                    <li>
-                                        <a href="#battery">Battery</a>
-                                    </li>
-                                    <li>
-                                        <a href="#software">Software</a>
-                                    </li>
-                                    <li>
-                                        <a href="#sensors">Sensors</a>
-                                    </li>
-                                    <li>
-                                        <a href="#network">Network</a>
-                                    </li>
-                                    <li>
-                                        <a href="#harga">Harga di Marketplace</a>
-                                    </li>
-                                </ul>
+                                <div className="right_side_spesification">
+                                    <Title title="Table of Content" />
+                                    <ul>
+                                        <li>
+                                            <a href="#basic">Basic Information</a>
+                                        </li>
+                                        <li>
+                                            <a href="#design">Design Material</a>
+                                        </li>
+                                        <li>
+                                            <a href="#hardware">Performance & Hardware</a>
+                                        </li>
+                                        <li>
+                                            <a href="#camera">Camera</a>
+                                        </li>
+                                        <li>
+                                            <a href="#battery">Battery</a>
+                                        </li>
+                                        <li>
+                                            <a href="#software">Software</a>
+                                        </li>
+                                        <li>
+                                            <a href="#sensors">Sensors</a>
+                                        </li>
+                                        <li>
+                                            <a href="#network">Network</a>
+                                        </li>
+                                        <li>
+                                            <a href="#harga">Harga di Marketplace</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

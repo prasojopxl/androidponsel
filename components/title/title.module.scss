@@ -7,12 +7,14 @@
         padding-bottom: 3px;
         padding-top: 3px;
         font-size: 30px;
-        font-family: $font-MulishBold;
+        font-family: $font-RubikMedium;
         font-size: 17px;
         padding-left: 15px;
         scroll-margin-top: 130px;
+        margin-bottom: 18px;
+        color: $color-black;
         @media screen and (max-width: $widthMobileMax) {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         &::before {
             content: "";

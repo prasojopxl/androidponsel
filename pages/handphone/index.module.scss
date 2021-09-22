@@ -230,9 +230,16 @@
     height: 100%;
     border-left: $color-gray solid 1px;
     padding-left: 40px;
+    margin-bottom: 32px;
+    @media screen and (max-width: $widthMobileSm) {
+        margin-bottom: 24px;
+    }
     h4 {
-        font-size: 20px;
+        font-size: 18px;
         margin-top: 20px;
+        margin-bottom: 15px;
+        font-family: $font-RubikMedium, sans-serif;
+        color: $color-black;
     }
     .title {
         font-family: $font-MulishRegular;
@@ -243,11 +250,20 @@
             font-weight: normal;
             margin: 0;
             margin-left: 7px;
+            margin-bottom: 10px;
         }
     }
     .itemshort {
         margin-top: 15px;
         margin-bottom: 15px;
+        color: $color-graytext;
+        font-family: $font-MulishRegular;
+        font-size: 16px;
+        label{
+            color: $color-black;
+            font-family: $font-RubikMedium;
+            margin-left: 12px;
+        }        
         span {
             &::after {
                 content: "/";
@@ -277,6 +293,9 @@
 .itemDesc {
     margin: 30px 0;
     max-width: 1000px;
+    color: $color-graytext;
+    font-family: $font-MulishRegular;
+    font-size: 16px;
     h5 {
         margin-bottom: 5px;
     }
@@ -303,7 +322,10 @@
 .boxTableContent {
     display: block;
     position: sticky;
-    top: 130px;
+    top: 120px;
+    @media screen and (max-width: 1200px) {
+        top: 86px;
+    }
     ul {
         width: 100%;
         border: $color-gray solid 1px;
@@ -411,9 +433,9 @@
         max-width: 1250px;
     }
     @media (max-width: $widthMobileMax) {
-        padding: 20px 0;
-        margin: 15px 0;
-        margin-bottom: 20px;
+        margin: 24px 0;
+        margin-bottom: 36px;
+        padding: 40px 0;
     }
 }
 
@@ -426,6 +448,9 @@
     background: #fff;
     max-width: 1250px;
     margin: 0 auto;
+    @media (max-width: $widthMobileMax) {
+        padding-top: 35px;
+    }
     color: $color-graytext;
     .contents {
         width: 100%;
@@ -464,6 +489,10 @@
     }
     .imgwrp {
         text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-family: $font-MulishSemiBold, sans-serif;
+        columns: $color-black2;
     }
     h5 {
     }
@@ -554,13 +583,31 @@ h4 {
 }
 
 .rateForm {
-    margin-left: 30px;
+    margin-left: 32px;
+    font-size: 32px;
+    @media (max-width: $widthMobileMax) {
+        width: 100%;
+    }
+    svg{
+        margin-right: 12px;
+        margin-bottom: 6px;
+        width: 24px;
+        @media (max-width: $widthMobileMax) {
+            margin: 14px 0px 10px 0px;
+        }
+    }
     h2 {
         margin-bottom: 10px;
         font-size: 17px;
+        font-family: $font-MulishSemiBold, sans-serif;
+        letter-spacing: 0.2px;
+        color: $color-black;
+        margin-bottom: 15px;
     }
     @media (max-width: $widthMobileMax) {
         margin-left: 20px;
+        width: 100%;
+        display: block;
         h2 {
             margin-bottom: 5px;
             font-size: 14px;
@@ -570,7 +617,13 @@ h4 {
 
 .rateInfo {
     display: flex;
+    flex: wrap;
     align-items: center;
+    -ms-align-items: center;
+    @media (max-width: $widthMobileMax) {
+        width: 100%;
+        display: block;
+    }    
 }
 
 .buttonDefault {
@@ -579,10 +632,32 @@ h4 {
     color: #fff;
     border-radius: 5px;
     padding: 3px 10px;
+    font-size: 15.5px;
+    font-family: "RubikMedium", sans-serif;
+    letter-spacing: 0.2px;
+    line-height: 1.6;
+    padding: 12.5px 15px;
+    border-radius: 17.5px;
+    min-width: 156px;
+    display: -moz-box;
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    text-align: center;    
+    margin:15px 0px 10px 0px;
 }
 
 .infoRating {
     margin-left: 20px;
+    font-family: $font-MulishRegular, sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    color: $color-black;
+    @media screen and (max-width: $widthMobileMax) {
+        margin-left: 0px;
+    }
 }
 
 .itemcompare {
