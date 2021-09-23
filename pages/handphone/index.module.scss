@@ -30,10 +30,33 @@
         background: #fff;
         padding: 15px;
         border-radius: 0px;
-        border-bottom: 1px solid #d7d7d7;
+        @media screen and (max-width: 1200px) {
+            width: 196px;
+            height: auto;
+            padding: 10px 0px;
+        }
+        @media screen and (max-width: 992px) {
+            width: 196px;
+            height: auto;
+            padding: 10px 0px;
+        }        
     }
     .productMarketplace {
-        margin: 15px 0;
+        margin: 18px 0px 15px 0px;
+        @media screen and (max-width: 992px) {
+            margin: 21px 0px 12px 0px;
+            border-bottom: 1px solid #f9f9f8;
+            border-top: 1px solid #f9f9f8;
+            padding-bottom: 15px;
+            padding-top:20px;
+        }
+        @media screen and (max-width: $widthMobileMax) {
+            margin: 21px 0px 12px 0px;
+            border-bottom: 1px solid #f9f9f8;
+            border-top: 1px solid #f9f9f8;
+            padding-bottom: 15px;
+            padding-top:20px;
+        }
     }
     h6 {
         font-family: $font-MulishRegular;
@@ -60,7 +83,11 @@
     }
     @media (max-width: $widthMobileMax) {
         .logoMarketplace {
-            display: none;
+            display: block;
+            max-width: 150px;
+            padding:15px 0px 0px 0px;
+            position: relative;
+         
         }
     }
 }
