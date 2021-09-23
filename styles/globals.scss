@@ -409,6 +409,18 @@ a.ap-btn-secondary {
     }
 }
 
+.gutter-0.row,
+.gutter-0.container,
+.gutter-0.container-fluid {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.gutter-0>[class^="col-"] {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
 .wrp_thumbapps{
     width: 100%;
     height: auto;

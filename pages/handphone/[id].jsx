@@ -498,16 +498,15 @@ export default function DetailPage(props) {
 
                                 <Fragment>
                                     <Title title="Harga di Marketplace" idName="harga" />
-                                    <div className="row" style={{ marginTop: 15 }}>
+                                    <div className="row gutter-0" style={{ marginTop: 15 }}>
                                         {
                                             props.post.Price_Marketplace.map((item, i) => {
                                                 return (
-                                                    <div className="col-lg-3" key={item.id}>
+                                                    <div className="col-lg-3 col-md-d col-sm-6 col-12" key={item.id}>
                                                         <div className={styles.itemMarket}>
                                                             <div className={styles.logoMarketplace}>
                                                                 <Image src={apiUrl + item.logo.url} width={item.logo.width} height={item.logo.height} alt={item.title} />
                                                             </div>
-                                                            <hr />
                                                             {
                                                                 item.List.map((listItem, i) => {
                                                                     return (

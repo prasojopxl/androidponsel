@@ -28,9 +28,9 @@
         align-items: center;
         justify-content: center;
         background: #fff;
-        border: $color-gray solid 1px;
         padding: 15px;
-        border-radius: 5px;
+        border-radius: 0px;
+        border-bottom: 1px solid #d7d7d7;
     }
     .productMarketplace {
         margin: 15px 0;
@@ -492,6 +492,9 @@
     .contents {
         width: 100%;
         max-width: 1250px;
+        @media screen and (min-width: 1920px) and (max-width: 1920px) {
+            max-width: 1320px;
+        }
     }
     @media (max-width: $widthMobileMax) {
         margin: 24px 0;
