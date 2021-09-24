@@ -23,7 +23,7 @@ export async function getStaticProps(context) {
     const topNews = await fetchDataBlog(
         "categories=127&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
     );
-    const topApp = await fetchDataBlog(
+    const topApp = await fetchDataApp(
         "per_page=1&_embed=author,wp:featuredmedia,wp:term"
     );
     const listApp = await fetchDataApp(
@@ -186,61 +186,27 @@ export default function Home(props) {
                                             key={item.id}
                                         >
                                             <div className={styles.itemcompare}>
-                                                <div className={styles.wrpCompare}>
-                                                    {item.products.map((data) => {
-                                                        return (
-                                                            <div
-                                                                className={
-                                                                    styles.item
-                                                                }
-                                                                key={data.id}
-                                                            >
+                                                <div
+                                                    className={
+                                                        styles.wrpCompare
+                                                    }
+                                                >
+                                                    {item.products.map(
+                                                        (data) => {
+                                                            return (
                                                                 <div
                                                                     className={
-                                                                        styles.imgwrp
+                                                                        styles.item
+                                                                    }
+                                                                    key={
+                                                                        data.id
                                                                     }
                                                                 >
-
-                                                                <Link
-                                                                        href={
-                                                                            baseUrl +
-                                                                            "handphone/" +
-                                                                            data.slug
-                                                                        }    
-                                                                    >    
-                                                                    <Image
-                                                                        src={
-                                                                            apiUrl +
-                                                                            data
-                                                                                .product_image[0]
-                                                                                .url
+                                                                    <div
+                                                                        className={
+                                                                            styles.imgwrp
                                                                         }
-                                                                        width={
-                                                                            data
-                                                                                .product_image[0]
-                                                                                .width /
-                                                                            2
-                                                                        }
-                                                                        height={
-                                                                            data
-                                                                                .product_image[0]
-                                                                                .height /
-                                                                            2
-                                                                        }
-                                                                        alt={
-                                                                            data
-                                                                                .product_image[0]
-                                                                                .name
-                                                                        }
-                                                                    ></Image>
-                                                                </Link> 
-                                                                </div>
-                                                                <div
-                                                                    className={
-                                                                        styles.contentDec
-                                                                    }
-                                                                >
-                                                                    <div className="flexing-title-compare">
+                                                                    >
                                                                         <Link
                                                                             href={
                                                                                 baseUrl +
@@ -248,24 +214,65 @@ export default function Home(props) {
                                                                                 data.slug
                                                                             }
                                                                         >
-                                                                            <a className="min_heigh_two_lines">
-                                                                                <h5 className="mediumtitleTile">
-                                                                                    {
-                                                                                        data.title
-                                                                                    }
-                                                                                </h5>
-                                                                            </a>
+                                                                            <Image
+                                                                                src={
+                                                                                    apiUrl +
+                                                                                    data
+                                                                                        .product_image[0]
+                                                                                        .url
+                                                                                }
+                                                                                width={
+                                                                                    data
+                                                                                        .product_image[0]
+                                                                                        .width /
+                                                                                    2
+                                                                                }
+                                                                                height={
+                                                                                    data
+                                                                                        .product_image[0]
+                                                                                        .height /
+                                                                                    2
+                                                                                }
+                                                                                alt={
+                                                                                    data
+                                                                                        .product_image[0]
+                                                                                        .name
+                                                                                }
+                                                                            ></Image>
                                                                         </Link>
-                                                                        <h6>
-                                                                            {
-                                                                                data.memory_internal
-                                                                            }
-                                                                        </h6>  
-                                                                    </div>    
+                                                                    </div>
+                                                                    <div
+                                                                        className={
+                                                                            styles.contentDec
+                                                                        }
+                                                                    >
+                                                                        <div className="flexing-title-compare">
+                                                                            <Link
+                                                                                href={
+                                                                                    baseUrl +
+                                                                                    "handphone/" +
+                                                                                    data.slug
+                                                                                }
+                                                                            >
+                                                                                <a className="min_heigh_two_lines">
+                                                                                    <h5 className="mediumtitleTile">
+                                                                                        {
+                                                                                            data.title
+                                                                                        }
+                                                                                    </h5>
+                                                                                </a>
+                                                                            </Link>
+                                                                            <h6>
+                                                                                {
+                                                                                    data.memory_internal
+                                                                                }
+                                                                            </h6>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        );
-                                                    })}
+                                                            );
+                                                        }
+                                                    )}
                                                 </div>
                                                 <Link
                                                     href={
@@ -276,10 +283,15 @@ export default function Home(props) {
                                                         item.products[1].slug
                                                     }
                                                 >
-                                                    <a className={styles.fullLink}>
+                                                    <a
+                                                        className={
+                                                            styles.fullLink
+                                                        }
+                                                    >
                                                         <div
                                                             style={{
-                                                                marginRight: "10px",
+                                                                marginRight:
+                                                                    "10px",
                                                                 display: "flex",
                                                                 alignItems:
                                                                     "center",
@@ -318,7 +330,9 @@ export default function Home(props) {
                                                 }
                                                 rating={item.rating}
                                                 voters={item.total_voters}
-                                                productImage={item.product_image[0]}
+                                                productImage={
+                                                    item.product_image[0]
+                                                }
                                                 slug={item.slug}
                                             />
                                         </div>
@@ -331,7 +345,7 @@ export default function Home(props) {
                                         Lihat Selegkapnya
                                     </a>
                                 </Link>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -350,47 +364,42 @@ export default function Home(props) {
                                                         className="largeFeatured"
                                                         key={item.id}
                                                     >
-                                                        <div
-                                                            className="wrpFeatured"
-                                                        >
+                                                        <div className="wrpFeatured">
                                                             <a href={item.link}>
-                                                            <Image
-                                                                src={
-                                                                    item
-                                                                        ._embedded[
-                                                                        "wp:featuredmedia"
-                                                                    ][0]
-                                                                        .source_url
-                                                                }
-                                                                width={
-                                                                    item
-                                                                        ._embedded[
-                                                                        "wp:featuredmedia"
-                                                                    ][0]
-                                                                        .media_details
-                                                                        .width
-                                                                }
-                                                                height={
-                                                                    item
-                                                                        ._embedded[
-                                                                        "wp:featuredmedia"
-                                                                    ][0]
-                                                                        .media_details
-                                                                        .height
-                                                                }
-                                                                alt={
-                                                                    item.title
-                                                                        .rendered
-                                                                }
-                                                            />
-                                                            </a>  
+                                                                <Image
+                                                                    src={
+                                                                        item
+                                                                            ._embedded[
+                                                                            "wp:featuredmedia"
+                                                                        ][0]
+                                                                            .source_url
+                                                                    }
+                                                                    width={
+                                                                        item
+                                                                            ._embedded[
+                                                                            "wp:featuredmedia"
+                                                                        ][0]
+                                                                            .media_details
+                                                                            .width
+                                                                    }
+                                                                    height={
+                                                                        item
+                                                                            ._embedded[
+                                                                            "wp:featuredmedia"
+                                                                        ][0]
+                                                                            .media_details
+                                                                            .height
+                                                                    }
+                                                                    alt={
+                                                                        item
+                                                                            .title
+                                                                            .rendered
+                                                                    }
+                                                                />
+                                                            </a>
                                                         </div>
-                                                        <div
-                                                            className="descFeatured"
-                                                        >
-                                                            <div
-                                                                className="tagGreen"
-                                                            >
+                                                        <div className="descFeatured">
+                                                            <div className="tagGreen">
                                                                 {item._embedded[
                                                                     "wp:term"
                                                                 ][0].map(
@@ -413,7 +422,11 @@ export default function Home(props) {
                                                                 )}
                                                             </div>
                                                             <div className="feturedCard">
-                                                                <a href={item.link}>
+                                                                <a
+                                                                    href={
+                                                                        item.link
+                                                                    }
+                                                                >
                                                                     <h4 className="titlefloatingCard">
                                                                         {
                                                                             item
@@ -421,7 +434,7 @@ export default function Home(props) {
                                                                                 .rendered
                                                                         }
                                                                     </h4>
-                                                                </a>                                                                    
+                                                                </a>
                                                             </div>
                                                             <div
                                                                 className={
@@ -468,7 +481,11 @@ export default function Home(props) {
                                                                 >
                                                                     <div className="col-lg-5 col-md-12 col-sm-3 col-12">
                                                                         <div className="wrp_thumbapps">
-                                                                            <a href={item.link}>
+                                                                            <a
+                                                                                href={
+                                                                                    item.link
+                                                                                }
+                                                                            >
                                                                                 <Image
                                                                                     src={
                                                                                         item
@@ -502,72 +519,72 @@ export default function Home(props) {
                                                                                     }
                                                                                 />
                                                                             </a>
-                                                                        </div>             
-                                                                    </div>   
+                                                                        </div>
+                                                                    </div>
 
                                                                     <div className="col-lg-7 col-md-12 col-sm-9 col-12">
-                                                                            <div
-                                                                                className={
-                                                                                    styles.tags
+                                                                        <div
+                                                                            className={
+                                                                                styles.tags
+                                                                            }
+                                                                        >
+                                                                            {item._embedded[
+                                                                                "wp:term"
+                                                                            ][0].map(
+                                                                                (
+                                                                                    data
+                                                                                ) => {
+                                                                                    return (
+                                                                                        <a
+                                                                                            href={
+                                                                                                data.link
+                                                                                            }
+                                                                                            key={
+                                                                                                data.id
+                                                                                            }
+                                                                                        >
+                                                                                            {
+                                                                                                data.name
+                                                                                            }
+                                                                                        </a>
+                                                                                    );
+                                                                                }
+                                                                            )}
+                                                                        </div>
+                                                                        <div className="sm_title_cardNews">
+                                                                            <a
+                                                                                href={
+                                                                                    item.link
                                                                                 }
                                                                             >
-                                                                                {item._embedded[
-                                                                                    "wp:term"
-                                                                                ][0].map(
-                                                                                    (
-                                                                                        data
-                                                                                    ) => {
-                                                                                        return (
-                                                                                            <a
-                                                                                                href={
-                                                                                                    data.link
-                                                                                                }
-                                                                                                key={
-                                                                                                    data.id
-                                                                                                }
-                                                                                            >
-                                                                                                {
-                                                                                                    data.name
-                                                                                                }
-                                                                                            </a>
-                                                                                        );
+                                                                                <h5 className="smalltitleTile">
+                                                                                    {
+                                                                                        item
+                                                                                            .title
+                                                                                            .rendered
                                                                                     }
-                                                                                )}
-                                                                            </div>
-                                                                            <div className="sm_title_cardNews">
-                                                                                <a
-                                                                                    href={
-                                                                                        item.link
+                                                                                </h5>
+                                                                            </a>
+                                                                            <div
+                                                                                className={
+                                                                                    styles.infodate
+                                                                                }
+                                                                            >
+                                                                                <span>
+                                                                                    By{" "}
+                                                                                    {
+                                                                                        item
+                                                                                            ._embedded
+                                                                                            .author[0]
+                                                                                            .name
                                                                                     }
-                                                                                >
-                                                                                    <h5 className="smalltitleTile">
-                                                                                        {
-                                                                                            item
-                                                                                                .title
-                                                                                                .rendered
-                                                                                        }
-                                                                                    </h5>
-                                                                                </a>
-                                                                                <div
-                                                                                    className={
-                                                                                        styles.infodate
-                                                                                    }
-                                                                                >
-                                                                                    <span>
-                                                                                        By{" "}
-                                                                                        {
-                                                                                            item
-                                                                                                ._embedded
-                                                                                                .author[0]
-                                                                                                .name
-                                                                                        }
-                                                                                    </span>
-                                                                                    <span>
-                                                                                        {item.date.substr(
-                                                                                            0,
-                                                                                            10
-                                                                                        )}
-                                                                                    </span>
+                                                                                </span>
+                                                                                <span>
+                                                                                    {item.date.substr(
+                                                                                        0,
+                                                                                        10
+                                                                                    )}
+                                                                                </span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -614,22 +631,31 @@ export default function Home(props) {
                                                     key={item.id}
                                                 >
                                                     <div className="wrpFeatured">
-                                                        <a href={item.link}>
+                                                        <a
+                                                            href={item.link}
+                                                            className={
+                                                                styles.imageFeature
+                                                            }
+                                                        >
                                                             <Image
                                                                 src={
-                                                                    item._embedded[
+                                                                    item
+                                                                        ._embedded[
                                                                         "wp:featuredmedia"
-                                                                    ][0].source_url
+                                                                    ][0]
+                                                                        .source_url
                                                                 }
                                                                 width={
-                                                                    item._embedded[
+                                                                    item
+                                                                        ._embedded[
                                                                         "wp:featuredmedia"
                                                                     ][0]
                                                                         .media_details
                                                                         .width
                                                                 }
                                                                 height={
-                                                                    item._embedded[
+                                                                    item
+                                                                        ._embedded[
                                                                         "wp:featuredmedia"
                                                                     ][0]
                                                                         .media_details
@@ -642,12 +668,8 @@ export default function Home(props) {
                                                             />
                                                         </a>
                                                     </div>
-                                                    <div
-                                                        className="descFeatured"
-                                                    >
-                                                        <div
-                                                            className="tagGreen"
-                                                        >
+                                                    <div className="descFeatured">
+                                                        <div className="tagGreen">
                                                             {item._embedded[
                                                                 "wp:term"
                                                             ][0].map((data) => {
@@ -671,7 +693,8 @@ export default function Home(props) {
                                                             <a href={item.link}>
                                                                 <h4 className="titlefloatingCard">
                                                                     {
-                                                                        item.title
+                                                                        item
+                                                                            .title
                                                                             .rendered
                                                                     }
                                                                 </h4>
@@ -722,7 +745,11 @@ export default function Home(props) {
                                                                 >
                                                                     <div className="col-lg-5 col-md-5 col-sm-4 col-4">
                                                                         <div className="wrp_thumbapps">
-                                                                            <a href={item.link}>
+                                                                            <a
+                                                                                href={
+                                                                                    item.link
+                                                                                }
+                                                                            >
                                                                                 <Image
                                                                                     src={
                                                                                         item
@@ -851,7 +878,7 @@ export default function Home(props) {
                         </div>
                     </div>
                 </div>
-                <GlobalAds adsId="4" />                
+                <GlobalAds adsId="4" />
                 <div className={styles.tipstrik}>
                     <div className={styles.contents}>
                         <Title title="Tips & Trik"></Title>
@@ -861,28 +888,28 @@ export default function Home(props) {
                                     {props.tipsTrikMain.map((item, i) => {
                                         return (
                                             <div key={item.id}>
-                                                <div
-                                                    className="largeFeatured"
-                                                >
-                                                    <div
-                                                        className="wrpFeatured"
-                                                    >
+                                                <div className="largeFeatured">
+                                                    <div className="wrpFeatured">
                                                         <a href={item.link}>
                                                             <Image
                                                                 src={
-                                                                    item._embedded[
+                                                                    item
+                                                                        ._embedded[
                                                                         "wp:featuredmedia"
-                                                                    ][0].source_url
+                                                                    ][0]
+                                                                        .source_url
                                                                 }
                                                                 width={
-                                                                    item._embedded[
+                                                                    item
+                                                                        ._embedded[
                                                                         "wp:featuredmedia"
                                                                     ][0]
                                                                         .media_details
                                                                         .width
                                                                 }
                                                                 height={
-                                                                    item._embedded[
+                                                                    item
+                                                                        ._embedded[
                                                                         "wp:featuredmedia"
                                                                     ][0]
                                                                         .media_details
@@ -895,9 +922,7 @@ export default function Home(props) {
                                                             />
                                                         </a>
                                                     </div>
-                                                    <div
-                                                        className="descFeatured"
-                                                    >
+                                                    <div className="descFeatured">
                                                         {/* <div
                                                             className={
                                                                 styles.imgwrp
@@ -937,7 +962,8 @@ export default function Home(props) {
                                                             <a href={item.link}>
                                                                 <h4 className="titlefloatingCard">
                                                                     {
-                                                                        item.title
+                                                                        item
+                                                                            .title
                                                                             .rendered
                                                                     }
                                                                 </h4>
@@ -984,13 +1010,12 @@ export default function Home(props) {
                                                     className="col-lg-6 col-md-6 col-sm-6 col-12"
                                                     key={item.id}
                                                 >
-                                                    <div className="row gutter-10" key={item.id}>
-                                                        <div
-                                                            className="col-lg-7 col-md-7 col-sm-8 col-8"
-                                                        >
-                                                            <div
-                                                                className="sm_title_cardNews"
-                                                            >
+                                                    <div
+                                                        className="row gutter-10"
+                                                        key={item.id}
+                                                    >
+                                                        <div className="col-lg-7 col-md-7 col-sm-8 col-8">
+                                                            <div className="sm_title_cardNews">
                                                                 <div
                                                                     className={
                                                                         styles.tags
@@ -1055,43 +1080,43 @@ export default function Home(props) {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div
-                                                            className="col-lg-5 col-md-5 col-sm-4 col-4"
-                                                        >
-                                                            <div
-                                                                className="wrp_thumbapps"
-                                                            >
-                                                                <a href={item.link}>
-                                                                <Image
-                                                                    src={
-                                                                        item
-                                                                            ._embedded[
-                                                                            "wp:featuredmedia"
-                                                                        ][0]
-                                                                            .source_url
+                                                        <div className="col-lg-5 col-md-5 col-sm-4 col-4">
+                                                            <div className="wrp_thumbapps">
+                                                                <a
+                                                                    href={
+                                                                        item.link
                                                                     }
-                                                                    width={
-                                                                        item
-                                                                            ._embedded[
-                                                                            "wp:featuredmedia"
-                                                                        ][0]
-                                                                            .media_details
-                                                                            .width
-                                                                    }
-                                                                    height={
-                                                                        item
-                                                                            ._embedded[
-                                                                            "wp:featuredmedia"
-                                                                        ][0]
-                                                                            .media_details
-                                                                            .height
-                                                                    }
-                                                                    alt={
-                                                                        item
-                                                                            .title
-                                                                            .rendered
-                                                                    }
-                                                                />
+                                                                >
+                                                                    <Image
+                                                                        src={
+                                                                            item
+                                                                                ._embedded[
+                                                                                "wp:featuredmedia"
+                                                                            ][0]
+                                                                                .source_url
+                                                                        }
+                                                                        width={
+                                                                            item
+                                                                                ._embedded[
+                                                                                "wp:featuredmedia"
+                                                                            ][0]
+                                                                                .media_details
+                                                                                .width
+                                                                        }
+                                                                        height={
+                                                                            item
+                                                                                ._embedded[
+                                                                                "wp:featuredmedia"
+                                                                            ][0]
+                                                                                .media_details
+                                                                                .height
+                                                                        }
+                                                                        alt={
+                                                                            item
+                                                                                .title
+                                                                                .rendered
+                                                                        }
+                                                                    />
                                                                 </a>
                                                             </div>
                                                         </div>

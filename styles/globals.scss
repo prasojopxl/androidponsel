@@ -398,7 +398,7 @@ a.ap-btn-secondary {
         position: absolute;
         left: 0;
         bottom: 0;
-        width: 100%;
+        width: 100vw;
         height: 110%;
         -webkit-box-sizing: content-box;
         -moz-box-sizing: content-box;
@@ -409,7 +409,64 @@ a.ap-btn-secondary {
     }
 }
 
+.gutter-0.row,
+.gutter-0.container,
+.gutter-0.container-fluid {
+	margin-left: -12px;
+	margin-right: -12px;
+    @media screen and (max-width: $widthMobileMax) {
+        margin-left: -15px;
+        margin-right: -15px;     
+        overflow: hidden;   
+    }
+}
+
+.wrp-commercePrice{
+    overflow: hidden;
+}
+
+.gutter-0>[class^="col-"] {
+	padding-left: 12px;
+	padding-right: 12px;
+    @media screen and (max-width: $widthMobileMax) {
+        padding-left: 15px;
+        padding-right: 15px;
+        overflow: hidden;
+        .col-12{
+            .handphone_itemMarket{
+                overflow: hidden;
+                position: relative;
+            }
+        }
+    }
+}
+
+.commerce_price{
+    position: relative;
+    overflow: hidden;
+    &::after{
+        content: " ";
+        position: absolute;
+        left: 12px;
+        top:41%;
+        width: 100%;
+        height: 1px;
+        background: #d7d7d7;
+        @media screen and (max-width: 1200px) {
+            display: none;
+        }
+        @media screen and (max-width: 992px) {
+            display: none;
+        }        
+        @media screen and (max-width: $widthMobileMax) {
+            display: none;
+        }
+    }
+}
+
+
 .wrp_thumbapps{
+    line-height: 0;
     width: 100%;
     height: auto;
     min-height: 100px;
@@ -460,7 +517,7 @@ a.ap-btn-secondary {
 .right_side_spesification{
     padding: 45px 0px 0px 0px;
     @media screen and (max-width: $widthMobileSm) {
-        padding: 32px 0px 0px 0px;
+        padding: 5px 0px 0px 0px;
     }
 }
 

@@ -28,6 +28,18 @@
         max-width: 100vw;
     }
 
+    @media screen and (max-width: $widthMobileSm) {
+        width: 100%;
+        min-width: 300px;
+        max-width: 100vw;
+    }
+
+    @media screen and (max-width: $widthMobileXs) {
+        width: 100%;
+        min-width: 286px;
+        max-width: 100vw;
+    }
+
     svg{
         margin-right: 4px;
     }
