@@ -9,6 +9,7 @@ import { apiUrl, baseUrl } from "../config/variable";
 import Layout from "../layout";
 import styles from "./index.module.scss";
 
+//exp
 export async function getStaticProps(context) {
     const dataAllProd = await fetchData("/products");
     const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
