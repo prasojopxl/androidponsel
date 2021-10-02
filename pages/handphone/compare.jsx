@@ -657,7 +657,7 @@ export default function compare({
 																alt="camera"
 															/>
 														</div>
-														Lihat Perbandingan
+														See Comparation
 													</a>
 												</Link>
 											</div>

@@ -135,14 +135,14 @@ export default function Brand(props) {
                     show && (
                         <Fragment>
                             <div className={styles.desc}>
-                                Badingkan Produk:
+                                Compare Product:
                                 {compare1 && <h5>{compare1}</h5>}
                                 {compare2 && <h5>{compare2}</h5>}
                                 {compare3 && <h5>{compare3}</h5>}
                             </div>
                             <div className={styles.wrpAction}>
                                 <div className={styles.btnCompareProd} onClick={() => goToCompare()} >
-                                    Lihat Perbandingan
+                                    See Comparation
                                 </div>
                             </div>
                         </Fragment>

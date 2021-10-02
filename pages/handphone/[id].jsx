@@ -151,7 +151,7 @@ export default function DetailPage(props) {
                                 <div className={styles.shortdesc}>
                                     <h1>{props.post.title}</h1>
                                     <Rate rate={props.post.rating} voters={props.post.total_voters} />
-                                    <h4>Spesifikasi Ringkas</h4>
+                                    <h4>Specification</h4>
                                     <div className="row">
                                         <div className="col-lg-4">
                                             <div className={styles.itemshort}>
@@ -263,7 +263,7 @@ export default function DetailPage(props) {
                                                         height={20}
                                                         alt="memory"
                                                     />
-                                                    <label>Memory Penyimpanan</label>
+                                                    <label>Memory Storage</label>
                                                 </div>
                                                 {props.post.memory_internal}
                                             </div>
@@ -305,7 +305,7 @@ export default function DetailPage(props) {
                                                         height={11}
                                                         alt="camera"
                                                     />
-                                                    <label>Kapasitas Battery</label>
+                                                    <label>Battery Capacity</label>
                                                 </div>
                                                 {props.post.charging_type}
                                             </div>
@@ -323,7 +323,7 @@ export default function DetailPage(props) {
                             <div className="left_side_spesification">
                                 <Title title="Basic Information" idName="basic" />
                                 <div className={styles.itemDesc}>
-                                    <h5>Deskripsi Produk</h5>
+                                    <h5>Description Product</h5>
                                     {props.post.description !== null
                                         ? props.post.description
                                         : "Belum ada deskripsi produk"}
@@ -497,7 +497,7 @@ export default function DetailPage(props) {
                                 </div>
 
                                 <Fragment>
-                                    <Title title="Harga di Marketplace" idName="harga" />
+                                    <Title title="Price Marketplace" idName="harga" />
                                     <div className="row gutter-0 commerce_price" style={{ marginTop: 15 }}>
                                         {
                                             props.post.Price_Marketplace.map((item, i) => {
@@ -579,7 +579,7 @@ export default function DetailPage(props) {
                                             <a href="#network">Network</a>
                                         </li>
                                         <li>
-                                            <a href="#harga">Harga di Marketplace</a>
+                                            <a href="#harga">Price Marketplace</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -613,7 +613,7 @@ export default function DetailPage(props) {
 
                 <div className={styles.relatedProducts}>
                     <div className={styles.contents}>
-                        <Title title="Produk Terkait" />
+                        <Title title="Related Product" />
                         <div className="row">
                             {props.dataRelatedProd.map((value, index) => {
                                 return (
@@ -647,7 +647,7 @@ export default function DetailPage(props) {
                                                 <div className={styles.wrpbtn}>
                                                     <Link href={baseUrl + currentPage + "/" + value.slug}>
                                                         <a className={styles.btnblank}>
-                                                            Lihat Spesifikasi
+                                                            See Detail Spesification
                                                         </a>
                                                     </Link>
                                                 </div>

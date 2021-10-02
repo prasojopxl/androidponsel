@@ -178,7 +178,7 @@ export default function Home(props) {
                 <div className={styles.compareItem}>
                     <div className={styles.contens}>
                         <div className="containerComparehome">
-                            <Title title="Top Perbandingan" />
+                            <Title title="Top Comparation" />
                             <div className="row">
                                 {props.dataCompare.map((item, index) => {
                                     return (
@@ -305,7 +305,7 @@ export default function Home(props) {
                                                                 alt="camera"
                                                             />
                                                         </div>
-                                                        Lihat Perbandingan
+                                                        See Comparation
                                                     </a>
                                                 </Link>
                                             </div>
@@ -343,7 +343,7 @@ export default function Home(props) {
                             <div className="btnMediumLoad">
                                 <Link href={baseUrl + "handphone"}>
                                     <a className="btn ap-btn-secondary ap-btn-md">
-                                        Lihat Selegkapnya
+                                        See Details
                                     </a>
                                 </Link>
                             </div>
@@ -353,7 +353,7 @@ export default function Home(props) {
                 <GlobalAds adsId="2" />
                 <div className={styles.latestnews}>
                     <div className={styles.contents}>
-                        <Title title="Berita Terbaru" />
+                        <Title title="News Updates" />
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="row">
@@ -612,7 +612,7 @@ export default function Home(props) {
                                 href="https://www.androidponsel.com/news/"
                                 className="btn ap-btn-secondary ap-btn-md"
                             >
-                                Lihat berita terbaru lainnya
+                                Seemore News Updates
                             </a>
                         </div>
                     </div>
@@ -620,7 +620,7 @@ export default function Home(props) {
                 <GlobalAds adsId="3" />
                 <div className={styles.kanalapp}>
                     <div className={styles.contents}>
-                        <Title title="Kanal Aplikasi" />
+                        <Title title="Application Channel" />
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="row">
@@ -874,7 +874,7 @@ export default function Home(props) {
                                 href="https://www.androidponsel.com/download/"
                                 className="btn ap-btn-secondary ap-btn-md"
                             >
-                                Lihat aplikasi lainnya
+                                Seemore Other Apllication
                             </a>
                         </div>
                     </div>
@@ -1140,7 +1140,7 @@ export default function Home(props) {
                                 href="https://www.androidponsel.com/trik-android/"
                                 className="btn ap-btn-secondary ap-btn-md"
                             >
-                                Tips lainnya
+                                Seemore Tips
                             </a>
                         </div>
                     </div>
@@ -1149,7 +1149,7 @@ export default function Home(props) {
                     {show && (
                         <Fragment>
                             <div className={styles.desc}>
-                                Badingkan Produk:
+                                Compare Product:
                                 {compare1 && <h5>{compare1}</h5>}
                                 {compare2 && <h5>{compare2}</h5>}
                                 {compare3 && <h5>{compare3}</h5>}
@@ -1159,7 +1159,7 @@ export default function Home(props) {
                                     className={styles.btnCompareProd}
                                     onClick={() => goToCompare()}
                                 >
-                                    Lihat Perbandingan{" "}
+                                    See Comparation{" "}
                                     <span>({totalCompare})</span>
                                 </div>
                             </div>
