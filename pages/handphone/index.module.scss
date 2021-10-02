@@ -592,6 +592,14 @@
 .itemInfoCompare {
     padding: 15px 0;
     border-bottom: $color-gray solid 1px;
+    a{
+        color: $color-green;
+        font-family: $font-RubikMedium, sans-serif;
+        text-decoration: underline;
+        &:hover{
+            color: $color-green-dark;
+        }
+    }
     h5 {
         margin-bottom: 15px;
         font-family: $font-MulishBold;
