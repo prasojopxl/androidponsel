@@ -612,7 +612,7 @@ export default function Home(props) {
                                 href="https://www.androidponsel.com/news/"
                                 className="btn ap-btn-secondary ap-btn-md"
                             >
-                                Seemore News Updates
+                                See More News Updates
                             </a>
                         </div>
                     </div>
@@ -874,7 +874,7 @@ export default function Home(props) {
                                 href="https://www.androidponsel.com/download/"
                                 className="btn ap-btn-secondary ap-btn-md"
                             >
-                                Seemore Other Apllication
+                                See More Other Apllication
                             </a>
                         </div>
                     </div>
@@ -882,7 +882,7 @@ export default function Home(props) {
                 <GlobalAds adsId="4" />
                 <div className={styles.tipstrik}>
                     <div className={styles.contents}>
-                        <Title title="Tips & Trik"></Title>
+                        <Title title="Tips & Tricks"></Title>
                         <div className="row">
                             <div className="col-lg-5 col-md-12 col-sm-12 col-12">
                                 <div className={styles.maintipstrik}>
@@ -1140,7 +1140,7 @@ export default function Home(props) {
                                 href="https://www.androidponsel.com/trik-android/"
                                 className="btn ap-btn-secondary ap-btn-md"
                             >
-                                Seemore Tips
+                                See More Tips
                             </a>
                         </div>
                     </div>

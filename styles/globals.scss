@@ -94,14 +94,14 @@ a.btn {
         -webkit-box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
         box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
         z-index: 4;
-    }    
+    }
     @media screen and (max-width: 768px) {
         min-height: 69px;
         padding: 8px 0px;
         position: relative;
         -webkit-box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
         box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
-        z-index: 4;        
+        z-index: 4;
     }
 
     @media screen and (max-width: $widthMobileSm) {
@@ -110,9 +110,8 @@ a.btn {
         padding: 8px 0px;
         -webkit-box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
         box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.25);
-        z-index: 4;        
-    }        
-
+        z-index: 4;
+    }
 }
 
 .container-custom-body {
@@ -123,21 +122,21 @@ a.btn {
     max-width: 1320px;
 }
 
-.containerComparehome{
+.containerComparehome {
     max-width: 1250px;
-    margin:0 auto;
+    margin: 0 auto;
     padding: 0 15px;
     @media screen and (min-width: 1920px) and (max-width: 1920px) {
         max-width: 1320px;
     }
 }
 
-.col-top-compared{
-    &:last-child{
+.col-top-compared {
+    &:last-child {
         margin-bottom: 50px;
         @media screen and (max-width: $widthMobileSm) {
             margin-bottom: 15px;
-        }        
+        }
     }
 }
 
@@ -149,7 +148,7 @@ a.btn {
     width: 100%;
 }
 
-.wrpRoleNav{
+.wrpRoleNav {
     width: 100%;
     min-height: 156px;
     max-height: 620px;
@@ -158,7 +157,7 @@ a.btn {
     padding-bottom: 120px;
 }
 
-.wrpMenuMobile{
+.wrpMenuMobile {
     background: #fff;
     @media screen and (max-width: 1200px) {
         position: absolute;
@@ -166,24 +165,24 @@ a.btn {
         height: 100vh;
         top: 50px;
         background: #fff;
-    }       
+    }
 }
 
-.relateProduct{
+.relateProduct {
     height: auto;
     @media screen and (max-width: $widthMobileSm) {
-        &:first-child{
+        &:first-child {
             margin-top: 15px;
         }
-        &:nth-child(2){
+        &:nth-child(2) {
             margin-top: 15px;
-        }        
+        }
     }
 }
 
 // BUTTON CUSTOM
 
-.btnMediumLoad{
+.btnMediumLoad {
     width: 100%;
     display: block;
     text-align: center;
@@ -191,7 +190,7 @@ a.btn {
     margin-top: 30px;
     @media screen and (max-width: $widthTabMin) {
         margin-top: 10px;
-    }    
+    }
     @media screen and (max-width: $widthMobileSm) {
         margin-top: 5px;
     }
@@ -250,7 +249,7 @@ a.ap-btn-secondary {
     letter-spacing: 0.2px;
 }
 
-.add-md-4{
+.add-md-4 {
     margin-bottom: 45px;
     @media screen and (max-width: $widthMobileMax) {
         margin-bottom: 0px;
@@ -270,66 +269,65 @@ a.ap-btn-secondary {
     display: block;
 }
 
-.flexing-title-compare{
+.flexing-title-compare {
     flex: 0 0 100%;
     -ms-flex: 0 0 100%;
     max-width: 100%;
     height: auto;
 }
 
-
-.gutter-10{
+.gutter-10 {
     padding-top: 15px;
     padding-bottom: 15px;
     @media screen and (max-width: $widthMobileMax) {
         padding-top: 12px;
-        padding-bottom: 12px;        
+        padding-bottom: 12px;
     }
 }
 .row .gutter-10,
 .gutter-10.container,
 .gutter-10.container-fluid {
-	margin-left: -10px;
-	margin-right: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
-.gutter-10>[class^="col-"] {
-	padding-left: 10px;
-	padding-right: 10px;
+.gutter-10 > [class^="col-"] {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.largeFeatured{
+.largeFeatured {
     position: relative;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    -ms-justify-cntent:center;
+    -ms-justify-cntent: center;
     align-items: center;
     -ms-align-items: center;
     height: auto;
-    min-height: 270px; 
+    min-height: 270px;
     overflow: hidden;
-    border-radius: 12.5px;  
-    margin:15px 0px;
+    border-radius: 12.5px;
+    margin: 15px 0px;
     @media screen and (max-width: $widthTabMin) {
-        border-radius: 10.5px;   
+        border-radius: 10.5px;
     }
     @media screen and (max-width: $widthMobileMax) {
-        border-radius: 10.5px;   
+        border-radius: 10.5px;
     }
 }
-.feturedCard{
+.feturedCard {
     width: 100%;
     height: auto;
     position: relative;
     z-index: 2;
-    a{
+    a {
         color: #fff;
         @media screen and (max-width: 1200px) {
             color: $color-black;
         }
-        h4{
+        h4 {
             font-family: "RubikMedium", sans-serif;
             min-height: 42px;
             font-size: 20px;
@@ -344,56 +342,70 @@ a.ap-btn-secondary {
     }
 }
 
-.wrpFeatured{
+.wrpFeatured {
     border-radius: 12.5px;
     width: 100%;
     height: auto;
-    overflow: hidden;    
-    a{
+    overflow: hidden;
+    a {
         z-index: 1;
         position: relative;
-        img{
+        img {
             @media screen and (max-width: 1200px) {
                 border-radius: 12.5px;
                 overflow: hidden;
-            }  
-        }      
+            }
+        }
     }
 }
 
-.descFeatured{
+.descFeatured {
     position: absolute;
     bottom: 0;
     left: 0;
     padding: 20px;
-    z-index: 1;    
+    z-index: 1;
     overflow: unset;
     font-family: $font-MulishRegular, sans-serif;
-    p{
+    p {
         position: relative;
         z-index: 2;
         font-size: 14px;
         line-height: 18px;
         color: #fff;
         @media screen and (max-width: 1200px) {
-            color:$color-graytext;
+            color: $color-graytext;
         }
     }
     @media screen and (max-width: 1200px) {
         position: relative;
-        padding:20px 0px;
+        padding: 20px 0px;
         width: 100%;
     }
     @media screen and (max-width: $widthMobileMax) {
         position: relative;
-        padding:20px 0px 0px 0px;
+        padding: 20px 0px 0px 0px;
         width: 100%;
-    }    
-    &::after{
-    content: "";
-        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
-        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.92)));
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
+    }
+    &::after {
+        content: "";
+        background: -webkit-linear-gradient(
+            top,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.92) 100%
+        );
+        background: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from(rgba(0, 0, 0, 0)),
+            to(rgba(0, 0, 0, 0.92))
+        );
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.92) 100%
+        );
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#a6000000",GradientType=0 );
         position: absolute;
         left: 0;
@@ -402,7 +414,7 @@ a.ap-btn-secondary {
         height: 110%;
         -webkit-box-sizing: content-box;
         -moz-box-sizing: content-box;
-        box-sizing: content-box;    
+        box-sizing: content-box;
         @media screen and (max-width: 1200px) {
             display: none;
         }
@@ -412,28 +424,28 @@ a.ap-btn-secondary {
 .gutter-0.row,
 .gutter-0.container,
 .gutter-0.container-fluid {
-	margin-left: -12px;
-	margin-right: -12px;
+    margin-left: -12px;
+    margin-right: -12px;
     @media screen and (max-width: $widthMobileMax) {
         margin-left: -15px;
-        margin-right: -15px;     
-        overflow: hidden;   
+        margin-right: -15px;
+        overflow: hidden;
     }
 }
 
-.wrp-commercePrice{
+.wrp-commercePrice {
     overflow: hidden;
 }
 
-.gutter-0>[class^="col-"] {
-	padding-left: 12px;
-	padding-right: 12px;
+.gutter-0 > [class^="col-"] {
+    padding-left: 12px;
+    padding-right: 12px;
     @media screen and (max-width: $widthMobileMax) {
         padding-left: 15px;
         padding-right: 15px;
         overflow: hidden;
-        .col-12{
-            .handphone_itemMarket{
+        .col-12 {
+            .handphone_itemMarket {
                 overflow: hidden;
                 position: relative;
             }
@@ -441,14 +453,14 @@ a.ap-btn-secondary {
     }
 }
 
-.commerce_price{
+.commerce_price {
     position: relative;
     overflow: hidden;
-    &::after{
+    &::after {
         content: " ";
         position: absolute;
         left: 12px;
-        top:41%;
+        top: 41%;
         width: 100%;
         height: 1px;
         background: #d7d7d7;
@@ -457,15 +469,14 @@ a.ap-btn-secondary {
         }
         @media screen and (max-width: 992px) {
             display: none;
-        }        
+        }
         @media screen and (max-width: $widthMobileMax) {
             display: none;
         }
     }
 }
 
-
-.wrp_thumbapps{
+.wrp_thumbapps {
     line-height: 0;
     width: 100%;
     height: auto;
@@ -473,21 +484,31 @@ a.ap-btn-secondary {
     display: flex;
     flex: wrap;
     background: #fff6ff;
-    background: -moz-linear-gradient(-45deg, #fff6ff 0%, #fbf7ff 47%, #f8fdff 100%);
-    background: -webkit-linear-gradient(-45deg, #fff6ff 0%,#fbf7ff 47%,#f8fdff 100%);
-    background: linear-gradient(135deg, #fff6ff 0%,#fbf7ff 47%,#f8fdff 100%);
+    background: -moz-linear-gradient(
+        -45deg,
+        #fff6ff 0%,
+        #fbf7ff 47%,
+        #f8fdff 100%
+    );
+    background: -webkit-linear-gradient(
+        -45deg,
+        #fff6ff 0%,
+        #fbf7ff 47%,
+        #f8fdff 100%
+    );
+    background: linear-gradient(135deg, #fff6ff 0%, #fbf7ff 47%, #f8fdff 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff6ff', endColorstr='#f8fdff',GradientType=1 );
     border-radius: 12.5px;
     align-items: center;
     -ms-align-items: center;
     justify-content: center;
     -ms-justify-content: center;
-    overflow: hidden;   
+    overflow: hidden;
     border: 1px solid #f9f9f9;
     @media screen and (max-width: $widthTabMin) {
         min-height: 70px;
         margin-bottom: 10px;
-    } 
+    }
     @media screen and (max-width: $widthMobileMax) {
         min-height: 83px;
         border-radius: 10.5px;
@@ -501,79 +522,78 @@ a.ap-btn-secondary {
     @media screen and (max-width: $widthMobileXs) {
         min-height: 74px;
     }
-    
 }
 
-.left_side_spesification{
+.left_side_spesification {
     padding: 45px 48px 0px 0px;
     @media screen and (max-width: $widthTabMin) {
         padding: 45px 24px 0px 0px;
     }
-    @media screen and (max-width:$widthMobileMax) {
+    @media screen and (max-width: $widthMobileMax) {
         padding: 5px 0px 0px 0px;
-    }    
+    }
 }
 
-.separateLines{
+.separateLines {
     position: relative;
     overflow: hidden;
     padding-bottom: 24px;
     padding-top: 24px;
-    &:first-child{
+    &:first-child {
         padding-top: 0px;
     }
-    div{
+    div {
         position: relative;
-        &::after{
+        &::after {
             content: " ";
             position: absolute;
             width: 100vw;
             height: 1px;
-            background:$color-gray;
+            background: $color-gray;
             left: 0px;
             bottom: -20px;
-        }        
-        &:last-child{
+        }
+        &:last-child {
             position: relative;
-            &::after{
+            &::after {
                 content: " ";
                 position: absolute;
                 width: 100vw;
                 height: 2px;
-                background:$color-gray;
+                background: $color-gray;
                 left: 0px;
                 bottom: -20px;
             }
         }
-    }    
-    .row{
+    }
+    .row {
         position: relative;
         overflow: hidden;
-        padding-bottom: 2px;     
-        &:last-child{
+        padding-bottom: 2px;
+        &:last-child {
             position: relative;
-        }           
+        }
     }
 }
 
-.right_side_spesification{
+.right_side_spesification {
     padding: 45px 0px 0px 0px;
     @media screen and (max-width: $widthMobileSm) {
         padding: 5px 0px 0px 0px;
     }
 }
 
-.sm_title_cardNews{
-    font-family: "RubikMedium",sans-serif;
+.sm_title_cardNews {
+    font-family: "RubikMedium", sans-serif;
     color: $color-black;
     font-size: 14px;
     line-height: 20.5px;
-    a{
+    a {
         color: $color-black;
     }
 }
 
-.tagGreen{
+.tagGreen {
     background: $color-green;
     color: #fff;
     padding: 0px 9px;
@@ -582,50 +602,48 @@ a.ap-btn-secondary {
     text-align: center;
     font-size: 9px;
     font-family: "Mulish Regular", sans-serif;
-    margin-bottom: 5px;    
+    margin-bottom: 5px;
     position: relative;
     z-index: 2;
-    a{
+    a {
         color: #fff;
     }
     @media screen and (max-width: 1200px) {
         background: $color-green2;
-        a{
+        a {
             color: $color-green !important;
-        }        
+        }
     }
     @media screen and (max-width: $widthMobileSm) {
         background: $color-green2;
-        a{
+        a {
             color: $color-green !important;
         }
-        
     }
 }
 
-.flextitleSpesific{
+.flextitleSpesific {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     align-items: center;
     -ms-align-items: center;
-    min-height: 92px;    
+    min-height: 92px;
     @media (max-width: $widthTabMin) {
-        min-height: 65px;   
+        min-height: 65px;
     }
     @media screen and (max-width: 1200px) {
         min-height: 107px;
-    }    
+    }
     @media (max-width: $widthMobileSm) {
         min-height: 105px;
     }
 
     @media (max-width: $widthMobileXs) {
         min-height: 120px;
-    }    
-    
+    }
 }
-.contTitleSpesific{
+.contTitleSpesific {
     max-width: 100%;
     flex: 0 0 100%;
     -ms-flex: 0 0 100%;
@@ -647,6 +665,7 @@ a.ap-btn-secondary {
             width: 90px;
             height: 90px;
             margin: 0 auto;
+            margin-bottom: 10px;
         }
     }
     .slick-current {

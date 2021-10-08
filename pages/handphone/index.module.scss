@@ -39,7 +39,7 @@
             width: 196px;
             height: auto;
             padding: 10px 0px;
-        }        
+        }
     }
     .productMarketplace {
         margin: 18px 0px 15px 0px;
@@ -48,14 +48,14 @@
             border-bottom: 1px solid #f9f9f8;
             border-top: 1px solid #f9f9f8;
             padding-bottom: 15px;
-            padding-top:20px;
+            padding-top: 20px;
         }
         @media screen and (max-width: $widthMobileMax) {
             margin: 21px 0px 12px 0px;
             border-bottom: 1px solid #f9f9f8;
             border-top: 1px solid #f9f9f8;
             padding-bottom: 15px;
-            padding-top:20px;
+            padding-top: 20px;
         }
     }
     h6 {
@@ -85,9 +85,8 @@
         .logoMarketplace {
             display: block;
             max-width: 150px;
-            padding:15px 0px 0px 0px;
+            padding: 15px 0px 0px 0px;
             position: relative;
-         
         }
     }
 }
@@ -241,8 +240,7 @@
 
     @media (max-width: $widthMobileSm) {
         padding: 5px 0px 25px 0px;
-    }    
-
+    }
 }
 
 .overview {
@@ -301,7 +299,7 @@
         }
         @media screen and (max-width: $widthMobileXs) {
             font-size: 23px;
-        }        
+        }
     }
     h4 {
         font-size: 18px;
@@ -322,8 +320,8 @@
             margin-left: 7px;
             margin-bottom: 10px;
         }
-        img{
-            top:-6.5px!important;
+        img {
+            top: -6.5px !important;
         }
     }
     .itemshort {
@@ -333,8 +331,8 @@
         font-family: $font-MulishRegular;
         font-size: 16px;
         overflow: unset;
-        div{
-            overflow: unset!important;
+        div {
+            overflow: unset !important;
         }
         label {
             color: $color-black;
@@ -434,9 +432,9 @@
             li {
                 display: block;
                 border-bottom: 1px solid #d7d7d7;
-                    &:last-child{
-                        border-bottom: 0px;
-                    }                
+                &:last-child {
+                    border-bottom: 0px;
+                }
                 a {
                     padding: 10px 10px 10px 0px;
                     background: #fff;
@@ -446,7 +444,7 @@
                     border-radius: 0;
                     font-family: $font-MulishRegular, sans-serif;
                     font-size: 16px;
-                    color: $color-graytext, sans-serif;                    
+                    color: $color-graytext, sans-serif;
                 }
             }
         }
@@ -592,11 +590,11 @@
 .itemInfoCompare {
     padding: 15px 0;
     border-bottom: $color-gray solid 1px;
-    a{
+    a {
         color: $color-green;
         font-family: $font-RubikMedium, sans-serif;
         text-decoration: underline;
-        &:hover{
+        &:hover {
             color: $color-green-dark;
         }
     }
@@ -646,20 +644,20 @@ h4 {
     position: fixed;
     border-radius: 12.5px;
     box-shadow: 4px 6px 30px 2.5px rgba(214, 214, 214, 0.96);
-    -ms-box-shadow: 4px 6px 30px 2.5px rgba(214, 214, 214, 0.96);  
+    -ms-box-shadow: 4px 6px 30px 2.5px rgba(214, 214, 214, 0.96);
     min-width: 274px;
     overflow: hidden;
     font-family: "RubikMedium", sans-serif;
     font-size: 17px;
     line-height: 24.5px;
     letter-spacing: 0.3px;
-    h5{
+    h5 {
         font-family: $font-MulishRegular, sans-serif;
         font-size: 13px;
-        line-height: 24.5px;       
+        line-height: 24.5px;
         color: $color-graytext;
         margin-bottom: 5px;
-        &:first-child{
+        &:first-child {
             margin-top: 10px;
         }
     }
@@ -695,7 +693,7 @@ h4 {
     margin-bottom: 10px;
     @media (max-width: $widthMobileMax) {
         position: relative;
-        &::before{
+        &::before {
             position: absolute;
             content: " ";
             width: 100vw;
@@ -708,7 +706,7 @@ h4 {
     @media (max-width: $widthMobileSm) {
         margin-bottom: 3px;
         margin-top: 10px;
-    }  
+    }
     .btnCompareProd {
         padding: 12px 5px;
         cursor: pointer;
@@ -724,11 +722,11 @@ h4 {
         z-index: 10;
         outline: none;
         top: 20px;
-        &:hover{
+        &:hover {
             background: $color-green-dark;
             -webkit-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
             box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
-            -ms-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);            
+            -ms-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
         }
         @media (max-width: $widthMobileMax) {
             border-radius: 30px;

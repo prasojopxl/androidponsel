@@ -45,7 +45,7 @@ export default function Header(props) {
                     </div>
 
                     <div className={styles.left}>
-                        <Link href="/">
+                        <Link href="https://www.androidponsel.com/">
                             <a>
                                 <Image
                                     src={`${apiUrl}/uploads/logo_2b23bd5ec1.png`}
