@@ -511,7 +511,7 @@ export default function compare({
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className="col-lg-12">
-								<h4 className={styles.titleCompare}>Harga di Marketplace</h4>
+								<h4 className={styles.titleCompare}>Price Marketplace</h4>
 							</div>
 						</div>
 						<div className={`row justify-content-end ${styles.itemInfoCompare}`} style={{ border: "none" }}>
@@ -522,7 +522,7 @@ export default function compare({
 											{
 												<div className={dataCompare.length == 2 ? "col-lg-4 col-4" : "col-lg-3 col-3"} key={item.id}>
 													{
-														item.Price_Marketplace.length < 1 ? "Belom ada data" :
+														item.Price_Marketplace.length < 1 ? "Prices for marketplaces not avaliable for now" :
 															item.Price_Marketplace.map((market, i) => {
 																return (
 																	<div key={market.id}>
@@ -657,7 +657,7 @@ export default function compare({
 																alt="camera"
 															/>
 														</div>
-														Lihat Perbandingan
+														See Comparation
 													</a>
 												</Link>
 											</div>

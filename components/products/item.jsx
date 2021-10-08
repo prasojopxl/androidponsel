@@ -15,16 +15,16 @@ export default function ItemProduct(props) {
         var elements = document.getElementsByClassName('btncompare'); // get all elements
         for (var i = 0; i < elements.length; i++) {
             elements[i].style.backgroundColor = "#89c340";
-            elements[i].innerText = "Bandingkan";
+            elements[i].innerText = "Compare";
         }
     }
     const addCompare = (slug, e, title) => {
         let p1 = localStorage.getItem("produk1");
         let p2 = localStorage.getItem("produk2");
         let p3 = localStorage.getItem("produk3");
-        let valueLocalStore = { slug, title, status: e.target.innerText === "Bandingkan" ? "enable" : "disable" };
-        if (e.target.innerText === "Bandingkan") {
-            e.target.innerText = "Dibandingkan"
+        let valueLocalStore = { slug, title, status: e.target.innerText === "Compare" ? "enable" : "disable" };
+        if (e.target.innerText === "Compare") {
+            e.target.innerText = "Compared"
             e.target.style.background = "#ddd"
             if (p1 === null) {
                 localStorage.setItem("produk1", JSON.stringify(valueLocalStore))
@@ -39,7 +39,7 @@ export default function ItemProduct(props) {
                 e.target.title = "produk3"
             }
             else {
-                alert("Maximal 3 produk")
+                alert("Maximal 3 product")
                 localStorage.removeItem("produk1")
                 localStorage.removeItem("produk2")
                 localStorage.removeItem("produk3")
@@ -47,7 +47,7 @@ export default function ItemProduct(props) {
             }
         }
         else {
-            e.target.innerText = "Bandingkan"
+            e.target.innerText = "Compare"
             e.target.style.background = "#89c340"
             if (p2 === null) {
                 localStorage.removeItem(e.target.title)
@@ -91,12 +91,12 @@ export default function ItemProduct(props) {
                 <div className={`${styles.wrpbtn}`}>
                     <div onClick={props.action}>
                         <button className={`${styles.btnfull} btncompare`} name="mybtn" onClick={(e) => addCompare(props.slug, e, props.title)} >
-                            Bandingkan
+                            Compare
                         </button>
                     </div>
                     <Link href={`${"/handphone/" + props.slug}`}>
                         <a className={styles.btnblank}>
-                            Selengkapnya
+                            See Details
                         </a>
                     </Link>
                 </div>
