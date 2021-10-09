@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect } from "react"
 import styles from "./products.module.scss"
 import { Rate } from "../index";
-import { apiUrl } from "../../config/variable";
+import { apiUrl, baseUrl } from "../../config/variable";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -78,7 +78,7 @@ export default function ItemProduct(props) {
                     <div className={styles.productinfo}>
                         <div className="flextitleSpesific">
                             <div className="contTitleSpesific">
-                                <Link href={`${"/handphone/" + props.slug}`}><a><h5>{props.title}</h5></a></Link>
+                                <Link href={`${baseUrl + "handphone/" + props.slug}`}><a><h5>{props.title}</h5></a></Link>
                                 <h6>{props.memoryInternal}</h6>
                             </div>
                         </div>
@@ -94,7 +94,7 @@ export default function ItemProduct(props) {
                             Compare
                         </button>
                     </div>
-                    <Link href={`${"/handphone/" + props.slug}`}>
+                    <Link href={`${baseUrl + "/handphone/" + props.slug}`}>
                         <a className={styles.btnblank}>
                             See Details
                         </a>
