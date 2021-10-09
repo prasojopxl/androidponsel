@@ -215,31 +215,33 @@ export default function Home(props) {
                                                                                 data.slug
                                                                             }
                                                                         >
-                                                                            <Image
-                                                                                src={
-                                                                                    apiUrl +
-                                                                                    data
-                                                                                        .product_image[0]
-                                                                                        .url
-                                                                                }
-                                                                                width={
-                                                                                    data
-                                                                                        .product_image[0]
-                                                                                        .width /
-                                                                                    2
-                                                                                }
-                                                                                height={
-                                                                                    data
-                                                                                        .product_image[0]
-                                                                                        .height /
-                                                                                    2
-                                                                                }
-                                                                                alt={
-                                                                                    data
-                                                                                        .product_image[0]
-                                                                                        .name
-                                                                                }
-                                                                            ></Image>
+                                                                            <a>
+                                                                                <Image
+                                                                                    src={
+                                                                                        apiUrl +
+                                                                                        data
+                                                                                            .product_image[0]
+                                                                                            .url
+                                                                                    }
+                                                                                    width={
+                                                                                        data
+                                                                                            .product_image[0]
+                                                                                            .width /
+                                                                                        2
+                                                                                    }
+                                                                                    height={
+                                                                                        data
+                                                                                            .product_image[0]
+                                                                                            .height /
+                                                                                        2
+                                                                                    }
+                                                                                    alt={
+                                                                                        data
+                                                                                            .product_image[0]
+                                                                                            .name
+                                                                                    }
+                                                                                ></Image>
+                                                                            </a>
                                                                         </Link>
                                                                     </div>
                                                                     <div
@@ -366,38 +368,42 @@ export default function Home(props) {
                                                         key={item.id}
                                                     >
                                                         <div className="wrpFeatured">
-                                                            <a href={item.link}>
-                                                                <Image
-                                                                    src={
-                                                                        item
-                                                                            ._embedded[
-                                                                            "wp:featuredmedia"
-                                                                        ][0]
-                                                                            .source_url
-                                                                    }
-                                                                    width={
-                                                                        item
-                                                                            ._embedded[
-                                                                            "wp:featuredmedia"
-                                                                        ][0]
-                                                                            .media_details
-                                                                            .width
-                                                                    }
-                                                                    height={
-                                                                        item
-                                                                            ._embedded[
-                                                                            "wp:featuredmedia"
-                                                                        ][0]
-                                                                            .media_details
-                                                                            .height
-                                                                    }
-                                                                    alt={
-                                                                        item
-                                                                            .title
-                                                                            .rendered
-                                                                    }
-                                                                />
-                                                            </a>
+                                                            <Link
+                                                                href={item.link}
+                                                            >
+                                                                <a>
+                                                                    <Image
+                                                                        src={
+                                                                            item
+                                                                                ._embedded[
+                                                                                "wp:featuredmedia"
+                                                                            ][0]
+                                                                                .source_url
+                                                                        }
+                                                                        width={
+                                                                            item
+                                                                                ._embedded[
+                                                                                "wp:featuredmedia"
+                                                                            ][0]
+                                                                                .media_details
+                                                                                .width
+                                                                        }
+                                                                        height={
+                                                                            item
+                                                                                ._embedded[
+                                                                                "wp:featuredmedia"
+                                                                            ][0]
+                                                                                .media_details
+                                                                                .height
+                                                                        }
+                                                                        alt={
+                                                                            item
+                                                                                .title
+                                                                                .rendered
+                                                                        }
+                                                                    />
+                                                                </a>
+                                                            </Link>
                                                         </div>
                                                         <div className="descFeatured">
                                                             <div className="tagGreen">
