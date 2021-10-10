@@ -279,7 +279,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Main Camera</label>
                                                 </div>
-                                                {props.post.main_cam_triple}
+                                                {props.post.main_cam}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -398,12 +398,16 @@ export default function DetailPage(props) {
                                 <div className="separateLines">
                                     <Title title="Camera" idName="camera" />
                                     <div className={styles.itemDesc}>
-                                        <h5>Main Camera</h5>
+                                        <h5>Main Camera: {props.post.main_cam}</h5>
                                         <div className="row">
-                                            <div className="col-lg-4">
-                                                <h6>Quad</h6>
-                                                {props.post.main_cam_triple}
-                                            </div>
+                                            {props.post.sensor_cam1 !== "" && <div className="col-lg-4">{props.post.sensor_cam1}</div>}
+                                            {props.post.sensor_cam2 !== "" && <div className="col-lg-4">{props.post.sensor_cam2}</div>}
+                                            {props.post.sensor_cam3 !== "" && <div className="col-lg-4">{props.post.sensor_cam3}</div>}
+                                            {props.post.sensor_cam4 !== "" && <div className="col-lg-4">{props.post.sensor_cam4}</div>}
+                                            {props.post.sensor_cam5 !== "" && <div className="col-lg-4">{props.post.sensor_cam5}</div>}
+                                            {props.post.sensor_cam6 !== "" && <div className="col-lg-4">{props.post.sensor_cam6}</div>}
+                                        </div>
+                                        <div className="row">
                                             <div className="col-lg-4">
                                                 <h6>Feature</h6>
                                                 {props.post.main_cam_features}
@@ -613,13 +617,13 @@ export default function DetailPage(props) {
                             </div>
                             {displayRate ? (
                                 <div className={styles.rateForm}>
-                                    <h2>Beri Rating Produk Ini</h2>
+                                    <h2>Submit Your Rate</h2>
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 1 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(1) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 2 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(2) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 3 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(3) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 4 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(4) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 5 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(5) }} />
-                                    <div style={{ marginTop: 10 }}><button className={styles.buttonDefault} onClick={submitRate}>Submit Rate</button></div>
+                                    <div style={{ marginTop: 10 }}><button className={styles.buttonDefault} onClick={submitRate}>Submit</button></div>
                                 </div>
                             ) : <div className={styles.infoRating}>Anda dapat melakukan submit rating setelah maximal 1 x 24jam</div>
                             }
