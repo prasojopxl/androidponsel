@@ -10,6 +10,7 @@ import Layout from "../../layout";
 import styles from "./index.module.scss";
 import { Cookies, useCookies } from "react-cookie";
 import axios from "axios";
+import ReactHtmlParser from "react-html-parser";
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.to/vuongddang/how-to-use-fontawesome-in-next-js-5bl5
 
@@ -164,7 +165,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Brand Product</label>
                                                 </div>
-                                                {props.post.brand.title}
+                                                {ReactHtmlParser(props.post.brand.title)}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -178,7 +179,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Status / Release</label>
                                                 </div>
-                                                {props.post.status}
+                                                {ReactHtmlParser(props.post.status)}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -209,7 +210,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Resolution</label>
                                                 </div>
-                                                {props.post.resolution}
+                                                {ReactHtmlParser(props.post.resolution)}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -223,7 +224,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Size</label>
                                                 </div>
-                                                {props.post.size}
+                                                {ReactHtmlParser(props.post.size)}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -237,7 +238,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Operating Sistem</label>
                                                 </div>
-                                                {props.post.os}
+                                                {ReactHtmlParser(props.post.os)}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -251,7 +252,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Prosessor</label>
                                                 </div>
-                                                {props.post.cpu}
+                                                {ReactHtmlParser(props.post.cpu)}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -265,7 +266,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Memory Storage</label>
                                                 </div>
-                                                {props.post.memory_internal}
+                                                {ReactHtmlParser(props.post.memory_internal)}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -279,7 +280,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Main Camera</label>
                                                 </div>
-                                                {props.post.main_cam}
+                                                {ReactHtmlParser(props.post.main_cam)}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -293,7 +294,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Selfie Camera</label>
                                                 </div>
-                                                {props.post.selfie_cam_single}
+                                                {ReactHtmlParser(props.post.selfie_cam_single)}
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
@@ -307,7 +308,7 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Battery Capacity</label>
                                                 </div>
-                                                {props.post.charging_type}
+                                                {ReactHtmlParser(props.post.charging_type)}
                                             </div>
                                         </div>
                                     </div>
@@ -331,19 +332,19 @@ export default function DetailPage(props) {
                                     </div> */}
                                     <div className={styles.itemDesc}>
                                         <h5>Brand Produk</h5>
-                                        {props.post.brand.title}
+                                        {ReactHtmlParser(props.post.brand.title)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Status</h5>
-                                        {props.post.status}
+                                        {ReactHtmlParser(props.post.status)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Tanggal Rilis</h5>
-                                        {props.post.release_date}
+                                        {ReactHtmlParser(props.post.release_date)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Warna</h5>
-                                        {props.post.color}
+                                        {ReactHtmlParser(props.post.color)}
                                     </div>
                                 </div>
                                 <GlobalAds adsId="3" />
@@ -353,25 +354,25 @@ export default function DetailPage(props) {
                                         <div className="row">
                                             <div className="col-lg-4">
                                                 <h5>Ukuran Dimensi</h5>
-                                                {props.post.size}
+                                                {ReactHtmlParser(props.post.size)}
                                             </div>
                                             <div className="col-lg-4">
                                                 <h5>Weight</h5>
-                                                {props.post.weight}
+                                                {ReactHtmlParser(props.post.weight)}
                                             </div>
                                             <div className="col-lg-4">
                                                 <h5>Resolution</h5>
-                                                {props.post.resolution}
+                                                {ReactHtmlParser(props.post.resolution)}
                                             </div>
                                         </div>
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Type</h5>
-                                        {props.post.display_type}
+                                        {ReactHtmlParser(props.post.display_type)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Protection</h5>
-                                        {props.post.protection}
+                                        {ReactHtmlParser(props.post.protection)}
                                     </div>
                                 </div>
                                 <GlobalAds adsId="4" />
@@ -379,19 +380,19 @@ export default function DetailPage(props) {
                                     <Title title="Performance & Hardware" idName="hardware" />
                                     <div className={styles.itemDesc}>
                                         <h5>Processor</h5>
-                                        {props.post.cpu}
+                                        {ReactHtmlParser(props.post.cpu)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Graphic</h5>
-                                        {props.post.gpu}
+                                        {ReactHtmlParser(props.post.gpu)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Memory</h5>
-                                        {props.post.ram}
+                                        {ReactHtmlParser(props.post.ram)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Card Slot</h5>
-                                        {props.post.card_slot}
+                                        {ReactHtmlParser(props.post.card_slot)}
                                     </div>
                                 </div>
                                 <GlobalAds adsId="5" />
@@ -400,21 +401,21 @@ export default function DetailPage(props) {
                                     <div className={styles.itemDesc}>
                                         <h5>Main Camera: {props.post.main_cam}</h5>
                                         <div className="row">
-                                            {props.post.sensor_cam1 !== "" && <div className="col-lg-4">{props.post.sensor_cam1}</div>}
-                                            {props.post.sensor_cam2 !== "" && <div className="col-lg-4">{props.post.sensor_cam2}</div>}
-                                            {props.post.sensor_cam3 !== "" && <div className="col-lg-4">{props.post.sensor_cam3}</div>}
-                                            {props.post.sensor_cam4 !== "" && <div className="col-lg-4">{props.post.sensor_cam4}</div>}
-                                            {props.post.sensor_cam5 !== "" && <div className="col-lg-4">{props.post.sensor_cam5}</div>}
-                                            {props.post.sensor_cam6 !== "" && <div className="col-lg-4">{props.post.sensor_cam6}</div>}
+                                            {props.post.sensor_cam1 !== "" && <div className="col-lg-4">{ReactHtmlParser(props.post.sensor_cam1)}</div>}
+                                            {props.post.sensor_cam2 !== "" && <div className="col-lg-4">{ReactHtmlParser(props.post.sensor_cam2)}</div>}
+                                            {props.post.sensor_cam3 !== "" && <div className="col-lg-4">{ReactHtmlParser(props.post.sensor_cam3)}</div>}
+                                            {props.post.sensor_cam4 !== "" && <div className="col-lg-4">{ReactHtmlParser(props.post.sensor_cam4)}</div>}
+                                            {props.post.sensor_cam5 !== "" && <div className="col-lg-4">{ReactHtmlParser(props.post.sensor_cam5)}</div>}
+                                            {props.post.sensor_cam6 !== "" && <div className="col-lg-4">{ReactHtmlParser(props.post.sensor_cam6)}</div>}
                                         </div>
                                         <div className="row">
                                             <div className="col-lg-4">
                                                 <h6>Feature</h6>
-                                                {props.post.main_cam_features}
+                                                {ReactHtmlParser(props.post.main_cam_features)}
                                             </div>
                                             <div className="col-lg-4">
                                                 <h6>Video</h6>
-                                                {props.post.main_cam_video}
+                                                {ReactHtmlParser(props.post.main_cam_video)}
                                             </div>
                                         </div>
                                     </div>
@@ -423,15 +424,15 @@ export default function DetailPage(props) {
                                         <div className="row">
                                             <div className="col-lg-4">
                                                 <h6>Quad</h6>
-                                                {props.post.selfie_cam_single}
+                                                {ReactHtmlParser(props.post.selfie_cam_single)}
                                             </div>
                                             <div className="col-lg-4">
                                                 <h6>Feature</h6>
-                                                {props.post.selfie_cam_features}
+                                                {ReactHtmlParser(props.post.selfie_cam_features)}
                                             </div>
                                             <div className="col-lg-4">
                                                 <h6>Video</h6>
-                                                {props.post.selfie_cam_video}
+                                                {ReactHtmlParser(props.post.selfie_cam_video)}
                                             </div>
                                         </div>
                                     </div>
@@ -441,7 +442,7 @@ export default function DetailPage(props) {
                                     <Title title="Battery" idName="battery" />
                                     <div className={styles.itemDesc}>
                                         <h5>Batterai</h5>
-                                        {props.post.charging_type}
+                                        {ReactHtmlParser(props.post.charging_type)}
                                     </div>
                                 </div>
                                 <GlobalAds adsId="7" />
@@ -449,11 +450,11 @@ export default function DetailPage(props) {
                                     <Title title="Software" idName="software" />
                                     <div className={styles.itemDesc}>
                                         <h5>Operating System</h5>
-                                        {props.post.os}
+                                        {ReactHtmlParser(props.post.os)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Chipset</h5>
-                                        {props.post.chipset}
+                                        {ReactHtmlParser(props.post.chipset)}
                                     </div>
                                 </div>
                                 <GlobalAds adsId="8" />
@@ -461,11 +462,11 @@ export default function DetailPage(props) {
                                     <Title title="Sensors" idName="sensors" />
                                     <div className={styles.itemDesc}>
                                         <h5>Sensor</h5>
-                                        {props.post.sensors}
+                                        {ReactHtmlParser(props.post.sensors)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>NFC</h5>
-                                        {props.post.nfc}
+                                        {ReactHtmlParser(props.post.nfc)}
                                     </div>
                                 </div>
                                 <GlobalAds adsId="9" />
@@ -473,46 +474,46 @@ export default function DetailPage(props) {
                                     <Title title="Network" idName="network" />
                                     <div className={styles.itemDesc}>
                                         <h5>Teknologi</h5>
-                                        {props.post.technology} |{" "}
+                                        {ReactHtmlParser(props.post.technology)} |{" "}
                                         <span className={styles.linkGeneral} onClick={showData}>
                                             Lihat Detail
                                         </span>
                                         {show && (
                                             <ul>
-                                                <li>2G : {props.post.bands_2G}</li>
-                                                <li>3G : {props.post.bands_3G}</li>
-                                                <li>4G : {props.post.bands_4G}</li>
-                                                <li>5G : {props.post.bands_5G}</li>
+                                                <li>2G : {ReactHtmlParser(props.post.bands_2G)}</li>
+                                                <li>3G : {ReactHtmlParser(props.post.bands_3G)}</li>
+                                                <li>4G : {ReactHtmlParser(props.post.bands_4G)}</li>
+                                                <li>5G : {ReactHtmlParser(props.post.bands_5G)}</li>
                                             </ul>
                                         )}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>SIM</h5>
-                                        {props.post.sim}
+                                        {ReactHtmlParser(props.post.SIM)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>WLAN</h5>
-                                        {props.post.wlan}
+                                        {ReactHtmlParser(props.post.wlan)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Bluetooth</h5>
-                                        {props.post.bluetooth}
+                                        {ReactHtmlParser(props.post.bluetooth)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>GPS</h5>
-                                        {props.post.gps}
+                                        {ReactHtmlParser(props.post.gps)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Infrared</h5>
-                                        {props.post.infrared}
+                                        {ReactHtmlParser(props.post.infrared)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>Radio</h5>
-                                        {props.post.radio}
+                                        {ReactHtmlParser(props.post.radio)}
                                     </div>
                                     <div className={styles.itemDesc}>
                                         <h5>USB</h5>
-                                        {props.post.usb}
+                                        {ReactHtmlParser(props.post.usb)}
                                     </div>
                                 </div>
                                 <GlobalAds adsId="10" />
@@ -532,8 +533,8 @@ export default function DetailPage(props) {
                                                                     item.List.map((listItem, i) => {
                                                                         return (
                                                                             <div className={styles.productMarketplace} key={listItem.id}>
-                                                                                <h6>{listItem.spec}</h6>
-                                                                                <h4>{listItem.price}</h4>
+                                                                                <h6>{ReactHtmlParser(listItem.spec)}</h6>
+                                                                                <h4>{ReactHtmlParser(listItem.price)}</h4>
                                                                                 <Link href={listItem.link}><a>Check di {item.title}</a></Link>
                                                                             </div>
                                                                         )
