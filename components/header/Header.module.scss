@@ -51,6 +51,9 @@
     .right {
         display: flex;
         align-items: center;
+        svg{
+            width: 18px;
+        }        
     }
     @media (max-width: $widthTabMax) {
         .left {
