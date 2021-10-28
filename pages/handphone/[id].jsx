@@ -609,7 +609,7 @@ export default function DetailPage(props) {
                     </div>
                 </div>
 
-                <div className={styles.ratingSubmit}>
+                {/* <div className={styles.ratingSubmit}>
                     <div className={styles.contents}>
                         <Title title="Rating" />
                         <div className={styles.rateInfo}>
@@ -630,7 +630,7 @@ export default function DetailPage(props) {
                             }
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className={styles.relatedProducts}>
                     <div className={styles.contents}>
