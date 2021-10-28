@@ -4,7 +4,7 @@ module.exports = {
         domains: [
             "images.unsplash.com",
             "localhost",
-            // "www.androidponsel.com",
+            "androidponsel.com",
             "papiandro.stagingaja.com",
         ],
         // loader: "imgix",
