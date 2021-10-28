@@ -609,12 +609,12 @@ export default function DetailPage(props) {
                     </div>
                 </div>
 
-                {/* <div className={styles.ratingSubmit}>
+                <div className={styles.ratingSubmit}>
                     <div className={styles.contents}>
                         <Title title="Rating" />
                         <div className={styles.rateInfo}>
                             <div className={styles.ratingBox}>
-                                <RateBox rate={props.post.rating} voters={props.post.total_voters} />
+                                {/* <RateBox rate={props.post.rating} voters={props.post.total_voters} /> */}
                             </div>
                             {displayRate ? (
                                 <div className={styles.rateForm}>
@@ -630,7 +630,7 @@ export default function DetailPage(props) {
                             }
                         </div>
                     </div>
-                </div> */}
+                </div>
 
                 <div className={styles.relatedProducts}>
                     <div className={styles.contents}>
