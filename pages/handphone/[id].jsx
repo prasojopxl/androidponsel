@@ -614,7 +614,7 @@ export default function DetailPage(props) {
                         <Title title="Rating" />
                         <div className={styles.rateInfo}>
                             <div className={styles.ratingBox}>
-                                {/* <RateBox rate={props.post.rating} voters={props.post.total_voters} /> */}
+                                <RateBox rate={props.post.rating} voters={props.post.total_voters} />
                             </div>
                             {displayRate ? (
                                 <div className={styles.rateForm}>

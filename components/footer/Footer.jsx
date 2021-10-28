@@ -21,7 +21,7 @@ export default function Footer() {
                                 <ul>
                                     <li><Link href="/redaksi"><a>Editor</a></Link></li>
                                     <li><Link href="/menulis"><a>Write on Android Phone</a></Link></li>
-                                    <li><Link href="/faq"><a>FAQ</a></Link></li>
+                                    {/* <li><Link href="/faq"><a>FAQ</a></Link></li> */}
                                     <li><Link href="/sitemap"><a>Sitemap</a></Link></li>
                                 </ul>
                             </div>
