@@ -1,9 +1,7 @@
 import { useRouter } from 'next/router'
-import Image from "next/image";
-import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
-import { Ads, AdsBanner, Paging, Rate, Title, GlobalAds } from "../../components";
-import { apiUrl, baseUrl, totalItem } from "../../config/variable";
+import { Paging, Title, GlobalAds } from "../../components";
+import { baseUrl, totalItem } from "../../config/variable";
 import styles from "./index.module.scss";
 import { fetchData } from '../../config/data';
 import Layout from '../../layout';
@@ -128,7 +126,6 @@ export default function Handphone(props) {
                                 })}
                             </div>
                             <GlobalAds adsId="2" />
-
                             <div className="row">
                                 {props.dataListHandphone2.map((item, i) => {
                                     return (

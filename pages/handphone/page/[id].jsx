@@ -9,6 +9,8 @@ import styles from "../index.module.scss";
 
 export default function Page(props) {
     const router = useRouter();
+    const [totalCompare, setTotalCompare] = useState(0)
+
     function removeLocalProd() {
         localStorage.removeItem("produk1")
         localStorage.removeItem("produk2")
@@ -24,7 +26,6 @@ export default function Page(props) {
         const titleCompare1 = JSON.parse(localStorage.getItem("produk1"));
         const titleCompare2 = JSON.parse(localStorage.getItem("produk2"));
         const titleCompare3 = JSON.parse(localStorage.getItem("produk3"));
-        const [totalCompare, setTotalCompare] = useState(0)
         if (p1 !== null && p2 == null && p3 == null) {
             router.push(`${baseUrl}handphone/compare?produk1=${titleCompare1.slug}`)
             removeLocalProd();
