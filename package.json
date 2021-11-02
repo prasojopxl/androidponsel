@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start -H 0.0.0.0 -p ${PORT:-3000}",
-        "export": "npm run build && next export -o _static"
+        "export": "npm run build && next export -o _static",
+        "prod_start": "NODE_ENV=production node server.js"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
