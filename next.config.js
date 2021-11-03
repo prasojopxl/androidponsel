@@ -6,6 +6,8 @@ module.exports = {
             "localhost",
             "androidponsel.com",
             "papiandro.stagingaja.com",
+            "api.androidponsel.com",
+            "www.androidponsel.com",
         ],
         // loader: "imgix",
         // path: "",

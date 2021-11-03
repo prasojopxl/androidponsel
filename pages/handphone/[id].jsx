@@ -8,6 +8,7 @@ import { fetchData } from "../../config/data";
 import { apiUrl, baseUrl } from "../../config/variable";
 import Layout from "../../layout";
 import styles from "./index.module.scss";
+// import styles from "./stylebug.module.scss";
 import { Cookies, useCookies } from "react-cookie";
 import axios from "axios";
 import ReactHtmlParser from "react-html-parser";

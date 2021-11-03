@@ -258,6 +258,8 @@
     }
 }
 
+// ok
+
 .sliderOverview {
     text-align: center;
 }
@@ -365,6 +367,8 @@
     margin-top: 20px;
 }
 
+// keatas ok
+
 .itemDesc {
     margin: 30px 0;
     max-width: 1000px;
@@ -451,6 +455,8 @@
     }
 }
 
+//keatas ok
+
 .marketplaceprice {
     margin-bottom: 30px;
     padding: 20px 0;
@@ -503,9 +509,6 @@
         color: $color-green;
         text-decoration: underline;
     }
-}
-
-.bodypost {
 }
 
 .ratingSubmit {
@@ -587,6 +590,8 @@
     }
 }
 
+//kebawah ok
+
 .itemInfoCompare {
     padding: 15px 0;
     border-bottom: $color-gray solid 1px;
@@ -647,7 +652,7 @@ h4 {
     -ms-box-shadow: 4px 6px 30px 2.5px rgba(214, 214, 214, 0.96);
     min-width: 274px;
     overflow: hidden;
-    font-family: "RubikMedium", sans-serif;
+    font-family: $font-RubikMedium, sans-serif;
     font-size: 17px;
     line-height: 24.5px;
     letter-spacing: 0.3px;
@@ -711,7 +716,7 @@ h4 {
         padding: 12px 5px;
         cursor: pointer;
         border-radius: 14.5px;
-        font-family: "RubikMedium", sans-serif;
+        font-family: $font-RubikMedium, sans-serif;
         letter-spacing: 0.25px;
         font-size: 15px;
     }
@@ -734,105 +739,39 @@ h4 {
     }
 }
 
-.rateForm {
-    margin-left: 32px;
-    font-size: 32px;
-    @media (max-width: $widthMobileMax) {
-        width: 100%;
-    }
-    svg {
-        margin-right: 12px;
-        margin-bottom: 6px;
-        width: 24px;
-        @media (max-width: $widthMobileMax) {
-            margin: 14px 0px 10px 0px;
-        }
-    }
-    h2 {
-        margin-bottom: 10px;
-        font-size: 17px;
-        font-family: $font-MulishSemiBold, sans-serif;
-        letter-spacing: 0.2px;
-        color: $color-black;
-        margin-bottom: 15px;
-    }
-    @media (max-width: $widthMobileMax) {
-        margin-left: 20px;
-        width: 100%;
-        display: block;
-        h2 {
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-    }
-}
-
-.rateInfo {
-    display: flex;
-    flex: wrap;
-    align-items: center;
-    -ms-align-items: center;
-    @media (max-width: $widthMobileMax) {
-        width: 100%;
-        display: block;
-    }
-}
-
-.buttonDefault {
-    background: $color-green;
-    border: none;
+// -----
+// kebawah error
+.fullLink {
+    background: #89c340;
     color: #fff;
-    border-radius: 5px;
-    padding: 3px 10px;
     font-size: 15.5px;
-    font-family: "RubikMedium", sans-serif;
+    font-family: $font-RubikMedium;
     letter-spacing: 0.2px;
     line-height: 1.6;
     padding: 12.5px 15px;
     border-radius: 17.5px;
     min-width: 156px;
-    display: -moz-box;
     display: flex;
-    -moz-box-align: center;
     align-items: center;
-    -moz-box-pack: center;
     justify-content: center;
     text-align: center;
-    margin: 15px 0px 10px 0px;
-}
-
-.infoRating {
-    margin-left: 20px;
-    font-family: $font-MulishRegular, sans-serif;
-    font-size: 16px;
-    line-height: 22px;
-    color: $color-black;
-    @media screen and (max-width: $widthMobileMax) {
-        margin-left: 0px;
-    }
-}
-
-.itemcompare {
-    -webkit-box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.4);
-    box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.4);
-    width: 100%;
-    min-height: 100px;
-    margin-bottom: 15px;
     margin-top: 15px;
-    border-radius: 11.5px;
-    border: $color-gray solid 1px;
-    border: #f5f5f5 solid 1px;
-    overflow: hidden;
-    @media screen and (max-width: 1200px) {
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        border: 1px solid #d7d7d7;
+    width: 90%;
+    margin: 12px auto 36px auto;
+    max-width: 480px;
+    // &:hover {
+    //     text-decoration: none;
+    //     color: #fff;
+    //     background: $color-green-dark;
+    //     box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
+    // }
+    img {
+        margin-right: 10px;
     }
 }
+
 .wrpCompare {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
@@ -862,53 +801,12 @@ h4 {
         display: flex;
         flex-wrap: wrap;
         min-height: 120px;
-        -moz-box-align: center;
         align-items: center;
-        -ms-align-items: center;
-        @media screen and (max-width: 1200px) {
-            min-height: 164px;
-        }
-        @media screen and (max-width: 992px) {
-            min-height: 124px;
-        }
-        @media screen and ($widthMobileMax) {
-            min-height: 124px;
-        }
-        @media screen and ($widthMobileSm) {
-            min-height: 98px;
-            padding: 20px 20px 12px 20px;
-        }
-        @media screen and ($widthMobileXs) {
-            min-height: 96px;
-            padding: 20px 20px 12px 20px;
-        }
-        a {
-            color: $color-black;
-        }
     }
     .imgwrp {
         padding: 32px 24px 36px 24px;
         width: 100%;
         text-align: center;
-        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fff6ff+0,f8fdff+100 */
-        background: #fff6ff; /* Old browsers */
-        background: -moz-linear-gradient(
-            left,
-            #fff6ff 0%,
-            #f8fdff 100%
-        ); /* FF3.6-15 */
-        background: -webkit-linear-gradient(
-            left,
-            #fff6ff 0%,
-            #f8fdff 100%
-        ); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(
-            to right,
-            #fff6ff 0%,
-            #f8fdff 100%
-        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff6ff', endColorstr='#f8fdff',GradientType=1 ); /* IE6-9 */
-        position: relative;
     }
     h5 {
         margin-bottom: 5px;
@@ -917,39 +815,5 @@ h4 {
         font-size: 11px;
         font-family: $font-MulishRegular;
         color: $color-graytext;
-    }
-}
-
-.fullLink {
-    background: #89c340;
-    color: #fff;
-    font-size: 15.5px;
-    font-family: "RubikMedium", sans-serif;
-    letter-spacing: 0.2px;
-    line-height: 1.6;
-    padding: 12.5px 15px;
-    border-radius: 17.5px;
-    min-width: 156px;
-    display: -moz-box;
-    display: flex;
-    -moz-box-align: center;
-    align-items: center;
-    -moz-box-pack: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 15px;
-    width: 90%;
-    margin: 12px auto 36px auto;
-    max-width: 480px;
-    &:hover {
-        text-decoration: none;
-        color: #fff;
-        background: $color-green-dark;
-        -webkit-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
-        box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
-        -ms-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
-    }
-    img {
-        margin-right: 10px;
     }
 }
