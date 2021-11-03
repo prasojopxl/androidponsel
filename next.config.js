@@ -6,8 +6,10 @@ module.exports = {
             "images.unsplash.com",
             "localhost",
             "www.androidponsel.com",
-            "api.androidponsel.com",
+            "androidponsel.com",
             "papiandro.stagingaja.com",
+            "api.androidponsel.com",
+
         ],
         // loader: "imgix",
         // path: "",

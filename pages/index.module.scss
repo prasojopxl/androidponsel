@@ -416,8 +416,6 @@
         color: $color-graytext-smooth;
         margin-bottom: 6px;
     }
-    .wrpitemnews {
-    }
 }
 
 .wrpitemnews {
@@ -585,13 +583,13 @@
 }
 .infodate {
     font-size: 10px;
-    font-family: "$font-MulishRegular", sans-serif;
+    font-family: $font-MulishRegular, sans-serif;
     color: #fff;
     position: relative;
     z-index: 2;
     @media screen and (max-width: $widthMobileMax) {
         color: $color-graytext;
-        font-family: "$font-MulishRegular", sans-serif;
+        font-family: $font-MulishRegular, sans-serif;
     }
 }
 .wrplistapp {
