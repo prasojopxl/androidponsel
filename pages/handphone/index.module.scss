@@ -243,20 +243,20 @@
     }
 }
 
-.overview {
-    .mainslide {
-    }
-    .subslider {
-        margin-top: 30px;
-    }
-    @media (max-width: $widthMobileMax) {
-        margin-top: 10px;
-        .subslider {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-    }
-}
+// .overview {
+//     .mainslide {
+//     }
+//     .subslider {
+//         margin-top: 30px;
+//     }
+//     @media (max-width: $widthMobileMax) {
+//         margin-top: 10px;
+//         .subslider {
+//             margin-top: 20px;
+//             margin-bottom: 20px;
+//         }
+//     }
+// }
 
 // ok
 
@@ -741,31 +741,3 @@ h4 {
 
 // -----
 // kebawah error
-.fullLink {
-    background: #89c340;
-    color: #fff;
-    font-size: 15.5px;
-    font-family: $font-RubikMedium;
-    letter-spacing: 0.2px;
-    line-height: 1.6;
-    padding: 12.5px 15px;
-    border-radius: 17.5px;
-    min-width: 156px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 15px;
-    width: 90%;
-    margin: 12px auto 36px auto;
-    max-width: 480px;
-    // &:hover {
-    //     text-decoration: none;
-    //     color: #fff;
-    //     background: $color-green-dark;
-    //     box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
-    // }
-    img {
-        margin-right: 10px;
-    }
-}
