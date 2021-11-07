@@ -739,7 +739,7 @@ h4 {
     }
 }
 
-.rateFormNew {
+.rateformnew {
     margin-left: 32px;
     font-size: 32px;
     @media (max-width: $widthMobileMax) {
@@ -753,22 +753,22 @@ h4 {
             margin: 14px 0px 10px 0px;
         }
     }
-    h2 {
-        margin-bottom: 10px;
-        font-size: 17px;
-        font-family: $font-MulishSemiBold, sans-serif;
-        letter-spacing: 0.2px;
-        color: $color-black;
-        margin-bottom: 15px;
-    }
+    // h2 {
+    //     margin-bottom: 10px;
+    //     font-size: 17px;
+    //     font-family: $font-MulishSemiBold, sans-serif;
+    //     letter-spacing: 0.2px;
+    //     color: $color-black;
+    //     margin-bottom: 15px;
+    // }
     @media (max-width: $widthMobileMax) {
         margin-left: 20px;
         width: 100%;
         display: block;
-        h2 {
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
+        // h2 {
+        //     margin-bottom: 5px;
+        //     font-size: 14px;
+        // }
     }
 }
 
