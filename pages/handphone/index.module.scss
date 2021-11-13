@@ -746,14 +746,60 @@ h4 {
 .ratingformdisplay {
     margin-left: 32px;
     font-size: 32px;
-    // h2 {
-    //     margin-bottom: 10px;
-    //     font-size: 17px;
-    //     font-family: $font-MulishSemiBold, sans-serif;
-    //     letter-spacing: 0.2px;
-    //     color: $color-black;
-    //     margin-bottom: 15px;
-    // }
+    .titlerate {
+        margin-bottom: 10px;
+        font-size: 17px;
+        font-family: $font-MulishSemiBold, sans-serif;
+        letter-spacing: 0.2px;
+        color: $color-black;
+        margin-bottom: 15px;
+    }
+    @media (max-width: $widthMobileMax) {
+        width: 100%;
+    }
+    @media (max-width: $widthMobileMax) {
+        margin-left: 20px;
+        width: 100%;
+        display: block;
+        .titlerate {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+    }
+    .buttonDefault {
+        background: $color-green;
+    }
+}
+
+.rateInfo {
+    display: flex;
+    flex: wrap;
+    align-items: center;
+    -ms-align-items: center;
+    @media (max-width: $widthMobileMax) {
+        width: 100%;
+        display: block;
+    }
+}
+
+.buttonDefault {
+    background: $color-green;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 15.5px;
+    font-family: "RubikMedium", sans-serif;
+    letter-spacing: 0.2px;
+    line-height: 1.6;
+    padding: 12.5px 15px;
+    border-radius: 17.5px;
+    min-width: 156px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 15px 0px 10px 0px;
 }
 
 // .rateformnew {
