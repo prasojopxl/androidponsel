@@ -747,16 +747,3 @@ h4 {
         margin-bottom: 15px;
     }
 }
-
-.fulllinkcompare {
-    background: #89c340;
-    color: #fff;
-    font-size: 15.5px;
-    max-width: 480px;
-    &:hover {
-        text-decoration: none;
-        color: #fff;
-        background: $color-green-dark;
-        box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
-    }
-}
