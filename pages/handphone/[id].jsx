@@ -612,12 +612,12 @@ export default function DetailPage(props) {
                 <div className={styles.ratingSubmit}>
                     <div className={styles.contents}>
                         <Title title="Rating" />
-                        <div className={styles.rateInfo}>
+                        <div className={styles.rateInfo} style={{ display: "flex", alignItems: "center" }}>
                             <div className={styles.ratingBox}>
                                 <RateBox rate={props.post.rating} voters={props.post.total_voters} />
                             </div>
                             {displayRate ? (
-                                <div className={styles.ratingformdisplay} style={{ display: "flex", alignItems: "center" }}>
+                                <div className={styles.ratingformdisplay}>
                                     <h2 className={styles.titlerate}>Submit Your Rate</h2>
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 1 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(1) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 2 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(2) }} />
