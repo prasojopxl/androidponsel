@@ -617,7 +617,7 @@ export default function DetailPage(props) {
                                 <RateBox rate={props.post.rating} voters={props.post.total_voters} />
                             </div>
                             {displayRate ? (
-                                <div className={styles.ratingformdisplay}>
+                                <div className={styles.ratingformdisplay} style={{ display: "flex", alignItems: "center" }}>
                                     <h2 className={styles.titlerate}>Submit Your Rate</h2>
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 1 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(1) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 2 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(2) }} />
@@ -625,7 +625,7 @@ export default function DetailPage(props) {
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 4 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(4) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 5 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(5) }} />
                                     <div style={{
-                                        background: "#89c340", color: "#fff", borderRadius: 17, padding: 11, maxWidth: 170, textAlign: "center", marginTop: 15
+                                        background: "#89c340", color: "#fff", borderRadius: 17, padding: 11, maxWidth: 170, textAlign: "center", marginTop: 15, fontSize: 17
                                     }} onClick={submitRate}>Submit</div>
                                 </div>
                             ) : <div className={styles.inforating}>Anda dapat melakukan submit rating setelah maximal 1 x 24jam</div>
