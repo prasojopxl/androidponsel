@@ -300,12 +300,12 @@ export default function Home(props) {
                                                                     "center",
                                                             }}
                                                         >
-                                                            <Image
+                                                            {/* <Image
                                                                 src="/icon-vs-small.png"
                                                                 width={31}
                                                                 height={21}
                                                                 alt="camera"
-                                                            />
+                                                            /> */}
                                                         </div>
                                                         See Comparation
                                                     </a>
