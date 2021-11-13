@@ -4,7 +4,7 @@ import { Fragment, useState } from "react";
 import useSWR from 'swr';
 import { GlobalAds, Rate, Title, } from "../../components";
 import Image from "next/image";
-import { apiUrl, baseUrl } from "../../config/variable";
+import { apiUrl, baseUrl, staticImage } from "../../config/variable";
 import styles from "./index.module.scss";
 import { fetchData } from "../../config/data";
 import Layout from "../../layout";
@@ -550,7 +550,7 @@ export default function compare({
 							}
 						</div>
 						<GlobalAds adsId="2" />
-						<div style={{ marginTop: "30px" }}><Title title="Perbandingan Lainya" /></div>
+						<div style={{ marginTop: "30px" }}><Title title="Other Comparation" /></div>
 						<div className="row" style={{ marginBottom: 30 }}>
 							{
 								otherCompare.map(item => {
@@ -640,7 +640,7 @@ export default function compare({
 														item.products[1].slug
 													}
 												>
-													<a className={styles.fullLink}>
+													<a className={styles.fulllinkcompare}>
 														<div
 															style={{
 																marginRight: "10px",
@@ -650,7 +650,7 @@ export default function compare({
 															}}
 														>
 															<Image
-																src="/icon-vs-small.png"
+																src={staticImage + "icon-vs-small.png"}
 																width={25}
 																height={18}
 																alt="camera"
