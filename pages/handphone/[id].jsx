@@ -612,24 +612,28 @@ export default function DetailPage(props) {
                 <div className={styles.ratingSubmit}>
                     <div className={styles.contents}>
                         <Title title="Rating" />
-                        <div className={styles.rateInfo} style={{ display: "flex", alignItems: "center" }}>
-                            <div className={styles.ratingBox}>
-                                <RateBox rate={props.post.rating} voters={props.post.total_voters} />
-                            </div>
-                            {displayRate ? (
-                                <div className={styles.ratingformdisplay}>
-                                    <h2 className={styles.titlerate}>Submit Your Rate</h2>
-                                    <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 1 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(1) }} />
-                                    <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 2 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(2) }} />
-                                    <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 3 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(3) }} />
-                                    <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 4 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(4) }} />
-                                    <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 5 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(5) }} />
-                                    <div style={{
-                                        background: "#89c340", color: "#fff", borderRadius: 17, padding: 11, maxWidth: 170, textAlign: "center", marginTop: 15, fontSize: 17
-                                    }} onClick={submitRate}>Submit</div>
+                        <div className="row align-items-center ">
+                            <div className="col-lg-3">
+                                <div className={styles.ratingBox} style={{ marginBottom: 15 }}>
+                                    <RateBox rate={props.post.rating} voters={props.post.total_voters} />
                                 </div>
-                            ) : <div className={styles.inforating} style={{ marginLeft: 15 }}>Thanks for your contribution</div>
-                            }
+                            </div>
+                            <div className="col-lg-8">
+                                {displayRate ? (
+                                    <div className={styles.ratingformdisplay}>
+                                        <h2 className={styles.titlerate}>Submit Your Rate</h2>
+                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 1 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(1) }} />
+                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 2 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(2) }} />
+                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 3 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(3) }} />
+                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 4 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(4) }} />
+                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 5 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(5) }} />
+                                        <div style={{
+                                            background: "#89c340", color: "#fff", borderRadius: 17, padding: 11, maxWidth: 170, textAlign: "center", marginTop: 15, fontSize: 17
+                                        }} onClick={submitRate}>Submit</div>
+                                    </div>
+                                ) : <div className={styles.inforating} style={{ marginLeft: 15 }}>Thanks for your contribution</div>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
