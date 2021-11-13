@@ -1,6 +1,8 @@
 import styles from "./footer.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { staticImage } from "../../config/variable";
+
 
 export default function Footer() {
     return (
@@ -45,11 +47,11 @@ export default function Footer() {
                             <h4>Social Network</h4>
                             <div className={styles.item}>
                                 <ul className={styles.socmed}>
-                                    <li><Link href="#" target="_blank"><a><Image src="/icon_fb.png" alt="facebook" width={12 / 1.5} height={25 / 1.5} /></a></Link></li>
-                                    <li><Link href="https://twitter.com/androidPonsel_" target="_blank"><a><Image src="/icon_tw.png" alt="twitter" width={23 / 1.5} height={18 / 1.5} /></a></Link></li>
-                                    <li><Link href="#" target="_blank"><a><Image src="/icon_yt.png" alt="youtube" width={25 / 1.5} height={16 / 1.5} /></a></Link></li>
-                                    <li><Link href="https://instagram.com/androidponselcom" target="_blank"><a><Image src="/icon_ig.png" alt="telegram" width={22 / 1.5} height={22 / 1.5} /></a></Link></li>
-                                    <li><Link href="#" target="_blank"><a><Image src="/icon_in.png" alt="linkedin" width={21 / 1.5} height={21 / 1.5} /></a></Link></li>
+                                    <li><Link href="#" target="_blank"><a><Image src={staticImage + "icon_fb.png"} alt="facebook" width={12 / 1.5} height={25 / 1.5} /></a></Link></li>
+                                    <li><Link href="https://twitter.com/androidPonsel_" target="_blank"><a><Image src={staticImage + "icon_tw.png"} alt="twitter" width={23 / 1.5} height={18 / 1.5} /></a></Link></li>
+                                    <li><Link href="#" target="_blank"><a><Image src={staticImage + "icon_yt.png"} alt="youtube" width={25 / 1.5} height={16 / 1.5} /></a></Link></li>
+                                    <li><Link href="https://instagram.com/androidponselcom" target="_blank"><a><Image src={staticImage + "icon_ig.png"} alt="telegram" width={22 / 1.5} height={22 / 1.5} /></a></Link></li>
+                                    <li><Link href="#" target="_blank"><a><Image src={staticImage + "icon_in.png"} alt="linkedin" width={21 / 1.5} height={21 / 1.5} /></a></Link></li>
                                 </ul>
                             </div>
                         </div>

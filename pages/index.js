@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import ReactHtmlParser from "react-html-parser";
 import { Title, GlobalAds, ItemProduct } from "../components/";
 import { fetchData, fetchDataApp, fetchDataBlog } from "../config/data";
-import { apiUrl, baseUrl } from "../config/variable";
+import { apiUrl, baseUrl, staticImage } from "../config/variable";
 import Layout from "../layout";
 import styles from "./index.module.scss";
 
@@ -80,7 +80,7 @@ export async function getStaticProps(context) {
 export default function Home(props) {
     const router = useRouter();
     const [totalCompare, setTotalCompare] = useState(0);
-
+    console.log(props.getMenu);
     function removeLocalProd() {
         localStorage.removeItem("produk1");
         localStorage.removeItem("produk2");
@@ -300,12 +300,15 @@ export default function Home(props) {
                                                                     "center",
                                                             }}
                                                         >
-                                                            {/* <Image
-                                                                src="/icon-vs-small.png"
+                                                            <Image
+                                                                src={
+                                                                    staticImage +
+                                                                    "/icon-vs-small.png"
+                                                                }
                                                                 width={31}
                                                                 height={21}
                                                                 alt="camera"
-                                                            /> */}
+                                                            />
                                                         </div>
                                                         See Comparation
                                                     </a>

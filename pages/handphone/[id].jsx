@@ -5,7 +5,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { GlobalAds, Rate, RateBox, Title } from "../../components";
 import { fetchData } from "../../config/data";
-import { apiUrl, baseUrl } from "../../config/variable";
+import { apiUrl, baseUrl, staticImage } from "../../config/variable";
 import Layout from "../../layout";
 import styles from "./index.module.scss";
 // import styles from "./stylebug.module.scss";
@@ -159,7 +159,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-brand.png"
+                                                        src={staticImage + "icon-brand.png"}
                                                         width={19}
                                                         height={21}
                                                         alt="brand"
@@ -173,7 +173,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-release.png"
+                                                        src={staticImage + "icon-release.png"}
                                                         width={18}
                                                         height={18}
                                                         alt="release"
@@ -187,7 +187,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-network.png"
+                                                        src={staticImage + "icon-network.png"}
                                                         width={19}
                                                         height={21}
                                                         alt="network"
@@ -204,7 +204,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-resolution.png"
+                                                        src={staticImage + "icon-resolution.png"}
                                                         width={21}
                                                         height={16}
                                                         alt="resolution"
@@ -218,7 +218,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-size.png"
+                                                        src={staticImage + "icon-size.png"}
                                                         width={18}
                                                         height={18}
                                                         alt="size"
@@ -232,7 +232,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-os.png"
+                                                        src={staticImage + "icon-os.png"}
                                                         width={22}
                                                         height={13}
                                                         alt="os"
@@ -246,7 +246,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-processor.png"
+                                                        src={staticImage + "icon-processor.png"}
                                                         width={21}
                                                         height={21}
                                                         alt="processor"
@@ -260,7 +260,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-memory.png"
+                                                        src={staticImage + "icon-memory.png"}
                                                         width={15}
                                                         height={20}
                                                         alt="memory"
@@ -274,7 +274,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-camera.png"
+                                                        src={staticImage + "icon-camera.png"}
                                                         width={20}
                                                         height={16}
                                                         alt="camera"
@@ -288,7 +288,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-camera.png"
+                                                        src={staticImage + "icon-camera.png"}
                                                         width={20}
                                                         height={16}
                                                         alt="camera"
@@ -302,7 +302,7 @@ export default function DetailPage(props) {
                                             <div className={styles.itemshort}>
                                                 <div className={styles.title}>
                                                     <Image
-                                                        src="/icon-battery.png"
+                                                        src={staticImage + "icon-battery.png"}
                                                         width={22}
                                                         height={11}
                                                         alt="camera"

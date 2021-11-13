@@ -5,3 +5,4 @@ export const baseUrl = `https://androidponsel.com/device/`;
 export const apiUrlBlog = `https://www.androidponsel.com/wp-json/wp/v2/posts?`;
 export const apiUrlApp = `https://www.androidponsel.com/download/wp-json/wp/v2/posts?`;
 export const totalItem = 8;
+export const staticImage = `https://stagingaja.com/static/device/`;
