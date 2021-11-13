@@ -556,7 +556,7 @@ export default function compare({
 								otherCompare.map(item => {
 									return (
 										<div className="col-lg-4 col-md-6 col-sm-12 col-12" key={item.id}>
-											<div className={styles.itemcompare} style={{ width: "100%", minHeight: 100, margin: "15px auto", borderRadius: 11, border: "#d7d7d7 solid 1px", overflow: "hidden" }}>
+											<div className={styles.itemcompare} style={{ width: "100%", minHeight: 100, margin: "15px auto", borderRadius: 11, border: "#d7d7d7 solid 1px", overflow: "hidden", padding: 20 }}>
 												<div className={styles.wrpCompare} style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", position: "relative" }}>
 													{item.products.map((data) => {
 														return (
@@ -622,7 +622,7 @@ export default function compare({
 																				}
 																			>
 																				<a style={{ color: 111 }}>
-																					<h5 className="mediumtitleTile" style={{ marginBottom: 5 }}>
+																					<h5 className="mediumtitleTile" style={{ marginBottom: 5, color: "#89c340" }}>
 																						{
 																							data.title
 																						}
