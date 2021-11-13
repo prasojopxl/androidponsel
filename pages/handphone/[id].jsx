@@ -618,13 +618,13 @@ export default function DetailPage(props) {
                             </div>
                             {displayRate ? (
                                 <div className={styles.ratingformdisplay}>
-                                    <h2 className={styles.titlerate}>Submit Your Rate2</h2>
+                                    <h2 className={styles.titlerate}>Submit Your Rate</h2>
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 1 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(1) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 2 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(2) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 3 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(3) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 4 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(4) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 5 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(5) }} />
-                                    <div style={{ marginTop: 10 }}><button className={styles.buttondefault} onClick={submitRate}>Submit</button></div>
+                                    <div style={{ marginTop: 10 }}><button className={styles.buttongreendef} onClick={submitRate}>Submit</button></div>
                                 </div>
                             ) : <div className={styles.inforating}>Anda dapat melakukan submit rating setelah maximal 1 x 24jam</div>
                             }

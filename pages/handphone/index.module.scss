@@ -748,3 +748,21 @@ h4 {
         margin-bottom: 15px;
     }
 }
+
+.buttongreendef {
+    background: $color-green;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 15.5px;
+    letter-spacing: 0.2px;
+    padding: 12px 15px;
+    border-radius: 17px;
+    min-width: 156px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 15px 0px 10px 0px;
+}
