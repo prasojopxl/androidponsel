@@ -94,7 +94,7 @@ export default function ItemProduct(props) {
                             Compare
                         </button>
                     </div>
-                    <Link href={`${baseUrl + "/handphone/" + props.slug}`}>
+                    <Link href={`${baseUrl + "handphone/" + props.slug}`}>
                         <a className={styles.btnblank}>
                             See Details
                         </a>
