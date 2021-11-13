@@ -617,7 +617,7 @@ export default function DetailPage(props) {
                                 <RateBox rate={props.post.rating} voters={props.post.total_voters} />
                             </div>
                             {displayRate ? (
-                                <div className={styles.rateformnew}>
+                                <div className={styles.ratingformdisplay}>
                                     <h2>Submit Your Rate2</h2>
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 1 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(1) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 2 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(2) }} />

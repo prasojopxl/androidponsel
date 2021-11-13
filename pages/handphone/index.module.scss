@@ -739,6 +739,28 @@ h4 {
     }
 }
 
+.rateInfo {
+    display: flex;
+}
+
+.ratingformdisplay {
+    margin-left: 32px;
+    font-size: 32px;
+    h2 {
+        margin-bottom: 10px;
+        font-size: 17px;
+        font-family: $font-MulishSemiBold, sans-serif;
+        letter-spacing: 0.2px;
+        color: $color-black;
+        margin-bottom: 15px;
+    }
+    svg {
+        margin-right: 12px;
+        margin-bottom: 6px;
+        width: 24px;
+    }
+}
+
 // .rateformnew {
 //     margin-left: 32px;
 //     font-size: 32px;
