@@ -103,7 +103,6 @@ export default function Page(props) {
     return (
         <Layout
             dataSEO={props.dataSEO.seo}
-            dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
             <div className={styles.pagelisthandphone}>

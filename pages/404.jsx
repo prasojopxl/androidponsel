@@ -7,7 +7,6 @@ export default function Page404({ getMenu, getTopBrands, dataSEO }) {
     return (
         <Layout
             dataSEO={dataSEO.seo}
-            dataMainMenu={getMenu}
             dataBrands={getTopBrands}
         >
             <div style={{ padding: "50px 0", textAlign: "center" }}>

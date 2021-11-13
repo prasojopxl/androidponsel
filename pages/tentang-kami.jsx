@@ -13,7 +13,6 @@ export default function TentangKami(props) {
     return (
         <Layout
             dataSEO={props.dataSEO.seo}
-            dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
             <GlobalAds adsId="1" />

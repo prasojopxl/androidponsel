@@ -14,7 +14,6 @@ export default function Redaksi(props) {
     return (
         <Layout
             dataSEO={props.dataSEO.seo}
-            dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
             <GlobalAds adsId="1" />

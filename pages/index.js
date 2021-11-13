@@ -80,7 +80,6 @@ export async function getStaticProps(context) {
 export default function Home(props) {
     const router = useRouter();
     const [totalCompare, setTotalCompare] = useState(0);
-    console.log(props.getMenu);
     function removeLocalProd() {
         localStorage.removeItem("produk1");
         localStorage.removeItem("produk2");
@@ -170,7 +169,6 @@ export default function Home(props) {
         <React.Fragment>
             <Layout
                 dataSEO={props.dataSEO.seo}
-                dataMainMenu={props.getMenu}
                 dataBrands={props.getTopBrands}
                 dataProd={props.dataAllProd}
             >

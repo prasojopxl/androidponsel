@@ -37,7 +37,6 @@ export default function compare({
 	return (
 		<Layout
 			dataSEO={dataSEO.seo}
-			dataMainMenu={getMenu}
 			dataBrands={getTopBrands}
 		>
 			<div className={styles.comparepage}>
