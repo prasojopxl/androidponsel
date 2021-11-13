@@ -556,8 +556,8 @@ export default function compare({
 								otherCompare.map(item => {
 									return (
 										<div className="col-lg-4 col-md-6 col-sm-12 col-12" key={item.id}>
-											<div className={styles.itemcompare}>
-												<div className={styles.wrpCompare}>
+											<div className={styles.itemcompare} style={{ width: "100%", minHeight: 100, margin: "15px auto", borderRadius: 11, border: "#d7d7d7 solid 1px", overflow: "hidden" }}>
+												<div className={styles.wrpCompare} style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", position: "relative" }}>
 													{item.products.map((data) => {
 														return (
 															<div
@@ -640,7 +640,7 @@ export default function compare({
 														item.products[1].slug
 													}
 												>
-													<a style={{ background: "#89c340", borderRadius: 5, padding: 10, minWidth: 150, color: "#fff", textAlign: "center", display: "flex", alignItems: "center", margin: "15px 0" }}>
+													<a style={{ background: "#89c340", borderRadius: 5, padding: 10, minWidth: 150, color: "#fff", textAlign: "center", display: "flex", alignItems: "center", margin: "15px 0", justifyContent: "center" }}>
 														<div
 															style={{
 																marginRight: "10px",
