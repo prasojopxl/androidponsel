@@ -564,6 +564,9 @@ export default function compare({
 																className={
 																	styles.item
 																}
+																style={{
+																	flex: 1
+																}}
 																key={data.id}
 															>
 																<div
@@ -601,6 +604,13 @@ export default function compare({
 																	className={
 																		styles.contentDec
 																	}
+																	style={{
+																		padding: "15px 20px",
+																		display: "flex",
+																		flexWrap: "wrap",
+																		minHeight: 120,
+																		alignItems: "center"
+																	}}
 																>
 																	<div className="flexing-title-compare">
 																		<div className="min_heigh_two_lines">
@@ -611,15 +621,15 @@ export default function compare({
 																					data.slug
 																				}
 																			>
-																				<a>
-																					<h5 className="mediumtitleTile">
+																				<a style={{ color: 111 }}>
+																					<h5 className="mediumtitleTile" style={{ marginBottom: 5 }}>
 																						{
 																							data.title
 																						}
 																					</h5>
 																				</a>
 																			</Link>
-																			<h6>
+																			<h6 style={{ fontSize: 11, color: "#666666" }}>
 																				{
 																					data.memory_internal
 																				}
