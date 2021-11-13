@@ -107,6 +107,7 @@ export async function getStaticProps() {
             getMenu,
             getTopBrands,
             dataSEO,
-        }
+        },
+        revalidate: 3
     }
 }

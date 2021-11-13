@@ -687,5 +687,6 @@ export async function getStaticProps() {
 			dataSEO,
 			otherCompare,
 		},
+		revalidate: 3
 	};
 }

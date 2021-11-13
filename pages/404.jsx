@@ -29,5 +29,6 @@ export async function getStaticProps({ params }) {
             getTopBrands,
             dataSEO,
         },
+        revalidate: 3
     };
 }

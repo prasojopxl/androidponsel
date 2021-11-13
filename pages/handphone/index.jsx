@@ -185,5 +185,6 @@ export async function getStaticProps() {
             dataBanerProdukBody,
             totalPaging
         },
+        revalidate: 3
     };
 }

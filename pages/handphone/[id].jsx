@@ -751,6 +751,6 @@ export async function getStaticProps({ params }) {
             post,
             dataRelatedProd,
         },
-        revalidate: 1
+        revalidate: 3
     };
 }

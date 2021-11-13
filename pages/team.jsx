@@ -90,6 +90,7 @@ export async function getStaticProps() {
             getTopBrands,
             dataSEO,
             dataBanerProdukTop,
-        }
+        },
+        revalidate: 3
     }
 }
