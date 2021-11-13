@@ -640,7 +640,7 @@ export default function compare({
 														item.products[1].slug
 													}
 												>
-													<a style={{ background: "#89c340", color: "#fff", fontSize: 15, maxWidth: 120, borderRadius: 7, display: "flex", alignItems: "center", textAlign: "center", width: "90%" }}>
+													<a style={{ background: "#89c340", borderRadius: 7 }}>
 														<div
 															style={{
 																marginRight: "10px",
