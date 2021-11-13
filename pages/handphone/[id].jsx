@@ -624,7 +624,7 @@ export default function DetailPage(props) {
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 3 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(3) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 4 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(4) }} />
                                     <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 5 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(5) }} />
-                                    <div style={{ marginTop: 10 }}><button className={styles.buttongreendef} onClick={submitRate}>Submit</button></div>
+                                    <div className={styles.buttongreendef} onClick={submitRate}>Submit</div>
                                 </div>
                             ) : <div className={styles.inforating}>Anda dapat melakukan submit rating setelah maximal 1 x 24jam</div>
                             }
@@ -681,7 +681,7 @@ export default function DetailPage(props) {
                     </div>
                 </div>
             </div>
-        </Layout>
+        </Layout >
     );
 }
 
