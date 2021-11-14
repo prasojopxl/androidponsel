@@ -8,6 +8,7 @@ import { apiUrl, baseUrl, staticImage } from "../../config/variable";
 import styles from "./index.module.scss";
 import { fetchData } from "../../config/data";
 import Layout from "../../layout";
+import Head from "next/head";
 
 
 export default function compare({
@@ -36,9 +37,54 @@ export default function compare({
 
 	return (
 		<Layout
-			dataSEO={dataSEO.seo}
 			dataBrands={getTopBrands}
 		>
+			<Head>
+				<title>
+					{dataSEO.seo.title}
+
+				</title>
+				<meta
+					name="description"
+					content={dataSEO.seo.description}
+				/>
+				<meta
+					name="keywords"
+					content={dataSEO.seo.keywords}
+				/>
+				<meta name="author" content="androidponsel" />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1, shrink-to-fit=no"
+				/>
+				<link
+					rel="shortcut icon"
+					href={apiUrl + "/uploads/fav_425b2ec632.png"}
+				/>
+				<meta property="og:locale" content="id_ID" />
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:title"
+					content={
+						dataSEO.seo.title +
+						" Androidponsel spesifikasi dan perbandingan handphone"
+					}
+				/>
+				<meta
+					property="og:image"
+					content={apiUrl + dataSEO.seo.ogimage.url}
+				/>
+
+				<meta
+					property="og:description"
+					content={dataSEO.seo.description}
+				/>
+				<meta
+					property="og:url"
+					content="https://www.androidponsel.com/"
+				/>
+			</Head>
+
 			<div className={styles.comparepage}>
 				<GlobalAds adsId="11" />
 				<div className={styles.detailCompare}>

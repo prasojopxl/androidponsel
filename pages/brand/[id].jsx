@@ -7,6 +7,7 @@ import ItemProduct from "../../components/products/item";
 import styles from "./index.module.scss"
 import { Title, GlobalAds } from "../../components";
 import { baseUrl } from "../../config/variable";
+import Head from "next/head";
 
 export default function Brand(props) {
     const router = useRouter();
@@ -102,6 +103,7 @@ export default function Brand(props) {
             dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >
+            
             <GlobalAds adsId="1" />
             <div className={styles.pageBrand}>
                 <div className={styles.contents}>

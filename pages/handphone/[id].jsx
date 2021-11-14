@@ -14,6 +14,7 @@ import axios from "axios";
 import ReactHtmlParser from "react-html-parser";
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.to/vuongddang/how-to-use-fontawesome-in-next-js-5bl5
+import Head from "next/head";
 
 export default function DetailPage(props) {
     const [newRate, setNewRate] = useState("")
@@ -86,6 +87,51 @@ export default function DetailPage(props) {
             dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >
+            <Head>
+                <title>
+                    {props.post.SEO.title +
+                        " | Android Ponsel"}{" "}
+                </title>
+                <meta
+                    name="description"
+                    content={props.post.SEO.description}
+                />
+                <meta
+                    name="keywords"
+                    content={props.post.SEO.keywords}
+                />
+                <meta name="author" content="androidponsel" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+                />
+                <link
+                    rel="shortcut icon"
+                    href={apiUrl + "/uploads/fav_425b2ec632.png"}
+                />
+                <meta property="og:locale" content="id_ID" />
+                <meta property="og:type" content="website" />
+                <meta
+                    property="og:title"
+                    content={
+                        props.post.SEO.title
+                    }
+                />
+                <meta
+                    property="og:image"
+                    content={apiUrl + props.post.SEO.ogimage.url}
+                />
+
+                <meta
+                    property="og:description"
+                    content={props.post.SEO.description}
+                />
+                <meta
+                    property="og:url"
+                    content="https://www.androidponsel.com/"
+                />
+            </Head>
+
             <GlobalAds adsId="1" />
             <div className={styles.detailproducts}>
                 <div className={styles.contents}>

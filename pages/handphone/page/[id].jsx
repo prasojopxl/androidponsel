@@ -6,6 +6,7 @@ import { fetchData } from "../../../config/data";
 import { apiUrl, baseUrl, totalItem } from "../../../config/variable";
 import Layout from "../../../layout";
 import styles from "../index.module.scss";
+import Head from "next/head";
 
 export default function Page(props) {
     const router = useRouter();
@@ -102,9 +103,53 @@ export default function Page(props) {
     }, []);
     return (
         <Layout
-            dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >
+            <Head>
+                <title>
+                    {props.dataSEO.seo.title +
+                        " Androidponsel spesifikasi dan perbandingan handphone"}{" "}
+                </title>
+                <meta
+                    name="description"
+                    content={props.dataSEO.seo.description}
+                />
+                <meta
+                    name="keywords"
+                    content={props.dataSEO.seo.keywords}
+                />
+                <meta name="author" content="androidponsel" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+                />
+                <link
+                    rel="shortcut icon"
+                    href={apiUrl + "/uploads/fav_425b2ec632.png"}
+                />
+                <meta property="og:locale" content="id_ID" />
+                <meta property="og:type" content="website" />
+                <meta
+                    property="og:title"
+                    content={
+                        props.dataSEO.seo.title +
+                        " Androidponsel spesifikasi dan perbandingan handphone"
+                    }
+                />
+                <meta
+                    property="og:image"
+                    content={apiUrl + props.dataSEO.seo.ogimage.url}
+                />
+
+                <meta
+                    property="og:description"
+                    content={props.dataSEO.seo.description}
+                />
+                <meta
+                    property="og:url"
+                    content="https://www.androidponsel.com/"
+                />
+            </Head>
             <div className={styles.pagelisthandphone}>
                 <div className={styles.contents}>
                     <Title title="Handphone" />
