@@ -1,5 +1,5 @@
-// export const apiUrl = `https://api.androidponsel.com`;
-export const apiUrl = `https://papiandro.stagingaja.com`;
+export const apiUrl = `https://api.androidponsel.com`;
+// export const apiUrl = `https://papiandro.stagingaja.com`;
 // export const baseUrl = `https://android-omega.vercel.app/`;
 export const baseUrl = `https://androidponsel.com/device/`;
 // export const baseUrl = `http://localhost:3000/`;
