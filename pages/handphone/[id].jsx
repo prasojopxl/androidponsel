@@ -81,13 +81,53 @@ export default function DetailPage(props) {
             nav2: slider2.current,
         });
     }, []);
+    // console.log("haloo" + props.post.SEO.ogimage)
 
     return (
         <Layout
-            dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >
+            <Head>
+                <title>
+                    {props.post.SEO.title_tag}
+                </title>
+                <meta
+                    name="description"
+                    content={props.post.SEO.description_tag}
+                />
+                <meta
+                    name="keywords"
+                    content={props.post.SEO.Keyword_tag}
+                />
+                <meta name="author" content="androidponsel" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+                />
+                <link
+                    rel="shortcut icon"
+                    href={apiUrl + "/uploads/fav_425b2ec632.png"}
+                />
+                <meta property="og:locale" content="id_ID" />
+                <meta property="og:type" content="website" />
+                <meta
+                    property="og:title"
+                    content={props.post.SEO.title_tag}
+                />
+                <meta
+                    property="og:image"
+                    content={apiUrl + props.post.SEO.ogimage}
+                />
 
+                <meta
+                    property="og:description"
+                    content={props.post.SEO.description_tag}
+                />
+                <meta
+                    property="og:url"
+                    content="https://www.androidponsel.com/"
+                />
+            </Head>
 
             <GlobalAds adsId="1" />
             <div className={styles.detailproducts}>
