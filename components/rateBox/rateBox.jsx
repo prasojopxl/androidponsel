@@ -10,11 +10,11 @@ export default function RateBox(props) {
                 <div>
                     <h4>{rate.toFixed(2)}</h4>
                     <div className={styles.starBox}>
-                        <FontAwesomeIcon icon={faStar} style={{ color: rate >= 1 ? "#ffc529" : "#d7d7d7" }} />
-                        <FontAwesomeIcon icon={faStar} style={{ color: rate >= 2 ? "#ffc529" : "#d7d7d7" }} />
-                        <FontAwesomeIcon icon={faStar} style={{ color: rate >= 3 ? "#ffc529" : "#d7d7d7" }} />
-                        <FontAwesomeIcon icon={faStar} style={{ color: rate >= 4 ? "#ffc529" : "#d7d7d7" }} />
-                        <FontAwesomeIcon icon={faStar} style={{ color: rate >= 5 ? "#ffc529" : "#d7d7d7" }} />
+                        <FontAwesomeIcon style={{ width: 20 }} icon={faStar} style={{ color: rate >= 1 ? "#ffc529" : "#d7d7d7" }} />
+                        <FontAwesomeIcon style={{ width: 20 }} icon={faStar} style={{ color: rate >= 2 ? "#ffc529" : "#d7d7d7" }} />
+                        <FontAwesomeIcon style={{ width: 20 }} icon={faStar} style={{ color: rate >= 3 ? "#ffc529" : "#d7d7d7" }} />
+                        <FontAwesomeIcon style={{ width: 20 }} icon={faStar} style={{ color: rate >= 4 ? "#ffc529" : "#d7d7d7" }} />
+                        <FontAwesomeIcon style={{ width: 20 }} icon={faStar} style={{ color: rate >= 5 ? "#ffc529" : "#d7d7d7" }} />
                     </div>
                 </div>
             }

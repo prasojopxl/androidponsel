@@ -665,11 +665,11 @@ export default function DetailPage(props) {
                                 {displayRate ? (
                                     <div className={styles.ratingformdisplay}>
                                         <h2 className={styles.titlerate}>Submit Your Rate</h2>
-                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 1 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(1) }} />
-                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 2 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(2) }} />
-                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 3 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(3) }} />
-                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 4 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(4) }} />
-                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", color: newSubmitRate >= 5 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(5) }} />
+                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", width: 30, color: newSubmitRate >= 1 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(1) }} />
+                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", width: 30, color: newSubmitRate >= 2 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(2) }} />
+                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", width: 30, color: newSubmitRate >= 3 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(3) }} />
+                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", width: 30, color: newSubmitRate >= 4 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(4) }} />
+                                        <FontAwesomeIcon icon={faStar} style={{ cursor: "pointer", width: 30, color: newSubmitRate >= 5 ? "#ffc529" : "#d7d7d7" }} onClick={() => { setNewSubmitRate(5) }} />
                                         <div style={{
                                             background: "#89c340", color: "#fff", borderRadius: 17, padding: 11, maxWidth: 170, textAlign: "center", marginTop: 15, fontSize: 17
                                         }} onClick={submitRate}>Submit</div>
