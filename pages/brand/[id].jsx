@@ -6,7 +6,7 @@ import LayoutBlank from "../../layout/layoutBlank";
 import ItemProduct from "../../components/products/item";
 import styles from "./index.module.scss"
 import { Title, GlobalAds } from "../../components";
-import { baseUrl } from "../../config/variable";
+import { baseUrl, apiUrl } from "../../config/variable";
 import Head from "next/head";
 
 export default function Brand(props) {
@@ -100,10 +100,102 @@ export default function Brand(props) {
 
     return (
         <Layout
-            dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >
-            
+            {
+                props.brands[0].seo !== null &&
+                // console.log(props.brands[0].seo.title)
+                <Head>
+                    <title>
+                        {props.brands[0].seo.title}
+                    </title>
+                    <meta
+                        name="description"
+                        content={props.brands[0].seo.description}
+                    />
+                    <meta
+                        name="keywords"
+                        content={props.brands[0].seo.keywords}
+                    />
+                    <meta name="author" content="androidponsel" />
+                    <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+                    />
+                    <link
+                        rel="shortcut icon"
+                        href={apiUrl + "/uploads/fav_425b2ec632.png"}
+                    />
+                    <meta property="og:locale" content="id_ID" />
+                    <meta property="og:type" content="website" />
+                    <meta
+                        property="og:title"
+                        content={props.brands[0].seo.title}
+                    />
+                    <meta
+                        property="og:image"
+                        content={apiUrl + props.brands[0].seo.ogimage.url}
+                    />
+
+                    <meta
+                        property="og:description"
+                        content={props.brands[0].seo.description}
+                    />
+                    <meta
+                        property="og:url"
+                        content="https://www.androidponsel.com/"
+                    />
+                </Head>
+            }
+            {
+                props.brands[0].seo === null &&
+                <Head>
+                    <title>
+                        {props.dataSEO.seo.title +
+                            " Androidponsel spesifikasi dan perbandingan handphone"}{" "}
+                    </title>
+                    <meta
+                        name="description"
+                        content={props.dataSEO.seo.description}
+                    />
+                    <meta
+                        name="keywords"
+                        content={props.dataSEO.seo.keywords}
+                    />
+                    <meta name="author" content="androidponsel" />
+                    <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+                    />
+                    <link
+                        rel="shortcut icon"
+                        href={apiUrl + "/uploads/fav_425b2ec632.png"}
+                    />
+                    <meta property="og:locale" content="id_ID" />
+                    <meta property="og:type" content="website" />
+                    <meta
+                        property="og:title"
+                        content={
+                            props.dataSEO.seo.title +
+                            " Androidponsel spesifikasi dan perbandingan handphone"
+                        }
+                    />
+                    <meta
+                        property="og:image"
+                        content={apiUrl + props.dataSEO.seo.ogimage.url}
+                    />
+
+                    <meta
+                        property="og:description"
+                        content={props.dataSEO.seo.description}
+                    />
+                    <meta
+                        property="og:url"
+                        content="https://www.androidponsel.com/"
+                    />
+                </Head>
+            }
+
             <GlobalAds adsId="1" />
             <div className={styles.pageBrand}>
                 <div className={styles.contents}>
