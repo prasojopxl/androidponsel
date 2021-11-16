@@ -13,6 +13,9 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    svg {
+        width: 20px;
+    }
     @media screen and (max-width: $widthTabMin) {
         display: block;
         width: 320px;
