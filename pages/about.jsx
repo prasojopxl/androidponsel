@@ -7,6 +7,7 @@ import { faLink, faEnvelope, faHandshake, faBriefcase, faPhone } from '@fortawes
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.to/vuongddang/how-to-use-fontawesome-in-next-js-5bl5
 import ReactHtmlParser from "react-html-parser";
 import Link from "next/link";
+import { staticImage } from "../config/variable";
 
 
 export default function TentangKami(props) {
@@ -18,7 +19,7 @@ export default function TentangKami(props) {
         >
             <GlobalAds adsId="1" />
             <div className={styles.pages}>
-                <div className={styles.mainImage}><Image src="/tentang-kami.png" alt="tentang kami" width={1002} height={616} /> </div>
+                <div className={styles.mainImage}><Image src={staticImage + "tentang-kami.png"} alt="tentang kami" width={1002} height={616} /> </div>
                 <div className={styles.contents}>
                     <div className={styles.subContents}>
                         <h2>{ReactHtmlParser(props.dataContent.title.rendered)}</h2>
