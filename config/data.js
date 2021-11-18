@@ -1,4 +1,4 @@
-import { apiUrl, apiUrlApp, apiUrlBlog } from "./variable";
+import { apiUrl, apiUrlApp, apiUrlBlog, apiUrlAndroid } from "./variable";
 
 const fetchData = async (url) => {
     const res = await fetch(`${apiUrl + url}`);
@@ -15,4 +15,9 @@ const fetchDataApp = async (url) => {
     return await res.json();
 };
 
-export { fetchData, fetchDataBlog, fetchDataApp };
+const fetchDataAndroid = async (url) => {
+    const res = await fetch(`${apiUrlAndroid + url}`);
+    return await res.json();
+};
+
+export { fetchData, fetchDataBlog, fetchDataApp, fetchDataAndroid };

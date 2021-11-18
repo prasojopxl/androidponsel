@@ -35,7 +35,7 @@ export default function Footer() {
                             <div className={styles.item}>
                                 <ul>
                                     <li><Link href="/privacy"><a>Privacy Policy</a></Link></li>
-                                    <li><Link href="/syarat-dan-ketentuan"><a>Terms and Conditions</a></Link></li>
+                                    <li><Link href="/disclaimer"><a>Terms of use</a></Link></li>
                                     <li><Link href="/kode-etik"><a>Code of Conduct</a></Link></li>
                                     <li><Link href="/pedoman"><a>Cyber ​​Media Guidelines</a></Link></li>
                                 </ul>
