@@ -1,11 +1,16 @@
+import Image from "next/image"
 import { GlobalAds } from "../components";
 import styles from "./pages.module.scss";
-import { fetchData } from '../config/data';
+import { fetchData, fetchDataAndroid } from '../config/data';
 import Layout from '../layout'
+import { faLink, faEnvelope, faHandshake, faBriefcase, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.to/vuongddang/how-to-use-fontawesome-in-next-js-5bl5
 import Link from "next/link";
 import { useRouter } from "next/router"
+import ReactHtmlParser from "react-html-parser";
 
-export default function Pages(props) {
+
+export default function Tnc(props) {
     const router = useRouter();
 
     return (
@@ -17,27 +22,30 @@ export default function Pages(props) {
             <div className={styles.pages}>
                 <div className={styles.bgGradient}>
                     <div style={{
-                        backgroundImage: "url(/hubungi-kami.png)",
+                        backgroundImage: "url(/tnc.png)",
                         backgroundAttachment: "fixed",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "right center",
-                        minHeight: 400,
+                        minHeight: 300,
                     }}>
                         <div className={styles.contents}>
-                            <h2>Ada yang bisa<br />Kami Bantu?</h2>
-
+                            <h2>{ReactHtmlParser(props.dataContent.title.rendered)}</h2>
                             <ul>
-                                <li><Link href="/"><a>Home</a></Link></li>
-                                <li><Link href={router.route}><a>Hubungi Kami</a></Link></li>
+                                <li><Link href="#"><a>Home</a></Link></li>
+                                <li><Link href={router.route}><a>Cyber Media</a></Link></li>
                             </ul>
                         </div>
                     </div>
                 </div>
+
                 <div className={styles.contents}>
-                    hell
+                    <div className={styles.subContents}>
+                        <h2>{ReactHtmlParser(props.dataContent.title.rendered)}</h2>
+                        {ReactHtmlParser(props.dataContent.content.rendered)}
+                    </div>
                 </div>
             </div>
-        </Layout>
+        </Layout >
     )
 }
 
@@ -46,6 +54,7 @@ export async function getStaticProps() {
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
     const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
+    const dataContent = await fetchDataAndroid("pages/632")
 
     return {
         props: {
@@ -53,6 +62,7 @@ export async function getStaticProps() {
             getTopBrands,
             dataSEO,
             dataBanerProdukTop,
+            dataContent
         },
         revalidate: 3
     }

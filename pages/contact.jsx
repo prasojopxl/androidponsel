@@ -30,7 +30,7 @@ export default function HubungiKami(props) {
 
                             <ul>
                                 <li><Link href="/"><a>Home</a></Link></li>
-                                <li><Link href={router.route}><a>Hubungi Kami</a></Link></li>
+                                <li><Link href={router.route}><a>Contact Us</a></Link></li>
                             </ul>
                         </div>
                     </div>
@@ -38,22 +38,20 @@ export default function HubungiKami(props) {
                 <div className={styles.contents}>
                     <div className={styles.subContents}>
                         <div className="row">
-                            <div className="col-lg-6">
+                            <div className="col-lg-12">
                                 <h3>Kantor Utama</h3>
-                                <p>Gedung Fuga Aliquam<br />
-                                    Jl. eius nobis facilis No 002 Perferendis<br />laudantium laboriosam<br />Jakarta Selatan</p>
-                            </div>
-                            <div className="col-lg-6">
-                                <div className={styles.itemContact} style={{ marginTop: "20px" }}>
-                                    <div className={styles.icon}><FontAwesomeIcon icon={faPhone} /></div>
-                                    <h5>Telephone</h5>
-                                    (021) 5671 2121
-                                </div>
+                                <p>JL. Cipedak Raya, Jakarta Selatan 12640.</p>
                                 <div className={styles.itemContact}>
                                     <div className={styles.icon}><FontAwesomeIcon icon={faEnvelope} /></div>
                                     <h5>Email</h5>
-                                    <Link href="mailto:contact@androidponsel.com"><a>contact@androidponsel.com</a></Link>
+                                    <Link href="mailto:info@androidponsel.com"><a>info[at]androidponsel.com</a></Link>
                                 </div>
+                                {/* <div className={styles.itemContact} style={{ marginTop: "20px" }}>
+                                    <div className={styles.icon}><FontAwesomeIcon icon={faPhone} /></div>
+                                    <h5>Telephone</h5>
+                                    (021) 5671 2121
+                                </div> */}
+
                             </div>
                         </div>
                     </div>

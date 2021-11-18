@@ -14,17 +14,13 @@ export default function Footer() {
                             <h4>About Us</h4>
                             <div className={styles.item}>
                                 <ul>
-                                    <li><Link href="/tentang-kami"><a>Android Ponsel</a></Link></li>
-                                    <li><Link href="/team"><a>Team</a></Link></li>
-                                    <li><Link href="/hubungi-kami"><a>Contact Us</a></Link></li>
-                                    <li><Link href="/kerjasama"><a>Partnership</a></Link></li>
-                                    <li><Link href="/karir"><a>Career</a></Link></li>
+                                    <li><Link href="/about"><a>About Us</a></Link></li>
+                                    <li><Link href="/sitemap"><a>Sitemap</a></Link></li>
+                                    <li><Link href="/privacy"><a>Privacy Policy</a></Link></li>
                                 </ul>
                                 <ul>
-                                    <li><Link href="/redaksi"><a>Editor</a></Link></li>
-                                    <li><Link href="/menulis"><a>Write on Android Phone</a></Link></li>
-                                    {/* <li><Link href="/faq"><a>FAQ</a></Link></li> */}
-                                    <li><Link href="/sitemap"><a>Sitemap</a></Link></li>
+                                    <li><Link href="/contact"><a>Contact Us</a></Link></li>
+                                    <li><Link href="/disclaimer"><a>Terms of use</a></Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -34,10 +30,8 @@ export default function Footer() {
                             <h4>Legal</h4>
                             <div className={styles.item}>
                                 <ul>
-                                    <li><Link href="/privacy"><a>Privacy Policy</a></Link></li>
-                                    <li><Link href="/disclaimer"><a>Terms of use</a></Link></li>
-                                    <li><Link href="/kode-etik"><a>Code of Conduct</a></Link></li>
-                                    <li><Link href="/pedoman"><a>Cyber ​​Media Guidelines</a></Link></li>
+                                    <li><Link href="/redaction"><a>Redaction</a></Link></li>
+                                    <li><Link href="/cyber-media"><a>Cyber Media</a></Link></li>
                                 </ul>
                             </div>
                         </div>

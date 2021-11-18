@@ -10,9 +10,8 @@ import { useRouter } from "next/router"
 import ReactHtmlParser from "react-html-parser";
 
 
-export default function Tnc(props) {
+export default function Redaksi(props) {
     const router = useRouter();
-
     return (
         <Layout
             dataSEO={props.dataSEO.seo}
@@ -32,7 +31,7 @@ export default function Tnc(props) {
                             <h2>{ReactHtmlParser(props.dataContent.title.rendered)}</h2>
                             <ul>
                                 <li><Link href="#"><a>Home</a></Link></li>
-                                <li><Link href={router.route}><a>Privacy Police</a></Link></li>
+                                <li><Link href={router.route}><a>Redaction</a></Link></li>
                             </ul>
                         </div>
                     </div>
@@ -53,7 +52,7 @@ export async function getStaticProps() {
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
     const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
-    const dataContent = await fetchDataAndroid("pages/3")
+    const dataContent = await fetchDataAndroid("pages/3602")
 
     return {
         props: {

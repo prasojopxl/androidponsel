@@ -5,13 +5,11 @@ import { fetchData, fetchDataAndroid } from '../config/data';
 import Layout from '../layout'
 import { faLink, faEnvelope, faHandshake, faBriefcase, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.to/vuongddang/how-to-use-fontawesome-in-next-js-5bl5
-import Link from "next/link";
-import { useRouter } from "next/router"
 import ReactHtmlParser from "react-html-parser";
+import Link from "next/link";
 
 
-export default function Tnc(props) {
-    const router = useRouter();
+export default function TentangKami(props) {
 
     return (
         <Layout
@@ -20,31 +18,15 @@ export default function Tnc(props) {
         >
             <GlobalAds adsId="1" />
             <div className={styles.pages}>
-                <div className={styles.bgGradient}>
-                    <div style={{
-                        backgroundImage: "url(/tnc.png)",
-                        backgroundAttachment: "fixed",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "right center",
-                        minHeight: 300,
-                    }}>
-                        <div className={styles.contents}>
-                            <h2>{ReactHtmlParser(props.dataContent.title.rendered)}</h2>
-                            <ul>
-                                <li><Link href="#"><a>Home</a></Link></li>
-                                <li><Link href={router.route}><a>Privacy Police</a></Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
+                <div className={styles.mainImage}><Image src="/tentang-kami.png" alt="tentang kami" width={1002} height={616} /> </div>
                 <div className={styles.contents}>
                     <div className={styles.subContents}>
+                        <h2>{ReactHtmlParser(props.dataContent.title.rendered)}</h2>
                         {ReactHtmlParser(props.dataContent.content.rendered)}
                     </div>
                 </div>
             </div>
-        </Layout >
+        </Layout>
     )
 }
 
@@ -53,7 +35,7 @@ export async function getStaticProps() {
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
     const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
-    const dataContent = await fetchDataAndroid("pages/3")
+    const dataContent = await fetchDataAndroid("pages/6324")
 
     return {
         props: {
