@@ -4,8 +4,8 @@ import { apiUrl } from '../../config/variable';
 import Image from "next/image";
 
 export default function GlobalAds(props) {
-    const { data, error } = useSWR(`${apiUrl}/ads/${props.adsId}?_publicationState=preview`)
-    if (error) return "An error has occurred.";
+    const { data, error } = useSWR(`${apiUrl}/ads/${props.adsId}`) //?_publicationState=preview
+    if (error) return null;
     if (!data) return (
         <div style={{ textAlign: "center" }}>
             loading
