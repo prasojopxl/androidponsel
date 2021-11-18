@@ -15,7 +15,7 @@ export default function Footer() {
                             <div className={styles.item}>
                                 <ul>
                                     <li><Link href="/about"><a>About Us</a></Link></li>
-                                    <li><Link href="/sitemap"><a>Sitemap</a></Link></li>
+                                    {/* <li><Link href="/sitemap"><a>Sitemap</a></Link></li> */}
                                     <li><Link href="/privacy"><a>Privacy Policy</a></Link></li>
                                 </ul>
                                 <ul>
