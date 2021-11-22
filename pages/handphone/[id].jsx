@@ -564,7 +564,7 @@ export default function DetailPage(props) {
                                     <Title title="Price Marketplace" idName="harga" />
                                     <div className="row gutter-0 commerce_price" style={{ marginTop: 15 }}>
                                         {
-                                            props.post.Price_Marketplace[0].logo !== null && props.post.Price_Marketplace[0].title !== null ?
+                                            props.post.Price_Marketplace[0].logo !== null && (
                                                 props.post.Price_Marketplace.map((item, i) => {
                                                     return (
                                                         <div className="col-lg-3 col-md-12 col-sm-12 col-12" key={item.id}>
@@ -590,7 +590,8 @@ export default function DetailPage(props) {
 
                                                     )
                                                 })
-                                                : null
+
+                                            )
                                         }
                                     </div>
                                 </Fragment>
