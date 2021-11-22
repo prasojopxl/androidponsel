@@ -11,7 +11,7 @@ export default function GlobalAds(props) {
             loading
         </div>
     );
-    return (
+    if (data) return (
         <div>
             {data.Image_Banner !== null ?
                 <div className={styles.ads}>
@@ -30,4 +30,5 @@ export default function GlobalAds(props) {
             }
         </div>
     )
+
 }

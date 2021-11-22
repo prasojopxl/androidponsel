@@ -564,30 +564,33 @@ export default function DetailPage(props) {
                                     <Title title="Price Marketplace" idName="harga" />
                                     <div className="row gutter-0 commerce_price" style={{ marginTop: 15 }}>
                                         {
-                                            props.post.Price_Marketplace.map((item, i) => {
-                                                return (
-                                                    <div className="col-lg-3 col-md-12 col-sm-12 col-12" key={item.id}>
-                                                        <div className="wrp-commercePrice">
-                                                            <div className={styles.itemMarket}>
-                                                                <div className={styles.logoMarketplace}>
-                                                                    <Image src={apiUrl + item.logo.url} width={item.logo.width} height={item.logo.height} alt={item.title} />
+                                            props.post.Price_Marketplace[0].logo !== null && props.post.Price_Marketplace[0].title !== null ?
+                                                props.post.Price_Marketplace.map((item, i) => {
+                                                    return (
+                                                        <div className="col-lg-3 col-md-12 col-sm-12 col-12" key={item.id}>
+                                                            <div className="wrp-commercePrice">
+                                                                <div className={styles.itemMarket}>
+                                                                    <div className={styles.logoMarketplace}>
+                                                                        <Image src={apiUrl + item.logo.url} width={item.logo.width} height={item.logo.height} alt={item.title} />
+                                                                    </div>
+                                                                    {
+                                                                        item.List.map((listItem, i) => {
+                                                                            return (
+                                                                                <div className={styles.productMarketplace} key={listItem.id}>
+                                                                                    <h6>{ReactHtmlParser(listItem.spec)}</h6>
+                                                                                    <h4>{ReactHtmlParser(listItem.price)}</h4>
+                                                                                    <Link href={listItem.link}><a>Check di {item.title}</a></Link>
+                                                                                </div>
+                                                                            )
+                                                                        })
+                                                                    }
                                                                 </div>
-                                                                {
-                                                                    item.List.map((listItem, i) => {
-                                                                        return (
-                                                                            <div className={styles.productMarketplace} key={listItem.id}>
-                                                                                <h6>{ReactHtmlParser(listItem.spec)}</h6>
-                                                                                <h4>{ReactHtmlParser(listItem.price)}</h4>
-                                                                                <Link href={listItem.link}><a>Check di {item.title}</a></Link>
-                                                                            </div>
-                                                                        )
-                                                                    })
-                                                                }
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                )
-                                            })
+
+                                                    )
+                                                })
+                                                : null
                                         }
                                     </div>
                                 </Fragment>
