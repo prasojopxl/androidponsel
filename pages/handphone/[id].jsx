@@ -86,7 +86,6 @@ export default function DetailPage(props) {
     return (
         <Layout
             dataMainMenu={props.getMenu}
-
             dataBrands={props.getTopBrands}
         >
             <Head>

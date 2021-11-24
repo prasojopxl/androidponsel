@@ -103,6 +103,7 @@ export default function Page(props) {
     }, []);
     return (
         <Layout
+            dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
             <Head>
