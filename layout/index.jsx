@@ -23,7 +23,7 @@ export default function Layout(props) {
             </Head>
             <div className={styles.headerweb}>
                 <div className="relative_triger">
-                    <Header brands={dataBrands} searchProd={dataProd} />
+                    <Header mainMenu={dataMainMenu} brands={dataBrands} searchProd={dataProd} />
                 </div>
             </div>
             <div className={styles.bodyweb}>{props.children}</div>

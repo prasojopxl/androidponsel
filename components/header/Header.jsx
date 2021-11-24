@@ -58,15 +58,13 @@ export default function Header(props) {
                     </div>
                     <div className={styles.center}>
                         <ul className={styles.mainmenu}>
-                            <li><Link href="https://www.androidponsel.com/device/handphone/"><a>Handphone</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/perbandingan/"><a>Perbandingan</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/download/"><a>Download</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/game/"><a>Game</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/kamera/"><a>Kamera</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/news/"><a>Berita</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/review/"><a>Review</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/trik-android/"><a>Tips &amp; Trik</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/aplikasi/"><a>Aplikasi</a></Link></li>
+                            {
+                                mainMenu.map(item => {
+                                    return (
+                                        <li key={item.id}><Link href={item.url}><a>{item.title}</a></Link></li>
+                                    )
+                                })
+                            }
                         </ul>
                     </div>
                     <div className={styles.right}>
@@ -121,15 +119,13 @@ export default function Header(props) {
                 <div className="wrpMenuMobile">
                     <div className="wrpRoleNav">
                         <ul className={styles.mainMenuMobile}>
-                            <li><Link href="https://www.androidponsel.com/device/handphone/"><a>Handphone</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/perbandingan/"><a>Perbandingan</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/download/"><a>Download</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/game/"><a>Game</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/kamera/"><a>Kamera</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/news/"><a>Berita</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/review/"><a>Review</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/trik-android/"><a>Tips &amp; Trik</a></Link></li>
-                            <li><Link href="https://www.androidponsel.com/aplikasi/"><a>Aplikasi</a></Link></li>
+                            {
+                                mainMenu.map(item => {
+                                    return (
+                                        <li key={item.id}><Link href={item.url}><a>{item.title}</a></Link></li>
+                                    )
+                                })
+                            }
                         </ul>
                     </div>
                 </div>

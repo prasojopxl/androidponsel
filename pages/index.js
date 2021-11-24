@@ -169,6 +169,7 @@ export default function Home(props) {
     return (
         <React.Fragment>
             <Layout
+                dataMainMenu={props.getMenu}
                 dataSEO={props.dataSEO.seo}
                 dataBrands={props.getTopBrands}
                 dataProd={props.dataAllProd}

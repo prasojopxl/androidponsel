@@ -15,6 +15,8 @@ export default function Tnc(props) {
 
     return (
         <Layout
+            dataMainMenu={props.getMenu}
+
             dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >

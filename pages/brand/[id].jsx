@@ -100,6 +100,8 @@ export default function Brand(props) {
 
     return (
         <Layout
+            dataMainMenu={props.getMenu}
+
             dataBrands={props.getTopBrands}
         >
             {

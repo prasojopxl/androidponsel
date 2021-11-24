@@ -6,6 +6,7 @@ import Layout from "../layout";
 export default function Page404({ getMenu, getTopBrands, dataSEO }) {
     return (
         <Layout
+            dataMainMenu={getMenu}
             dataSEO={dataSEO.seo}
             dataBrands={getTopBrands}
         >

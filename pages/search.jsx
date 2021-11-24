@@ -33,6 +33,7 @@ export default function Pages(props) {
 
     return (
         <Layout
+            dataMainMenu={props.getMenu}
             dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >

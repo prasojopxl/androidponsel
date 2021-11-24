@@ -14,6 +14,8 @@ export default function Tnc(props) {
     const router = useRouter();
     return (
         <Layout
+            dataMainMenu={props.getMenu}
+
             dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >

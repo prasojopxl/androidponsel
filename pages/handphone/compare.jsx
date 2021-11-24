@@ -37,6 +37,8 @@ export default function compare({
 
 	return (
 		<Layout
+			dataMainMenu={props.getMenu}
+
 			dataBrands={getTopBrands}
 		>
 			<Head>
