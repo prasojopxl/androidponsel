@@ -7,6 +7,8 @@ import Image from "next/image";
 import { apiUrl, baseUrl, staticImage } from "../../config/variable";
 import styles from "./index.module.scss";
 import { fetchData } from "../../config/data";
+import ReactHtmlParser from "react-html-parser";
+
 import Layout from "../../layout";
 import Head from "next/head";
 
@@ -37,8 +39,7 @@ export default function compare({
 
 	return (
 		<Layout
-			dataMainMenu={props.getMenu}
-
+			dataMainMenu={getMenu}
 			dataBrands={getTopBrands}
 		>
 			<Head>
@@ -102,8 +103,8 @@ export default function compare({
 												<div className={styles.imgwrp}>
 													<Image src={apiUrl + item.product_image[0].url} width={item.product_image[0].width / 1.2} height={item.product_image[0].height / 1.2} alt={item.product_image[0].name} />
 												</div>
-												<h4>{item.title}</h4>
-												<span>{item.memory_internal}</span>
+												<h4>{ReactHtmlParser(item.title)}</h4>
+												<span>{ReactHtmlParser(item.memory_internal)}</span>
 											</div>
 										</div>
 									)
