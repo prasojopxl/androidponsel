@@ -2,6 +2,7 @@ import styles from "./globalAds.module.scss";
 import useSWR from 'swr'
 import { apiUrl } from '../../config/variable';
 import Image from "next/image";
+import ReactHtmlParser from "react-html-parser";
 
 export default function GlobalAds(props) {
     const { data, error } = useSWR(`${apiUrl}/ads/${props.adsId}`) //?_publicationState=preview
@@ -25,7 +26,7 @@ export default function GlobalAds(props) {
                 <div className={styles.ads}>
                     <div className={styles.contents}>
                         {/* <iframe src={data.URL_Iframe} scrolling="no" title="baner ads"></iframe> */}
-                        {data.URL_Iframe}
+                        {ReactHtmlParser(data.URL_Iframe)}
                     </div>
                 </div>
             }
