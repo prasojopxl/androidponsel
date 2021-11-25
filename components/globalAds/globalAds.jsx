@@ -24,7 +24,8 @@ export default function GlobalAds(props) {
                 :
                 <div className={styles.ads}>
                     <div className={styles.contents}>
-                        <iframe src={data.URL_Iframe} scrolling="no" title="baner ads"></iframe>
+                        {/* <iframe src={data.URL_Iframe} scrolling="no" title="baner ads"></iframe> */}
+                        {data.URL_Iframe}
                     </div>
                 </div>
             }
