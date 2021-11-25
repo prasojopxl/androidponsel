@@ -368,24 +368,21 @@ export default function DetailPage(props) {
                             <div className="left_side_spesification">
                                 <div className="separateLines">
                                     <Title title="Basic Information" idName="basic" />
-                                    {/* <div className={styles.itemDesc}>
-                                        <h5>Description Product</h5>
-                                        {props.post.description !== null
-                                            ? props.post.description
-                                            : "Belum ada deskripsi produk"}
-                                    </div> */}
                                     <div className={styles.itemDesc}>
                                         <h5>Brand Produk</h5>
                                         {ReactHtmlParser(props.post.brand.title)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Status</h5>
                                         {ReactHtmlParser(props.post.status)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Tanggal Rilis</h5>
                                         {ReactHtmlParser(props.post.release_date)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Warna</h5>
                                         {ReactHtmlParser(props.post.color)}
@@ -410,10 +407,12 @@ export default function DetailPage(props) {
                                             </div>
                                         </div>
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Type</h5>
                                         {ReactHtmlParser(props.post.display_type)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Protection</h5>
                                         {ReactHtmlParser(props.post.protection)}
@@ -426,14 +425,17 @@ export default function DetailPage(props) {
                                         <h5>Processor</h5>
                                         {ReactHtmlParser(props.post.cpu)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Graphic</h5>
                                         {ReactHtmlParser(props.post.gpu)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Memory</h5>
                                         {ReactHtmlParser(props.post.ram)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Card Slot</h5>
                                         {ReactHtmlParser(props.post.card_slot)}
@@ -463,6 +465,7 @@ export default function DetailPage(props) {
                                             </div>
                                         </div>
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Selfie Camera</h5>
                                         <div className="row">
@@ -496,6 +499,7 @@ export default function DetailPage(props) {
                                         <h5>Operating System</h5>
                                         {ReactHtmlParser(props.post.os)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Chipset</h5>
                                         {ReactHtmlParser(props.post.chipset)}
@@ -508,6 +512,7 @@ export default function DetailPage(props) {
                                         <h5>Sensor</h5>
                                         {ReactHtmlParser(props.post.sensors)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>NFC</h5>
                                         {ReactHtmlParser(props.post.nfc)}
@@ -531,30 +536,37 @@ export default function DetailPage(props) {
                                             </ul>
                                         )}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>SIM</h5>
                                         {ReactHtmlParser(props.post.SIM)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>WLAN</h5>
                                         {ReactHtmlParser(props.post.wlan)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Bluetooth</h5>
                                         {ReactHtmlParser(props.post.bluetooth)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>GPS</h5>
                                         {ReactHtmlParser(props.post.gps)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Infrared</h5>
                                         {ReactHtmlParser(props.post.infrared)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Radio</h5>
                                         {ReactHtmlParser(props.post.radio)}
                                     </div>
+                                    <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>USB</h5>
                                         {ReactHtmlParser(props.post.usb)}
