@@ -621,11 +621,11 @@ export default function DetailPage(props) {
                                             <div className={styles.bodypost}>
                                                 {props.post.post.content}
                                                 <p style={{ marginTop: 20 }}>
-                                                    <Link
+                                                    {/* <Link
                                                         href={baseUrl + currentPage + "/" + props.post.post.slug}
                                                     >
                                                         <a className="btn">Full Review</a>
-                                                    </Link>
+                                                    </Link> */}
                                                 </p>
                                             </div>
                                         </div>
