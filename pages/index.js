@@ -3,80 +3,12 @@ import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import ReactHtmlParser from "react-html-parser";
-import { Title, GlobalAds, ItemProduct } from "../components/";
+import { Title, GlobalAds, ItemProduct, Ads, AdsBanner } from "../components/";
 import { fetchData, fetchDataApp, fetchDataBlog } from "../config/data";
 import { apiUrl, baseUrl, staticImage } from "../config/variable";
 import Layout from "../layout";
 import styles from "./index.module.scss";
 import Head from "next/head";
-
-//exp
-export async function getStaticProps(context) {
-    const dataAllProd = await fetchData("/products");
-    const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
-    const dataListHandphone = await fetchData(
-        `/products?category=1&_limit=8&_sort=release_date:DESC`
-    );
-
-    const dataSEO = await fetchData("/general");
-    const mainNews = await fetchData(
-        "/posts?menu=2&_sort=updated_at:DESC&_limit=1"
-    );
-    const topNews = await fetchDataBlog(
-        "categories=127&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
-    );
-    const topApp = await fetchDataApp(
-        "per_page=1&_embed=author,wp:featuredmedia,wp:term"
-    );
-    const listApp = await fetchDataApp(
-        "per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
-    );
-    const tipsTrikMain = await fetchDataBlog(
-        "categories=20&per_page=1&_embed=author,wp:featuredmedia,wp:term&offset=0"
-    );
-    const tipsTrikSecond = await fetchDataBlog(
-        "categories=20&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
-    );
-    const dataAndroidNews = await fetchDataBlog(
-        "categories=127&per_page=1&_embed=author,wp:featuredmedia,wp:term"
-    );
-
-    const getMenu = await fetchData("/menus?_sort=order");
-    const getTopBrands = await fetchData("/brands?_top_brand=true");
-    if (
-        !dataCompare ||
-        !mainNews ||
-        !topNews ||
-        !topApp ||
-        !dataListHandphone ||
-        !listApp ||
-        !tipsTrikMain ||
-        !tipsTrikSecond ||
-        !dataAndroidNews
-    ) {
-        return {
-            notFound: true,
-        };
-    }
-    return {
-        props: {
-            dataSEO,
-            dataCompare,
-            mainNews,
-            topNews,
-            topApp,
-            dataListHandphone,
-            listApp,
-            tipsTrikMain,
-            tipsTrikSecond,
-            getMenu,
-            getTopBrands,
-            dataAndroidNews,
-            dataAllProd,
-        },
-        revalidate: 3,
-    };
-}
 
 export default function Home(props) {
     const router = useRouter();
@@ -219,8 +151,20 @@ export default function Home(props) {
                         content="https://www.androidponsel.com/"
                     />
                 </Head>
-
-                <GlobalAds adsId="1" />
+                {props.adsData1.Image_Banner ? (
+                    <AdsBanner
+                        urlImage={apiUrl + props.adsData1.Image_Banner.url}
+                        width={props.adsData1.Image_Banner.width}
+                        height={props.adsData1.Image_Banner.height}
+                        linkbanner={props.adsData1.url}
+                    />
+                ) : (
+                    <Ads
+                        iframeBanner={ReactHtmlParser(
+                            props.adsData1.URL_Iframe
+                        )}
+                    />
+                )}
                 <div className={styles.compareItem}>
                     <div className={styles.contens}>
                         <div className="containerComparehome">
@@ -1224,4 +1168,79 @@ export default function Home(props) {
             </Layout>
         </React.Fragment>
     );
+}
+
+export async function getStaticProps(context) {
+    const adsData1 = await fetchData(`/ads/1`);
+    // const adsData2 = await fetchData(`/ads/2`);
+    // const adsData3 = await fetchData(`/ads/3`);
+    // const adsData4 = await fetchData(`/ads/4`);
+    const dataAllProd = await fetchData("/products");
+    const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
+    const dataListHandphone = await fetchData(
+        `/products?category=1&_limit=8&_sort=release_date:DESC`
+    );
+    const dataSEO = await fetchData("/general");
+    const mainNews = await fetchData(
+        "/posts?menu=2&_sort=updated_at:DESC&_limit=1"
+    );
+    const topNews = await fetchDataBlog(
+        "categories=127&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
+    );
+    const topApp = await fetchDataApp(
+        "per_page=1&_embed=author,wp:featuredmedia,wp:term"
+    );
+    const listApp = await fetchDataApp(
+        "per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
+    );
+    const tipsTrikMain = await fetchDataBlog(
+        "categories=20&per_page=1&_embed=author,wp:featuredmedia,wp:term&offset=0"
+    );
+    const tipsTrikSecond = await fetchDataBlog(
+        "categories=20&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
+    );
+    const dataAndroidNews = await fetchDataBlog(
+        "categories=127&per_page=1&_embed=author,wp:featuredmedia,wp:term"
+    );
+
+    const getMenu = await fetchData("/menus?_sort=order");
+    const getTopBrands = await fetchData("/brands?_top_brand=true");
+    if (
+        !dataCompare ||
+        !mainNews ||
+        !topNews ||
+        !topApp ||
+        !dataListHandphone ||
+        !listApp ||
+        !tipsTrikMain ||
+        !tipsTrikSecond ||
+        !dataAndroidNews
+    ) {
+        return {
+            notFound: true,
+        };
+    }
+    if (!adsData1) return null;
+    return {
+        props: {
+            adsData1,
+            // adsData2,
+            // adsData3,
+            // adsData4,
+            dataSEO,
+            dataCompare,
+            mainNews,
+            topNews,
+            topApp,
+            dataListHandphone,
+            listApp,
+            tipsTrikMain,
+            tipsTrikSecond,
+            getMenu,
+            getTopBrands,
+            dataAndroidNews,
+            dataAllProd,
+        },
+        revalidate: 3,
+    };
 }
