@@ -97,6 +97,12 @@ export default function Home(props) {
     useEffect(() => {
         removeLocalProd();
         return getLocalProd();
+        var ads = document.getElementsByClassName("adsbygoogle").length;
+        for (var i = 0; i < ads; i++) {
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {}
+        }
     }, []);
     return (
         <React.Fragment>
