@@ -94,14 +94,19 @@ export default function Home(props) {
             setCompare3("");
         }
     };
+    const loadAds = () => {
+        try {
+            if (typeof window !== "undefined") {
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        } catch (error) {
+            console.log("adsense error", error.message);
+        }
+    };
     useEffect(() => {
+        loadAds();
         removeLocalProd();
         return getLocalProd();
-        try {
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (err) {
-            console.log(err);
-        }
     }, []);
     return (
         <React.Fragment>
