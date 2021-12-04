@@ -166,16 +166,16 @@ export default function Home(props) {
                         crossorigin="anonymous"
                     ></script>
                 </Head>
-                <ins
+                {/* <ins
                     className="adsbygoogle"
                     style={{ display: "block" }}
                     data-ad-client="ca-pub-4889404422926996"
                     data-ad-slot="2338723921"
                     data-ad-format="auto"
                     data-full-width-responsive="true"
-                ></ins>
+                ></ins> */}
 
-                {props.adsData1.Image_Banner ? (
+                {/* {props.adsData1.Image_Banner ? (
                     <AdsBanner
                         urlImage={apiUrl + props.adsData1.Image_Banner.url}
                         width={props.adsData1.Image_Banner.width}
@@ -188,7 +188,7 @@ export default function Home(props) {
                             props.adsData1.URL_Iframe
                         )}
                     />
-                )}
+                )} */}
                 <div className={styles.compareItem}>
                     <div className={styles.contens}>
                         <div className="containerComparehome">
@@ -1195,7 +1195,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps(context) {
-    const adsData1 = await fetchData(`/ads/1`);
+    // const adsData1 = await fetchData(`/ads/1`);
     // const adsData2 = await fetchData(`/ads/2`);
     // const adsData3 = await fetchData(`/ads/3`);
     // const adsData4 = await fetchData(`/ads/4`);
@@ -1244,10 +1244,10 @@ export async function getStaticProps(context) {
             notFound: true,
         };
     }
-    if (!adsData1) return null;
+    // if (!adsData1) return null;
     return {
         props: {
-            adsData1,
+            // adsData1,
             // adsData2,
             // adsData3,
             // adsData4,

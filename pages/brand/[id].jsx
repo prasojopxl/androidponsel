@@ -134,10 +134,10 @@ export default function Brand(props) {
                         property="og:title"
                         content={props.brands[0].seo.title}
                     />
-                    <meta
+                    {/* <meta
                         property="og:image"
                         content={apiUrl + props.brands[0].seo.ogimage.url}
-                    />
+                    /> */}
 
                     <meta
                         property="og:description"
@@ -182,10 +182,10 @@ export default function Brand(props) {
                             " Androidponsel spesifikasi dan perbandingan handphone"
                         }
                     />
-                    <meta
+                    {/* <meta
                         property="og:image"
                         content={apiUrl + props.dataSEO.seo.ogimage.url}
-                    />
+                    /> */}
 
                     <meta
                         property="og:description"
