@@ -174,7 +174,6 @@ export default function Home(props) {
                     data-ad-format="auto"
                     data-full-width-responsive="true"
                 ></ins>
-
                 {/* {props.adsData1.Image_Banner ? (
                     <AdsBanner
                         urlImage={apiUrl + props.adsData1.Image_Banner.url}
@@ -224,7 +223,6 @@ export default function Home(props) {
                                                                     >
                                                                         <Link
                                                                             href={
-                                                                                baseUrl +
                                                                                 "handphone/" +
                                                                                 data.slug
                                                                             }
@@ -266,7 +264,6 @@ export default function Home(props) {
                                                                         <div className="flexing-title-compare">
                                                                             <Link
                                                                                 href={
-                                                                                    baseUrl +
                                                                                     "handphone/" +
                                                                                     data.slug
                                                                                 }
@@ -293,7 +290,6 @@ export default function Home(props) {
                                                 </div>
                                                 <Link
                                                     href={
-                                                        baseUrl +
                                                         "handphone/compare?produk1=" +
                                                         item.products[0].slug +
                                                         "&produk2=" +
@@ -360,7 +356,7 @@ export default function Home(props) {
                                 })}
                             </div>
                             <div className="btnMediumLoad">
-                                <Link href={baseUrl + "handphone"}>
+                                <Link href={"/handphone"}>
                                     <a className="btn ap-btn-secondary ap-btn-md">
                                         See Details
                                     </a>

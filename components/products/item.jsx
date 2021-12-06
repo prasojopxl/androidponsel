@@ -68,7 +68,7 @@ export default function ItemProduct(props) {
         <Fragment>
             <div className={styles.productItem}>
                 <div className={styles.shortproduct}>
-                    <div className={styles.imageprod} style={{maxWidth:80}}>
+                    <div className={styles.imageprod} style={{ maxWidth: 80 }}>
                         <Image
                             src={apiUrl + props.productImage.url}
                             width={props.productImage.width / 3}
@@ -79,7 +79,7 @@ export default function ItemProduct(props) {
                     <div className={styles.productinfo}>
                         <div className="flextitleSpesific">
                             <div className="contTitleSpesific">
-                                <Link href={`${baseUrl + "handphone/" + props.slug}`}><a><h5 style={{ minHeight: 45 }}>{ReactHtmlParser(props.title)}</h5></a></Link>
+                                <Link href={`${"handphone/" + props.slug}`}><a><h5 style={{ minHeight: 45 }}>{ReactHtmlParser(props.title)}</h5></a></Link>
                                 <h6>{ReactHtmlParser(props.memoryInternal)}</h6>
                             </div>
                         </div>
@@ -95,7 +95,7 @@ export default function ItemProduct(props) {
                             Compare
                         </button>
                     </div>
-                    <Link href={`${baseUrl + "handphone/" + props.slug}`}>
+                    <Link href={`${"handphone/" + props.slug}`}>
                         <a className={styles.btnblank}>
                             See Details
                         </a>

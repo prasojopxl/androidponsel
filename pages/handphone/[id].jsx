@@ -90,15 +90,15 @@ export default function DetailPage(props) {
         >
             <Head>
                 <title>
-                    {props.post.SEO.title_tag}
+                    {props.post.SEO.title ? props.post.SEO.title : props.post.SEO.title_tag}
                 </title>
                 <meta
                     name="description"
-                    content={props.post.SEO.description_tag}
+                    content={props.post.SEO.description ? props.post.SEO.description : props.post.SEO.description_tag}
                 />
                 <meta
                     name="keywords"
-                    content={props.post.SEO.Keyword_tag}
+                    content={props.post.SEO.keywords ? props.post.SEO.keywords : props.post.SEO.Keyword_tag}
                 />
                 <meta name="author" content="androidponsel" />
                 <meta
@@ -109,24 +109,32 @@ export default function DetailPage(props) {
                     rel="shortcut icon"
                     href={apiUrl + "/uploads/fav_425b2ec632.png"}
                 />
-                <meta property="og:locale" content="id_ID" />
+                <meta property="og:locale" content="en_GB" />
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:title"
-                    content={props.post.SEO.title_tag}
+                    content={props.post.SEO.title ? props.post.SEO.title : props.post.SEO.title_tag}
                 />
-                <meta
-                    property="og:image"
-                    content={apiUrl + props.post.SEO.ogimage}
-                />
+                {
+                    props.post.SEO.ogimage ?
+                        <meta
+                            property="og:image"
+                            content={apiUrl + props.post.SEO.ogimage.url}
+                        />
+                        :
+                        <meta
+                            property="og:image"
+                            content={apiUrl + props.post.product_image[0].url}
+                        />
+                }
 
                 <meta
                     property="og:description"
-                    content={props.post.SEO.description_tag}
+                    content={props.post.SEO.description ? props.post.SEO.description : props.post.SEO.description_tag}
                 />
                 <meta
                     property="og:url"
-                    content="https://www.androidponsel.com/"
+                    content="https://www.androidponsel.com/device"
                 />
             </Head>
 
