@@ -588,7 +588,7 @@ export default function DetailPage(props) {
                                             props.post.Price_Marketplace &&
                                             props.post.Price_Marketplace.map((item, i) => {
                                                 return (
-                                                    <>
+                                                    <div key={item.id}>
                                                         {
                                                             item.logo !== null ?
                                                                 <div className="col-lg-3 col-md-12 col-sm-12 col-12" key={item.id}>
@@ -614,7 +614,7 @@ export default function DetailPage(props) {
                                                                 : <div className="col-lg-12">Price Not Available</div>
 
                                                         }
-                                                    </>
+                                                    </div>
                                                 )
                                             })
                                         }
