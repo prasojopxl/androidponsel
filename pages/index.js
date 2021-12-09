@@ -166,14 +166,16 @@ export default function Home(props) {
                         crossorigin="anonymous"
                     ></script>
                 </Head>
-                <ins
-                    className="adsbygoogle"
-                    style={{ display: "block" }}
-                    data-ad-client="ca-pub-4889404422926996"
-                    data-ad-slot="2338723921"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"
-                ></ins>
+                <div style={{ textAlign: "center" }}>
+                    <ins
+                        className="adsbygoogle"
+                        style={{ display: "block" }}
+                        data-ad-client="ca-pub-4889404422926996"
+                        data-ad-slot="2338723921"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"
+                    ></ins>
+                </div>
                 {/* {props.adsData1.Image_Banner ? (
                     <AdsBanner
                         urlImage={apiUrl + props.adsData1.Image_Banner.url}
@@ -290,6 +292,7 @@ export default function Home(props) {
                                                 </div>
                                                 <Link
                                                     href={
+                                                        baseUrl +
                                                         "handphone/compare?produk1=" +
                                                         item.products[0].slug +
                                                         "&produk2=" +
