@@ -37,6 +37,7 @@ export default function compare({
 
 	const dataCompare = produkData;
 
+
 	return (
 		<Layout
 			dataMainMenu={getMenu}
@@ -44,16 +45,15 @@ export default function compare({
 		>
 			<Head>
 				<title>
-					{dataSEO.seo.title}
-
+					{produkData[0].SEO.title ? produkData[0].SEO.title : produkData[0].SEO.title_tag}
 				</title>
 				<meta
 					name="description"
-					content={dataSEO.seo.description}
+					content={produkData[0].SEO.description ? produkData[0].SEO.description : produkData[0].SEO.description_tag}
 				/>
 				<meta
 					name="keywords"
-					content={dataSEO.seo.keywords}
+					content={produkData[0].SEO.keywords ? produkData[0].SEO.keywords : produkData[0].SEO.Keyword_tag}
 				/>
 				<meta name="author" content="androidponsel" />
 				<meta
@@ -68,10 +68,7 @@ export default function compare({
 				<meta property="og:type" content="website" />
 				<meta
 					property="og:title"
-					content={
-						dataSEO.seo.title +
-						" Androidponsel spesifikasi dan perbandingan handphone"
-					}
+					content={produkData[0].SEO.title ? produkData[0].SEO.title : produkData[0].SEO.title_tag}
 				/>
 				<meta
 					property="og:image"
@@ -80,7 +77,7 @@ export default function compare({
 
 				<meta
 					property="og:description"
-					content={dataSEO.seo.description}
+					content={produkData[0].SEO.description ? produkData[0].SEO.description : produkData[0].SEO.description_tag}
 				/>
 				<meta
 					property="og:url"
