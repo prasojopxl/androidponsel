@@ -90,15 +90,15 @@ export default function DetailPage(props) {
         >
             <Head>
                 <title>
-                    comparation smartphone device
+                    {props.post.SEO.title ? props.post.SEO.title : props.post.SEO.title_tag}
                 </title>
                 <meta
                     name="description"
-                    content="comparation handphone android and iphone device"
+                    content={props.post.SEO.description ? props.post.SEO.description : props.post.SEO.description_tag}
                 />
                 <meta
                     name="keywords"
-                    content="comparation, handphone, ponsel, device, android, compare handphone, perbandingan"
+                    content={props.post.SEO.keywords ? props.post.SEO.keywords : props.post.SEO.Keyword_tag}
                 />
                 <meta name="author" content="androidponsel" />
                 <meta
@@ -113,7 +113,7 @@ export default function DetailPage(props) {
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:title"
-                    content="comparation smartphone device "
+                    content={props.post.SEO.title ? props.post.SEO.title : props.post.SEO.title_tag}
                 />
                 {
                     props.post.SEO.ogimage ?
@@ -130,7 +130,7 @@ export default function DetailPage(props) {
 
                 <meta
                     property="og:description"
-                    content="comparation handphone android and iphone device"
+                    content={props.post.SEO.description ? props.post.SEO.description : props.post.SEO.description_tag}
                 />
                 <meta
                     property="og:url"

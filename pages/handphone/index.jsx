@@ -113,16 +113,15 @@ export default function Handphone(props) {
         >
             <Head>
                 <title>
-                    {props.dataSEO.seo.title +
-                        " | Android Ponsel"}{" "}
+                    androidponsel.com comparation smartphone device
                 </title>
                 <meta
                     name="description"
-                    content={props.dataSEO.seo.description}
+                    content="comparation review android and iphone device "
                 />
                 <meta
                     name="keywords"
-                    content={props.dataSEO.seo.keywords}
+                    content="smartphone, device, android, ponsel, perbandingan, smarthone "
                 />
                 <meta name="author" content="androidponsel" />
                 <meta
@@ -137,10 +136,7 @@ export default function Handphone(props) {
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:title"
-                    content={
-                        props.dataSEO.seo.title +
-                        " Androidponsel spesifikasi dan perbandingan handphone"
-                    }
+                    content="androidponsel.com comparation smartphone device"
                 />
                 <meta
                     property="og:image"
@@ -149,11 +145,11 @@ export default function Handphone(props) {
 
                 <meta
                     property="og:description"
-                    content={props.dataSEO.seo.description}
+                    content="comparation review android and iphone device "
                 />
                 <meta
                     property="og:url"
-                    content="https://www.androidponsel.com/"
+                    content="https://www.androidponsel.com/device"
                 />
             </Head>
             <GlobalAds adsId="1" />
