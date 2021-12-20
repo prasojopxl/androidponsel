@@ -225,6 +225,7 @@ export default function Home(props) {
                                                                     >
                                                                         <Link
                                                                             href={
+                                                                                baseUrl +
                                                                                 "handphone/" +
                                                                                 data.slug
                                                                             }
@@ -266,6 +267,7 @@ export default function Home(props) {
                                                                         <div className="flexing-title-compare">
                                                                             <Link
                                                                                 href={
+                                                                                    baseUrl +
                                                                                     "handphone/" +
                                                                                     data.slug
                                                                                 }
@@ -359,7 +361,7 @@ export default function Home(props) {
                                 })}
                             </div>
                             <div className="btnMediumLoad">
-                                <Link href={"/handphone"}>
+                                <Link href={baseUrl + "handphone"}>
                                     <a className="btn ap-btn-secondary ap-btn-md">
                                         See Details
                                     </a>
