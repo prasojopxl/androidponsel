@@ -130,7 +130,7 @@ export default function compare({
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
-								Brand Produk
+								Brand
 							</div>
 							{
 								dataCompare.map((item, i) => {
@@ -142,7 +142,7 @@ export default function compare({
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
-								Status dan Release
+								Status and Release
 							</div>
 							{
 								dataCompare.map((item, i) => {
@@ -154,7 +154,7 @@ export default function compare({
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
-								Warna
+								Color
 							</div>
 							{
 								dataCompare.map((item, i) => {
@@ -166,12 +166,12 @@ export default function compare({
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className="col-lg-12">
-								<h4 className={styles.titleCompare}>Design Material</h4>
+								<h4 className={styles.titleCompare}>Material Design</h4>
 							</div>
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
-								Ukuran Dimensi
+								Dimensions
 							</div>
 							{
 								dataCompare.map((item, i) => {
