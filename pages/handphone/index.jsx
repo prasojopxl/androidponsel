@@ -113,7 +113,7 @@ export default function Handphone(props) {
         >
             <Head>
                 <title>
-                    androidponsel.com comparation smartphone device
+                All New Mobile Phone Spesification
                 </title>
                 <meta
                     name="description"
