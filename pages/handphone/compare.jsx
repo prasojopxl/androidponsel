@@ -45,7 +45,7 @@ export default function compare({
 		>
 			<Head>
 				<title>
-					Comparation {produkData[0].SEO.title ? produkData[0].SEO.title + " vs " + produkData[1].SEO.title : produkData[0].SEO.title_tag}
+					Comparation {produkData[0].SEO.title ? produkData[0].SEO.title + " vs " + (produkData[1].SEO.title === null ? produk2 : produkData[1].SEO.title) : produkData[0].SEO.title_tag}
 				</title>
 				<meta
 					name="description"
