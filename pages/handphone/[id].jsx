@@ -377,32 +377,32 @@ export default function DetailPage(props) {
                                 <div className="separateLines">
                                     <Title title="Basic Information" idName="basic" />
                                     <div className={styles.itemDesc}>
-                                        <h5>Brand Produk</h5>
+                                        <h5>Brand</h5>
                                         {ReactHtmlParser(props.post.brand.title)}
                                     </div>
                                     <hr />
                                     <div className={styles.itemDesc}>
-                                        <h5>Status</h5>
+                                        <h5>State</h5>
                                         {ReactHtmlParser(props.post.status)}
                                     </div>
                                     <hr />
                                     <div className={styles.itemDesc}>
-                                        <h5>Tanggal Rilis</h5>
+                                        <h5>Release Date</h5>
                                         {ReactHtmlParser(props.post.release_date)}
                                     </div>
                                     <hr />
                                     <div className={styles.itemDesc}>
-                                        <h5>Warna</h5>
+                                        <h5>Color</h5>
                                         {ReactHtmlParser(props.post.color)}
                                     </div>
                                 </div>
                                 <GlobalAds adsId="3" />
                                 <div className="separateLines">
-                                    <Title title="Design Material" idName="design" />
+                                    <Title title="Material Design" idName="design" />
                                     <div className={styles.itemDesc}>
                                         <div className="row">
                                             <div className="col-lg-4">
-                                                <h5>Ukuran Dimensi</h5>
+                                                <h5>Dimension</h5>
                                                 {ReactHtmlParser(props.post.size)}
                                             </div>
                                             <div className="col-lg-4">
@@ -496,7 +496,7 @@ export default function DetailPage(props) {
                                 <div className="separateLines">
                                     <Title title="Battery" idName="battery" />
                                     <div className={styles.itemDesc}>
-                                        <h5>Batterai</h5>
+                                        <h5>Battery</h5>
                                         {ReactHtmlParser(props.post.charging_type)}
                                     </div>
                                 </div>
@@ -530,7 +530,7 @@ export default function DetailPage(props) {
                                 <div className="separateLines">
                                     <Title title="Network" idName="network" />
                                     <div className={styles.itemDesc}>
-                                        <h5>Teknologi</h5>
+                                        <h5>Technology</h5>
                                         {ReactHtmlParser(props.post.technology)} |{" "}
                                         <span className={styles.linkGeneral} onClick={showData}>
                                             Lihat Detail
@@ -683,7 +683,7 @@ export default function DetailPage(props) {
 
                 <div className={styles.ratingSubmit}>
                     <div className={styles.contents}>
-                        <Title title="Rating" />
+                        <Title title="Rate" />
                         <div className="row align-items-center ">
                             <div className="col-lg-3">
                                 <div className={styles.ratingBox} style={{ marginBottom: 15 }}>

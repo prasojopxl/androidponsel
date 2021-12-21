@@ -104,7 +104,12 @@ export default function Home(props) {
         }
     };
     useEffect(() => {
-        loadAds();
+        props.adsData1.URL_Iframe ||
+        props.adsData2.URL_Iframe ||
+        props.adsData3.URL_Iframe ||
+        props.adsData4.URL_Iframe
+            ? loadAds()
+            : null;
         removeLocalProd();
         return getLocalProd();
     }, []);
@@ -166,30 +171,24 @@ export default function Home(props) {
                         crossorigin="anonymous"
                     ></script>
                 </Head>
+                {/* ads 1 */}
                 <div style={{ textAlign: "center" }}>
-                    <ins
-                        className="adsbygoogle"
-                        style={{ display: "block" }}
-                        data-ad-client="ca-pub-4889404422926996"
-                        data-ad-slot="2338723921"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"
-                    ></ins>
+                    {props.adsData1.published_at &&
+                    props.adsData1.Image_Banner ? (
+                        <AdsBanner
+                            urlImage={apiUrl + props.adsData1.Image_Banner.url}
+                            width={props.adsData1.Image_Banner.width}
+                            height={props.adsData1.Image_Banner.height}
+                            linkbanner={props.adsData1.url}
+                        />
+                    ) : (
+                        <Ads
+                            iframeBanner={ReactHtmlParser(
+                                props.adsData1.URL_Iframe
+                            )}
+                        />
+                    )}
                 </div>
-                {/* {props.adsData1.Image_Banner ? (
-                    <AdsBanner
-                        urlImage={apiUrl + props.adsData1.Image_Banner.url}
-                        width={props.adsData1.Image_Banner.width}
-                        height={props.adsData1.Image_Banner.height}
-                        linkbanner={props.adsData1.url}
-                    />
-                ) : (
-                    <Ads
-                        iframeBanner={ReactHtmlParser(
-                            props.adsData1.URL_Iframe
-                        )}
-                    />
-                )} */}
                 <div className={styles.compareItem}>
                     <div className={styles.contens}>
                         <div className="containerComparehome">
@@ -334,7 +333,27 @@ export default function Home(props) {
                                 })}
                             </div>
                         </div>
-                        <GlobalAds adsId="1" />
+                        {/* ads 2 */}
+                        <div style={{ textAlign: "center" }}>
+                            {props.adsData2.published_at &&
+                            props.adsData2.Image_Banner ? (
+                                <AdsBanner
+                                    urlImage={
+                                        apiUrl + props.adsData2.Image_Banner.url
+                                    }
+                                    width={props.adsData2.Image_Banner.width}
+                                    height={props.adsData2.Image_Banner.height}
+                                    linkbanner={props.adsData2.url}
+                                />
+                            ) : (
+                                <Ads
+                                    iframeBanner={ReactHtmlParser(
+                                        props.adsData2.URL_Iframe
+                                    )}
+                                />
+                            )}
+                        </div>
+
                         <div className="containerComparehome">
                             <div className="row">
                                 {props.dataListHandphone.map((item, i) => {
@@ -370,7 +389,24 @@ export default function Home(props) {
                         </div>
                     </div>
                 </div>
-                <GlobalAds adsId="2" />
+                {/* Ads 3 */}
+                <div style={{ textAlign: "center" }}>
+                    {props.adsData3.published_at &&
+                    props.adsData3.Image_Banner ? (
+                        <AdsBanner
+                            urlImage={apiUrl + props.adsData3.Image_Banner.url}
+                            width={props.adsData3.Image_Banner.width}
+                            height={props.adsData3.Image_Banner.height}
+                            linkbanner={props.adsData3.url}
+                        />
+                    ) : (
+                        <Ads
+                            iframeBanner={ReactHtmlParser(
+                                props.adsData3.URL_Iframe
+                            )}
+                        />
+                    )}
+                </div>
                 <div className={styles.latestnews}>
                     <div className={styles.contents}>
                         <Title title="News Updates" />
@@ -641,7 +677,24 @@ export default function Home(props) {
                         </div>
                     </div>
                 </div>
-                <GlobalAds adsId="3" />
+                {/* ads 4 */}
+                <div style={{ textAlign: "center" }}>
+                    {props.adsData4.published_at &&
+                    props.adsData4.Image_Banner ? (
+                        <AdsBanner
+                            urlImage={apiUrl + props.adsData4.Image_Banner.url}
+                            width={props.adsData4.Image_Banner.width}
+                            height={props.adsData4.Image_Banner.height}
+                            linkbanner={props.adsData4.url}
+                        />
+                    ) : (
+                        <Ads
+                            iframeBanner={ReactHtmlParser(
+                                props.adsData4.URL_Iframe
+                            )}
+                        />
+                    )}
+                </div>
                 <div className={styles.kanalapp}>
                     <div className={styles.contents}>
                         <Title title="Application Channel" />
@@ -903,7 +956,25 @@ export default function Home(props) {
                         </div>
                     </div>
                 </div>
-                <GlobalAds adsId="4" />
+                {/* ads 5 */}
+                <div style={{ textAlign: "center" }}>
+                    {props.adsData5.published_at &&
+                    props.adsData5.Image_Banner ? (
+                        <AdsBanner
+                            urlImage={apiUrl + props.adsData5.Image_Banner.url}
+                            width={props.adsData5.Image_Banner.width}
+                            height={props.adsData5.Image_Banner.height}
+                            linkbanner={props.adsData5.url}
+                        />
+                    ) : (
+                        <Ads
+                            iframeBanner={ReactHtmlParser(
+                                props.adsData5.URL_Iframe
+                            )}
+                        />
+                    )}
+                </div>
+
                 <div className={styles.tipstrik}>
                     <div className={styles.contents}>
                         <Title title="Tips & Tricks"></Title>
@@ -1196,10 +1267,11 @@ export default function Home(props) {
 }
 
 export async function getStaticProps(context) {
-    // const adsData1 = await fetchData(`/ads/1`);
-    // const adsData2 = await fetchData(`/ads/2`);
-    // const adsData3 = await fetchData(`/ads/3`);
-    // const adsData4 = await fetchData(`/ads/4`);
+    const adsData1 = await fetchData(`/ads/1?_publicationState=preview`);
+    const adsData2 = await fetchData(`/ads/2?_publicationState=preview`);
+    const adsData3 = await fetchData(`/ads/3?_publicationState=preview`);
+    const adsData4 = await fetchData(`/ads/4?_publicationState=preview`);
+    const adsData5 = await fetchData(`/ads/5?_publicationState=preview`);
     const dataAllProd = await fetchData("/products");
     const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
     const dataListHandphone = await fetchData(
@@ -1245,13 +1317,13 @@ export async function getStaticProps(context) {
             notFound: true,
         };
     }
-    // if (!adsData1) return null;
     return {
         props: {
-            // adsData1,
-            // adsData2,
-            // adsData3,
-            // adsData4,
+            adsData1,
+            adsData2,
+            adsData3,
+            adsData4,
+            adsData5,
             dataSEO,
             dataCompare,
             mainNews,
