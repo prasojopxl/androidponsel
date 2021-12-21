@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import useSWR from 'swr';
-import { GlobalAds, Rate, Title, } from "../../components";
+import { Rate, Title, Ads, AdsBanner, LoadAds } from "../../components";
 import Image from "next/image";
-import { apiUrl, baseUrl, staticImage } from "../../config/variable";
+import { apiUrl, baseUrl, staticImage, urlAds } from "../../config/variable";
 import styles from "./index.module.scss";
 import { fetchData } from "../../config/data";
 import ReactHtmlParser from "react-html-parser";
@@ -18,6 +18,8 @@ export default function compare({
 	getTopBrands,
 	dataSEO,
 	otherCompare,
+	adsData10,
+	adsData11
 }) {
 	const router = useRouter();
 	const { produk1, produk2, produk3 } = router.query;
@@ -36,6 +38,7 @@ export default function compare({
 	if (errorDataBanerCompareTop) return <div>Failed</div>
 
 	const dataCompare = produkData;
+	LoadAds()
 
 
 	return (
@@ -83,10 +86,35 @@ export default function compare({
 					property="og:url"
 					content="https://www.androidponsel.com/"
 				/>
+				<script
+					async
+					src={urlAds + dataSEO.ads}
+					crossorigin="anonymous"
+				></script>
 			</Head>
 
 			<div className={styles.comparepage}>
-				<GlobalAds adsId="11" />
+				{/* ads satu id 10 */}
+				{adsData10.published_at !== null && (
+					<div style={{ textAlign: "center" }}>
+						{adsData10.Image_Banner ? (
+							<AdsBanner
+								urlImage={
+									apiUrl + adsData10.Image_Banner.url
+								}
+								width={adsData10.Image_Banner.width}
+								height={adsData10.Image_Banner.height}
+								linkbanner={adsData10.url}
+							/>
+						) : (
+							<Ads
+								iframeBanner={ReactHtmlParser(
+									adsData10.URL_Iframe
+								)}
+							/>
+						)}
+					</div>
+				)}
 				<div className={styles.detailCompare}>
 					<div className={styles.contents}>
 						<div className="row justify-content-center">
@@ -567,7 +595,7 @@ export default function compare({
 											{
 												<div className={dataCompare.length == 2 ? "col-lg-4 col-4" : "col-lg-3 col-3"} key={item.id}>
 													{
-														item.Price_Marketplace.length < 1 ? "Prices for marketplaces not avaliable for now" :
+														item.Price_Marketplace.length < 1 ? "Price not avaliable" :
 															item.Price_Marketplace.map((market, i) => {
 																return (
 																	<div key={market.id}>
@@ -595,7 +623,27 @@ export default function compare({
 								})
 							}
 						</div>
-						<GlobalAds adsId="2" />
+						{/* ads dua id 11 */}
+						{adsData11.published_at !== null && (
+							<div style={{ textAlign: "center" }}>
+								{adsData11.Image_Banner ? (
+									<AdsBanner
+										urlImage={
+											apiUrl + adsData11.Image_Banner.url
+										}
+										width={adsData11.Image_Banner.width}
+										height={adsData11.Image_Banner.height}
+										linkbanner={adsData11.url}
+									/>
+								) : (
+									<Ads
+										iframeBanner={ReactHtmlParser(
+											adsData11.URL_Iframe
+										)}
+									/>
+								)}
+							</div>
+						)}
 						<div style={{ marginTop: "30px" }}><Title title="Other Comparation" /></div>
 						<div className="row" style={{ marginBottom: 30 }}>
 							{
@@ -731,6 +779,8 @@ export default function compare({
 }
 
 export async function getStaticProps() {
+	const adsData10 = await fetchData(`/ads/10?_publicationState=preview`);
+	const adsData11 = await fetchData(`/ads/11?_publicationState=preview`);
 	const dataSEO = await fetchData("/general");
 	const getMenu = await fetchData("/menus?_sort=order");
 	const getTopBrands = await fetchData("/brands?_top_brand=true");
@@ -741,6 +791,8 @@ export async function getStaticProps() {
 			getTopBrands,
 			dataSEO,
 			otherCompare,
+			adsData10,
+			adsData11
 		},
 		revalidate: 3
 	};
