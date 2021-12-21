@@ -3,9 +3,16 @@ import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import ReactHtmlParser from "react-html-parser";
-import { Title, GlobalAds, ItemProduct, Ads, AdsBanner } from "../components/";
+import {
+    Title,
+    GlobalAds,
+    ItemProduct,
+    Ads,
+    AdsBanner,
+    LoadAds,
+} from "../components/";
 import { fetchData, fetchDataApp, fetchDataBlog } from "../config/data";
-import { apiUrl, baseUrl, staticImage } from "../config/variable";
+import { apiUrl, baseUrl, staticImage, urlAds } from "../config/variable";
 import Layout from "../layout";
 import styles from "./index.module.scss";
 import Head from "next/head";
@@ -94,21 +101,21 @@ export default function Home(props) {
             setCompare3("");
         }
     };
-    const loadAds = () => {
-        try {
-            if (typeof window !== "undefined") {
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-            }
-        } catch (error) {
-            console.log("adsense error", error.message);
-        }
-    };
+    // const loadAds = () => {
+    //     try {
+    //         if (typeof window !== "undefined") {
+    //             (window.adsbygoogle = window.adsbygoogle || []).push({});
+    //         }
+    //     } catch (error) {
+    //         console.log("adsense error", error.message);
+    //     }
+    // };
     useEffect(() => {
         props.adsData1.URL_Iframe ||
         props.adsData2.URL_Iframe ||
         props.adsData3.URL_Iframe ||
         props.adsData4.URL_Iframe
-            ? loadAds()
+            ? LoadAds()
             : null;
         removeLocalProd();
         return getLocalProd();
@@ -167,7 +174,7 @@ export default function Home(props) {
                     />
                     <script
                         async
-                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4889404422926996"
+                        src={urlAds + props.dataSEO.ads}
                         crossorigin="anonymous"
                     ></script>
                 </Head>

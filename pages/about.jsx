@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { GlobalAds } from "../components";
 import styles from "./pages.module.scss";
 import { fetchData, fetchDataAndroid } from '../config/data';
 import Layout from '../layout'
@@ -19,7 +18,6 @@ export default function TentangKami(props) {
             dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >
-            <GlobalAds adsId="1" />
             <div className={styles.pages}>
                 <div className={styles.mainImage}><Image src={staticImage + "tentang-kami.png"} alt="tentang kami" width={1002} height={616} /> </div>
                 <div className={styles.contents}>

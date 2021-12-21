@@ -8,3 +8,4 @@ export const apiUrlAndroid = `https://www.androidponsel.com/wp-json/wp/v2/`;
 export const apiUrlApp = `https://www.androidponsel.com/download/wp-json/wp/v2/posts?`;
 export const totalItem = 8;
 export const staticImage = `https://stagingaja.com/static/device/`;
+export const urlAds = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=`;

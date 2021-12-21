@@ -3,6 +3,8 @@ import AdsBanner from "./adsBanner/AdsBanner";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 import SEO from "./seo";
+import LoadAds from "./loadAds"
+
 //home
 import ListCategories from "./listcategories/ListCategories";
 //product
@@ -13,6 +15,7 @@ import Paging from "./paging";
 import ItemTeam from "./team/itemteam";
 import GlobalAds from "./globalAds/globalAds";
 import ItemProduct from "./products/item";
+
 
 
 // export components
@@ -30,4 +33,5 @@ export {
     ItemTeam,
     ItemProduct,
     GlobalAds,
+    LoadAds
 };
