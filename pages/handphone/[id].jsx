@@ -3,9 +3,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-import { GlobalAds, Rate, RateBox, Title } from "../../components";
+import { GlobalAds, Rate, RateBox, Title, LoadAds, Ads, AdsBanner } from "../../components";
 import { fetchData } from "../../config/data";
-import { apiUrl, baseUrl, staticImage } from "../../config/variable";
+import { apiUrl, baseUrl, staticImage, urlAds } from "../../config/variable";
 import Layout from "../../layout";
 import styles from "./index.module.scss";
 // import styles from "./stylebug.module.scss";
@@ -75,6 +75,13 @@ export default function DetailPage(props) {
     const currentPage = ["handphone"];
     useEffect(() => {
         checkDataUser();
+        props.adsData12.URL_Iframe ||
+            props.adsData13.URL_Iframe ||
+            props.adsData14.URL_Iframe ||
+            props.adsData15.URL_Iframe ||
+            props.adsData16.URL_Iframe
+            ? LoadAds()
+            : null;
         cookie.statusID === "deactive" && setDisplayRate(false), localStorage.removeItem("authRate")
         setState({
             nav1: slider1.current,
@@ -136,9 +143,33 @@ export default function DetailPage(props) {
                     property="og:url"
                     content="https://www.androidponsel.com/device"
                 />
+                <script
+                    async
+                    src={urlAds + props.dataSEO.ads}
+                    crossorigin="anonymous"
+                ></script>
             </Head>
-
-            <GlobalAds adsId="1" />
+            {/* Ads satu id 12 */}
+            {props.adsData12.published_at !== null && (
+                <div style={{ textAlign: "center" }}>
+                    {props.adsData12.Image_Banner ? (
+                        <AdsBanner
+                            urlImage={
+                                apiUrl + props.adsData12.Image_Banner.url
+                            }
+                            width={props.adsData12.Image_Banner.width}
+                            height={props.adsData12.Image_Banner.height}
+                            linkbanner={props.adsData12.url}
+                        />
+                    ) : (
+                        <Ads
+                            iframeBanner={ReactHtmlParser(
+                                props.adsData12.URL_Iframe
+                            )}
+                        />
+                    )}
+                </div>
+            )}
             <div className={styles.detailproducts}>
                 <div className={styles.contents}>
                     <Title title="Overview Produk"></Title>
@@ -369,7 +400,27 @@ export default function DetailPage(props) {
                         </div>
                     </div>
                 </div>
-                <GlobalAds adsId="2" />
+                {/* Ads dua id 16 */}
+                {props.adsData16.published_at !== null && (
+                    <div style={{ textAlign: "center" }}>
+                        {props.adsData16.Image_Banner ? (
+                            <AdsBanner
+                                urlImage={
+                                    apiUrl + props.adsData16.Image_Banner.url
+                                }
+                                width={props.adsData16.Image_Banner.width}
+                                height={props.adsData16.Image_Banner.height}
+                                linkbanner={props.adsData16.url}
+                            />
+                        ) : (
+                            <Ads
+                                iframeBanner={ReactHtmlParser(
+                                    props.adsData16.URL_Iframe
+                                )}
+                            />
+                        )}
+                    </div>
+                )}
                 <div className={styles.contents}>
                     <div className="row">
                         <div className="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
@@ -396,7 +447,28 @@ export default function DetailPage(props) {
                                         {ReactHtmlParser(props.post.color)}
                                     </div>
                                 </div>
-                                <GlobalAds adsId="3" />
+                                {/* Ads tiga id 13 */}
+                                {props.adsData13.published_at !== null && (
+                                    <div style={{ textAlign: "center" }}>
+                                        {props.adsData13.Image_Banner ? (
+                                            <AdsBanner
+                                                urlImage={
+                                                    apiUrl + props.adsData13.Image_Banner.url
+                                                }
+                                                width={props.adsData13.Image_Banner.width}
+                                                height={props.adsData13.Image_Banner.height}
+                                                linkbanner={props.adsData13.url}
+                                            />
+                                        ) : (
+                                            <Ads
+                                                iframeBanner={ReactHtmlParser(
+                                                    props.adsData13.URL_Iframe
+                                                )}
+                                            />
+                                        )}
+                                    </div>
+                                )}
+
                                 <div className="separateLines">
                                     <Title title="Material Design" idName="design" />
                                     <div className={styles.itemDesc}>
@@ -426,7 +498,28 @@ export default function DetailPage(props) {
                                         {ReactHtmlParser(props.post.protection)}
                                     </div>
                                 </div>
-                                <GlobalAds adsId="4" />
+                                {/* ads empat id 15 */}
+                                {props.adsData15.published_at !== null && (
+                                    <div style={{ textAlign: "center" }}>
+                                        {props.adsData15.Image_Banner ? (
+                                            <AdsBanner
+                                                urlImage={
+                                                    apiUrl + props.adsData15.Image_Banner.url
+                                                }
+                                                width={props.adsData15.Image_Banner.width}
+                                                height={props.adsData15.Image_Banner.height}
+                                                linkbanner={props.adsData15.url}
+                                            />
+                                        ) : (
+                                            <Ads
+                                                iframeBanner={ReactHtmlParser(
+                                                    props.adsData15.URL_Iframe
+                                                )}
+                                            />
+                                        )}
+                                    </div>
+                                )}
+
                                 <div className="separateLines">
                                     <Title title="Performance & Hardware" idName="hardware" />
                                     <div className={styles.itemDesc}>
@@ -449,7 +542,28 @@ export default function DetailPage(props) {
                                         {ReactHtmlParser(props.post.card_slot)}
                                     </div>
                                 </div>
-                                <GlobalAds adsId="5" />
+                                {/* Ads lima id 14 */}
+                                {props.adsData14.published_at !== null && (
+                                    <div style={{ textAlign: "center" }}>
+                                        {props.adsData14.Image_Banner ? (
+                                            <AdsBanner
+                                                urlImage={
+                                                    apiUrl + props.adsData14.Image_Banner.url
+                                                }
+                                                width={props.adsData14.Image_Banner.width}
+                                                height={props.adsData14.Image_Banner.height}
+                                                linkbanner={props.adsData14.url}
+                                            />
+                                        ) : (
+                                            <Ads
+                                                iframeBanner={ReactHtmlParser(
+                                                    props.adsData14.URL_Iframe
+                                                )}
+                                            />
+                                        )}
+                                    </div>
+                                )}
+
                                 <div className="separateLines">
                                     <Title title="Camera" idName="camera" />
                                     <div className={styles.itemDesc}>
@@ -492,7 +606,28 @@ export default function DetailPage(props) {
                                         </div>
                                     </div>
                                 </div>
-                                <GlobalAds adsId="6" />
+                                {/* Ads enam id 14 */}
+                                {props.adsData14.published_at !== null && (
+                                    <div style={{ textAlign: "center" }}>
+                                        {props.adsData14.Image_Banner ? (
+                                            <AdsBanner
+                                                urlImage={
+                                                    apiUrl + props.adsData14.Image_Banner.url
+                                                }
+                                                width={props.adsData14.Image_Banner.width}
+                                                height={props.adsData14.Image_Banner.height}
+                                                linkbanner={props.adsData14.url}
+                                            />
+                                        ) : (
+                                            <Ads
+                                                iframeBanner={ReactHtmlParser(
+                                                    props.adsData14.URL_Iframe
+                                                )}
+                                            />
+                                        )}
+                                    </div>
+                                )}
+
                                 <div className="separateLines">
                                     <Title title="Battery" idName="battery" />
                                     <div className={styles.itemDesc}>
@@ -500,7 +635,28 @@ export default function DetailPage(props) {
                                         {ReactHtmlParser(props.post.charging_type)}
                                     </div>
                                 </div>
-                                <GlobalAds adsId="7" />
+                                {/* ads tujuh id 15 */}
+                                {props.adsData15.published_at !== null && (
+                                    <div style={{ textAlign: "center" }}>
+                                        {props.adsData15.Image_Banner ? (
+                                            <AdsBanner
+                                                urlImage={
+                                                    apiUrl + props.adsData15.Image_Banner.url
+                                                }
+                                                width={props.adsData15.Image_Banner.width}
+                                                height={props.adsData15.Image_Banner.height}
+                                                linkbanner={props.adsData15.url}
+                                            />
+                                        ) : (
+                                            <Ads
+                                                iframeBanner={ReactHtmlParser(
+                                                    props.adsData15.URL_Iframe
+                                                )}
+                                            />
+                                        )}
+                                    </div>
+                                )}
+
                                 <div className="separateLines">
                                     <Title title="Software" idName="software" />
                                     <div className={styles.itemDesc}>
@@ -513,7 +669,28 @@ export default function DetailPage(props) {
                                         {ReactHtmlParser(props.post.chipset)}
                                     </div>
                                 </div>
-                                <GlobalAds adsId="8" />
+                                {/* ads delapan id 13 */}
+                                {props.adsData13.published_at !== null && (
+                                    <div style={{ textAlign: "center" }}>
+                                        {props.adsData13.Image_Banner ? (
+                                            <AdsBanner
+                                                urlImage={
+                                                    apiUrl + props.adsData13.Image_Banner.url
+                                                }
+                                                width={props.adsData13.Image_Banner.width}
+                                                height={props.adsData13.Image_Banner.height}
+                                                linkbanner={props.adsData13.url}
+                                            />
+                                        ) : (
+                                            <Ads
+                                                iframeBanner={ReactHtmlParser(
+                                                    props.adsData13.URL_Iframe
+                                                )}
+                                            />
+                                        )}
+                                    </div>
+                                )}
+
                                 <div className="separateLines">
                                     <Title title="Sensors" idName="sensors" />
                                     <div className={styles.itemDesc}>
@@ -526,7 +703,27 @@ export default function DetailPage(props) {
                                         {ReactHtmlParser(props.post.nfc)}
                                     </div>
                                 </div>
-                                <GlobalAds adsId="9" />
+                                {/* ads sembilan id 16 */}
+                                {props.adsData16.published_at !== null && (
+                                    <div style={{ textAlign: "center" }}>
+                                        {props.adsData16.Image_Banner ? (
+                                            <AdsBanner
+                                                urlImage={
+                                                    apiUrl + props.adsData16.Image_Banner.url
+                                                }
+                                                width={props.adsData16.Image_Banner.width}
+                                                height={props.adsData16.Image_Banner.height}
+                                                linkbanner={props.adsData16.url}
+                                            />
+                                        ) : (
+                                            <Ads
+                                                iframeBanner={ReactHtmlParser(
+                                                    props.adsData16.URL_Iframe
+                                                )}
+                                            />
+                                        )}
+                                    </div>
+                                )}
                                 <div className="separateLines">
                                     <Title title="Network" idName="network" />
                                     <div className={styles.itemDesc}>
@@ -580,7 +777,29 @@ export default function DetailPage(props) {
                                         {ReactHtmlParser(props.post.usb)}
                                     </div>
                                 </div>
-                                <GlobalAds adsId="10" />
+                                {/* ads sepuluh id 12 */}
+                                sepuluh
+                                {props.adsData12.published_at !== null && (
+                                    <div style={{ textAlign: "center" }}>
+                                        {props.adsData12.Image_Banner ? (
+                                            <AdsBanner
+                                                urlImage={
+                                                    apiUrl + props.adsData12.Image_Banner.url
+                                                }
+                                                width={props.adsData12.Image_Banner.width}
+                                                height={props.adsData12.Image_Banner.height}
+                                                linkbanner={props.adsData12.url}
+                                            />
+                                        ) : (
+                                            <Ads
+                                                iframeBanner={ReactHtmlParser(
+                                                    props.adsData12.URL_Iframe
+                                                )}
+                                            />
+                                        )}
+                                    </div>
+                                )}
+
                                 <Fragment>
                                     <Title title="Price Marketplace" idName="harga" />
                                     <div className="row gutter-0 commerce_price" style={{ marginTop: 15 }}>
@@ -792,6 +1011,11 @@ function getRandomDifferent(arr, last = undefined) {
 }
 
 export async function getStaticProps({ params }) {
+    const adsData12 = await fetchData(`/ads/12?_publicationState=preview`);
+    const adsData13 = await fetchData(`/ads/13?_publicationState=preview`);
+    const adsData14 = await fetchData(`/ads/14?_publicationState=preview`);
+    const adsData15 = await fetchData(`/ads/15?_publicationState=preview`);
+    const adsData16 = await fetchData(`/ads/16?_publicationState=preview`);
     const res = await fetch(`${apiUrl}/products/${params.id}`);
     const post = await res.json();
     const res3 = await fetch(`${apiUrl}/products?brand=${post.brand.id}`);
@@ -804,8 +1028,6 @@ export async function getStaticProps({ params }) {
             }
         });
     };
-
-
     listDataBrand();
     const random1 = getRandomDifferent(randomID);
     const random2 = getRandomDifferent(randomID, random1);
@@ -827,6 +1049,11 @@ export async function getStaticProps({ params }) {
             dataSEO,
             post,
             dataRelatedProd,
+            adsData12,
+            adsData13,
+            adsData14,
+            adsData15,
+            adsData16
         },
         revalidate: 3
     };
