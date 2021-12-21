@@ -1,4 +1,3 @@
-import { GlobalAds } from "../components";
 import styles from "./pages.module.scss";
 import { fetchData } from '../config/data';
 import Layout from '../layout'
@@ -16,7 +15,6 @@ export default function HubungiKami(props) {
             dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >
-            <GlobalAds adsId="1" />
             <div className={styles.pages}>
                 <div className={styles.bgGradient}>
                     <div style={{

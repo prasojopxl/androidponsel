@@ -3,14 +3,7 @@ import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import ReactHtmlParser from "react-html-parser";
-import {
-    Title,
-    GlobalAds,
-    ItemProduct,
-    Ads,
-    AdsBanner,
-    LoadAds,
-} from "../components/";
+import { Title, ItemProduct, Ads, AdsBanner, LoadAds } from "../components/";
 import { fetchData, fetchDataApp, fetchDataBlog } from "../config/data";
 import { apiUrl, baseUrl, staticImage, urlAds } from "../config/variable";
 import Layout from "../layout";
@@ -101,15 +94,6 @@ export default function Home(props) {
             setCompare3("");
         }
     };
-    // const loadAds = () => {
-    //     try {
-    //         if (typeof window !== "undefined") {
-    //             (window.adsbygoogle = window.adsbygoogle || []).push({});
-    //         }
-    //     } catch (error) {
-    //         console.log("adsense error", error.message);
-    //     }
-    // };
     useEffect(() => {
         props.adsData1.URL_Iframe ||
         props.adsData2.URL_Iframe ||
