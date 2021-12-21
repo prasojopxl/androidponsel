@@ -778,7 +778,6 @@ export default function DetailPage(props) {
                                     </div>
                                 </div>
                                 {/* ads sepuluh id 12 */}
-                                sepuluh
                                 {props.adsData12.published_at !== null && (
                                     <div style={{ textAlign: "center" }}>
                                         {props.adsData12.Image_Banner ? (
