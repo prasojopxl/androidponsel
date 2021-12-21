@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router'
 import { Fragment, useEffect, useState } from "react";
-import { Paging, Title, GlobalAds } from "../../components";
-import { baseUrl, totalItem, apiUrl } from "../../config/variable";
+import { Paging, Title, Ads, AdsBanner, LoadAds } from "../../components";
+import { baseUrl, totalItem, apiUrl, urlAds } from "../../config/variable";
 import styles from "./index.module.scss";
 import { fetchData } from '../../config/data';
 import Layout from '../../layout';
 import ItemProduct from '../../components/products/item';
 import Head from "next/head";
+import ReactHtmlParser from "react-html-parser";
 
 export default function Handphone(props) {
     const router = useRouter()
@@ -99,6 +100,10 @@ export default function Handphone(props) {
 
     useEffect(() => {
         removeLocalProd();
+        props.adsData6.URL_Iframe ||
+            props.adsData9.URL_Iframe
+            ? LoadAds()
+            : null;
         return (
             getLocalProd()
         )
@@ -113,7 +118,7 @@ export default function Handphone(props) {
         >
             <Head>
                 <title>
-                All New Mobile Phone Spesification
+                    All New Mobile Phone Spesification
                 </title>
                 <meta
                     name="description"
@@ -151,8 +156,34 @@ export default function Handphone(props) {
                     property="og:url"
                     content="https://www.androidponsel.com/device"
                 />
+                <script
+                    async
+                    src={urlAds + props.dataSEO.ads}
+                    crossorigin="anonymous"
+                ></script>
             </Head>
-            <GlobalAds adsId="1" />
+            {/* Ads 1 id 6 */}
+            {props.adsData6.published_at !== null && (
+                <div style={{ textAlign: "center" }}>
+                    {props.adsData6.Image_Banner ? (
+                        <AdsBanner
+                            urlImage={
+                                apiUrl + props.adsData6.Image_Banner.url
+                            }
+                            width={props.adsData6.Image_Banner.width}
+                            height={props.adsData6.Image_Banner.height}
+                            linkbanner={props.adsData6.url}
+                        />
+                    ) : (
+                        <Ads
+                            iframeBanner={ReactHtmlParser(
+                                props.adsData6.URL_Iframe
+                            )}
+                        />
+                    )}
+                </div>
+            )}
+
             <div className={styles.pagelisthandphone}>
                 <div className={styles.contents}>
                     <Title title="Handphone"></Title>
@@ -168,7 +199,28 @@ export default function Handphone(props) {
                                     );
                                 })}
                             </div>
-                            <GlobalAds adsId="2" />
+                            {/* Ads 2 id 9 */}
+                            {props.adsData9.published_at !== null && (
+                                <div style={{ textAlign: "center" }}>
+                                    {props.adsData9.Image_Banner ? (
+                                        <AdsBanner
+                                            urlImage={
+                                                apiUrl + props.adsData9.Image_Banner.url
+                                            }
+                                            width={props.adsData9.Image_Banner.width}
+                                            height={props.adsData9.Image_Banner.height}
+                                            linkbanner={props.adsData9.url}
+                                        />
+                                    ) : (
+                                        <Ads
+                                            iframeBanner={ReactHtmlParser(
+                                                props.adsData9.URL_Iframe
+                                            )}
+                                        />
+                                    )}
+                                </div>
+                            )}
+
                             <div className="row">
                                 {props.dataListHandphone2.map((item, i) => {
                                     return (
@@ -217,6 +269,9 @@ export async function getStaticProps() {
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
+    const adsData6 = await fetchData(`/ads/6?_publicationState=preview`);
+    const adsData9 = await fetchData(`/ads/9?_publicationState=preview`);
+
     return {
         props: {
             dataListHandphone,
@@ -226,7 +281,9 @@ export async function getStaticProps() {
             dataSEO,
             dataBanerProdukTop,
             dataBanerProdukBody,
-            totalPaging
+            totalPaging,
+            adsData6,
+            adsData9
         },
         revalidate: 3
     };

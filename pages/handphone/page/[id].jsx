@@ -1,12 +1,13 @@
 import { useEffect, useState, Fragment } from "react";
 import { useRouter } from "next/router"
-import { Paging, Title } from "../../../components";
+import { Paging, Title, Ads, AdsBanner, LoadAds } from "../../../components";
 import ItemProduct from "../../../components/products/item";
 import { fetchData } from "../../../config/data";
-import { apiUrl, baseUrl, totalItem } from "../../../config/variable";
+import { apiUrl, baseUrl, totalItem, urlAds } from "../../../config/variable";
 import Layout from "../../../layout";
 import styles from "../index.module.scss";
 import Head from "next/head";
+import ReactHtmlParser from "react-html-parser";
 
 export default function Page(props) {
     const router = useRouter();
@@ -97,6 +98,9 @@ export default function Page(props) {
 
     }
     useEffect(() => {
+        props.adsData6.URL_Iframe
+            ? LoadAds()
+            : null;
         return (
             getLocalProd()
         )
@@ -150,7 +154,34 @@ export default function Page(props) {
                     property="og:url"
                     content="https://www.androidponsel.com/"
                 />
+                <script
+                    async
+                    src={urlAds + props.dataSEO.ads}
+                    crossorigin="anonymous"
+                ></script>
             </Head>
+            {/* Ads 1 id 6 */}
+            {props.adsData6.published_at !== null && (
+                <div style={{ textAlign: "center" }}>
+                    {props.adsData6.Image_Banner ? (
+                        <AdsBanner
+                            urlImage={
+                                apiUrl + props.adsData6.Image_Banner.url
+                            }
+                            width={props.adsData6.Image_Banner.width}
+                            height={props.adsData6.Image_Banner.height}
+                            linkbanner={props.adsData6.url}
+                        />
+                    ) : (
+                        <Ads
+                            iframeBanner={ReactHtmlParser(
+                                props.adsData6.URL_Iframe
+                            )}
+                        />
+                    )}
+                </div>
+            )}
+
             <div className={styles.pagelisthandphone}>
                 <div className={styles.contents}>
                     <Title title="Handphone" />
@@ -217,6 +248,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+    const adsData6 = await fetchData(`/ads/6?_publicationState=preview`);
     const page = 0;
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
@@ -239,6 +271,7 @@ export async function getStaticProps({ params }) {
             dataSEO,
             dataListHandphone,
             totalPaging,
+            adsData6
         },
         revalidate: 3
     }
