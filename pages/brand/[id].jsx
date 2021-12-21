@@ -2,11 +2,12 @@ import { useEffect, useState, Fragment } from "react";
 import Layout from "../../layout";
 import { useRouter } from "next/router";
 import { fetchData } from "../../config/data";
+import ReactHtmlParser from "react-html-parser";
 import LayoutBlank from "../../layout/layoutBlank";
 import ItemProduct from "../../components/products/item";
 import styles from "./index.module.scss"
-import { Title, GlobalAds } from "../../components";
-import { baseUrl, apiUrl } from "../../config/variable";
+import { Title, LoadAds, Ads, AdsBanner } from "../../components";
+import { baseUrl, apiUrl, urlAds } from "../../config/variable";
 import Head from "next/head";
 
 export default function Brand(props) {
@@ -93,6 +94,9 @@ export default function Brand(props) {
 
     useEffect(() => {
         removeLocalProd();
+        props.adsData6.URL_Iframe
+            ? LoadAds()
+            : null;
         return (
             getLocalProd()
         )
@@ -147,6 +151,11 @@ export default function Brand(props) {
                         property="og:url"
                         content="https://www.androidponsel.com/"
                     />
+                    <script
+                        async
+                        src={urlAds + props.dataSEO.ads}
+                        crossorigin="anonymous"
+                    ></script>
                 </Head>
             }
             {
@@ -195,10 +204,35 @@ export default function Brand(props) {
                         property="og:url"
                         content="https://www.androidponsel.com/"
                     />
+                    <script
+                        async
+                        src={urlAds + props.dataSEO.ads}
+                        crossorigin="anonymous"
+                    ></script>
                 </Head>
             }
 
-            <GlobalAds adsId="1" />
+            {/* Ads 6*/}
+            {props.adsData6.published_at !== null && (
+                <div style={{ textAlign: "center" }}>
+                    {props.adsData6.Image_Banner ? (
+                        <AdsBanner
+                            urlImage={
+                                apiUrl + props.adsData6.Image_Banner.url
+                            }
+                            width={props.adsData6.Image_Banner.width}
+                            height={props.adsData6.Image_Banner.height}
+                            linkbanner={props.adsData6.url}
+                        />
+                    ) : (
+                        <Ads
+                            iframeBanner={ReactHtmlParser(
+                                props.adsData6.URL_Iframe
+                            )}
+                        />
+                    )}
+                </div>
+            )}
             <div className={styles.pageBrand}>
                 <div className={styles.contents}>
                     {
@@ -263,6 +297,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+    const adsData6 = await fetchData(`/ads/6?_publicationState=preview`);
     const brands = await fetchData(`/brands?slug=${params.id}`)
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
@@ -274,7 +309,7 @@ export async function getStaticProps({ params }) {
             getMenu,
             getTopBrands,
             dataSEO,
-
+            adsData6
         },
         revalidate: 3
     }
