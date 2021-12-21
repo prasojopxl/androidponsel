@@ -174,20 +174,22 @@ export default function Home(props) {
                 {/* ads 1 */}
                 {props.adsData1.published_at !== null && (
                     <div style={{ textAlign: "center" }}>
-                        props.adsData1.Image_Banner ? (
-                        <AdsBanner
-                            urlImage={apiUrl + props.adsData1.Image_Banner.url}
-                            width={props.adsData1.Image_Banner.width}
-                            height={props.adsData1.Image_Banner.height}
-                            linkbanner={props.adsData1.url}
-                        />
+                        {props.adsData1.Image_Banner ? (
+                            <AdsBanner
+                                urlImage={
+                                    apiUrl + props.adsData1.Image_Banner.url
+                                }
+                                width={props.adsData1.Image_Banner.width}
+                                height={props.adsData1.Image_Banner.height}
+                                linkbanner={props.adsData1.url}
+                            />
                         ) : (
-                        <Ads
-                            iframeBanner={ReactHtmlParser(
-                                props.adsData1.URL_Iframe
-                            )}
-                        />
-                        )
+                            <Ads
+                                iframeBanner={ReactHtmlParser(
+                                    props.adsData1.URL_Iframe
+                                )}
+                            />
+                        )}
                     </div>
                 )}
                 <div className={styles.compareItem}>
@@ -337,22 +339,27 @@ export default function Home(props) {
                         {/* ads 2 */}
                         {props.adsData2.published_at && (
                             <div style={{ textAlign: "center" }}>
-                                props.adsData2.Image_Banner ? (
-                                <AdsBanner
-                                    urlImage={
-                                        apiUrl + props.adsData2.Image_Banner.url
-                                    }
-                                    width={props.adsData2.Image_Banner.width}
-                                    height={props.adsData2.Image_Banner.height}
-                                    linkbanner={props.adsData2.url}
-                                />
+                                {props.adsData2.Image_Banner ? (
+                                    <AdsBanner
+                                        urlImage={
+                                            apiUrl +
+                                            props.adsData2.Image_Banner.url
+                                        }
+                                        width={
+                                            props.adsData2.Image_Banner.width
+                                        }
+                                        height={
+                                            props.adsData2.Image_Banner.height
+                                        }
+                                        linkbanner={props.adsData2.url}
+                                    />
                                 ) : (
-                                <Ads
-                                    iframeBanner={ReactHtmlParser(
-                                        props.adsData2.URL_Iframe
-                                    )}
-                                />
-                                )
+                                    <Ads
+                                        iframeBanner={ReactHtmlParser(
+                                            props.adsData2.URL_Iframe
+                                        )}
+                                    />
+                                )}
                             </div>
                         )}
                         <div className="containerComparehome">
@@ -393,20 +400,22 @@ export default function Home(props) {
                 {/* Ads 3 */}
                 {props.adsData3.published_at && (
                     <div style={{ textAlign: "center" }}>
-                        props.adsData3.Image_Banner ? (
-                        <AdsBanner
-                            urlImage={apiUrl + props.adsData3.Image_Banner.url}
-                            width={props.adsData3.Image_Banner.width}
-                            height={props.adsData3.Image_Banner.height}
-                            linkbanner={props.adsData3.url}
-                        />
+                        {props.adsData3.Image_Banner ? (
+                            <AdsBanner
+                                urlImage={
+                                    apiUrl + props.adsData3.Image_Banner.url
+                                }
+                                width={props.adsData3.Image_Banner.width}
+                                height={props.adsData3.Image_Banner.height}
+                                linkbanner={props.adsData3.url}
+                            />
                         ) : (
-                        <Ads
-                            iframeBanner={ReactHtmlParser(
-                                props.adsData3.URL_Iframe
-                            )}
-                        />
-                        )
+                            <Ads
+                                iframeBanner={ReactHtmlParser(
+                                    props.adsData3.URL_Iframe
+                                )}
+                            />
+                        )}
                     </div>
                 )}
                 <div className={styles.latestnews}>
@@ -682,20 +691,22 @@ export default function Home(props) {
                 {/* ads 4 */}
                 {props.adsData4.published_at && (
                     <div style={{ textAlign: "center" }}>
-                        props.adsData4.Image_Banner ? (
-                        <AdsBanner
-                            urlImage={apiUrl + props.adsData4.Image_Banner.url}
-                            width={props.adsData4.Image_Banner.width}
-                            height={props.adsData4.Image_Banner.height}
-                            linkbanner={props.adsData4.url}
-                        />
+                        {props.adsData4.Image_Banner ? (
+                            <AdsBanner
+                                urlImage={
+                                    apiUrl + props.adsData4.Image_Banner.url
+                                }
+                                width={props.adsData4.Image_Banner.width}
+                                height={props.adsData4.Image_Banner.height}
+                                linkbanner={props.adsData4.url}
+                            />
                         ) : (
-                        <Ads
-                            iframeBanner={ReactHtmlParser(
-                                props.adsData4.URL_Iframe
-                            )}
-                        />
-                        )
+                            <Ads
+                                iframeBanner={ReactHtmlParser(
+                                    props.adsData4.URL_Iframe
+                                )}
+                            />
+                        )}
                     </div>
                 )}
                 <div className={styles.kanalapp}>
@@ -962,20 +973,22 @@ export default function Home(props) {
                 {/* ads 5 */}
                 {props.adsData5.published_at && (
                     <div style={{ textAlign: "center" }}>
-                        props.adsData5.Image_Banner ? (
-                        <AdsBanner
-                            urlImage={apiUrl + props.adsData5.Image_Banner.url}
-                            width={props.adsData5.Image_Banner.width}
-                            height={props.adsData5.Image_Banner.height}
-                            linkbanner={props.adsData5.url}
-                        />
+                        {props.adsData5.Image_Banner ? (
+                            <AdsBanner
+                                urlImage={
+                                    apiUrl + props.adsData5.Image_Banner.url
+                                }
+                                width={props.adsData5.Image_Banner.width}
+                                height={props.adsData5.Image_Banner.height}
+                                linkbanner={props.adsData5.url}
+                            />
                         ) : (
-                        <Ads
-                            iframeBanner={ReactHtmlParser(
-                                props.adsData5.URL_Iframe
-                            )}
-                        />
-                        )
+                            <Ads
+                                iframeBanner={ReactHtmlParser(
+                                    props.adsData5.URL_Iframe
+                                )}
+                            />
+                        )}
                     </div>
                 )}
                 <div className={styles.tipstrik}>
