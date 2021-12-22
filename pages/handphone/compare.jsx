@@ -38,7 +38,12 @@ export default function compare({
 	if (errorDataBanerCompareTop) return <div>Failed</div>
 
 	const dataCompare = produkData;
-	LoadAds()
+	useEffect(() => {
+		adsData10.URL_Iframe ||
+			adsData10.URL_Iframe
+			? LoadAds()
+			: null;
+	}, [])
 
 
 	return (
