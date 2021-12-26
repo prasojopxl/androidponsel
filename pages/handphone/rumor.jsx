@@ -1,16 +1,16 @@
-import { useEffect, useState, Fragment } from "react";
-import { useRouter } from "next/router"
-import { Paging, Title, Ads, AdsBanner, LoadAds } from "../../../components";
-import ItemProduct from "../../../components/products/item";
-import { fetchData } from "../../../config/data";
-import { apiUrl, baseUrl, totalItem, urlAds } from "../../../config/variable";
-import Layout from "../../../layout";
-import styles from "../index.module.scss";
+import { useRouter } from 'next/router'
+import { Fragment, useEffect, useState } from "react";
+import { Paging, Title, Ads, AdsBanner, LoadAds } from "../../components";
+import { baseUrl, totalItem, apiUrl, urlAds } from "../../config/variable";
+import styles from "./index.module.scss";
+import { fetchData } from '../../config/data';
+import Layout from '../../layout';
+import ItemProduct from '../../components/products/item';
 import Head from "next/head";
 import ReactHtmlParser from "react-html-parser";
 
-export default function Page(props) {
-    const router = useRouter();
+export default function Handphone(props) {
+    const router = useRouter()
     const [totalCompare, setTotalCompare] = useState(0)
 
     function removeLocalProd() {
@@ -86,7 +86,7 @@ export default function Page(props) {
         }
         else {
             setShow(false)
-            // removeLocalProd();
+            removeLocalProd();
         }
 
         if (p2 == null) {
@@ -97,31 +97,36 @@ export default function Page(props) {
         }
 
     }
+
     useEffect(() => {
-        props.adsData6.URL_Iframe
+        removeLocalProd();
+        props.adsData6.URL_Iframe ||
+            props.adsData9.URL_Iframe
             ? LoadAds()
             : null;
         return (
             getLocalProd()
         )
     }, []);
+
     return (
         <Layout
             dataMainMenu={props.getMenu}
+
+            dataSEO={props.dataSEO.seo}
             dataBrands={props.getTopBrands}
         >
             <Head>
                 <title>
-                    {props.dataSEO.seo.title +
-                        " Androidponsel spesifikasi dan perbandingan handphone"}{" "}
+                    All New Mobile Phone Spesification
                 </title>
                 <meta
                     name="description"
-                    content={props.dataSEO.seo.description}
+                    content="comparation review android and iphone device "
                 />
                 <meta
                     name="keywords"
-                    content={props.dataSEO.seo.keywords}
+                    content="smartphone, device, android, ponsel, perbandingan, smarthone "
                 />
                 <meta name="author" content="androidponsel" />
                 <meta
@@ -136,10 +141,7 @@ export default function Page(props) {
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:title"
-                    content={
-                        props.dataSEO.seo.title +
-                        " Androidponsel spesifikasi dan perbandingan handphone"
-                    }
+                    content="androidponsel.com comparation smartphone device"
                 />
                 <meta
                     property="og:image"
@@ -148,11 +150,11 @@ export default function Page(props) {
 
                 <meta
                     property="og:description"
-                    content={props.dataSEO.seo.description}
+                    content="comparation review android and iphone device "
                 />
                 <meta
                     property="og:url"
-                    content="https://www.androidponsel.com/"
+                    content="https://www.androidponsel.com/device"
                 />
                 <script
                     async
@@ -184,7 +186,7 @@ export default function Page(props) {
 
             <div className={styles.pagelisthandphone}>
                 <div className={styles.contents}>
-                    <Title title="Handphone" />
+                    <Title title="Handphone"></Title>
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="row">
@@ -197,13 +199,42 @@ export default function Page(props) {
                                     );
                                 })}
                             </div>
+                            {/* Ads 2 id 9 */}
+                            {props.adsData9.published_at !== null && (
+                                <div style={{ textAlign: "center" }}>
+                                    {props.adsData9.Image_Banner ? (
+                                        <AdsBanner
+                                            urlImage={
+                                                apiUrl + props.adsData9.Image_Banner.url
+                                            }
+                                            width={props.adsData9.Image_Banner.width}
+                                            height={props.adsData9.Image_Banner.height}
+                                            linkbanner={props.adsData9.url}
+                                        />
+                                    ) : (
+                                        <Ads
+                                            iframeBanner={ReactHtmlParser(
+                                                props.adsData9.URL_Iframe
+                                            )}
+                                        />
+                                    )}
+                                </div>
+                            )}
+
+                            <div className="row">
+                                {props.dataListHandphone2.map((item, i) => {
+                                    return (
+                                        <div className="col-lg-3 col-6" key={item.id}>
+                                            <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating}
+                                                voters={item.total_voters} productImage={item.product_image[0]} slug={item.slug} />
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
-
-                    <Paging linkPrev={`${parseInt(props.params.id) - 1}`} linkNext={`${parseInt(props.params.id) + 1}`} lengthPost={props.totalPaging} />
                 </div>
             </div>
-
             <div className={styles.containerCompare}>
                 {
                     show && (
@@ -223,57 +254,36 @@ export default function Page(props) {
                     )
                 }
             </div>
-
         </Layout>
-
-    )
+    );
 }
 
-export async function getStaticPaths() {
-    const posts = await fetchData("/products?category=1");
+export async function getStaticProps() {
+    const posts = await fetchData(`/products?category=1&rumor=0`);
+    const dataListHandphone = await fetchData(`/products?category=1&rumor=1&_limit=${8}&_sort=release_date:DESC`);
+    const dataListHandphone2 = await fetchData(`/products?category=1&rumor=1&_limit=${100}&_start=8&_sort=release_date:DESC`);
     const totalPaging = Math.ceil(posts.length / (totalItem * 2));
-    const pages = []
-    for (let i = 1; i <= totalPaging; i++) {
-        pages.push(i)
-    }
-    const paths = pages.map((item, i) => ({
-        params: {
-            id: `${item}`
-        },
-    }))
-    return {
-        paths,
-        fallback: false,
-    }
-}
-
-export async function getStaticProps({ params }) {
-    const adsData6 = await fetchData(`/ads/6?_publicationState=preview`);
-    const page = 0;
+    const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
+    const dataBanerProdukBody = await fetchData(`/ads/9?_publicationState=preview`);
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
-    const dataListHandphone = await fetchData(`/products?rumor=0&category=1&_limit=${totalItem * 2}&_start=${(params.id - 1) * 12}&_sort=release_date:DESC`);
-    const lengthPost = dataListHandphone.length;
-    const posts = await fetchData("/products?category=1");
-    const totalPaging = Math.ceil(posts.length / (totalItem * 2));
-    if (!dataSEO || !getMenu || !getTopBrands || !dataListHandphone) {
-        return {
-            notFound: true,
-        };
-    }
+    const adsData6 = await fetchData(`/ads/6?_publicationState=preview`);
+    const adsData9 = await fetchData(`/ads/9?_publicationState=preview`);
+
     return {
         props: {
-            params,
-            lengthPost,
+            dataListHandphone,
+            dataListHandphone2,
             getMenu,
             getTopBrands,
             dataSEO,
-            dataListHandphone,
+            dataBanerProdukTop,
+            dataBanerProdukBody,
             totalPaging,
-            adsData6
+            adsData6,
+            adsData9
         },
         revalidate: 3
-    }
+    };
 }
-

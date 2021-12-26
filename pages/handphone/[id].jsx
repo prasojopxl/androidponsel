@@ -434,12 +434,12 @@ export default function DetailPage(props) {
                                     <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>State</h5>
-                                        {ReactHtmlParser(props.post.status)}
+                                        {props.post.rumor == true ? "Rumored" : ReactHtmlParser(props.post.status)}
                                     </div>
                                     <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Release Date</h5>
-                                        {ReactHtmlParser(props.post.release_date)}
+                                        {props.post.rumor == true ? "Rumored" : ReactHtmlParser(props.post.release_date)}
                                     </div>
                                     <hr />
                                     <div className={styles.itemDesc}>

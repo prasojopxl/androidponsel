@@ -381,7 +381,45 @@ export default function Home(props) {
                             <div className="btnMediumLoad">
                                 <Link href={baseUrl + "handphone"}>
                                     <a className="btn ap-btn-secondary ap-btn-md">
-                                        See Details
+                                        See All
+                                    </a>
+                                </Link>
+                            </div>
+                        </div>
+
+                        <div
+                            className="containerComparehome"
+                            style={{ marginTop: 30 }}
+                        >
+                            <Title title="Rumor" />
+                            <div className="row">
+                                {props.dataListHandphoneRomor.map((item, i) => {
+                                    return (
+                                        <div
+                                            className="col-lg-3 col-6"
+                                            key={item.id}
+                                        >
+                                            <ItemProduct
+                                                action={getLocalProd}
+                                                title={item.title}
+                                                memoryInternal={
+                                                    item.memory_internal
+                                                }
+                                                rating={item.rating}
+                                                voters={item.total_voters}
+                                                productImage={
+                                                    item.product_image[0]
+                                                }
+                                                slug={item.slug}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                            <div className="btnMediumLoad">
+                                <Link href={baseUrl + "handphone/rumor"}>
+                                    <a className="btn ap-btn-secondary ap-btn-md">
+                                        See All
                                     </a>
                                 </Link>
                             </div>
@@ -1279,11 +1317,15 @@ export async function getStaticProps(context) {
     const adsData3 = await fetchData(`/ads/3?_publicationState=preview`);
     const adsData4 = await fetchData(`/ads/4?_publicationState=preview`);
     const adsData5 = await fetchData(`/ads/5?_publicationState=preview`);
-    const dataAllProd = await fetchData("/products");
+    const dataAllProd = await fetchData("/products?rumor=0");
     const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
     const dataListHandphone = await fetchData(
         `/products?category=1&_limit=8&_sort=release_date:DESC`
     );
+    const dataListHandphoneRomor = await fetchData(
+        `/products?category=1&_limit=4&rumor=1`
+    );
+
     const dataSEO = await fetchData("/general");
     const mainNews = await fetchData(
         "/posts?menu=2&_sort=updated_at:DESC&_limit=1"
@@ -1315,6 +1357,7 @@ export async function getStaticProps(context) {
         !topNews ||
         !topApp ||
         !dataListHandphone ||
+        !dataListHandphoneRomor ||
         !listApp ||
         !tipsTrikMain ||
         !tipsTrikSecond ||
@@ -1337,6 +1380,7 @@ export async function getStaticProps(context) {
             topNews,
             topApp,
             dataListHandphone,
+            dataListHandphoneRomor,
             listApp,
             tipsTrikMain,
             tipsTrikSecond,
