@@ -190,7 +190,7 @@ export default function Rate(props) {
     return (
         <div className={styles.rate}>
             <div className={styles.totalrate}>
-                {props.rate > 0 ? rate.toFixed(2) : 0}
+                {props.rate >= 1 ? rate.toFixed(2) : 0}
             </div>
             <div className={styles.wrpvote}>
                 <h6>Rating</h6>

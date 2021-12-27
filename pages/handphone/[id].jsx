@@ -234,7 +234,7 @@ export default function DetailPage(props) {
                             <div className="col-lg-7 add-md-4">
                                 <div className={styles.shortdesc}>
                                     <h1>{props.post.title}</h1>
-                                    <Rate rate={props.post.rating} voters={props.post.total_voters} />
+                                    <Rate rate={props.post.rating >= 1 ? props.post.rating : 0} voters={props.post.total_voters} />
                                     <h4>Specification</h4>
                                     <div className="row">
                                         <div className="col-lg-4">

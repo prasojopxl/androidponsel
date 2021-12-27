@@ -274,9 +274,9 @@ export default function Home(props) {
                                                                                 </a>
                                                                             </Link>
                                                                             <h6>
-                                                                                {
+                                                                                {ReactHtmlParser(
                                                                                     data.memory_internal
-                                                                                }
+                                                                                )}
                                                                             </h6>
                                                                         </div>
                                                                     </div>
@@ -1318,7 +1318,9 @@ export async function getStaticProps(context) {
     const adsData4 = await fetchData(`/ads/4?_publicationState=preview`);
     const adsData5 = await fetchData(`/ads/5?_publicationState=preview`);
     const dataAllProd = await fetchData("/products?rumor=0");
-    const dataCompare = await fetchData("/compares?_sort=updated_at:ASC");
+    const dataCompare = await fetchData(
+        "/compares?_sort=updated_at:DESC&_limit=4"
+    );
     const dataListHandphone = await fetchData(
         `/products?category=1&_limit=8&_sort=release_date:DESC`
     );
