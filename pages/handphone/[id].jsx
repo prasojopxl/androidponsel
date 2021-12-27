@@ -955,7 +955,7 @@ export default function DetailPage(props) {
                                                         <div className="flextitleSpesific">
                                                             <div className="contTitleSpesific">
                                                                 <Link href={`${"/handphone/" + value.slug}`}><a><h5>{value.title}</h5></a></Link>
-                                                                <h6>{value.memory_internal}</h6>
+                                                                <h6>{ReactHtmlParser(value.memory_internal)}</h6>
                                                             </div>
                                                         </div>
                                                         <Rate rate={value.rating} voters={value.total_voters} />
