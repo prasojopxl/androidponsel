@@ -459,7 +459,7 @@ export default function DetailPage(props) {
                                     <Title title="Basic Information" idName="basic" />
                                     <div className={styles.itemDesc}>
                                         <h5>Brand</h5>
-                                        {ReactHtmlParser(props.post.brand.title)}
+                                        <Link href={(baseUrl + "brand/" + props.post.brand.title).toLowerCase()}><a style={{ color: "#666666" }}>{ReactHtmlParser(props.post.brand.title)}</a></Link>
                                     </div>
                                     <hr />
                                     <div className={styles.itemDesc}>
