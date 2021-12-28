@@ -163,7 +163,7 @@ export default function DetailPage(props) {
                 sku={1}
                 offers={[
                     {
-                        price: `${props.post.price}`,
+                        price: "20000",
                         priceCurrency: 'IDR',
                         priceValidUntil: `${new Date()}`,
                         itemCondition: 'https://schema.org/UsedCondition',
