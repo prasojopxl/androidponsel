@@ -267,15 +267,17 @@ export default function Home(props) {
                                                                             >
                                                                                 <a className="min_heigh_two_lines">
                                                                                     <h5 className="mediumtitleTile">
-                                                                                        {
+                                                                                        {ReactHtmlParser(
                                                                                             data.title
-                                                                                        }
+                                                                                        )}
                                                                                     </h5>
                                                                                 </a>
                                                                             </Link>
                                                                             <h6>
                                                                                 {ReactHtmlParser(
-                                                                                    data.memory_internal
+                                                                                    ReactHtmlParser(
+                                                                                        data.memory_internal
+                                                                                    )
                                                                                 )}
                                                                             </h6>
                                                                         </div>
@@ -659,11 +661,11 @@ export default function Home(props) {
                                                                                 }
                                                                             >
                                                                                 <h5 className="smalltitleTile">
-                                                                                    {
+                                                                                    {ReactHtmlParser(
                                                                                         item
                                                                                             .title
                                                                                             .rendered
-                                                                                    }
+                                                                                    )}
                                                                                 </h5>
                                                                             </a>
                                                                             <div
@@ -942,11 +944,11 @@ export default function Home(props) {
                                                                                 }
                                                                             >
                                                                                 <h5 className="smalltitleTile">
-                                                                                    {
+                                                                                    {ReactHtmlParser(
                                                                                         item
                                                                                             .title
                                                                                             .rendered
-                                                                                    }
+                                                                                    )}
                                                                                 </h5>
                                                                             </a>
                                                                         </div>
@@ -1191,11 +1193,11 @@ export default function Home(props) {
                                                                     }
                                                                 >
                                                                     <h5 className="smalltitleTile">
-                                                                        {
+                                                                        {ReactHtmlParser(
                                                                             item
                                                                                 .title
                                                                                 .rendered
-                                                                        }
+                                                                        )}
                                                                     </h5>
                                                                 </a>
                                                                 <div
