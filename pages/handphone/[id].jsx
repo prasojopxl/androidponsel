@@ -152,13 +152,31 @@ export default function DetailPage(props) {
             </Head>
             <ProductJsonLd
                 productName={props.post.title}
-                brand={props.post.brand.title}
+                brand={[
+                    {
+                        type: "Thing",
+                        name: `${props.post.brand.title}`
+                    }
+                ]}
+                images={[
+                    `${apiUrl + props.post.product_image[0].url}`
+
+                ]}
+                description={props.post.title + " cpu: " + props.post.cpu + " ram: " + props.post.memory_internal}
+                sku={1}
+                offers={[
+                    {
+                        price: `${props.post.price ? props.post.price : 0}`,
+                        priceCurrency: 'IDR',
+                    }
+                ]}
                 reviews={[
                     {
                         author: {
                             type: 'Person',
                             name: 'Android Ponsel',
                         },
+
                         datePublished: `${props.post.status}`,
                         reviewRating: {
                             bestRating: '5',
@@ -175,6 +193,7 @@ export default function DetailPage(props) {
                     ratingValue: `${props.post.rating >= 1 ? props.post.rating : 0}`,
                     reviewCount: `${props.post.total_voters}`,
                 }}
+                mpn="0"
             />
 
 
