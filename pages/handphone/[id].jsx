@@ -277,7 +277,8 @@ export default function DetailPage(props) {
                                                     />
                                                     <label>Brand Product</label>
                                                 </div>
-                                                {ReactHtmlParser(props.post.brand.title)}
+                                                <Link href={(baseUrl + "brand/" + props.post.brand.title).toLowerCase()}><a style={{ color: "#666666" }}>{ReactHtmlParser(props.post.brand.title)}</a></Link>
+
                                             </div>
                                         </div>
                                         <div className="col-lg-4">
