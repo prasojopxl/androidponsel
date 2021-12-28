@@ -158,11 +158,8 @@ export default function DetailPage(props) {
                         name: `${props.post.brand.title}`
                     }
                 ]}
-                images={[
-                    `${apiUrl + props.post.product_image[0].url}`
-
-                ]}
-                description={props.post.title + " cpu: " + props.post.cpu + " ram: " + props.post.memory_internal}
+                images={apiUrl + props.post.product_image[0].url}
+                description={ReactHtmlParser(props.post.title + " cpu: " + props.post.cpu + " ram: " + props.post.memory_internal)}
                 sku={1}
                 offers={[
                     {
