@@ -118,7 +118,7 @@ export default function Handphone(props) {
         >
             <Head>
                 <title>
-                    All New Mobile Phone Spesification
+                    All Mobile Phone Rumors
                 </title>
                 <meta
                     name="description"
@@ -186,7 +186,7 @@ export default function Handphone(props) {
 
             <div className={styles.pagelisthandphone}>
                 <div className={styles.contents}>
-                    <Title title="Handphone"></Title>
+                    <Title title="Rumors"></Title>
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="row">
