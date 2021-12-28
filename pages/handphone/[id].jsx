@@ -154,7 +154,7 @@ export default function DetailPage(props) {
                 productName={props.post.title}
                 brand={[
                     {
-                        type: "Thing",
+                        type: "Brand",
                         name: `${props.post.brand.title}`
                     }
                 ]}
@@ -165,6 +165,13 @@ export default function DetailPage(props) {
                     {
                         price: `${props.post.price ? props.post.price : 0}`,
                         priceCurrency: 'IDR',
+                        priceValidUntil: `${new Date()}`,
+                        itemCondition: 'https://schema.org/UsedCondition',
+                        availability: 'https://schema.org/InStock',
+                        url: `${baseUrl + "handphone/" + props.post.slug}`,
+                        seller: {
+                            name: 'androidponsel.com',
+                        },
                     }
                 ]}
                 reviews={[
@@ -192,7 +199,6 @@ export default function DetailPage(props) {
                 }}
                 mpn="0"
             />
-
 
             {/* Ads satu id 12 */}
             {props.adsData12.published_at !== null && (
