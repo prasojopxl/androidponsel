@@ -154,7 +154,7 @@ export default function DetailPage(props) {
                 productName={props.post.title}
                 brand={[
                     {
-                        type: "Brand",
+                        type: 'Brand',
                         name: `${props.post.brand.title}`
                     }
                 ]}
@@ -163,7 +163,7 @@ export default function DetailPage(props) {
                 sku={1}
                 offers={[
                     {
-                        price: "20000",
+                        price: `${toString(props.post.price)}`,
                         priceCurrency: 'IDR',
                         priceValidUntil: `${new Date()}`,
                         itemCondition: 'https://schema.org/UsedCondition',
