@@ -152,18 +152,13 @@ export default function DetailPage(props) {
             </Head>
             <ProductJsonLd
                 productName={props.post.title}
-                brand={[
-                    {
-                        type: "Brand",
-                        name: `${props.post.brand.title}`
-                    }
-                ]}
+                brand={props.post.brand.title}
                 images={apiUrl + props.post.product_image[0].url}
                 description={ReactHtmlParser(props.post.title + " cpu: " + props.post.cpu + " ram: " + props.post.memory_internal)}
                 sku={1}
                 offers={[
                     {
-                        price: `${props.post.price ? props.post.price : 0}`,
+                        price: `${parseInt(props.post.price ? props.post.price : 0)}`,
                         priceCurrency: 'IDR',
                         priceValidUntil: `${new Date()}`,
                         itemCondition: 'https://schema.org/UsedCondition',
