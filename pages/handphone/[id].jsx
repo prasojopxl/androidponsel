@@ -15,6 +15,7 @@ import ReactHtmlParser from "react-html-parser";
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' //https://dev.to/vuongddang/how-to-use-fontawesome-in-next-js-5bl5
 import Head from "next/head";
+import { ProductJsonLd } from 'next-seo';
 
 export default function DetailPage(props) {
     const [newRate, setNewRate] = useState("")
@@ -149,6 +150,34 @@ export default function DetailPage(props) {
                     crossorigin="anonymous"
                 ></script>
             </Head>
+            <ProductJsonLd
+                productName={props.post.title}
+                brand={props.post.brand.title}
+                reviews={[
+                    {
+                        author: {
+                            type: 'Person',
+                            name: 'Android Ponsel',
+                        },
+                        datePublished: `${props.post.status}`,
+                        reviewRating: {
+                            bestRating: '5',
+                            ratingValue: `${props.post.rating >= 1 ? props.post.rating : 0}`,
+                            worstRating: '1',
+                        },
+                        publisher: {
+                            type: 'Organization',
+                            name: 'Android Ponsel',
+                        },
+                    },
+                ]}
+                aggregateRating={{
+                    ratingValue: `${props.post.rating >= 1 ? props.post.rating : 0}`,
+                    reviewCount: `${props.post.total_voters}`,
+                }}
+            />
+
+
             {/* Ads satu id 12 */}
             {props.adsData12.published_at !== null && (
                 <div style={{ textAlign: "center" }}>
@@ -533,6 +562,11 @@ export default function DetailPage(props) {
                                     </div>
                                     <hr />
                                     <div className={styles.itemDesc}>
+                                        <h5>Chipset</h5>
+                                        {ReactHtmlParser(props.post.chipset)}
+                                    </div>
+                                    <hr />
+                                    <div className={styles.itemDesc}>
                                         <h5>Memory</h5>
                                         {ReactHtmlParser(props.post.ram)}
                                     </div>
@@ -662,11 +696,6 @@ export default function DetailPage(props) {
                                     <div className={styles.itemDesc}>
                                         <h5>Operating System</h5>
                                         {ReactHtmlParser(props.post.os)}
-                                    </div>
-                                    <hr />
-                                    <div className={styles.itemDesc}>
-                                        <h5>Chipset</h5>
-                                        {ReactHtmlParser(props.post.chipset)}
                                     </div>
                                 </div>
                                 {/* ads delapan id 13 */}
