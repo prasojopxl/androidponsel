@@ -11,11 +11,11 @@
     transition: $animate;
     border: none;
     @media screen and (max-width: 1200px) {
-        border:1px solid #d7d7d7;
-    }    
+        border: 1px solid #d7d7d7;
+    }
     @media screen and (max-width: $widthMobileSm) {
-        border:0;
-    }    
+        border: 0;
+    }
     a {
         color: $color-black;
     }
@@ -26,31 +26,42 @@
         animation: $animate;
         @media (max-width: $widthMobileMax) {
             box-shadow: none;
-            border:1px solid #d7d7d7;
-        }       
+            border: 1px solid #d7d7d7;
+        }
         @media screen and (max-width: $widthMobileSm) {
             box-shadow: none;
             border: 0;
             transform: none;
-            -webkit-transform:none;
-        }         
+            -webkit-transform: none;
+        }
     }
     .shortproduct {
         display: flex;
+        vertical-align: top;
         @media (max-width: $widthMobileMax) {
             flex-direction: column;
         }
     }
     .imageprod {
-        max-width: 150px;
         margin-right: 10px;
-        padding-top: 10px;
+        padding-top: 5px;
+        width: 70px;
+        max-width: 70px;
+        position: relative;
+        img {
+            vertical-align: top;
+            width: 100% !important;
+        }
         @media (max-width: $widthMobileMax) {
             text-align: center;
             margin-right: 0px;
             padding-top: 1px;
         }
     }
+    .productinfo {
+        flex: 1;
+    }
+
     h5 {
         font-family: "RubikMedium", sans-serif;
         color: #071723;
@@ -63,7 +74,7 @@
         }
         @media screen and (max-width: $widthMobileSm) {
             font-size: 16px;
-        }        
+        }
     }
     h6 {
         font-weight: normal;
@@ -74,12 +85,12 @@
         color: #71716c;
     }
 
-    .btnMediumLoad{
+    .btnMediumLoad {
         text-align: center;
         display: block;
         margin-top: 30px;
     }
-    
+
     .wrpbtn {
         text-align: center;
         margin-top: 7px;
@@ -95,7 +106,7 @@
         }
         @media screen and (max-width: $widthMobileSm) {
             padding: 5px 0px;
-        }        
+        }
         a {
             display: block;
             color: $color-green;
@@ -103,10 +114,10 @@
             letter-spacing: 0.25px;
             font-size: 14px;
             line-height: 1.45;
-            padding: 11px 12px;        
-            &:hover{
+            padding: 11px 12px;
+            &:hover {
                 color: $color-green-dark;
-            }    
+            }
             @media (max-width: $widthMobileMax) {
                 padding: 5px;
                 text-transform: capitalize;
@@ -129,11 +140,11 @@
             min-width: 164px;
             width: 100%;
             display: block;
-            &:hover{
-                background:$color-green-dark;
+            &:hover {
+                background: $color-green-dark;
                 color: #fff;
-                box-shadow: 0 0 11px rgba(137, 195, 64, .25);
-                -ms-box-shadow: 0 0 11px rgba(137, 195, 64, .25);                
+                box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
+                -ms-box-shadow: 0 0 11px rgba(137, 195, 64, 0.25);
             }
             &:focus {
                 outline: none;
@@ -147,7 +158,6 @@
             @media screen and (max-width: $widthMobileSm) {
                 border-radius: 9.5px;
             }
-
         }
         button {
             &:disabled,
