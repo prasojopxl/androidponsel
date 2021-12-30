@@ -573,6 +573,11 @@ export default function DetailPage(props) {
                                 <div className="separateLines">
                                     <Title title="Performance & Hardware" idName="hardware" />
                                     <div className={styles.itemDesc}>
+                                        <h5>Chipset</h5>
+                                        {props.post.chipset !== null && props.post.chipset !== "" ? ReactHtmlParser(props.post.chipset) : "-"}
+                                    </div>
+                                    <hr />
+                                    <div className={styles.itemDesc}>
                                         <h5>Processor</h5>
                                         {props.post.cpu !== null && props.post.cpu !== "" ? ReactHtmlParser(props.post.cpu) : "-"}
                                     </div>
@@ -580,11 +585,6 @@ export default function DetailPage(props) {
                                     <div className={styles.itemDesc}>
                                         <h5>Graphic</h5>
                                         {props.post.gpu !== null && props.post.gpu !== "" ? ReactHtmlParser(props.post.gpu) : "-"}
-                                    </div>
-                                    <hr />
-                                    <div className={styles.itemDesc}>
-                                        <h5>Chipset</h5>
-                                        {props.post.chipset !== null && props.post.chipset !== "" ? ReactHtmlParser(props.post.chipset) : "-"}
                                     </div>
                                     <hr />
                                     <div className={styles.itemDesc}>
@@ -633,11 +633,11 @@ export default function DetailPage(props) {
                                         </div>
                                         <div className="row">
                                             <div className="col-lg-4">
-                                                <h6>Feature: </h6>
+                                                <h6><strong>Feature:</strong> </h6>
                                                 {props.post.main_cam_features !== null && props.post.main_cam_features !== "" ? ReactHtmlParser(props.post.main_cam_features) : "-"}
                                             </div>
                                             <div className="col-lg-4">
-                                                <h6>Video: </h6>
+                                                <h6><strong>Video:</strong> </h6>
                                                 {props.post.main_cam_video !== null && props.post.main_cam_video !== "" ? ReactHtmlParser(props.post.main_cam_video) : "-"}
                                             </div>
                                         </div>

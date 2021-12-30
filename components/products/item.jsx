@@ -68,12 +68,13 @@ export default function ItemProduct(props) {
         <Fragment>
             <div className={styles.productItem}>
                 <div className={styles.shortproduct}>
-                    <div className={styles.imageprod} style={{ maxWidth: 80 }}>
+                    <div className={styles.imageprod}>
                         <Image
                             src={apiUrl + props.productImage.url}
-                            width={props.productImage.width / 3}
-                            height={props.productImage.height / 3}
-                            alt={props.productImage.name}
+                            layout="responsive"
+                            width={70}
+                            height={85}
+                            alt={props.title}
                         />{" "}
                     </div>
                     <div className={styles.productinfo}>

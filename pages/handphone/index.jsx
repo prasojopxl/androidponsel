@@ -186,7 +186,7 @@ export default function Handphone(props) {
 
             <div className={styles.pagelisthandphone}>
                 <div className={styles.contents}>
-                    <Title title="Handphone"></Title>
+                    <Title title="Mobile Phones"></Title>
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="row">
