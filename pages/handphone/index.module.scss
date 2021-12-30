@@ -374,12 +374,15 @@
     max-width: 1000px;
     color: $color-graytext;
     font-family: $font-MulishRegular;
-    font-size: 16px;
+    font-size: 15px;
     h5 {
-        margin-top: 15px;
+        margin-top: 20px;
         margin-bottom: 5px;
         font-family: $font-MulishBold;
-        color: $color-black2;
+        color: $color-black;
+    }
+    h6 {
+        font-family: $font-MulishBold;
     }
 }
 
@@ -588,6 +591,13 @@
     }
     h5 {
     }
+}
+
+.itemDescList {
+    position: relative;
+    display: inline-block;
+    margin-right: 3px;
+    color: $color-gray3;
 }
 
 //kebawah ok
