@@ -230,7 +230,7 @@ export default function Page(props) {
 }
 
 export async function getStaticPaths() {
-    const posts = await fetchData("/products?category=1");
+    const posts = await fetchData("/products");
     const totalPaging = Math.ceil(posts.length / (totalItem * 2));
     const pages = []
     for (let i = 1; i <= totalPaging; i++) {
@@ -253,9 +253,9 @@ export async function getStaticProps({ params }) {
     const dataSEO = await fetchData("/general");
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
-    const dataListHandphone = await fetchData(`/products?rumor=0&category=1&_limit=${totalItem * 2}&_start=${(params.id - 1) * 12}&_sort=release_date:DESC`);
+    const dataListHandphone = await fetchData(`/products?rumor=0&_limit=${totalItem * 2}&_start=${(params.id - 1) * 12}&_sort=release_date:DESC`);
     const lengthPost = dataListHandphone.length;
-    const posts = await fetchData("/products?category=1");
+    const posts = await fetchData("/products");
     const totalPaging = Math.ceil(posts.length / (totalItem * 2));
     if (!dataSEO || !getMenu || !getTopBrands || !dataListHandphone) {
         return {

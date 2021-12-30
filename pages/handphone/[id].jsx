@@ -117,7 +117,7 @@ export default function DetailPage(props) {
                     content={
                         props.post.SEO !== null ?
                             (props.post.SEO.keywords ? props.post.SEO.keywords : props.post.SEO.Keyword_tag)
-                            : "androidponsel, device, android ponsel, compare handphone, perbandingan handphone"
+                            : "androidponsel, device, android ponsel, compare handphone, perbandingan handphone" + props.post.tags !== null && ", " + props.post.tags[0].tag_name
                     }
                 />
                 <meta name="author" content="androidponsel" />

@@ -101,7 +101,7 @@ export default function Handphone(props) {
     useEffect(() => {
         removeLocalProd();
         props.adsData6.URL_Iframe ||
-            props.adsData9.URL_Iframe
+            props.adsData7.URL_Iframe || props.adsData8.URL_Iframe
             ? LoadAds()
             : null;
         return (
@@ -199,22 +199,22 @@ export default function Handphone(props) {
                                     );
                                 })}
                             </div>
-                            {/* Ads 2 id 9 */}
-                            {props.adsData9.published_at !== null && (
+                            {/* Ads 2 id 7 */}
+                            {props.adsData7.published_at !== null && (
                                 <div style={{ textAlign: "center" }}>
-                                    {props.adsData9.Image_Banner ? (
+                                    {props.adsData7.Image_Banner ? (
                                         <AdsBanner
                                             urlImage={
-                                                apiUrl + props.adsData9.Image_Banner.url
+                                                apiUrl + props.adsData7.Image_Banner.url
                                             }
-                                            width={props.adsData9.Image_Banner.width}
-                                            height={props.adsData9.Image_Banner.height}
-                                            linkbanner={props.adsData9.url}
+                                            width={props.adsData7.Image_Banner.width}
+                                            height={props.adsData7.Image_Banner.height}
+                                            linkbanner={props.adsData7.url}
                                         />
                                     ) : (
                                         <Ads
                                             iframeBanner={ReactHtmlParser(
-                                                props.adsData9.URL_Iframe
+                                                props.adsData7.URL_Iframe
                                             )}
                                         />
                                     )}
@@ -223,6 +223,38 @@ export default function Handphone(props) {
 
                             <div className="row">
                                 {props.dataListHandphone2.map((item, i) => {
+                                    return (
+                                        <div className="col-lg-3 col-6" key={item.id}>
+                                            <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating}
+                                                voters={item.total_voters} productImage={item.product_image[0]} slug={item.slug} />
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                            {/* Ads 2 id 8 */}
+                            {props.adsData8.published_at !== null && (
+                                <div style={{ textAlign: "center" }}>
+                                    {props.adsData8.Image_Banner ? (
+                                        <AdsBanner
+                                            urlImage={
+                                                apiUrl + props.adsData8.Image_Banner.url
+                                            }
+                                            width={props.adsData8.Image_Banner.width}
+                                            height={props.adsData8.Image_Banner.height}
+                                            linkbanner={props.adsData8.url}
+                                        />
+                                    ) : (
+                                        <Ads
+                                            iframeBanner={ReactHtmlParser(
+                                                props.adsData8.URL_Iframe
+                                            )}
+                                        />
+                                    )}
+                                </div>
+                            )}
+                            <Title title="Other Devices"></Title>
+                            <div className="row">
+                                {props.dataListOthers.map((item, i) => {
                                     return (
                                         <div className="col-lg-3 col-6" key={item.id}>
                                             <ItemProduct action={getLocalProd} title={item.title} memoryInternal={item.memory_internal} rating={item.rating}
@@ -263,6 +295,7 @@ export async function getStaticProps() {
     const posts = await fetchData(`/products?category=1&rumor=0`);
     const dataListHandphone = await fetchData(`/products?category=1&rumor=0&_limit=${totalItem}&_sort=release_date:DESC`);
     const dataListHandphone2 = await fetchData(`/products?category=1&rumor=0&_limit=${8}&_start=8&_sort=release_date:DESC`);
+    const dataListOthers = await fetchData(`/products?category=2&category=3&category=4&_limit=${8}&rumor=0&_sort=release_date:DESC`);
     const totalPaging = Math.ceil(posts.length / (totalItem * 2));
     const dataBanerProdukTop = await fetchData(`/ads/8?_publicationState=preview`);
     const dataBanerProdukBody = await fetchData(`/ads/9?_publicationState=preview`);
@@ -270,12 +303,14 @@ export async function getStaticProps() {
     const getMenu = await fetchData("/menus?_sort=order");
     const getTopBrands = await fetchData("/brands?_top_brand=true");
     const adsData6 = await fetchData(`/ads/6?_publicationState=preview`);
-    const adsData9 = await fetchData(`/ads/9?_publicationState=preview`);
+    const adsData7 = await fetchData(`/ads/7?_publicationState=preview`);
+    const adsData8 = await fetchData(`/ads/8?_publicationState=preview`);
 
     return {
         props: {
             dataListHandphone,
             dataListHandphone2,
+            dataListOthers,
             getMenu,
             getTopBrands,
             dataSEO,
@@ -283,7 +318,8 @@ export async function getStaticProps() {
             dataBanerProdukBody,
             totalPaging,
             adsData6,
-            adsData9
+            adsData7,
+            adsData8
         },
         revalidate: 3
     };
