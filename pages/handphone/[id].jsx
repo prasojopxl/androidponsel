@@ -654,11 +654,11 @@ export default function DetailPage(props) {
                                         </div>
                                         <div className="row">
                                             <div className="col-lg-4">
-                                                <h6 style={{ fontFamily: "Mulish-Bold", color: "#999" }}>Feature: </h6>
+                                                <h6 style={{ fontFamily: "Mulish-Bold", color: "#666", marginTop: 7 }}>Feature: </h6>
                                                 {props.post.main_cam_features !== null && props.post.main_cam_features !== "" ? ReactHtmlParser(props.post.main_cam_features) : "-"}
                                             </div>
                                             <div className="col-lg-4">
-                                                <h6 style={{ fontFamily: "Mulish-Bold", color: "#999" }}>Video:</h6>
+                                                <h6 style={{ fontFamily: "Mulish-Bold", color: "#666", marginTop: 7 }}>Video:</h6>
                                                 {props.post.main_cam_video !== null && props.post.main_cam_video !== "" ? ReactHtmlParser(props.post.main_cam_video) : "-"}
                                             </div>
                                         </div>
