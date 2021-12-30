@@ -633,11 +633,11 @@ export default function DetailPage(props) {
                                         </div>
                                         <div className="row">
                                             <div className="col-lg-4">
-                                                <h6><strong>Feature:</strong> </h6>
+                                                <h6 style={{ fontFamily: "Mulish-Bold", color: "#999" }}>Feature: </h6>
                                                 {props.post.main_cam_features !== null && props.post.main_cam_features !== "" ? ReactHtmlParser(props.post.main_cam_features) : "-"}
                                             </div>
                                             <div className="col-lg-4">
-                                                <h6><strong>Video:</strong> </h6>
+                                                <h6 style={{ fontFamily: "Mulish-Bold", color: "#999" }}>Video:</h6>
                                                 {props.post.main_cam_video !== null && props.post.main_cam_video !== "" ? ReactHtmlParser(props.post.main_cam_video) : "-"}
                                             </div>
                                         </div>
@@ -853,13 +853,12 @@ export default function DetailPage(props) {
                                     <Title title="Price Marketplace" idName="harga" />
                                     <div className="row gutter-0 commerce_price" style={{ marginTop: 15 }}>
                                         {
-                                            props.post.Price_Marketplace &&
-                                            props.post.Price_Marketplace.map((item, i) => {
-                                                return (
-                                                    <div key={item.id}>
-                                                        {
-                                                            item.logo !== null ?
-                                                                <div className="col-lg-3 col-md-12 col-sm-12 col-12" key={item.id}>
+                                            props.post.Price_Marketplace !== null && props.post.Price_Marketplace !== [] ?
+                                                props.post.Price_Marketplace.map((item, i) => {
+                                                    return (
+                                                        <div className="col-lg-3 col-md-12 col-sm-12 col-12" key={item.id}>
+                                                            {
+                                                                item.logo !== null ?
                                                                     <div className="wrp-commercePrice">
                                                                         <div className={styles.itemMarket}>
                                                                             <div className={styles.logoMarketplace}>
@@ -878,13 +877,12 @@ export default function DetailPage(props) {
                                                                             }
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                : <div className="col-lg-12">Price Not Available</div>
+                                                                    : <div>Price Not Available</div>
 
-                                                        }
-                                                    </div>
-                                                )
-                                            })
+                                                            }
+                                                        </div>
+                                                    )
+                                                }) : <div className="col-12">Price Not Available</div>
                                         }
                                     </div>
                                 </Fragment>
