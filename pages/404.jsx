@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { fetchData } from "../config/data";
-import { baseUrl, staticImage } from "../config/variable";
+import { apiUrl, baseUrl, staticImage } from "../config/variable";
 import Layout from "../layout";
 import Head from "next/head";
 
