@@ -237,7 +237,9 @@ export default function compare({
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>{item.resolution}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>
+											{ReactHtmlParser(item.resolution)}
+										</div>
 									)
 								})
 							}
@@ -297,6 +299,18 @@ export default function compare({
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
+								Chipset
+							</div>
+							{
+								dataCompare.map((item, i) => {
+									return (
+										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>{item.chipset}</div>
+									)
+								})
+							}
+						</div>
+						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
+							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
 								Memory
 							</div>
 							{
@@ -321,6 +335,24 @@ export default function compare({
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className="col-lg-12">
+								<h4 className={styles.titleCompare}>Sofware</h4>
+							</div>
+						</div>
+						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
+							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
+								Operating System
+							</div>
+							{
+								dataCompare.map((item, i) => {
+									return (
+										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>{item.os}</div>
+									)
+								})
+							}
+						</div>
+
+						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
+							<div className="col-lg-12">
 								<h4 className={styles.titleCompare}>Camera</h4>
 							</div>
 						</div>
@@ -334,10 +366,21 @@ export default function compare({
 							{
 								dataCompare.map((item, i) => {
 									return (
-										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>{item.main_cam_triple}</div>
+										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>
+											{item.main_cam}<br />
+											{item.sensor_cam1 !== "" && <>{ReactHtmlParser(item.sensor_cam1)}</>}
+											{item.sensor_cam2 !== "" && <>{ReactHtmlParser(item.sensor_cam2)}</>}
+											{item.sensor_cam3 !== "" && <>{ReactHtmlParser(item.sensor_cam3)}</>}
+											{item.sensor_cam4 !== "" && <>{ReactHtmlParser(item.sensor_cam4)}</>}
+											{item.sensor_cam5 !== "" && <>{ReactHtmlParser(item.sensor_cam5)}</>}
+											{item.sensor_cam6 !== "" && <>{ReactHtmlParser(item.sensor_cam6)}</>}
+
+										</div>
 									)
 								})
 							}
+
+
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
@@ -415,35 +458,6 @@ export default function compare({
 								dataCompare.map((item, i) => {
 									return (
 										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>{item.charging_type}</div>
-									)
-								})
-							}
-						</div>
-						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-12">
-								<h4 className={styles.titleCompare}>Sofware</h4>
-							</div>
-						</div>
-						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
-								Operating System
-							</div>
-							{
-								dataCompare.map((item, i) => {
-									return (
-										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>{item.os}</div>
-									)
-								})
-							}
-						</div>
-						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
-								Chipset
-							</div>
-							{
-								dataCompare.map((item, i) => {
-									return (
-										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>{item.chipset}</div>
 									)
 								})
 							}
