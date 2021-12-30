@@ -633,11 +633,11 @@ export default function DetailPage(props) {
                                         </div>
                                         <div className="row">
                                             <div className="col-lg-4">
-                                                <h6>Feature</h6>
+                                                <h6>Feature: </h6>
                                                 {props.post.main_cam_features !== null && props.post.main_cam_features !== "" ? ReactHtmlParser(props.post.main_cam_features) : "-"}
                                             </div>
                                             <div className="col-lg-4">
-                                                <h6>Video</h6>
+                                                <h6>Video: </h6>
                                                 {props.post.main_cam_video !== null && props.post.main_cam_video !== "" ? ReactHtmlParser(props.post.main_cam_video) : "-"}
                                             </div>
                                         </div>
@@ -778,7 +778,7 @@ export default function DetailPage(props) {
                                     <Title title="Network" idName="network" />
                                     <div className={styles.itemDesc}>
                                         <h5>Technology</h5>
-                                        {ReactHtmlParser(props.post.technology)}
+                                        <div style={{ marginRight: "3px" }}>{ReactHtmlParser(props.post.technology)}</div>
                                         <span className={styles.linkGeneral} onClick={showData}>
                                             Lihat Detail
                                         </span>
