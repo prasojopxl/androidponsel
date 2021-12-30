@@ -78,7 +78,7 @@ export default function Header(props) {
                     <div className={styles.inputSearch}>
                         <div className="wrp_search_bar">
                             <div className="container container-custom-large">
-                                <span>Find Handphone</span>
+                                <span>Find Device</span>
                                 <input
                                     type="text"
                                     value={inputVal}
@@ -132,7 +132,7 @@ export default function Header(props) {
             }
 
             <div className={styles.TopBrands}>
-                <label>Brand:</label>
+                <label>Brands:</label>
                 <ul>
                     {
                         brands.map(item => {

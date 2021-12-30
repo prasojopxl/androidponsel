@@ -10,7 +10,7 @@
         border-radius: 20px;
         overflow: hidden;
         li {
-            div{
+            a {
                 justify-content: center;
             }
         }
@@ -28,13 +28,13 @@
         color: #fff;
         margin-left: 3px;
         margin-right: 3px;
-        border-radius: 20.5px;        
+        border-radius: 20.5px;
     }
     .disable {
         background: $color-gray;
         color: rgb(0 0 0 / 43%);
         margin-left: 3px;
         margin-right: 3px;
-        border-radius: 20.5px;  
+        border-radius: 20.5px;
     }
 }

@@ -218,7 +218,7 @@ export default function DetailPage(props) {
             )}
             <div className={styles.detailproducts}>
                 <div className={styles.contents}>
-                    <Title title="Overview Produk"></Title>
+                    <Title title="Overview"></Title>
                     <div className={styles.overview}>
                         <div className="row">
                             <div className="col-lg-5">
@@ -292,7 +292,7 @@ export default function DetailPage(props) {
                                                         height={21}
                                                         alt="brand"
                                                     />
-                                                    <label>Brand Product</label>
+                                                    <label>Brand</label>
                                                 </div>
                                                 <Link href={(baseUrl + "brand/" + props.post.brand.title).toLowerCase()}><a style={{ color: "#666666" }}>{ReactHtmlParser(props.post.brand.title)}</a></Link>
 
@@ -307,7 +307,7 @@ export default function DetailPage(props) {
                                                         height={18}
                                                         alt="release"
                                                     />
-                                                    <label>Status / Release</label>
+                                                    <label>Status</label>
                                                 </div>
                                                 {props.post.rumor == true ? "Rumored" : ReactHtmlParser(props.post.status)}
                                             </div>
@@ -380,7 +380,7 @@ export default function DetailPage(props) {
                                                         height={21}
                                                         alt="processor"
                                                     />
-                                                    <label>Prosessor</label>
+                                                    <label>Processor</label>
                                                 </div>
                                                 {props.post.cpu !== null && props.post.cpu !== "" ? ReactHtmlParser(props.post.cpu) : "-"}
                                             </div>
@@ -1012,7 +1012,7 @@ export default function DetailPage(props) {
                                                 <div className={styles.wrpbtn}>
                                                     <Link href={baseUrl + currentPage + "/" + value.slug}>
                                                         <a className={styles.btnblank}>
-                                                            See Detail Spesification
+                                                            See Detail
                                                         </a>
                                                     </Link>
                                                 </div>
