@@ -1030,7 +1030,7 @@ export default function DetailPage(props) {
 }
 
 export async function getStaticPaths() {
-    const res = await fetch(`${apiUrl}/products?category=1`);
+    const res = await fetch(`${apiUrl}/products`);
     const posts = await res.json();
 
     const paths = posts.map((post) => ({
