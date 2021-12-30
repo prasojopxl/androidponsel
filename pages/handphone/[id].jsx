@@ -98,15 +98,27 @@ export default function DetailPage(props) {
         >
             <Head>
                 <title>
-                    {props.post.SEO.title ? props.post.SEO.title : props.post.SEO.title_tag}
+                    {
+                        props.post.SEO !== null ?
+                            (props.post.SEO.title ? props.post.SEO.title : props.post.SEO.title_tag)
+                            : props.post.title
+                    }
                 </title>
                 <meta
                     name="description"
-                    content={props.post.SEO.description ? props.post.SEO.description : props.post.SEO.description_tag}
+                    content={
+                        props.post.SEO !== null ?
+                            (props.post.SEO.description ? props.post.SEO.description : props.post.SEO.description_tag)
+                            : props.post.title + " " + props.post.memory_internal
+                    }
                 />
                 <meta
                     name="keywords"
-                    content={props.post.SEO.keywords ? props.post.SEO.keywords : props.post.SEO.Keyword_tag}
+                    content={
+                        props.post.SEO !== null ?
+                            (props.post.SEO.keywords ? props.post.SEO.keywords : props.post.SEO.Keyword_tag)
+                            : "androidponsel, device, android ponsel, compare handphone, perbandingan handphone"
+                    }
                 />
                 <meta name="author" content="androidponsel" />
                 <meta
@@ -121,10 +133,15 @@ export default function DetailPage(props) {
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:title"
-                    content={props.post.SEO.title ? props.post.SEO.title : props.post.SEO.title_tag}
+                    content={
+                        props.post.SEO !== null ?
+                            (props.post.SEO.title ? props.post.SEO.title : props.post.SEO.title_tag)
+                            : props.post.title
+                    }
                 />
                 {
-                    props.post.SEO.ogimage ?
+                    props.post.SEO !== null &&
+                        props.post.SEO.ogimage ?
                         <meta
                             property="og:image"
                             content={apiUrl + props.post.SEO.ogimage.url}
@@ -138,7 +155,11 @@ export default function DetailPage(props) {
 
                 <meta
                     property="og:description"
-                    content={props.post.SEO.description ? props.post.SEO.description : props.post.SEO.description_tag}
+                    content={
+                        props.post.SEO !== null ?
+                            (props.post.SEO.description ? props.post.SEO.description : props.post.SEO.description_tag)
+                            : props.post.title + " " + props.post.memory_internal
+                    }
                 />
                 <meta
                     property="og:url"
