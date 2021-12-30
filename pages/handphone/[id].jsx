@@ -624,12 +624,12 @@ export default function DetailPage(props) {
                                     <div className={styles.itemDesc}>
                                         <h5>Main Camera: {props.post.main_cam}</h5>
                                         <div className="row">
-                                            {props.post.sensor_cam1 !== null && <div className="col-lg-4"><div className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam1)}</div>}
-                                            {props.post.sensor_cam2 !== null && <div className="col-lg-4"><div className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam2)}</div>}
-                                            {props.post.sensor_cam3 !== null && <div className="col-lg-4"><div className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam3)}</div>}
-                                            {props.post.sensor_cam4 !== null && <div className="col-lg-4"><div className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam4)}</div>}
-                                            {props.post.sensor_cam5 !== null && <div className="col-lg-4"><div className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam5)}</div>}
-                                            {props.post.sensor_cam6 !== null && <div className="col-lg-4"><div className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam6)}</div>}
+                                            {props.post.sensor_cam1 !== null && <div className="col-lg-4"><div style={{ display: "inlineBlock", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam1)}</div>}
+                                            {props.post.sensor_cam2 !== null && <div className="col-lg-4"><div style={{ display: "inlineBlock", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam2)}</div>}
+                                            {props.post.sensor_cam3 !== null && <div className="col-lg-4"><div style={{ display: "inlineBlock", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam3)}</div>}
+                                            {props.post.sensor_cam4 !== null && <div className="col-lg-4"><div style={{ display: "inlineBlock", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam4)}</div>}
+                                            {props.post.sensor_cam5 !== null && <div className="col-lg-4"><div style={{ display: "inlineBlock", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam5)}</div>}
+                                            {props.post.sensor_cam6 !== null && <div className="col-lg-4"><div style={{ display: "inlineBlock", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(props.post.sensor_cam6)}</div>}
                                         </div>
                                         <div className="row">
                                             <div className="col-lg-4">
