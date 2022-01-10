@@ -231,6 +231,7 @@ export default function Handphone(props) {
                                     );
                                 })}
                             </div>
+                            <div id="other"></div>
                             {/* Ads 2 id 8 */}
                             {props.adsData8.published_at !== null && (
                                 <div style={{ textAlign: "center", marginBottom: 30 }}>

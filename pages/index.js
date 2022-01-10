@@ -393,6 +393,44 @@ export default function Home(props) {
                             className="containerComparehome"
                             style={{ marginTop: 30 }}
                         >
+                            <Title title="Other Devices"></Title>
+                            <div className="row">
+                                {props.dataListOthers.map((item, i) => {
+                                    return (
+                                        <div
+                                            className="col-lg-3 col-6"
+                                            key={item.id}
+                                        >
+                                            <ItemProduct
+                                                action={getLocalProd}
+                                                title={item.title}
+                                                memoryInternal={
+                                                    item.memory_internal
+                                                }
+                                                rating={item.rating}
+                                                voters={item.total_voters}
+                                                productImage={
+                                                    item.product_image[0]
+                                                }
+                                                slug={item.slug}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                            <div className="btnMediumLoad">
+                                <Link href={baseUrl + "handphone#other"}>
+                                    <a className="btn ap-btn-secondary ap-btn-md">
+                                        See All
+                                    </a>
+                                </Link>
+                            </div>
+                        </div>
+
+                        <div
+                            className="containerComparehome"
+                            style={{ marginTop: 30 }}
+                        >
                             <Title title="Rumor" />
                             <div className="row">
                                 {props.dataListHandphoneRomor.map((item, i) => {
@@ -1324,8 +1362,12 @@ export async function getStaticProps(context) {
         "/compares?_sort=updated_at:DESC&_limit=4"
     );
     const dataListHandphone = await fetchData(
-        `/products?category=1&_limit=8&_sort=release_date:DESC`
+        `/products?category=1&rumor=0&_limit=8&_sort=release_date:DESC`
     );
+    const dataListOthers = await fetchData(
+        `/products?category=2&category=3&category=4&_limit=${4}&rumor=0&_sort=release_date:DESC`
+    );
+
     const dataListHandphoneRomor = await fetchData(
         `/products?category=1&_limit=4&rumor=1`
     );
@@ -1361,6 +1403,7 @@ export async function getStaticProps(context) {
         !topNews ||
         !topApp ||
         !dataListHandphone ||
+        !dataListOthers ||
         !dataListHandphoneRomor ||
         !listApp ||
         !tipsTrikMain ||
@@ -1384,6 +1427,7 @@ export async function getStaticProps(context) {
             topNews,
             topApp,
             dataListHandphone,
+            dataListOthers,
             dataListHandphoneRomor,
             listApp,
             tipsTrikMain,
