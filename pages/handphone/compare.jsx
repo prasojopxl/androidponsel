@@ -275,6 +275,18 @@ export default function compare({
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
 							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
+								Chipset
+							</div>
+							{
+								dataCompare.map((item, i) => {
+									return (
+										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>{item.chipset}</div>
+									)
+								})
+							}
+						</div>
+						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
+							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
 								Processor
 							</div>
 							{
@@ -293,18 +305,6 @@ export default function compare({
 								dataCompare.map((item, i) => {
 									return (
 										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>{item.gpu}</div>
-									)
-								})
-							}
-						</div>
-						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
-								Chipset
-							</div>
-							{
-								dataCompare.map((item, i) => {
-									return (
-										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>{item.chipset}</div>
 									)
 								})
 							}
@@ -357,23 +357,29 @@ export default function compare({
 							</div>
 						</div>
 						<div className={`row justify-content-center ${styles.itemInfoCompare}`}>
-							<div className="col-lg-12">
-								<h5>Main Camera</h5>
-							</div>
 							<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"}>
-								Quad
+								<h5>Main Camera</h5>
 							</div>
 							{
 								dataCompare.map((item, i) => {
 									return (
 										<div className={dataCompare.length == 3 ? "col-lg-3 col-3" : "col-lg-4 col-4"} key={item.id}>
-											{item.main_cam}<br />
-											{item.sensor_cam1 !== "" && <>{ReactHtmlParser(item.sensor_cam1)}</>}
+											<h5 style={{ margin: 0 }}>{item.main_cam}</h5>
+											{/* {item.sensor_cam1 !== "" && <>{ReactHtmlParser(item.sensor_cam1)}</>}
 											{item.sensor_cam2 !== "" && <>{ReactHtmlParser(item.sensor_cam2)}</>}
 											{item.sensor_cam3 !== "" && <>{ReactHtmlParser(item.sensor_cam3)}</>}
 											{item.sensor_cam4 !== "" && <>{ReactHtmlParser(item.sensor_cam4)}</>}
 											{item.sensor_cam5 !== "" && <>{ReactHtmlParser(item.sensor_cam5)}</>}
-											{item.sensor_cam6 !== "" && <>{ReactHtmlParser(item.sensor_cam6)}</>}
+											{item.sensor_cam6 !== "" && <>{ReactHtmlParser(item.sensor_cam6)}</>} */}
+
+											{item.sensor_cam1 !== null && <div ><div style={{ display: "inline-block", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(item.sensor_cam1)}</div>}
+											{item.sensor_cam2 !== null && <div ><div style={{ display: "inline-block", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(item.sensor_cam2)}</div>}
+											{item.sensor_cam3 !== null && <div ><div style={{ display: "inline-block", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(item.sensor_cam3)}</div>}
+											{item.sensor_cam4 !== null && <div ><div style={{ display: "inline-block", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(item.sensor_cam4)}</div>}
+											{item.sensor_cam5 !== null && <div ><div style={{ display: "inline-block", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(item.sensor_cam5)}</div>}
+											{item.sensor_cam6 !== null && <div ><div style={{ display: "inline-block", marginRight: "3px" }} className={styles.itemdesclist}>•</div>{ReactHtmlParser(item.sensor_cam6)}</div>}
+
+
 
 										</div>
 									)
