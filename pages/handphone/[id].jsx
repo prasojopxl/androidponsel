@@ -21,7 +21,7 @@ export default function DetailPage(props) {
     const [newRate, setNewRate] = useState("")
     const [newSubmitRate, setNewSubmitRate] = useState(0)
     const [valueNewVoters, setValueNewVoters] = useState(props.post.total_voters)
-    const router = useRouter()
+    const router = useRouter();
     const checkDataUser = () => {
         axios.post(`${apiUrl}/auth/local`, {
             "identifier": "guest@androidponsel.com",
@@ -200,7 +200,7 @@ export default function DetailPage(props) {
                         datePublished: `${props.post.status}`,
                         reviewRating: {
                             bestRating: '5',
-                            ratingValue: `${props.post.rating >= 1 ? props.post.rating / props.post.voters : 0}`,
+                            ratingValue: `${props.post.rating >= 1 ? props.post.rating / props.post.total_voters : 0}`,
                             worstRating: '1',
                         },
                         publisher: {
