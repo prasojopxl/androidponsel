@@ -200,7 +200,7 @@ export default function DetailPage(props) {
                         datePublished: `${props.post.status}`,
                         reviewRating: {
                             bestRating: '5',
-                            ratingValue: `${props.post.rating >= 1 ? props.post.rating : 0}`,
+                            ratingValue: `${props.post.rating >= 1 ? props.post.rating / props.post.voters : 0}`,
                             worstRating: '1',
                         },
                         publisher: {
