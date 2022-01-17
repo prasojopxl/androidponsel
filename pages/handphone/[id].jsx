@@ -850,7 +850,11 @@ export default function DetailPage(props) {
                                     <hr />
                                     <div className={styles.itemDesc}>
                                         <h5>Price</h5>
-                                        {props.post.price !== null && props.post.price !== "" ? ReactHtmlParser(props.post.price) : "-"}
+                                        {
+                                            props.post.price !== null && props.post.price !== "" ? parseInt(props.post.price).toLocaleString("en-US", { style: "currency", currency: "IDR" })
+
+                                                : "-"
+                                        }
                                     </div>
                                 </div>
                                 {/* ads sepuluh id 12 */}
