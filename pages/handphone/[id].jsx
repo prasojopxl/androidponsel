@@ -847,6 +847,11 @@ export default function DetailPage(props) {
                                         <h5>USB</h5>
                                         {props.post.usb !== null && props.post.usb !== "" ? ReactHtmlParser(props.post.usb) : "-"}
                                     </div>
+                                    <hr />
+                                    <div className={styles.itemDesc}>
+                                        <h5>Price</h5>
+                                        {props.post.price !== null && props.post.price !== "" ? ReactHtmlParser(props.post.price) : "-"}
+                                    </div>
                                 </div>
                                 {/* ads sepuluh id 12 */}
                                 {props.adsData12.published_at !== null && (
@@ -1051,7 +1056,7 @@ export default function DetailPage(props) {
 }
 
 export async function getStaticPaths() {
-    const res = await fetch(`${apiUrl}/products`);
+    const res = await fetch(`${apiUrl}/products?_limit=-1`);
     const posts = await res.json();
 
     const paths = posts.map((post) => ({
