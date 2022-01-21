@@ -778,7 +778,7 @@ export default function Home(props) {
                         )}
                     </div>
                 )}
-                <div className={styles.kanalapp}>
+                {/* <div className={styles.kanalapp}>
                     <div className={styles.contents}>
                         <Title title="Application Channel" />
                         <div className="row">
@@ -1038,7 +1038,7 @@ export default function Home(props) {
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/* ads 5 */}
                 {props.adsData5.published_at && (
                     <div style={{ textAlign: "center" }}>
