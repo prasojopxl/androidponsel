@@ -1,7 +1,7 @@
 module.exports = {
     future: { webpack5: true },
     swcMinify: true,
-    basePath: "/gadget",
+    basePath: "/device",
     images: {
         domains: [
             "images.unsplash.com",
