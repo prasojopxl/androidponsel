@@ -1066,7 +1066,6 @@ export async function getStaticPaths() {
     const paths = posts.map((post) => ({
         params: { id: `${post.slug}` },
     }));
-    console.log(paths)
 
     return {
         paths,
