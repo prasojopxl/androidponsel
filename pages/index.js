@@ -275,9 +275,7 @@ export default function Home(props) {
                                                                             </Link>
                                                                             <h6>
                                                                                 {ReactHtmlParser(
-                                                                                    ReactHtmlParser(
-                                                                                        data.memory_internal
-                                                                                    )
+                                                                                    data.memory_internal
                                                                                 )}
                                                                             </h6>
                                                                         </div>
@@ -1379,12 +1377,12 @@ export async function getStaticProps(context) {
     const topNews = await fetchDataBlog(
         "categories=127&per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
     );
-    const topApp = await fetchDataApp(
-        "per_page=1&_embed=author,wp:featuredmedia,wp:term"
-    );
-    const listApp = await fetchDataApp(
-        "per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
-    );
+    // const topApp = await fetchDataApp(
+    //     "per_page=1&_embed=author,wp:featuredmedia,wp:term"
+    // );
+    // const listApp = await fetchDataApp(
+    //     "per_page=4&_embed=author,wp:featuredmedia,wp:term&offset=1"
+    // );
     const tipsTrikMain = await fetchDataBlog(
         "categories=20&per_page=1&_embed=author,wp:featuredmedia,wp:term&offset=0"
     );
@@ -1401,11 +1399,10 @@ export async function getStaticProps(context) {
         !dataCompare ||
         !mainNews ||
         !topNews ||
-        !topApp ||
+        // !topApp ||
         !dataListHandphone ||
         !dataListOthers ||
         !dataListHandphoneRomor ||
-        !listApp ||
         !tipsTrikMain ||
         !tipsTrikSecond ||
         !dataAndroidNews
@@ -1425,11 +1422,11 @@ export async function getStaticProps(context) {
             dataCompare,
             mainNews,
             topNews,
-            topApp,
+            // topApp,
             dataListHandphone,
             dataListOthers,
             dataListHandphoneRomor,
-            listApp,
+            // listApp,
             tipsTrikMain,
             tipsTrikSecond,
             getMenu,

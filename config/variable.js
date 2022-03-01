@@ -1,11 +1,11 @@
 export const apiUrl = `https://api.androidponsel.com`;
 // export const apiUrl = `https://papiandro.stagingaja.com`;
 // export const baseUrl = `https://android-omega.vercel.app/`;
-export const baseUrl = `https://androidponsel.com/gadget/`;
-// export const baseUrl = `http://localhost:3000/`;
+// export const baseUrl = `https://androidponsel.com/gadget/`;
+export const baseUrl = `http://localhost:3000/gadget/`;
 export const apiUrlBlog = `https://www.androidponsel.com/wp-json/wp/v2/posts?`;
 export const apiUrlAndroid = `https://www.androidponsel.com/wp-json/wp/v2/`;
-export const apiUrlApp = `https://www.androidponsel.com/download/wp-json/wp/v2/posts?`;
+// export const apiUrlApp = `https://www.androidponsel.com/download/wp-json/wp/v2/posts?`;
 export const totalItem = 8;
 export const staticImage = `https://stagingaja.com/static/device/`;
 export const urlAds = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=`;
