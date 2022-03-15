@@ -1059,7 +1059,7 @@ export default function DetailPage(props) {
 }
 
 export async function getStaticPaths() {
-    const res = await fetch(`${apiUrl}/products?_limit=3000`);
+    const res = await fetch(`${apiUrl}/products?_limit=1000`);
     const posts = await res.json();
 
     const paths = posts.map((post) => ({
