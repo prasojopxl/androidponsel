@@ -95,7 +95,7 @@ export default function DetailPage(props) {
             dataMainMenu={props.getMenu}
             dataBrands={props.getTopBrands}
         >
-            {/* <Head>
+            <Head>
                 <title>
                     {
                         props.post.SEO !== null ?
@@ -169,7 +169,7 @@ export default function DetailPage(props) {
                     src={urlAds + props.dataSEO.ads}
                     crossorigin="anonymous"
                 ></script>
-            </Head> */}
+            </Head>
             <ProductJsonLd
                 productName={props.post.title}
                 images={apiUrl + props.post.product_image[0].url}
